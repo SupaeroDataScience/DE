@@ -1,0 +1,1730 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Data Engineering class at ISAE-Supaero as part of the SDD program">
+      
+      
+      
+        <link rel="canonical" href="https://supaerodatascience.github.io/DE/0_2_postgres.html">
+      
+      
+        <link rel="prev" href="0_1_databases.html">
+      
+      
+        <link rel="next" href="0_3_dbms.html">
+      
+      
+      <link rel="icon" href="https://raw.githubusercontent.com/SupaeroDataScience/DE/master/src/favicon.ico">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.8">
+    
+    
+      
+        <title>PostgreSQL - Data Engineering</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.046329b4.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.85d0ee34.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="light-blue">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#postgesql" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="Data Engineering" class="md-header__button md-logo" aria-label="Data Engineering" data-md-component="logo">
+      
+  <img src="https://raw.githubusercontent.com/SupaeroDataScience/DE/master/src/favicon.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Data Engineering
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              PostgreSQL
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/SupaeroDataScience/DE" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    SupaeroDataScience/DE
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Data Engineering" class="md-nav__button md-logo" aria-label="Data Engineering" data-md-component="logo">
+      
+  <img src="https://raw.githubusercontent.com/SupaeroDataScience/DE/master/src/favicon.ico" alt="logo">
+
+    </a>
+    Data Engineering
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/SupaeroDataScience/DE" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    SupaeroDataScience/DE
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Overview
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Syllabus
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Data Storage
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Data Storage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="0_1_databases.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    PostgreSQL
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="0_2_postgres.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    PostgreSQL
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    Setup
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#postgresql-installation" class="md-nav__link">
+    PostgreSQL installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pgadmin" class="md-nav__link">
+    pgAdmin
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-database-creation" class="md-nav__link">
+    Setup - database creation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mexico86-database-simple-queries" class="md-nav__link">
+    Mexico86 database - simple queries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beer-database" class="md-nav__link">
+    Beer database
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complex-queries-mexico-database" class="md-nav__link">
+    Complex queries - Mexico database
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pull-the-trigger" class="md-nav__link">
+    Pull the trigger
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deliverables" class="md-nav__link">
+    Deliverables
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="0_3_dbms.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Parallel DBMS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Data Computation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Data Computation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_1_overview.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cloud Computing
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Cloud Computing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_2_cloud.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lectures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_2_gcp_handson.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Containers, Docker
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Containers, Docker
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_3_containers.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_3_docker_tp.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_4_be.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Google Cloud and Docker BE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_6_conclusion.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conclusion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_7_readings.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reading List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Data Distribution
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Data Distribution
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2_1_overview.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Deployment & Orchestration
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Deployment & Orchestration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_5_deployment.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lectures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_5_deployment_tp.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP - Your ML model into production
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_5_kub_intro.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP - Intro to k8s
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2_2_functional.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Functional Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2_3_mapreduce.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hadoop and MapReduce
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2_4_spark.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spark
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2_5_dask.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dask on Kubernetes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2_6_project.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dask project
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    Setup
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#postgresql-installation" class="md-nav__link">
+    PostgreSQL installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pgadmin" class="md-nav__link">
+    pgAdmin
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-database-creation" class="md-nav__link">
+    Setup - database creation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mexico86-database-simple-queries" class="md-nav__link">
+    Mexico86 database - simple queries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beer-database" class="md-nav__link">
+    Beer database
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complex-queries-mexico-database" class="md-nav__link">
+    Complex queries - Mexico database
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pull-the-trigger" class="md-nav__link">
+    Pull the trigger
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deliverables" class="md-nav__link">
+    Deliverables
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="postgesql">PostgeSQL<a class="headerlink" href="#postgesql" title="Permanent link">🔗</a></h1>
+<p>In this practical session, we cover many examples of database queries with the
+popular DBMS PostgreSQL.</p>
+<p>Based on the
+<a href="https://lms.isae.fr/pluginfile.php/72351/mod_resource/content/1/labSQLFSD312.pdf">TP</a>
+by Christophe Garion, CC BY-NC-SA 2015.</p>
+<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">🔗</a></h2>
+<p>Before class, please install PostgreSQL and pgAdmin.</p>
+<h3 id="postgresql-installation">PostgreSQL installation<a class="headerlink" href="#postgresql-installation" title="Permanent link">🔗</a></h3>
+<p>For this session, students should install <a href="https://www.postgresql.org/download/">PostgreSQL</a> (v9 or higher) and <a href="https://www.pgadmin.org/">pgAdmin</a> (v4). Follow the installation instructions and make sure you have an initial database setup and the <code>postgresql</code> service running.</p>
+<ul>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-20-04-quickstart">Installation on Ubuntu</a></li>
+<li><a href="https://postgresapp.com/">Installation on Mac OS</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/PostgreSQL">Installation on Arch Linux</a></li>
+<li><a href="https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-database">Installation on Windows Subsystem for Linux</a></li>
+<li><a href="https://www.postgresqltutorial.com/install-postgresql/">Installation on Windows</a> (and add the PostgreSQL binaries to your <a href="https://www.pcastuces.com/pratique/astuces/5334.htm">path</a>)</li>
+</ul>
+<p>Additionally, add your login user as a postgresql superuser to enable database creation with your user:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># bash shell in Linux or OSX</span>
+$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>-l<span class="w"> </span>postgres
+<span class="o">[</span>postgres<span class="o">]</span>$<span class="w"> </span>createuser<span class="w"> </span>--interactive
+</code></pre></div>
+<h3 id="pgadmin">pgAdmin<a class="headerlink" href="#pgadmin" title="Permanent link">🔗</a></h3>
+<p>You can do all exercises directly through the <code>psql</code> shell for this class. However, it is useful to have a graphical confirmation of the database configuration. pgAdmin is one of many front-ends for Postgres. Install it by following the instructions on the <a href="https://www.pgadmin.org/">pgAdmin</a> site.</p>
+<h2 id="setup-database-creation">Setup - database creation<a class="headerlink" href="#setup-database-creation" title="Permanent link">🔗</a></h2>
+<p>Once you've installated and configured PostgreSQL, create the first exercise database:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># bash shell in Linux or OSX or windows powershell</span>
+$<span class="w"> </span>createdb<span class="w"> </span>db-mexico86
+</code></pre></div>
+<p>you can also do this through an SQL shell:</p>
+<div class="highlight"><pre><span></span><code><span class="o">#</span><span class="w"> </span><span class="k">SQL</span><span class="w"> </span><span class="n">shell</span>
+<span class="n">postgres</span><span class="o">=#</span><span class="w"> </span><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="ss">&quot;db-mexico86&quot;</span><span class="p">;</span>
+</code></pre></div>
+<p>Confirm with pgAdmin that your database <code>db-mexico86</code> was created. If you don't
+have any servers, create one by right-clicking. The host address is <code>127.0.0.1</code>
+and the maintenance database and username should be <code>postgres</code>.</p>
+<p>In pgAdmin, if you are asked for a password and don't know what your password
+is, you can reset the password of the postgres user:</p>
+<details><summary>change password</summary>
+
+<div class="highlight"><pre><span></span><code><span class="n">postgres</span><span class="o">=#</span><span class="w"> </span><span class="k">ALTER</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="n">postgres</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="n">PASSWORD</span><span class="w"> </span><span class="ss">&quot;newpassword&quot;</span><span class="p">;</span>
+</code></pre></div>
+
+</details>
+
+<h2 id="mexico86-database-simple-queries">Mexico86 database - simple queries<a class="headerlink" href="#mexico86-database-simple-queries" title="Permanent link">🔗</a></h2>
+<p>This database contains data from the 1986 football World Cup. </p>
+<p>You can download the database creation script individually:
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://raw.githubusercontent.com/SupaeroDataScience/DE/master/scripts/mexico86/create-tables-std.sql
+</code></pre></div></p>
+<p>Or git clone the class repository and navigate to the creation and insertion <a href="https://github.com/SupaeroDataScience/DE/tree/master/scripts">scripts</a>.</p>
+<p>Once you have the scripts, run the database creation script in the <code>mexico</code> folder.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># bash shell in Linux or OSX, or windows powershell</span>
+$<span class="w"> </span>psql<span class="w"> </span>-d<span class="w"> </span>db-mexico86<span class="w"> </span>-f<span class="w"> </span>mexico86/create-tables-std.sql
+</code></pre></div>
+<p>If that doesn't work, you can copy the script into the Query Tool in pgAdmin.</p>
+<p><strong>Exercise 1.1</strong>: Look at the database creation scripts. What are the tables being created? What are their fields? Which fields are keys? Confirm these values in pgAdmin.</p>
+<details><summary>Response</summary>
+
+Pays: (<u>nom</u>, groupe)
+<br/>
+Typematch: (<u>type</u>)
+<br/>
+Match: (<u>paysl, paysv</u>, butsl, butsv, <u>type</u>, date)
+
+</details>
+
+<p>You should be able to make queries now. You can either use PostgreSQL in interactive mode by running </p>
+<div class="highlight"><pre><span></span><code>$ psql -d db-mexico86
+</code></pre></div>
+<p>or write your solutions in an SQL file and run the file:</p>
+<div class="highlight"><pre><span></span><code>$ echo &quot;SELECT groupe FROM pays;&quot; &gt; a.sql
+$ psql -d db-mexico86 -f a.sql
+</code></pre></div>
+<p>You can also use the Query Editor in pgAdmin for a graphical interface.</p>
+<p><strong>Exercise 1.2</strong>: Write a query which lists the countries participating in the World Cup.</p>
+<details><summary>Response</summary>
+
+<div class="highlight"><pre><span></span><code>        nom 
+---------------------
+Argentine
+Italie
+Bulgarie
+Corée
+Mexique
+Paraguay
+Belgique
+Irak
+URSS
+Hongrie
+France
+Canada
+Brésil
+Espagne
+Irlande du Nord
+Algérie
+Danemark
+RFA
+Uruguay
+Écosse
+Maroc
+Angleterre
+Pologne
+Portugal
+(24 rows)
+</code></pre></div>
+
+</details>
+
+<p><strong>Exercise 1.3</strong>: Write a query which lists all matches as a pair of countries per match.</p>
+<details><summary>Response</summary>
+
+<div class="highlight"><pre><span></span><code>        paysl        |        paysv 
+---------------------|---------------------
+Bulgarie            | Italie
+Argentine           | Corée
+Italie              | Argentine
+Corée               | Bulgarie
+Corée               | Italie
+Argentine           | Bulgarie
+Belgique            | Mexique
+Paraguay            | Irak
+Mexique             | Paraguay
+Irak                | Belgique
+Irak                | Mexique
+Paraguay            | Belgique
+Canada              | France
+URSS                | Hongrie
+France              | URSS
+Hongrie             | Canada
+URSS                | Canada
+Hongrie             | France
+Espagne             | Brésil
+Algérie             | Irlande du Nord
+Brésil              | Algérie
+Irlande du Nord     | Espagne
+Irlande du Nord     | Brésil
+Algérie             | Espagne
+Uruguay             | RFA
+Écosse              | Danemark
+Danemark            | Uruguay
+RFA                 | Écosse
+Écosse              | Uruguay
+Danemark            | RFA
+Maroc               | Pologne
+Portugal            | Angleterre
+Angleterre          | Maroc
+Pologne             | Portugal
+Angleterre          | Pologne
+Maroc               | Portugal
+Brésil              | Pologne
+France              | Italie
+Maroc               | RFA
+Mexique             | Bulgarie
+Argentine           | Uruguay
+Angleterre          | Paraguay
+URSS                | Belgique
+Espagne             | Danemark
+Brésil              | France
+RFA                 | Mexique
+Argentine           | Angleterre
+Belgique            | Espagne
+France              | RFA
+Argentine           | Belgique
+RFA                 | Argentine
+(51 rows)
+</code></pre></div>
+
+</details>
+
+<p><strong>Exercise 1.4</strong>: Write a query which lists the matches which took place on June 5, 1986.</p>
+<details><summary>Response</summary>
+
+<div class="highlight"><pre><span></span><code>        paysl        |   paysv
+---------------------|-----------
+Italie              | Argentine
+Corée               | Bulgarie
+France              | URSS
+(3 rows)
+</code></pre></div>
+
+</details>
+
+<p><strong>Exercise 1.5</strong>: Write a query which lists the countries which France played against (hint, France could have played either side).</p>
+<details><summary>Response</summary>
+
+<div class="highlight"><pre><span></span><code>pays
+---------
+Brésil
+Canada
+Hongrie
+Italie
+RFA
+URSS
+(6 rows)
+</code></pre></div>
+
+</details>
+
+<p><strong>Exercise 1.6</strong>: Write a query which returns the winner of the World Cup</p>
+<details><summary>Response</summary>
+
+<div class="highlight"><pre><span></span><code>pays
+-----------
+Argentine
+(1 row)
+</code></pre></div>
+
+</details>
+
+<h2 id="beer-database">Beer database<a class="headerlink" href="#beer-database" title="Permanent link">🔗</a></h2>
+<p>We'll now use a database which tracks the beers that a group of friends enjoy. Create the database and populate it using the provided <a href="https://github.com/SupaeroDataScience/DE/tree/master/scripts">scripts</a>.</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>createdb<span class="w"> </span>db-beer
+$<span class="w"> </span>psql<span class="w"> </span>-d<span class="w"> </span>db-beer<span class="w"> </span>-f<span class="w"> </span>beer/create-tables-std.sql
+$<span class="w"> </span>psql<span class="w"> </span>-d<span class="w"> </span>db-beer<span class="w"> </span>-f<span class="w"> </span>beer/insert.sql
+</code></pre></div>
+<p><strong>Exercise 2.1</strong>: Look at the database creation scripts. What are the tables being created? What are their fields? Which fields are keys? Confirm these values in pgAdmin.</p>
+<details><summary>Response</summary>
+
+Frequente: (<u>buveur, bar</u>)
+<br/>
+Sert: (<u>bar, biere</u>)
+<br/>
+Aime: (<u>buveur, biere</u>)
+
+</details>
+
+<p>Write queries which respond to the following questions. Hint, understanding <a href="https://sql.sh/cours/jointures/natural-join">natural joins</a> may help.</p>
+<p><strong>Exercise 2.2</strong> What is the list of bars which serve the beer that Martin likes?</p>
+<details><summary>Response</summary>
+
+<div class="highlight"><pre><span></span><code>        bar 
+-------------------
+ Ancienne Belgique
+ La Tireuse
+ Le Filochard
+(3 rows)
+</code></pre></div>
+
+</details>
+
+<p><strong>Exercise 2.3</strong> What is the list of drinkers who go to at least one bar which servers a beer they like?</p>
+<details><summary>Response</summary>
+
+<div class="highlight"><pre><span></span><code> buveur 
+--------
+ Bob
+ David
+ Emilie
+ Martin
+(4 rows)
+</code></pre></div>
+
+</details>
+
+<p><strong>Exercise 2.3</strong> What is the list of drinkers who don't go to any bars which serve the beer they like?</p>
+<details><summary>Response</summary>
+
+<div class="highlight"><pre><span></span><code> buveur 
+--------
+ Cecile
+ Alice
+(2 rows)
+</code></pre></div>
+
+</details>
+
+<h2 id="complex-queries-mexico-database">Complex queries - Mexico database<a class="headerlink" href="#complex-queries-mexico-database" title="Permanent link">🔗</a></h2>
+<p><strong>Exercise 3.1</strong>: Create a table with an entry for each match which lists the <strong>total</strong> number of goals (scored by either side), the match type, and the date. As we'll use this table later on, create a VIEW called "matchbutsglobal" with this information.</p>
+<details><summary>Response</summary>
+
+<div class="highlight"><pre><span></span><code>        paysl        |        paysv        | buts |  type  |    date 
+---------------------+---------------------+------+--------+------------
+ URSS                | Belgique            |    7 | 1/8    | 1986-06-15
+ France              | Italie              |    2 | 1/8    | 1986-06-17
+ Maroc               | Pologne             |    0 | Poule  | 1986-06-02
+ RFA                 | Argentine           |    5 | Finale | 1986-06-29
+ Brésil              | France              |    2 | 1/4    | 1986-06-21
+ Italie              | Argentine           |    2 | Poule  | 1986-06-05
+ Maroc               | Portugal            |    4 | Poule  | 1986-06-11
+ Brésil              | Algérie             |    1 | Poule  | 1986-06-06
+ Paraguay            | Belgique            |    4 | Poule  | 1986-06-11
+ Hongrie             | France              |    3 | Poule  | 1986-06-09
+ Irak                | Belgique            |    3 | Poule  | 1986-06-08
+ Danemark            | RFA                 |    2 | Poule  | 1986-06-13
+ Irlande du Nord     | Espagne             |    3 | Poule  | 1986-06-07
+ Algérie             | Irlande du Nord     |    2 | Poule  | 1986-06-03
+ RFA                 | Mexique             |    0 | 1/4    | 1986-06-21
+ URSS                | Hongrie             |    6 | Poule  | 1986-06-02
+ Mexique             | Paraguay            |    2 | Poule  | 1986-06-07
+ Belgique            | Espagne             |    2 | 1/4    | 1986-06-22
+ Irak                | Mexique             |    1 | Poule  | 1986-06-11
+ Espagne             | Brésil              |    1 | Poule  | 1986-06-01
+ Angleterre          | Maroc               |    0 | Poule  | 1986-06-06
+ Irlande du Nord     | Brésil              |    2 | Poule  | 1986-06-12
+ Maroc               | RFA                 |    1 | 1/8    | 1986-06-17
+ Belgique            | Mexique             |    3 | Poule  | 1986-06-03
+ Bulgarie            | Italie              |    2 | Poule  | 1986-05-31
+ Écosse              | Uruguay             |    0 | Poule  | 1986-06-13
+ Algérie             | Espagne             |    3 | Poule  | 1986-06-12
+ Argentine           | Belgique            |    2 | 1/2    | 1986-06-25
+ Brésil              | Pologne             |    4 | 1/8    | 1986-06-16
+ Danemark            | Uruguay             |    7 | Poule  | 1986-06-08
+ Corée               | Italie              |    5 | Poule  | 1986-06-10
+ Canada              | France              |    1 | Poule  | 1986-06-01
+ Argentine           | Uruguay             |    1 | 1/8    | 1986-06-16
+ France              | RFA                 |    2 | 1/2    | 1986-06-25
+ France              | URSS                |    2 | Poule  | 1986-06-05
+ Uruguay             | RFA                 |    2 | Poule  | 1986-06-04
+ Angleterre          | Pologne             |    3 | Poule  | 1986-06-11
+ Portugal            | Angleterre          |    1 | Poule  | 1986-06-03
+ Écosse              | Danemark            |    1 | Poule  | 1986-06-04
+ Angleterre          | Paraguay            |    3 | 1/8    | 1986-06-18
+ Hongrie             | Canada              |    2 | Poule  | 1986-06-06
+ Argentine           | Corée               |    4 | Poule  | 1986-06-02
+ Pologne             | Portugal            |    1 | Poule  | 1986-06-07
+ RFA                 | Écosse              |    3 | Poule  | 1986-06-08
+ Mexique             | Bulgarie            |    2 | 1/8    | 1986-06-15
+ URSS                | Canada              |    2 | Poule  | 1986-06-09
+ Espagne             | Danemark            |    6 | 1/8    | 1986-06-18
+ Paraguay            | Irak                |    1 | Poule  | 1986-06-04
+ Argentine           | Bulgarie            |    2 | Poule  | 1986-06-10
+ Argentine           | Angleterre          |    3 | 1/4    | 1986-06-22
+ Corée               | Bulgarie            |    2 | Poule  | 1986-06-05
+(51 rows)
+</code></pre></div>
+
+</details>
+
+<p><strong>Exercise 3.2</strong>: Write a query which caluculates the number of goals scored on average in all the matches of the French team.</p>
+<details><summary>Response</summary>
+
+<div class="highlight"><pre><span></span><code>    Moyenne buts
+--------------------
+ 2.0000000000000000
+(1 row)
+</code></pre></div>
+
+</details>
+
+<p><strong>Exercise 3.3</strong>: Write a query which calculates the total number of goals scored <em>only</em> by the French team.</p>
+<details><summary>Response</summary>
+
+<div class="highlight"><pre><span></span><code> buts 
+------
+    8
+(1 row)
+</code></pre></div>
+
+</details>
+
+<p><strong>Exercise 3.4</strong>: Write a query which caluclates the total number of goals scored in each Poule match. Order the results by group.</p>
+<details><summary>Response</summary>
+
+<div class="highlight"><pre><span></span><code> groupe | sum 
+--------+-----
+ A      |  17
+ B      |  14
+ C      |  16
+ D      |  12
+ E      |  15
+ F      |   9
+(6 rows)
+</code></pre></div>
+
+</details>
+
+<p><strong>Exercise 3.5</strong>: Write a function <code>vainquer</code> which takes in the two countries of a match and the match type and which returns the winner. Apply your function to the following pairs:</p>
+<div class="highlight"><pre><span></span><code>SELECT * FROM vainqueur(&#39;Espagne&#39;, &#39;Danemark&#39;, &#39;1/8&#39;);
+SELECT * FROM vainqueur(&#39;Brésil&#39;, &#39;France&#39;, &#39;1/4&#39;);
+</code></pre></div>
+<details><summary>Response</summary>
+
+<div class="highlight"><pre><span></span><code> vainqueur 
+-----------
+ Espagne
+(1 row)
+
+ vainqueur 
+-----------
+ Match nul
+(1 row)
+</code></pre></div>
+
+</details>
+
+<p><strong>Exercise 3.6</strong>: Write a function <code>butsparequipe</code> which returns the total and the average number of points scored by a team. Apply your function to the French team. Bonus points for making the result display the name of the team.</p>
+<div class="highlight"><pre><span></span><code>SELECT * FROM butsparequipe(&#39;France&#39;);
+</code></pre></div>
+<details><summary>Response</summary>
+
+<div class="highlight"><pre><span></span><code>  pays  | total |      moyenne 
+--------+-------+--------------------
+ France |     8 | 1.3333333333333333
+(1 row)
+</code></pre></div>
+
+</details>
+
+<p><strong>Exercise 3.7</strong>: Using the <code>butsparequipe</code> function, write a query which lists all countries and the points they scored. </p>
+<details><summary>Response</summary>
+
+<div class="highlight"><pre><span></span><code>        pays         | total 
+---------------------+-------
+ Argentine           |    14
+ Italie              |     5
+ Bulgarie            |     2
+ Corée               |     4
+ Mexique             |     6
+ Paraguay            |     4
+ Belgique            |    10
+ Irak                |     1
+ URSS                |    12
+ Hongrie             |     2
+ France              |     8
+ Canada              |     0
+ Brésil              |     9
+ Espagne             |    11
+ Irlande du Nord     |     2
+ Algérie             |     1
+ Danemark            |    10
+ RFA                 |     8
+ Uruguay             |     2
+ Écosse              |     1
+ Maroc               |     3
+ Angleterre          |     7
+ Pologne             |     1
+ Portugal            |     2
+(24 rows)
+</code></pre></div>
+
+</details>
+
+<p><strong>Exercise 3.8</strong>: Using the <code>butsparequipe</code> function, write a query which shows the country which scored the most points and the number of points they scored.</p>
+<details><summary>Response</summary>
+
+<div class="highlight"><pre><span></span><code>   pays    | total 
+-----------+-------
+ Argentine |    14
+(1 row)
+</code></pre></div>
+
+</details>
+
+<h2 id="pull-the-trigger">Pull the trigger<a class="headerlink" href="#pull-the-trigger" title="Permanent link">🔗</a></h2>
+<p>In this exercise, we're going to create a <a href="https://sql.sh/cours/create-trigger">TRIGGER</a>, a mechanism which allows for automatically executing actions when an event occurs.</p>
+<p>Create the <code>db-trigger</code> database.</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>createdb<span class="w"> </span>db-trigger
+</code></pre></div>
+<p><strong>Exercise 4.1</strong>: Create a table <code>rel(nom, value)</code> where <code>nom</code> is a string of characters and <code>value</code> is an integer. <code>nom</code> will be the primary key</p>
+<details><summary>Solution</summary>
+
+<div class="highlight"><pre><span></span><code>CREATE TABLE IF NOT EXISTS rel (
+    nom VARCHAR(20),
+    valeur INTEGER,
+    PRIMARY KEY (nom)
+);
+</code></pre></div>
+
+</details>
+
+<p><strong>Exercise 4.2</strong>: Add 5 tuples into the table</p>
+<details><summary>Solution</summary>
+
+<div class="highlight"><pre><span></span><code>INSERT INTO rel VALUES
+       (&#39;Alice&#39;, 10),
+       (&#39;Bob&#39;, 5),
+       (&#39;Carl&#39;, 20),
+       (&#39;Denise&#39;, 11),
+       (&#39;Esther&#39;, 6);
+</code></pre></div>
+
+</details>
+
+<p><strong>Exercise 4.3</strong>: Write a trigger such that, when adding new tuples, the average value of <code>val</code> cannot decrease. If a new tuple is added which would decrease the average, an exception should be raised.</p>
+<p>The following insertion should work:</p>
+<div class="highlight"><pre><span></span><code>INSERT INTO rel VALUES (&#39;Fab&#39;, 15);
+
+SELECT * FROM rel;
+</code></pre></div>
+<p>As we can see, the <code>(Fab, 15)</code> tuple was added:</p>
+<div class="highlight"><pre><span></span><code>  nom   | valeur 
+--------+--------
+ Alice  |     10
+ Bob    |      5
+ Carl   |     20
+ Denise |     11
+ Esther |      6
+ Fab    |     15
+(6 rows)
+</code></pre></div>
+<p>However, the following insertion should give an exception:</p>
+<div class="highlight"><pre><span></span><code>INSERT INTO rel VALUES (&#39;Guy&#39;, 2);
+</code></pre></div>
+<details><summary>Solution</summary>
+
+<div class="highlight"><pre><span></span><code>CREATE OR REPLACE FUNCTION verifier_moyenne()
+                  RETURNS trigger AS $verifier_moyenne$
+    DECLARE
+      moyenne FLOAT;
+      nb      INTEGER;
+    BEGIN
+        moyenne := AVG(valeur) FROM rel;
+        nb := COUNT(*) FROM rel;
+
+        IF ((nb * moyenne + NEW.valeur) / (nb + 1)) &lt; moyenne THEN
+            RAISE EXCEPTION &#39;problem with insertion: valeur average is decreasing!&#39;;
+        END IF;
+
+        RETURN NEW;
+    END;
+$verifier_moyenne$ LANGUAGE plpgsql;
+
+CREATE TRIGGER VerificationMoyenne
+BEFORE INSERT ON rel
+FOR EACH ROW
+EXECUTE PROCEDURE verifier_moyenne();
+</code></pre></div>
+
+</details>
+
+<h2 id="deliverables">Deliverables<a class="headerlink" href="#deliverables" title="Permanent link">🔗</a></h2>
+<p>For evaluation, you should provide a single PostgreSQL script which reproduces the results of all exercises. You should upload the script to the LMS by October 3.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["toc.autohide", "navigation.sections"], "search": "assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+    
+  </body>
+</html>
