@@ -1,0 +1,12 @@
+version: '3'
+services:
+  yolo:
+    image: "test-yolo-v5:dummy"
+    ports:
+      - "8000:8000"
+    hostname: yolo
+  streamlit:
+    image: "test-yolo-v5-streamlit:dummy"
+    ports:
+      - "8501:8501"
+    hostname: streamlit

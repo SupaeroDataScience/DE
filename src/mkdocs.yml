@@ -1,0 +1,65 @@
+site_name: Data Engineering
+site_description: Data Engineering class at ISAE-Supaero as part of the SDD program
+site_url: https://supaerodatascience.github.io/DE/
+site_dir: site
+strict: false
+use_directory_urls: false
+
+theme:
+  name: 'material'
+  palette:
+    primary: light blue
+    accent: light blue
+  logo: 'https://raw.githubusercontent.com/SupaeroDataScience/DE/master/src/favicon.ico'
+  favicon: 'https://raw.githubusercontent.com/SupaeroDataScience/DE/master/src/favicon.ico'
+  features:
+    - toc.autohide
+    - navigation.sections
+
+repo_name: SupaeroDataScience/DE
+repo_url: https://github.com/SupaeroDataScience/DE
+
+nav:
+- Overview:
+    - Syllabus: index.md
+- Data Storage:
+    - SQL: 0_1_databases.md
+    - PostgreSQL: 0_2_postgres.md
+    - Parallel DBMS: 0_3_dbms.md
+- Data Computation:
+  - Introduction: 1_1_overview.md
+  - Cloud Computing:
+    - Lectures: 1_2_cloud.md
+    - TP: 1_2_gcp_handson.md
+  - Containers, Docker:
+    - Lecture: 1_3_containers.md
+    - TP: 1_3_docker_tp.md
+  - Google Cloud and Docker BE: 1_4_be.md
+  - Conclusion: 1_6_conclusion.md
+  - Reading List: 1_7_readings.md
+- Data Distribution:
+  - Introduction: 2_1_overview.md
+  - Deployment & Orchestration:
+    - Lectures: 1_5_deployment.md
+    - TP - Your ML model into production: 1_5_deployment_tp.md
+    - TP - Intro to k8s: 1_5_kub_intro.md
+  - Functional Programming: 2_2_functional.md
+  - Hadoop and MapReduce: 2_3_mapreduce.md
+  - Spark: 2_4_spark.md
+  - Dask on Kubernetes: 2_5_dask.md
+  - Dask project: 2_6_project.md
+
+markdown_extensions:
+- markdown.extensions.codehilite:
+    guess_lang: false
+- toc:
+    permalink: 🔗
+- admonition
+- codehilite
+- extra
+- attr_list
+- pymdownx.details
+- pymdownx.superfences
+
+plugins:
+- search

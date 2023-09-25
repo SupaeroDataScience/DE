@@ -1,0 +1,5 @@
+Pillow
+matplotlib
+numpy
+streamlit==1.17.0
+pydantic
