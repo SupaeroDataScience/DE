@@ -45,28 +45,6 @@ The class is structured in three parts:
 
 ## Class schedule
 
-Hours | Subject
-DBMS - 10
-1.5 | SQL recap
-1.5 | Transaction management in DBMS
-3 | PostgreSQL exercise
-4 | Kader Parallel DBMS
-Cloud systems - 18
-3 | Cloud compute intro
-3 | Virtualization and containerization
-3 | Cloud compute BE
-3 | Kader DBMS
-6 | GPGPU
-2* | Cloud quiz
-Cloud DE - 22 
-1.5 | Orchestration
-1.5 | Kubernetes
-3 | Jupyterhub deployment BE
-3 | HDFS, MapReduce
-4 | Spark BE
-3 | Kader CDMS
-6 | Dask BE
-
 Data Storage | | | Readings |
 --- | --- | --- | ---
 [SQL](0_1_databases.md) | 3h | 18/09/2023 | [Databases introduction (fr)](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/bdd.pdf)
