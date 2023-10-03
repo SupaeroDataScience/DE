@@ -3,9 +3,26 @@
 
 In this three part class, students will cover the history of data management systems, from file systems to databases to distributed cloud storage. This class is given over the length of the Data Engineering course. Questions from the first two parts are integrated into the exam on cloud computing, and questions from the Cloud DMS section are integrated into the Dask notebook evaluation.
 
-## Outline
+### Objectives
 
-1. [From File Mananagement Systems FMS to Database MS DBMS](0_3_dbms.md)
+The objectives of this course are:
+- Introduce the fundamental concepts
+- Describe, in a synthetic way, the main characteristics of the evolution of DMS (Data Management Systems)
+- Highlight targeted application classes.
+
+### Key Words
+
+Data Management Systems, Uni-processor DBMS, Parallel DBMS, Data Integration Systems,Big Data, Cloud  Data Management Systems, High Performance, Scalability, Elasticity, Multi-store/Poly-store Systems
+
+### Targeted Skills
+
+- Effectively exploit the DMS according to the environment (uniprocessor, parallel, distributed, cloud) in a perspective of decision support within an organization.
+- Ability to choose, in a relevant way, a DMS in multiple environments for an optimal functioning of the applications of an organization
+
+### Indicative Program
+
+1. [Introduction to Main Problems of Data Management](0_3_dbms.md)
+    + From File Management Systems FMS to Database MS DBMS
     + Motivations, Objectives, Organizations & Drawbacks
     + Databases & Rel. DBMS: Motivations & Objectives
     + Resources:
@@ -13,17 +30,34 @@ In this three part class, students will cover the history of data management sys
         + [SGF - File Systems](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/Fichier_SGF_MO_Big_Data_AH.pdf)
         + [Views - Relational Systems](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/Vues_Systemes_Relationnels_AH.pdf)
         + [File Organization](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/File_Organizations_Access_Methods.pdf)
-2. [Parallel Relational DBMS](1_5_distributed.md)
+
+2. Parallel Database Systems
+    + Objectives and Parallel Architecture Models
+    + Data Partitioning Strategies
+    + Parallel Query Processing
     + Motivations & Objectives
     + Characteristics and Challenges
     + Resources:
         + [Parallel DBMS](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/Chapitre2_Intro_BDR_Paralleles_AH_Oct_2023.pdf)
         + [Parallel Queries](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/Chapitre4_Parallelisation_Requete_AH_Oct_2023.pdf)
-3. [Cloud Data Management Systems CDMS](2_5_cloud.md)
-    + Motivations, Objectives & Main Characteristics of CDMS
-    + Classification of CDMSs : 3 Generations (G1, G2 & G3)
-    + Advantages & Weakness of MR Systems & Parallel DBMSs
-    + Comparison between Parallel DBMSs & MR Systems
+
+3. [From Distributed DB to Data Integration Systems DIS](1_5_distributed.md)
+    + An Ex. of DBD, Motivations & Objectives
+    + Designing of DDB
+    + Distributed Query Processing
+    + An Ex. of DIS
+    + Motivations & Objectives
+    + Mediator-Adapters Architecture
+    + Design of a Global Schema (GAV, LAV)
+    + Query Processing Methodologies
+
+4. [Cloud Data Management Systems CDMS](2_5_cloud.md)
+    + Motivations and Objectives
+    + Main Characteristics of Big Data and CDMS
+    + Classification of Cloud Data Management Systems CDMS
+    + Advantages and Weakness of Parallel RDBMS and CDMS
+    + Comparison between Parallel RDBMS and CDMS
+    + Introduction to Multi-store/Ploystore Systems
     + Resources:
         + [Distributed DBMS - Chapter 1](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/DDB_Intro_MO_Big_Data_Chap1_AH.pdf)
         + [Distributed DBMS - Chapter 2](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/IDDB_Design_MO_Big_Data_Chap2_AH.pdf)
@@ -32,6 +66,9 @@ In this three part class, students will cover the history of data management sys
         + [Integration Systems complement](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/Complements_SI_MO_Big_Data_AH.pdf)
         + [MapReduce examples](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/Program_Examples_MapReduce_A3_AH_Sept_2022.pdf)
 
+5. Conclusion
+    + Maturity of Cloud DMS
+    + Key Criteria for Choosing a Data Management System
 
 ## Additional Reading
 
@@ -41,6 +78,7 @@ In this three part class, students will cover the history of data management sys
 2. Data Management in the Cloud: Challenges and Opportunities
 Divyakant Agrawal, Sudipto Das, and Amr El Abbadi;
 Synthesis Lectures on Data Management, December 2012, Vol. 4, No. 6 , Pages 1-138.
+
 3. Query Processing in Parallel Relational Database Systems;
 H. Lu, B.-C Ooi and K.-L. Tan; IEEE Computer Society Press, CA, USA, 1994.
 
