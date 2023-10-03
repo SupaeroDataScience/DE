@@ -49,7 +49,7 @@ Data Storage | | | Readings |
 --- | --- | --- | ---
 [SQL](0_1_databases.md) | 3h | 18/09/2023 | [Databases introduction (fr)](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/bdd.pdf)
 [PostgeSQL](0_2_postgres.md) | 3h | 25/09/2023 | [PostgeSQL](https://www.postgresql.org/docs/manuals/)
-[Parallel DBMS](0_3_dbms.md) | 4h | 04/10/2023 | [Slides](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/Cours__Methodes_Outils_Big_Data_A3_Sept_2022_AH.pdf)
+[Parallel DBMS](0_3_dbms.md) | 4h | 04/10/2023 |
 
 Data Computation | | | Readings |
 --- | --- | --- | ---
