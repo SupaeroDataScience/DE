@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Deployment & MLOPS</title>
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="./dist/reveal.css" />
+    <link rel="stylesheet" href="./static/css/reset.css" />
+    <link rel="stylesheet" href="./static/css/evo.css" />
+    <!-- <link rel="stylesheet" href="/_assets/evo" id="theme" /> -->
+    <link rel="stylesheet" href="./css/highlight/vs.css" />
+
+    <link rel="stylesheet" href="././_assets/static/css/evo.css" />
+    <link rel="stylesheet" href="././_assets/static/css/reset.css" />
+
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides"><section  data-markdown><script type="text/template">
+
+This class
+
+- **Quick notions about MLOPS**
+- **Cloud Computing & Docker applied to AI**
+- **Hands on : Deploy your model in production**
+
+</script></section><section ><section data-markdown><script type="text/template">
+
+## Very quick intro to MLOps
+
+</script></section><section data-markdown><script type="text/template">
+
+![mlsystems](https://huyenchip.com/machine-learning-systems-design/assets/ml_project_flow.png) <!-- .element: height="40%" width="40%" -->
+
+</script></section><section data-markdown><script type="text/template">
+
+![mlops](static/img/mlops_lifecycle.png)  <!-- .element: height="50%" width="50%" -->
+
+</script></section><section data-markdown><script type="text/template">
+
+![mlops](https://ml-ops.org/img/mlops-loop-en.jpg) <!-- .element: height="50%" width="50%" -->
+
+</script></section><section data-markdown><script type="text/template">
+
+### Layers of "enabling technology"
+
+![mlops](static/img/mlopsinfra.png) <!-- .element: height="75%" width="75%" -->
+
+</script></section><section data-markdown><script type="text/template">
+
+- https://huyenchip.com/machine-learning-systems-design/toc.html
+- https://ml-ops.org/content/references.html
+
+</script></section></section><section ><section data-markdown><script type="text/template">
+
+## Cloud Computing & AI
+
+</script></section><section data-markdown><script type="text/template">
+
+### My usage : Flexibility
+
+![gcp](static/img/infra_army_of_one.png)
+
+</script></section><section data-markdown><script type="text/template">
+
+### A full workflow 
+
+![vertex](https://www.royalcyber.com/blog/wp-content/uploads/2022/05/end-to-end-mlops-on-vertex-ai.png)
+
+</script></section><section data-markdown><script type="text/template">
+
+### All about that scale
+
+[BLOOM: A 176B-Parameter Open-Access Multilingual Language Model](https://arxiv.org/pdf/2211.05100)
+
+> Training BLOOM took about 3.5 months to complete and consumed 1,082,990 compute hours. Training was conducted on 48 nodes, each having 8 NVIDIA A100 80GB GPUs (a total of 384 GPUs);
+
+</script></section><section data-markdown><script type="text/template">
+
+### AI Distributed Computing
+
+![](static/img/distributed_computing.png)
+
+</script></section><section data-markdown><script type="text/template">
+
+### Stable Diffusion
+
+![](https://assets-global.website-files.com/61fd4eb76a8d78bc0676b47d/63cf7cb6264c4050ed2ea00e_Screen%20Shot%202023-01-23%20at%2010.37.19%20PM.png) <!-- .element: height="60%" width="60%" -->
+
+[Stable Diffusion Training Times](https://www.mosaicml.com/blog/training-stable-diffusion-from-scratch-costs-160k)
+
+</script></section><section data-markdown><script type="text/template"> 
+
+### AI Cloud Providers
+
+![](https://geekflare.com/wp-content/uploads/2021/08/lambdagpu-1.jpg)  <!-- .element: height="50%" width="50%" -->
+
+</script></section><section data-markdown><script type="text/template">
+
+### The need for tech
+
+![](static/img/anyscale.png)  <!-- .element: height="50%" width="50%" -->
+
+And dask !
+
+</script></section></section><section ><section data-markdown><script type="text/template">
+
+## Containers & AI
+
+</script></section><section data-markdown><script type="text/template">
+
+#### Data Science is about reproducibility
+
+* Experimental science
+* Communicating results
+* Hands-out to other teams
+* Deployment and versioning of models
+
+</script></section><section data-markdown><script type="text/template">
+
+#### So... containers ?
+
+* ... for standardized development environments
+* ... dependency management
+* ... for complex / large scale workflows
+* ... for deployment
+
+~it works on my notebook !~ *here's the model ready to run !*
+
+</script></section><section data-markdown><script type="text/template">
+
+Reproducible development environment
+
+![](https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img/https://godatadriven.com/wp-content/uploads/2022/10/devcontainer-overview-4.png)  <!-- .element: height="55%" width="55%" -->
+
+</script></section><section data-markdown><script type="text/template">
+
+Reproducible development environment [at scale](https://medium.com/netflix-techblog/scheduling-notebooks-348e6c14cfd6) !
+
+![netflix](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*WOEEJizYnO8ibtU2l9jWbA.jpeg)
+
+</script></section><section data-markdown><script type="text/template">
+
+[Netflix and notebook scheduling](https://medium.com/netflix-techblog/scheduling-notebooks-348e6c14cfd6)
+
+![netflix](https://miro.medium.com/v2/resize:fit:1400/0*058TIxB_YEFxmUDy)  <!-- .element: height="55%" width="55%" -->
+
+</script></section><section data-markdown><script type="text/template">
+
+https://www.kubeflow.org/
+
+![kubeflow](https://miro.medium.com/max/2446/1*ZQsFV3o1c3Amu26Z-IEd7w.png) <!-- .element: height="55%" width="55%" -->
+
+</script></section></section><section ><section data-markdown><script type="text/template">
+
+## Intro to deployment
+
+</script></section><section data-markdown><script type="text/template">
+
+### Architecturing (web) applications
+
+![](https://axisbits.com/storage/app/uploads/public/7da/cc4/ec1/7dacc4ec1c9bc16b7aa58185cb8efa5a.png)
+
+</script></section><section data-markdown><script type="text/template">
+
+### Communicating between applications
+
+![api](https://www.aloi.io/wp-content/uploads/2019/09/api-visual.png) <!-- .element: height="50%" width="50%" -->
+
+</script></section><section data-markdown><script type="text/template">
+
+### REST API
+
+Representational state transfer (REST)
+
+![rest](https://images.tutorialedge.net/uploads/rest-api.png) <!-- .element: height="50%" width="50%" -->
+
+</script></section><section data-markdown><script type="text/template">
+
+### Microservices vs "monoliths"
+
+![microservices](https://www.sourcefuse.com/wp-content/uploads/2021/01/D-image4-min.png) <!-- .element: height="50%" width="50%" -->
+
+PS: [Microservices are hard](https://dwmkerr.com/the-death-of-microservice-madness-in-2018/)
+
+</script></section><section data-markdown><script type="text/template">
+
+### Multi applications & docker
+
+![docker-compose](https://hosting.analythium.io/content/images/2021/06/compose-3.png) <!-- .element: height="50%" width="50%" -->
+
+</script></section><section data-markdown><script type="text/template">
+
+### How does it relate to me ?
+
+</script></section><section data-markdown><script type="text/template">
+
+### Hands-On
+
+- How to expose an ML model to a community of users through a web app
+- How to build a companion app to interact with your model in an ergonomic fashion
+- How to deploy both applications on a single instance (for now)
+
+</script></section><section data-markdown><script type="text/template">
+
+![](static/img/mlworkflow.png)  <!-- .element: height="50%" width="50%" -->
+
+</script></section><section data-markdown><script type="text/template">
+
+### I have an **awesome** ML model
+
+![model](static/img/meme_2.jpg)  <!-- .element: height="30%" width="30%" -->
+
+</script></section><section data-markdown><script type="text/template">
+
+### Just kidding
+
+![model](static/img/meme_3.jpg)  <!-- .element: height="30%" width="30%" -->
+
+</script></section><section data-markdown><script type="text/template">
+
+### What I want to do...
+
+![deploy](https://pbs.twimg.com/media/DoGygAjXkAE-ORD.jpg) <!-- .element: height="30%" width="30%" -->
+
+</script></section><section data-markdown><script type="text/template">
+
+### How I would do it
+
+![deploy](static/img/deploy.jpg)  <!-- .element: height="50%" width="50%" -->
+
+</script></section><section data-markdown><script type="text/template">
+
+### Modern way of doing things
+
+![package](static/img/packaging.png)
+
+- cog : https://github.com/replicate/cog
+- pesto : https://github.com/AirbusDefenceAndSpace/pesto
+
+Today, we will do it "manually"
+
+</script></section><section data-markdown><script type="text/template">
+
+### Interaction with user ? We use CURL 👎 
+
+
+```bash
+curl -X POST "http://my-instance/predict" \
+    -H  "accept: application/json" \
+    -H  "Content-Type: application/json" \
+    -d "{\"model\":\"string\",\"image\":\"...\"}"
+```
+
+</script></section><section data-markdown><script type="text/template">
+
+### Interaction with user ? We use CURL 👎 
+
+![json](static/img/json.png)  <!-- .element: height="30%" width="30%" -->
+
+</script></section><section data-markdown><script type="text/template">
+
+### Interaction with users ? 👍
+
+![](static/img/results.png)  <!-- .element: height="50%" width="50%" -->
+
+</script></section><section data-markdown><script type="text/template">
+
+### Webapp builder for data scientists
+
+![](static/img/streamlit.png)  <!-- .element: height="50%" width="50%" -->
+
+</script></section><section data-markdown><script type="text/template">
+
+### Webapp builder for data scientists
+
+- [streamlit](https://streamlit.io/)
+- [gradio](https://gradio.app/)
+
+</script></section><section data-markdown><script type="text/template">
+
+### Let's build it !
+
+- A model behind a Restful API, packaged in a docker
+- A frontend using streamlit, packaged in a docker
+- Deploy it on Google Cloud Platform using GCE & docker-compose
+- Send it to your friends !
+
+</script></section><section data-markdown><script type="text/template">
+
+### More links
+
+- https://github.com/EthicalML/awesome-production-machine-learning
+</script></section></section></div>
+    </div>
+    <!-- <div id="footer-container" style="display:none;"> -->
+    <div id="footer-container">
+        <div id="footer">
+            Tools of Big Data
+            <br />
+            <a href="https://supaerodatascience.github.io/deep-learning/">https://supaerodatascience.github.io/DE/</a>
+            <br />
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License"
+                    style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+        </div>
+    </div>
+    <script src="./dist/reveal.js"></script>
+
+    <script src="./plugin/markdown/markdown.js"></script>
+    <script src="./plugin/highlight/highlight.js"></script>
+    <script src="./plugin/zoom/zoom.js"></script>
+    <script src="./plugin/notes/notes.js"></script>
+    <script src="./plugin/math/math.js"></script>
+    <script>
+        function extend() {
+            var target = {};
+            for (var i = 0; i < arguments.length; i++) {
+                var source = arguments[i];
+                for (var key in source) {
+                    if (source.hasOwnProperty(key)) {
+                        target[key] = source[key];
+                    }
+                }
+            }
+            return target;
+        }
+
+        // default options to init reveal.js
+        var defaultOptions = {
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+            transition: 'default', // none/fade/slide/convex/concave/zoom
+            plugins: [
+                RevealMarkdown,
+                RevealHighlight,
+                RevealZoom,
+                RevealNotes,
+                RevealMath
+            ]
+        };
+
+        // options from URL query string
+        var queryOptions = Reveal().getQueryHash() || {};
+
+        var options = extend(defaultOptions, {"transition":"fade","transitionSpeed":"default","controls":true,"slideNumber":true,"width":"100%","height":"100%"}, queryOptions);
+    </script>
+
+
+    <script>
+        Reveal.initialize(options);
+        var footer = $('#footer-container').html();
+        $('div.reveal').append(footer);
+        var logo = $('#logo-container').html();
+        $('div.reveal').append(logo);
+    </script>
+</body>
+
+</html>
