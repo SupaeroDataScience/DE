@@ -102,11 +102,32 @@ resources:
 
 ![petvscattle](static/img/pet-vs-cattle.png)
 
-<!--v-->
+<!--s-->
 
 #### Fully virtual development environment
 
+<!--v-->
+
 ![codespaces](https://github.blog/wp-content/uploads/2021/08/1200x630-codespaces-social.png)
+
+<!--v-->
+
+#### [Github Codespaces](https://docs.github.com/en/codespaces/overview)
+
+* [Github Codespaces](https://docs.github.com/en/codespaces) : A managed development environment by Microsoft Azure
+* A virtual machine and a [containerized development environment](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)
+* A lot of built-in bonuses including "in-browser" connection & TCP port forwarding with reverse proxy
+
+![](https://docs.github.com/assets/cb-79257/images/help/codespaces/port-forwarding.png)  <!-- .element: height="50%" width="50%" -->
+
+
+<!--v-->
+
+#### Remote Development : Your future daily routine
+
+![remote](https://blog.uber-cdn.com/cdn-cgi/image/width=1810,quality=80,onerror=redirect,format=auto/wp-content/uploads/2022/12/Figure-2-Devpod-overview-Remote-development-environment-@-Uber.png)  <!-- .element: height="50%" width="50%" -->
+
+[Uber Blog describing their way of working](https://www.uber.com/en-FR/blog/devpod-improving-developer-productivity-at-uber/)
 
 <!--s-->
 
@@ -167,13 +188,19 @@ resources:
 
 <!--v-->
 
-#### Facebook (2021)
-
-How everything can go wrong...
+#### Facebook October 2021 Failure
 
 ![](https://upload.wikimedia.org/wikipedia/commons/2/26/Facebook-outage-traffic-dropoff_%28cropped%29.png)
 
 https://blog.cloudflare.com/october-2021-facebook-outage/
+
+<!--v-->
+
+#### AWS US-EAST-1 Failure (2022)
+
+> 13 June 2023: AWS. The largest AWS region (us-east-1) degraded heavily for 3 hours, impacting 104 AWS services. A joke says that when us-east-1 sneezes the whole world feels it, and this was true: Fortnite matchmaking stopped working, McDonalds and Burger King food orders via apps couldn’t be made, and customers of services like Slack, Vercel, Zapier and many more all felt the impact. (incident details). We did a deepdive into this incident earlier in AWS’s us-east-1 outage.
+
+https://aws.amazon.com/message/12721/
 
 <!--v-->
 

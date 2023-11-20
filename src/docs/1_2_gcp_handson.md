@@ -7,7 +7,7 @@
     You will also discover a very useful tool, a managed jupyter notebook service from google named Google Colab which may be very important for your future developments this year
 
 !!! warning
-    It is advised to connect to **eduroam** if you want to use your local machine
+    Some things may only work on **eduroam** or in 4G...
 
 !!! warning
     Don't forget to shutdown everything after !
@@ -17,6 +17,10 @@
 !!! note
     It is possible that you don't have your credits yet, so keep this in mind for when you will be receiving them
     Skip this for now
+
+
+!!! note
+    If you don't have gcp credits yet, put a gmail adress in [this document](https://docs.google.com/spreadsheets/d/1vPrMYu7oGT6LwDZA4SsJxGqMlNjQN4ts5OdzFe30n-U/edit#gid=0) to get access to the shared one
 
 [Overview link](https://cloud.google.com/docs/overview)
 
@@ -54,9 +58,9 @@ Have a look at the overview : [https://docs.github.com/en/codespaces/overview](h
 
 ### Create your codespace and connect to it
 
-Go to [https://github.com/codespaces](https://github.com/codespaces)
+Go to [https://github.com/fchouteau/isae-cloud-computing-codespace](https://github.com/fchouteau/isae-cloud-computing-codespace)
 
-![img.png](slides/static/img/codespace.png)
+![](slides/static/img/codespacefchouteau.png)
 
 * Click on the top left corner for a new codespace
 * It should launch a browser with a vscode
@@ -65,6 +69,17 @@ Go to [https://github.com/codespaces](https://github.com/codespaces)
 **If that does not work,** go to [https://github.com/github/codespaces-blank](https://github.com/github/codespaces-blank) and create a codespace from there
 
 ![](slides/static/img/codespacesblank.png)
+
+You should arrive to a VScode instance
+
+![](slides/static/img/codespacevscode.png)
+
+!!! question
+    * Where is it running ?
+
+If you go to the core page of [https://github.com/codespaces](https://github.com/codespaces) you should see your codespace running
+
+![img.png](slides/static/img/codespace.png)
 
 ### Explore github codespaces
 
@@ -122,7 +137,18 @@ If you want to interact with GCP from your computer or codespaces, you will need
     * Windows Subsystem for Linux: see Linux
     * Windows: <https://cloud.google.com/sdk/docs/install#windows>
 
-If you are on codespace, follow the [following instructions](https://cloud.google.com/sdk/docs/install#deb) to install the google cloud sdk,
+??? "Installing on codespace"
+
+    If you are on codespace, run the commands below to install the gcloud tool to your machine
+
+    Note : If you used the custom codespace, it should already be installed, try gcloud init directly
+
+    ```bash
+    echo "deb https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+    curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+    sudo apt-get update && sudo apt-get install google-cloud-cli
+    ```
+
 
 Then run `gcloud init` in your terminal to configure the [google cloud sdk](https://cloud.google.com/sdk/docs/initializing) with your account
 
@@ -144,7 +170,7 @@ First, we will make our first steps by creating a compute engine instance (a vm)
 
 * Create an instance with the following parameters
   * type: n1-standard-1
-  * zone: europe-west1-(b,c,d) Belgium
+  * zone: europe-west9-a (Paris)
   * os: ubuntu 22.04 x86
   * boot disk size: 10 Gb
 * Give it a name of your choice (that you can remember)
@@ -274,13 +300,13 @@ Here we will discover google cloud storage, upload some files from your computer
 
 Now we will download it using the google cloud CLI tool. Here's [the documentation](https://cloud.google.com/storage/docs/uploading-objects#gsutil)
 
-Follow the [tutorial](https://cloud.google.com/storage/docs/discover-object-storage-gsutil) to learn how to do what you did with `gsutil`
+Follow the [tutorial](https://cloud.google.com/storage/docs/discover-object-storage-gsutil) to learn how to do what you just did, but this time using `gsutil` from your codespace
 
 * List the content of the bucket you just created (if you deleted it previously, create a new one)
 * Upload a file to a bucket 
 * Download a file from a bucket
 
-**What if we want to do the same from the VM ?**
+**Optional : What if we want to do the same from the GCE instance ?**
 
 * Now go back to your machine
 

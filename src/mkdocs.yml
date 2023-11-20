@@ -28,6 +28,7 @@ nav:
   - Parallel DBMS: 0_3_dbms.md
 - Data Computation:
   - Introduction: 1_1_overview.md
+  - Syllabus: 1_1_syllabus.md
   - Cloud Computing:
     - Lectures: 1_2_cloud.md
     - TP: 1_2_gcp_handson.md
