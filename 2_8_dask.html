@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://supaerodatascience.github.io/DE/2_3_mapreduce.html">
+        <link rel="canonical" href="https://supaerodatascience.github.io/DE/2_8_dask.html">
       
       
-        <link rel="prev" href="2_2_functional.html">
+        <link rel="prev" href="2_7_cloud.html">
       
       
-        <link rel="next" href="2_4_spark.html">
+        <link rel="next" href="2_9_project.html">
       
       
       <link rel="icon" href="https://raw.githubusercontent.com/SupaeroDataScience/DE/master/src/favicon.ico">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Hadoop and MapReduce - Data Engineering</title>
+        <title>Dask on Kubernetes - Data Engineering</title>
       
     
     
@@ -75,7 +75,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#hadoop-and-mapreduce" class="md-skip">
+        <a href="#dask-on-kubernetes" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Hadoop and MapReduce
+              Dask on Kubernetes
             
           </span>
         </div>
@@ -454,26 +454,6 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="1_1_syllabus.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Syllabus
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
     
     
     
@@ -484,10 +464,10 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
         
           
-          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -498,8 +478,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_3">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             Cloud Computing
           </label>
@@ -568,10 +548,10 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
         
           
-          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -582,8 +562,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_4">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
             <span class="md-nav__icon md-icon"></span>
             Containers, Docker
           </label>
@@ -663,11 +643,11 @@
   
   
     <li class="md-nav__item">
-      <a href="1_5_distributed.html" class="md-nav__link">
+      <a href="1_5_conclusion.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Distributed DBMS
+    Recap Cloud & Docker
   </span>
   
 
@@ -683,11 +663,11 @@
   
   
     <li class="md-nav__item">
-      <a href="1_6_conclusion.html" class="md-nav__link">
+      <a href="1_6_distributed.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Conclusion
+    Distributed DBMS
   </span>
   
 
@@ -807,7 +787,7 @@
             
   
   <span class="md-ellipsis">
-    Deployment & Orchestration
+    Deployment
   </span>
   
 
@@ -817,7 +797,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_2">
             <span class="md-nav__icon md-icon"></span>
-            Deployment & Orchestration
+            Deployment
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -827,7 +807,7 @@
   
   
     <li class="md-nav__item">
-      <a href="1_5_deployment.html" class="md-nav__link">
+      <a href="2_2_deployment.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -847,15 +827,23 @@
   
   
     <li class="md-nav__item">
-      <a href="1_5_deployment_tp.html" class="md-nav__link">
+      <a href="2_2_deployment_tp.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    TP - Your ML model into production
+    TP
   </span>
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -866,12 +854,48 @@
   
   
   
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Kubernetes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Kubernetes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
     <li class="md-nav__item">
-      <a href="1_5_kub_intro.html" class="md-nav__link">
+      <a href="2_3_kub_intro.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    TP - Intro to k8s
+    TP
   </span>
   
 
@@ -895,11 +919,71 @@
   
   
     <li class="md-nav__item">
-      <a href="2_2_functional.html" class="md-nav__link">
+      <a href="2_4_functional.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Functional Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2_5_mapreduce.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hadoop and MapReduce
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2_6_spark.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spark
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2_7_cloud.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cloud DBMS
   </span>
   
 
@@ -924,11 +1008,11 @@
         
       
       
-      <a href="2_3_mapreduce.html" class="md-nav__link md-nav__link--active">
+      <a href="2_8_dask.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    Hadoop and MapReduce
+    Dask on Kubernetes
   </span>
   
 
@@ -945,67 +1029,7 @@
   
   
     <li class="md-nav__item">
-      <a href="2_4_spark.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Spark
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="2_5_cloud.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Cloud DBMS
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="2_5_dask.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Dask on Kubernetes
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="2_6_project.html" class="md-nav__link">
+      <a href="2_9_project.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1062,24 +1086,193 @@
   
 
 
-<h1 id="hadoop-and-mapreduce">Hadoop and MapReduce<a class="headerlink" href="#hadoop-and-mapreduce" title="Permanent link">🔗</a></h1>
-<p>In this class, we start with an overview of the Big Data ecosystem,
-contextualizing Hadoop, No-SQL Databases, and Business Intelligence tools. We
-then cover Hadoop and the HDFS in detail with a simple MapReduce example.</p>
+<h1 id="dask-on-kubernetes">Dask on Kubernetes<a class="headerlink" href="#dask-on-kubernetes" title="Permanent link">🔗</a></h1>
+<p>In this class, we focus on getting a <a href="https://docs.dask.org/en/latest/">Dask</a> cluster running in Kubernetes, which we will then use in the <a href="https://supaerodatascience.github.io/DE/2_6_project.html">Dask project</a>. Dask is a parallel computing library in Python which integrates well with machine learning tools like scikit-learn.</p>
+<p>This class builds on the
+<a href="https://supaerodatascience.github.io/DE/1_5_deployment.html">orchestration</a>
+class, going into further detail on K8S specifics.</p>
+<p><a href="https://supaerodatascience.github.io/DE/slides/2_3_kubernetes.html#/">Kubernetes</a></p>
+<p><a href="https://docs.google.com/presentation/d/e/2PACX-1vSTH2kAR0DCR0nw8pFBe5kuYbOk3inZ9cQfZbzOIRjyzQoVaOoMfI2JONGBz-qsvG_P6g050ddHxSXT/pub?start=false&amp;loop=false&amp;delayms=60000#slide=id.p">Dask presentation</a></p>
+<p>Students will use GCP for this class. Be sure to stop your cluster after class to conserve GCP credits.</p>
+<p>Additional resources can be found in the <a href="https://docs.dask.org/en/latest/setup/kubernetes.html">dask documentation</a>.</p>
+<h1 id="deploying-a-dask-hub">Deploying a Dask Hub<a class="headerlink" href="#deploying-a-dask-hub" title="Permanent link">🔗</a></h1>
+<p>This material is taken from the following docs:</p>
 <ul>
-<li><a href="https://guillaumeeb.github.io/isae-supaero-aibt103-bigdata/01_Introduction_Big_Data.html">Introduction to Big Data and its ecosystem (1h)</a></li>
-<li>What is Big Data?</li>
-<li>Legacy “Big Data” ecosystem</li>
-<li>Big Data use cases</li>
-<li>Big Data to Machine Learning</li>
-<li><a href="https://guillaumeeb.github.io/isae-supaero-aibt103-bigdata/02_Big_Data_Platforms.html">Big Data platforms, Hadoop &amp; Beyond (2h)</a></li>
-<li>Hadoop, HDFS and MapReduce,</li>
-<li>Datalakes, Data Pipelines</li>
-<li>From HPC to Big Data to Cloud and High Performance Data Analytics </li>
-<li>BI vs Big Data</li>
-<li>Hadoop legacy: Spark, Dask, Object Storage ...</li>
+<li><a href="https://docs.dask.org/en/latest/setup/kubernetes-helm.html">https://docs.dask.org/en/latest/setup/kubernetes-helm.html</a></li>
+<li><a href="https://zero-to-jupyterhub.readthedocs.io/en/latest/kubernetes/setup-kubernetes.html">https://zero-to-jupyterhub.readthedocs.io/en/latest/kubernetes/setup-kubernetes.html</a></li>
+<li><a href="https://zero-to-jupyterhub.readthedocs.io/en/latest/kubernetes/setup-helm.html">https://zero-to-jupyterhub.readthedocs.io/en/latest/kubernetes/setup-helm.html</a></li>
 </ul>
-<p>It contains also a short interactive exercise using Python Map Reduce.</p>
+<h2 id="creating-a-kubernetes-cluster">Creating a Kubernetes Cluster<a class="headerlink" href="#creating-a-kubernetes-cluster" title="Permanent link">🔗</a></h2>
+<p>First, you need to enable the Kubernetes API if not already done:</p>
+<ul>
+<li>Go to <a href="https://console.cloud.google.com/">console.cloud.google.com</a></li>
+<li>Select the Kubernetes Engine in the menu</li>
+<li>Enable the API if not already done.</li>
+</ul>
+<p>Then you'll need a terminal with <code>gcloud</code> and <code>kubectl</code>. The simplest is just to use the Google Cloud Shell from console.cloud.google.com. If you prefer, you can follow the links above to find how to install everything on your computer.</p>
+<p>Ask Google Cloud to create a managed Kubernetes cluster and a default node pool to get nodes from:</p>
+<div class="highlight"><pre><span></span><code>gcloud container clusters create \
+  --machine-type n1-standard-4 \
+  --enable-autoscaling \
+  --min-nodes 1 \
+  --max-nodes 10 \
+  --num-nodes 1 \
+  --zone europe-west1-b \
+  --cluster-version 1.23 \
+  dask-hub-k8s
+</code></pre></div>
+<p>Yhis will take a few minutes (maybe 2 or 3).</p>
+<div class="highlight"><pre><span></span><code>gcloud container clusters list
+</code></pre></div>
+<p>You can then test if the cluster is running:</p>
+<div class="highlight"><pre><span></span><code>kubectl get node
+</code></pre></div>
+<p>Then get permissions to perform all administrative actions needed.</p>
+<p><strong>⚠️Don't forget to replace your email below.⚠️</strong></p>
+<div class="highlight"><pre><span></span><code>kubectl create clusterrolebinding cluster-admin-binding \
+  --clusterrole=cluster-admin \
+  --user=&lt;GOOGLE-EMAIL-ACCOUNT&gt;
+</code></pre></div>
+<h2 id="setting-up-helm">Setting up Helm<a class="headerlink" href="#setting-up-helm" title="Permanent link">🔗</a></h2>
+<p>From your Google Cloud Shell or terminal:</p>
+<div class="highlight"><pre><span></span><code>curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+helm list
+</code></pre></div>
+<p>should return:</p>
+<div class="highlight"><pre><span></span><code>NAME    NAMESPACE       REVISION        UPDATED STATUS  CHART   APP VERSION
+</code></pre></div>
+<h2 id="helm-install-a-dask-hub">Helm install a Dask Hub<a class="headerlink" href="#helm-install-a-dask-hub" title="Permanent link">🔗</a></h2>
+<p>Default Daskhub configuration uses dask-gateway, which is here to handle multiple users with fine grain authorisations. We don't need this, and it iss a little more complicated setup than what we'll do.</p>
+<p>Instead, we'll deploy a Daskhub with dask-kubernetes, which assumes some authorisations inside the Pods of the Kubernetes cluster (potential security leak), but is more straightforward for our usage.</p>
+<p>Verify that you’ve set up a Kubernetes cluster and added Dask’s helm charts:</p>
+<div class="highlight"><pre><span></span><code>helm repo add dask https://helm.dask.org/
+helm repo update
+</code></pre></div>
+<p>Generate token to configure Jupyterhub:</p>
+<div class="highlight"><pre><span></span><code>openssl rand -hex 32  &gt; token1.txt
+cat token1.txt
+</code></pre></div>
+<p>Create the file below (for example using vim or cloud shell editor) and substitute the <token-1> value.</p>
+<div class="highlight"><pre><span></span><code># file: daskhub-config.yaml
+jupyterhub:
+  proxy:
+    secretToken: &quot;&lt;token-1&gt;&quot;
+  scheduling:
+    podPriority:
+      enabled: true
+    userPlaceholder:
+      # Specify three dummy user pods will be used as placeholders
+      replicas: 1
+    userScheduler:
+      enabled: true
+  singleuser:
+    serviceAccountName: daskkubernetes
+    image:
+      name: guillaumeeb/pangeo-ml-notebook # Image to use for singleuser environment. Must include dask-kubernetes.
+      tag: 2021.11.14
+
+dask-gateway:
+  enabled: false
+  gateway:
+    auth:
+      type: simple
+      simple:
+        password: &quot;unused&quot;
+
+dask-kubernetes:
+  enabled: true
+</code></pre></div>
+<p>Now we just install Dask Hub:</p>
+<div class="highlight"><pre><span></span><code>helm upgrade --wait --install --render-subchart-notes \
+    --namespace daskhub \
+    --create-namespace \
+    dhub dask/daskhub \
+    --values=daskhub-config.yaml
+</code></pre></div>
+<p>This will again take a few minutes.</p>
+<div class="highlight"><pre><span></span><code>helm list -n daskhub
+</code></pre></div>
+<p>Check install and go to Jupyter!</p>
+<p>To get the public IP of your hub deployment:</p>
+<div class="highlight"><pre><span></span><code>kubectl --namespace=daskhub get service proxy-public
+</code></pre></div>
+<p>Get the external IP, and open it in your browser. You should be able to login with any username/password
+Ensure Dask is working, and K8S mecanisms too!</p>
+<h2 id="create-a-dask-kubernetes-cluster">Create a dask-kubernetes cluster<a class="headerlink" href="#create-a-dask-kubernetes-cluster" title="Permanent link">🔗</a></h2>
+<p>Create a yaml file within the Jupyterhub interface:</p>
+<div class="highlight"><pre><span></span><code># worker-spec.yaml
+
+kind: Pod
+metadata:
+  labels:
+    foo: bar
+spec:
+  restartPolicy: Never
+  containers:
+  - image: guillaumeeb/pangeo-ml-notebook:2021.11.14
+    imagePullPolicy: IfNotPresent
+    args: [dask-worker, --nthreads, &#39;2&#39;, --no-dashboard, --memory-limit, 6GB, --death-timeout, &#39;60&#39;]
+    name: dask
+    env:
+      - name: EXTRA_PIP_PACKAGES
+        value: xgboost
+    resources:
+      limits:
+        cpu: &quot;2&quot;
+        memory: 6G
+      requests:
+        cpu: &quot;1.7&quot;
+        memory: 6G
+</code></pre></div>
+<p>Just open a notebook in your newly created Dask enabled hub, and try to copy and past the following cells:</p>
+<p>Set some config to ease usage.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">dask</span>
+<span class="kn">import</span> <span class="nn">dask.distributed</span>  <span class="c1"># populate config with distributed defaults</span>
+<span class="kn">import</span> <span class="nn">dask_kubernetes</span>
+
+<span class="n">dask</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">set</span><span class="p">({</span><span class="s2">&quot;kubernetes.worker-template-path&quot;</span><span class="p">:</span> <span class="s2">&quot;worker-spec.yaml&quot;</span><span class="p">})</span>
+<span class="n">dask</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">set</span><span class="p">({</span><span class="s2">&quot;distributed.dashboard.link&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{JUPYTERHUB_SERVICE_PREFIX}</span><span class="s2">proxy/</span><span class="si">{port}</span><span class="s2">/status&quot;</span><span class="p">})</span>
+</code></pre></div>
+<p>Create a cluster object.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">dask_kubernetes</span> <span class="kn">import</span> <span class="n">KubeCluster</span>
+
+<span class="n">cluster</span> <span class="o">=</span> <span class="n">KubeCluster</span><span class="p">(</span><span class="n">deploy_mode</span><span class="o">=</span><span class="s1">&#39;local&#39;</span><span class="p">)</span> <span class="c1"># Scheduler is started in the notebook process</span>
+<span class="n">cluster</span>
+</code></pre></div>
+<p>This should display a fancy widget. You can open the Dask Dashboard from here.</p>
+<p>Now scale the cluster to get Dask-workers and connect to it.</p>
+<div class="highlight"><pre><span></span><code><span class="n">cluster</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">distributed</span> <span class="kn">import</span> <span class="n">Client</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="n">cluster</span><span class="p">)</span>
+<span class="n">client</span>
+</code></pre></div>
+<p>What's happening in your K8S cluster after some seconds/minutes?
+Launch some computation, what about Pi?</p>
+<p>We'll use Dask array, a Numpy extension, for this:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">dask.array</span> <span class="k">as</span> <span class="nn">da</span>
+
+<span class="n">sample</span> <span class="o">=</span> <span class="mi">10_000_000_000</span>  <span class="c1"># &lt;- this is huge!</span>
+<span class="n">xxyy</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">sample</span><span class="p">))</span>
+<span class="n">norm</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">xxyy</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">summ</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">norm</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">insiders</span> <span class="o">=</span> <span class="n">summ</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+<span class="n">pi</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">insiders</span> <span class="o">/</span> <span class="n">sample</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;pi ~= </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pi</span><span class="p">))</span>
+</code></pre></div>
+<p>How many workers did you get? Why?</p>
+<p>Now just close the cluster.</p>
+<div class="highlight"><pre><span></span><code><span class="n">cluster</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<p>What happens after a few minutes?</p>
+<h2 id="deleting-a-kubernetes-cluster">Deleting a Kubernetes Cluster<a class="headerlink" href="#deleting-a-kubernetes-cluster" title="Permanent link">🔗</a></h2>
+<p>Get your cluster name and region</p>
+<div class="highlight"><pre><span></span><code>gcloud container clusters list
+</code></pre></div>
+<p>Delete your kubernetes cluster</p>
+<div class="highlight"><pre><span></span><code>gcloud container clusters delete &lt;YOUR_CLUSTER_NAME&gt; --region &lt;YOUR_CLUSTER_REGION&gt;
+</code></pre></div>
 
 
 
