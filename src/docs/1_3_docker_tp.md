@@ -736,7 +736,13 @@ So to connect to the jupyter lab we mapped the ports local 8888 to vm 8888 and v
 
 We also exposed the local disk to the container
 
-## 6. Bonus - Using Google Cloud Tools for Docker
+## 6. Bonus - Docker Compose
+
+<https://hackernoon.com/practical-introduction-to-docker-compose-d34e79c4c2b6>
+
+<https://github.com/docker/labs/blob/master/beginner/chapters/votingapp.md>
+
+## 7. Bonus - Using Google Cloud Tools for Docker
 
 Using codespace, you should be able to do the Hello World Dockerfile exercise except that instead of using docker build you use Google Cloud Build
 
@@ -749,12 +755,6 @@ Example command :`gcloud builds submit --tag eu.gcr.io/$PROJECT_ID/{image}:{tag}
 
 !!! example
     Try to build the hello world app
-
-## 7. Bonus - Docker Compose
-
-<https://hackernoon.com/practical-introduction-to-docker-compose-d34e79c4c2b6>
-
-<https://github.com/docker/labs/blob/master/beginner/chapters/votingapp.md>
 
 ## 8. Bonus - Going further
 

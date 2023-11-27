@@ -1,4 +1,4 @@
-# Data Computation applied to Artificial Intelligence
+# Intro to MLOPs & Deployment
 
 ## Intro to MLOPs & Deployment
 

@@ -2,7 +2,7 @@
 
 ## 0. Abstract
 
-!!! abstract
+!! abstract
     In this hands on you will configure your GCP account, the google cloud SDK and access the cloud console using Google Cloud Shell,
     You will also discover a very useful tool, a managed jupyter notebook service from google named Google Colab which may be very important for your future developments this year
 
@@ -12,12 +12,14 @@
 !!! warning
     Don't forget to shutdown everything after !
 
+ !!! note
+    When the TP says to replace "{something}" with a name, don't include the brackets so write “yourname"
+
 ## 1a. Create your GCP Account
 
 !!! note
     It is possible that you don't have your credits yet, so keep this in mind for when you will be receiving them
     Skip this for now
-
 
 !!! note
     If you don't have gcp credits yet, put a gmail adress in [this document](https://docs.google.com/spreadsheets/d/1vPrMYu7oGT6LwDZA4SsJxGqMlNjQN4ts5OdzFe30n-U/edit#gid=0) to get access to the shared one
@@ -32,10 +34,10 @@
 ## 1b. Selecting the general gcp project
 
 !!! note
-    If you don't have your project yet you should be added to a global ISAE-SDD project
+    If you don't have your project yet you should be added to a global ISAE-SDD called `sdd2324` project
     Select it in the interface
 
-You should have access to the isae-sdd project and be able to access [the interface](https://console.cloud.google.com/welcome?project=isae-sdd)
+You should have access to the sdd2324 project and be able to access [the interface](https://console.cloud.google.com/welcome?project=sdd2324)
 
 ![](slides/static/img/project.png)
 
@@ -160,19 +162,23 @@ Your github codespace is now configured with your google cloud platform credenti
 
 ## 4. My first Google Compute Engine Instance
 
+!!! note
+    If you are using sdd2324 project, try either europe-west1-b (Belgium) or europe-west4-a (Netherlands) when asked for a zone
+
 First, we will make our first steps by creating a compute engine instance (a vm) using the console, connecting to it via SSH, interacting with it, uploading some files, and we will shut it down and make the magic happen by resizing it
 
 * What is [google cloud compute engine ?](https://cloud.google.com/compute/docs/concepts) try to describe it with your own words
 
-### Creating my VM using the console
+### Creating my VM using the console (the GUI)
 
 * Create your VM from the google cloud interface : Go to [this link](https://cloud.google.com/compute/docs/instances/create-start-instance#startinstanceconsole) and follow the "CONSOLE" instruction
 
 * Create an instance with the following parameters
-  * type: n1-standard-1
-  * zone: europe-west9-a (Paris)
-  * os: ubuntu 22.04 x86
-  * boot disk size: 10 Gb
+    * type: n1-standard-1
+    * zone: europe-west1-b (Belgium) or 
+    * os: ubuntu 22.04 x86
+    * boot disk size: 10 Gb
+    * boot disk type: pd-standard
 * Give it a name of your choice (that you can remember)
 * **DO NOT SHUT IT DOWN** for now
 
@@ -183,8 +189,9 @@ First, we will make our first steps by creating a compute engine instance (a vm)
     ```bash
     gcloud compute instances create {name} --project={your-project} --zone={your-zone} \
       --machine-type=n1-standard-1 \
-      --image=ubuntu-2204-jammy-v20230114 \
+      --image=ubuntu-2204-jammy-v20231030 \
       --image-project=ubuntu-os-cloud
+      --create-disk=auto-delete=yes,boot=yes,device-name=dev-instance-{index},image=projects/ubuntu-os-cloud/global/images/ubuntu-2204-jammy-v20231030,mode=rw,size=10,type=projects/sdd2324/zones/{your-zone}/diskTypes/pd-standard \
     ```
 
 ### Connecting to SSH
@@ -252,26 +259,6 @@ Magic isn't it ?
 
 Note: If you had any files and specific configuration, they would still be here !
 
-### Optional but useful : Persistent SSH sessions with TMUX
-
-<https://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/>
-
-* Connect to your instance using SSH
-* Question: What happens if you start a long computation and disconnect ?
-* Check that tmux is installed on the remote instance (run `tmux`). if not [install it](https://computingforgeeks.com/linux-tmux-cheat-sheet/)
-* Follow this tutorial: https://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/
-* To check you have understood you should be able to:
-  * Connect to your remote instance with ssh
-  * Start a tmux session
-  * Launch a process (for example `htop`) inside it
-  * Detach from the session (`CTRL+B` then type `:detach`)
-  * Kill the ssh connection
-  * Connect again
-  * `tmux attach` to your session
-  * Your process should still be here !
-
-Congratulations :)
-
 ### Transfering files from the computer (or codespaces) to this machine
 
 * We will use the terminal to transfer some files ***from** your computer (or codespaces) **to** this machine,
@@ -288,7 +275,26 @@ Congratulations :)
 
 How do we do the opposite ?
 
-See below,
+See section 5.
+
+### Optional, but useful : Persistent SSH sessions with TMUX
+
+* Connect to your GCE instance using SSH from the codespace
+* Question: What happens if you start a long computation and disconnect ?
+* Check that tmux is installed on the remote instance (run `tmux`). if not [install it](https://computingforgeeks.com/linux-tmux-cheat-sheet/)
+* Follow this tutorial: [https://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/](https://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/)
+* To check you have understood you should be able to:
+    * Connect to your remote instance with ssh
+    * Start a tmux session
+    * Launch a process (for example `htop`) inside it
+    * Detach from the session (`CTRL+B` then type `:detach`)
+    * Kill the ssh connection
+    * Connect again
+    * `tmux attach` to your session
+    * Your process should still be here !
+
+Congratulations :)
+
 
 ## 5. Interacting with Google Cloud Storage
 
@@ -344,16 +350,17 @@ Google Cloud Platform comes with a set of services targeted at data scientists c
 Instead of using the browser to create this machine, we will be using the [CLI to create instances](https://cloud.google.com/ai-platform/deep-learning-vm/docs/cli)
 
 ```bash
-export INSTANCE_NAME="fch-dlvm-1" # RENAME THIS !!!!!!!!!!
+export INSTANCE_NAME="fch-dlvm-1" # <--- RENAME THIS !!!!!!!!!!
 
 gcloud compute instances create $INSTANCE_NAME \
         --zone="europe-west1-b" \
         --image-family="common-cpu" \
-        --image-project=deeplearning-platform-release \
-        --maintenance-policy=TERMINATE \
+        --image-project="deeplearning-platform-release" \
+        --maintenance-policy="TERMINATE" \
         --scopes="storage-rw" \
-        --machine-type="n1-standard-2" \
-        --boot-disk-size=60GB
+        --machine-type="n1-standard-1" \
+        --boot-disk-size="50GB" \
+        --boot-disk-type="pd-standard"
 ```
 
 * Notice the similarities between the first VM you created and this one,

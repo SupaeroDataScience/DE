@@ -1,4 +1,5 @@
 # Evolution of Data Management Systems
+
 ## Fundamental Concepts, Methods and Applications
 
 In this three part class, students will cover the history of data management systems, from file systems to databases to distributed cloud storage. This class is given over the length of the Data Engineering course. Questions from the first two parts are integrated into the exam on cloud computing, and questions from the Cloud DMS section are integrated into the Dask notebook evaluation.

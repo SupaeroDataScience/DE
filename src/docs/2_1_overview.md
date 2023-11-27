@@ -25,6 +25,8 @@ By the end of this module, participants will be able to:
 
 ## Program
 
+### Deployment & Intro to Orchestration (6h)
+
 ### Big Data & Distributed Computing (3h)
 
 - [Introduction to Big Data and its ecosystem (1h)](https://guillaumeeb.github.io/isae-supaero-aibt103-bigdata/01_Introduction_Big_Data.html)

@@ -31,7 +31,7 @@ revealOptions:
 
 <!--v-->
 
-#### Empowerement / access to computing power
+#### Autonomy : access to computing power
 
 - Outsourcing infra, maintenance, security, development of new services
 - Pay-per-use with "Infinitely scalable" infrastructure

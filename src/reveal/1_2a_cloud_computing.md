@@ -320,7 +320,7 @@ Scaleway is leading the charge for AI in France (& Europe)
 
 ![france](static/img/cloudshare2022.webp) <!-- .element: height="50%" width="50%" -->
 
-![source](https://www.larevuedudigital.com/le-marche-du-cloud-concentre-en-france-entre-amazon-microsoft-et-google/)
+[source](https://www.larevuedudigital.com/le-marche-du-cloud-concentre-en-france-entre-amazon-microsoft-et-google/)
 
 <!--s-->
 
