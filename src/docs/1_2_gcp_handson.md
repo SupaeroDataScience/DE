@@ -12,7 +12,7 @@
 !!! warning
     Don't forget to shutdown everything after !
 
- !!! note
+!!! note
     When the TP says to replace "{something}" with a name, don't include the brackets so write “yourname"
 
 ## 1a. Create your GCP Account
