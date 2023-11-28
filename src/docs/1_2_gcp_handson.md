@@ -295,7 +295,6 @@ See section 5.
 
 Congratulations :)
 
-
 ## 5. Interacting with Google Cloud Storage
 
 Here we will discover google cloud storage, upload some files from your computer and download them from your instance in the cloud
