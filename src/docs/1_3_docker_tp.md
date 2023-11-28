@@ -1,5 +1,9 @@
 # Docker: Hands on
 
+!!! note
+
+    If you are lost, `docker system prune` will remove dangling images and stopped containers 
+
 ## 0. How to run this ?
 
 !!! abstract
