@@ -2153,10 +2153,10 @@ publishing ports by means of the <code>-p</code> flag when using <code>$ docker 
 <p>In order to pass a config file, or data to your docker, you need to make it available to your docker. To do that, we have to <a href="https://docs.docker.com/storage/volumes/">mount volumes</a></p>
 <p>Create a dummy config file (<code>config.txt</code>) in another folder (ex: <code>config/</code>) then mount it when you run the docker:</p>
 <div class="highlight"><pre><span></span><code>docker run --rm \
-  -v /home/${USER}/configs:/home/configs \
+  -v {local path to your configs}:/home/configs \
   --workdir /home/ \
   {your image} \
-  run-config --config-file {path to your config in DOCKER, eg /home/configs/config.txt}
+  run-config --config {path to your config in DOCKER, eg /home/configs/config.txt}
 </code></pre></div>
 <p>Note that since you mounted volumes, you must pass the <strong>path in the docker</strong> to your config file for it to work</p>
 <h2 id="4-containers-registry">4. Containers Registry<a class="headerlink" href="#4-containers-registry" title="Permanent link">🔗</a></h2>
