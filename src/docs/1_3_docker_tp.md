@@ -644,10 +644,10 @@ Create a dummy config file (`config.txt`) in another folder (ex: `config/`) then
 
 ```
 docker run --rm \
-  -v /home/${USER}/configs:/home/configs \
+  -v {local path to your configs}:/home/configs \
   --workdir /home/ \
   {your image} \
-  run-config --config-file {path to your config in DOCKER, eg /home/configs/config.txt}
+  run-config --config {path to your config in DOCKER, eg /home/configs/config.txt}
 ```
 
 Note that since you mounted volumes, you must pass the **path in the docker** to your config file for it to work
