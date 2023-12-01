@@ -35,14 +35,13 @@ Data Management Systems, Uni-processor DBMS, Parallel DBMS, Data Integration Sys
     + Objectives and Parallel Architecture Models
     + Data Partitioning Strategies
     + Parallel Query Processing
-    + Motivations & Objectives
-    + Characteristics and Challenges
     + Resources:
         + [Parallel DBMS](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/Chapitre2_Intro_BDR_Paralleles_AH_Oct_2023.pdf)
         + [Parallel Queries](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/Chapitre4_Parallelisation_Requete_AH_Oct_2023.pdf)
+        + [Systems DB Parallel](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/Systemes_BD_Paralleles_Data_Eng_AH_Oct_2023.pdf)
 
 3. [From Distributed DB to Data Integration Systems DIS](1_5_distributed.md)
-    + An Ex. of DBD, Motivations & Objectives
+    + An Ex. of DDB, Motivations & Objectives
     + Designing of DDB
     + Distributed Query Processing
     + An Ex. of DIS
@@ -50,6 +49,13 @@ Data Management Systems, Uni-processor DBMS, Parallel DBMS, Data Integration Sys
     + Mediator-Adapters Architecture
     + Design of a Global Schema (GAV, LAV)
     + Query Processing Methodologies
+    + Resources:
+        + [Distributed DBMS - Chapter 1](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/DDB_Intro_MO_Big_Data_Chap1_AH.pdf)
+        + [Distributed DBMS - Chapter 2](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/IDDB_Design_MO_Big_Data_Chap2_AH.pdf)
+        + [Distributed DBMS - Chapter 3](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/IDDB_Query_Processing_MO_Big_Data_Chap3_AH.pdf)
+        + [Systems for integrating heterogeneous and distributed data](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/Systeme_integration_MO_Big_Data_Sept_2022_AH.pdf)
+        + [Integration Systems complement](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/Complements_SI_MO_Big_Data_AH.pdf)
+        + [Distributed DBMS Dec 2023](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/SGBD_Repartis_Data_Eng_AH_Dec_2023.pdf)
 
 4. [Cloud Data Management Systems CDMS](2_5_cloud.md)
     + Motivations and Objectives
@@ -59,11 +65,6 @@ Data Management Systems, Uni-processor DBMS, Parallel DBMS, Data Integration Sys
     + Comparison between Parallel RDBMS and CDMS
     + Introduction to Multi-store/Ploystore Systems
     + Resources:
-        + [Distributed DBMS - Chapter 1](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/DDB_Intro_MO_Big_Data_Chap1_AH.pdf)
-        + [Distributed DBMS - Chapter 2](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/IDDB_Design_MO_Big_Data_Chap2_AH.pdf)
-        + [Distributed DBMS - Chapter 3](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/IDDB_Query_Processing_MO_Big_Data_Chap3_AH.pdf)
-        + [Systems for integrating heterogeneous and distributed data](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/Systeme_integration_MO_Big_Data_Sept_2022_AH.pdf)
-        + [Integration Systems complement](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/Complements_SI_MO_Big_Data_AH.pdf)
         + [MapReduce examples](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/Program_Examples_MapReduce_A3_AH_Sept_2022.pdf)
 
 5. Conclusion
