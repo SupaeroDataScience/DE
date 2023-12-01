@@ -35,21 +35,22 @@ nav:
     - Lecture: 1_3_containers.md
     - TP: 1_3_docker_tp.md
   - Google Cloud and Docker BE: 1_4_be.md
-  - Distributed DBMS: 1_5_distributed.md
-  - Conclusion: 1_6_conclusion.md
+  - Recap Cloud & Docker: 1_5_conclusion.md
+  - Distributed DBMS: 1_6_distributed.md
   - Reading List: 1_7_readings.md
 - Data Distribution:
   - Introduction: 2_1_overview.md
-  - Deployment & Orchestration:
-    - Lectures: 1_5_deployment.md
-    - TP - Your ML model into production: 1_5_deployment_tp.md
-    - TP - Intro to k8s: 1_5_kub_intro.md
-  - Functional Programming: 2_2_functional.md
-  - Hadoop and MapReduce: 2_3_mapreduce.md
-  - Spark: 2_4_spark.md
-  - Cloud DBMS: 2_5_cloud.md
-  - Dask on Kubernetes: 2_5_dask.md
-  - Dask project: 2_6_project.md
+  - Deployment:
+    - Lectures: 2_2_deployment.md
+    - TP: 2_2_deployment_tp.md
+  - Kubernetes:
+    - TP: 2_3_kub_intro.md
+  - Functional Programming: 2_4_functional.md
+  - Hadoop and MapReduce: 2_5_mapreduce.md
+  - Spark: 2_6_spark.md
+  - Cloud DBMS: 2_7_cloud.md
+  - Dask on Kubernetes: 2_8_dask.md
+  - Dask project: 2_9_project.md
 
 markdown_extensions:
 - markdown.extensions.codehilite:

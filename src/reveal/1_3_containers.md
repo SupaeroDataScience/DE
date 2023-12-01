@@ -21,9 +21,10 @@ revealOptions:
 
 ### Outline
 
-* **Presentation** (30m)
-* **Self-paced Workshop** (1h30)
-* To be continued with Orchestration & Deployment (next Tuesday)
+* **Presentation** (45m)
+* **Self-paced Workshop** (2h15)
+* BE Cloud & Docker (23/11)
+* To be continued with Orchestration & Deployment (08/01)
 
 <!--v-->
 
@@ -202,6 +203,12 @@ https://www.youtube.com/c/AurelieVache/videos
 
 <!--v-->
 
+#### Multiple Components
+
+![workflows](https://ml-ops.org/img/mlops-phasen.jpg) <!-- .element: height="40%" width="40%" -->
+
+<!--v-->
+
 #### Data Science is about reproducibility
 
 * Experimental science
@@ -222,6 +229,12 @@ https://www.youtube.com/c/AurelieVache/videos
 
 <!--v-->
 
+Codespace is actally a container...
+
+![codespace](https://docs.github.com/assets/cb-171798/mw-1440/images/help/codespaces/configure-dev-container.webp)
+
+<!--v-->
+
 [Netflix and notebook scheduling](https://medium.com/netflix-techblog/scheduling-notebooks-348e6c14cfd6)
 
 <img src="https://miro.medium.com/max/1229/0*byeqo-pBXVPU6xjq" alt="" style="width: 60%; height: 60%; background:none; border:none; box-shadow:none;"/>
@@ -232,18 +245,25 @@ https://www.kubeflow.org/
 
 ![kubeflow](https://miro.medium.com/max/2446/1*ZQsFV3o1c3Amu26Z-IEd7w.png) <!-- .element: height="55%" width="55%" -->
 
+<!--v-->
+
+https://polyaxon.com/
+
+![polyaxon](static/img/polyaxon.png) <!-- .element: height="55%" width="55%" -->
+
 <!--s-->
 
 ### Using Docker in practice
 
-![](static/img/docker-jworkflow.jpg)
+![workflow](static/img/docker-jworkflow.jpg)
 
 <!--v-->
 
 #### Vocabulary of Docker
 
 * **Layer**: Set of read-only files to provision the system
-* **Image**: Read-Only layer "snapshot" (or blueprint) of an environment. Can inherit from another **Image**. Image have a *name* and a *tag*
+* **Image**: Read-Only layer "snapshot" (or blueprint) of an environment. 
+* **Images**: can inherit from other **Images**. Images must have a *name* and a *tag*
 * **Container**: Read-Write instance of an **Image**
 * **DockerFile**: Description of the process used to build an Image
 * **Container Registry**: Repository of Docker Images
@@ -260,6 +280,12 @@ https://www.kubeflow.org/
 #### Layers, Container, Image
 
 ![layers](https://jfrog--c.documentforce.com/servlet/servlet.ImageServer?id=0151r000006uDeN&oid=00D20000000M3v0&lastMod=1584629516000) <!-- .element: height="45%" width="45%" -->
+
+<!--v-->
+
+#### Image
+
+![docker-image-layers](https://bernhardwenzel.com/images/posts/2022/image-layers.jpg)
 
 <!--v-->
 
@@ -293,6 +319,12 @@ container = NewImage(a=0,b=1)
 
 <!--v-->
 
+#### Layer / Image Analogy
+
+![analogy](static/img/docker_analogy.png) <!-- .element: height="40%" width="40%" -->
+
+<!--v-->
+
 #### Dockerfile
 
 * Used to build Images
@@ -322,7 +354,7 @@ docker run my-image
 
 #### Architecture
 
-![](https://docs.docker.com/engine/images/architecture.svg)
+![architecture](static/img/docker-architecture.webp)
 
 <!--v-->
 
@@ -378,9 +410,17 @@ services:
 
 <!--v-->
 
-#### REMEMBER THIS !!!
+#### Remember this !
 
 ![docker](static/img/buildshiprun.png)
+
+<!--v-->
+
+### An analogy...
+
+![workflow](static/img/container-shipping-docker.jpg)
+
+[https://bernhardwenzel.com/2022/the-mental-model-of-docker-container-shipping/](https://bernhardwenzel.com/2022/the-mental-model-of-docker-container-shipping/)
 
 <!--s-->
 
@@ -420,7 +460,11 @@ services:
 
 <!--v-->
 
-![cheatsheet](https://jrebel.com/wp-content/uploads/2016/03/Docker-cheat-sheet-by-RebelLabs.png)
+![cheatsheet](static/img/docker_cheat_sheet.png) <!-- .element: height="60%" width="60%" -->
+
+<!--v-->
+
+![cheatsheet](static/img/docker_cheat_sheet2.png)  <!-- .element: height="60%" width="60%" -->
 
 <!--v-->
 
@@ -448,19 +492,22 @@ docker run my-image
 
 #### Images
 
-    "docker search" sur un registry
-        public (DokerHub)
-        privé (entreprise)
-    "docker build" à partir d'un Dockerfile
-    "docker commit" sur un conteneur modifié
-    "docker import" d'une arbo de base :
-    
-    cat centos6-base.tar | docker import - centos6-base
+```text
+"docker search" sur un registry
+    public (DokerHub)
+    privé (entreprise)
+"docker build" à partir d'un Dockerfile
+"docker commit" sur un conteneur modifié
+"docker import" d'une arbo de base :
+
+cat centos6-base.tar | docker import - centos6-base
+```
 
 <!--v-->
 
 #### Docker CLI
 
+```text
     docker create   : crée un conteneur
     docker run      : crée et démarre un conteneur
     docker stop     : arrête un conteneur
@@ -470,16 +517,19 @@ docker run my-image
     docker kill     : envoie un SIGKILL au conteneur
     docker attach   : se connecte à un conteneur en exécution 
     docker exec     : exécute une cmd dans un conteneur
+```
 
 <!--v-->
 
 #### Docker run
 
-    -d, --detach       Run container in background and print ID
-    -e, --env=[]       Set environment variables
-    -i, --interactive  Keep STDIN open even if not attached
-    -p, --publish=[]   Publish a container's port(s) to the host
-    --rm        5_orchestration       Automatically rm container when it exits
-    -t, --tty          Allocate a pseudo-TTY
-    -v, --volume=[]    Bind mount a volume
-    -w, --workdir      Working directory inside the container
+```text
+-d, --detach       Run container in background and print ID
+-e, --env=[]       Set environment variables
+-i, --interactive  Keep STDIN open even if not attached
+-p, --publish=[]   Publish a container's port(s) to the host
+--rm        5_orchestration       Automatically rm container when it exits
+-t, --tty          Allocate a pseudo-TTY
+-v, --volume=[]    Bind mount a volume
+-w, --workdir      Working directory inside the container
+```

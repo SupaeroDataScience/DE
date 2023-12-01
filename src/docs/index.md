@@ -62,12 +62,13 @@ Exam | 2h | 19/12/2023 |
 
 | Data Distribution | | | Readings |
 | --- | --- | --- | --- |
-| [Orchestration](1_5_deployment.md) | 3h | 08/01/2024 | [Readings](1_7_readings.md#about-orchestration) |
-| [Deployment TP](1_5_deployment_tp.md) | 3h | 09/01/2024 | [Readings](1_7_readings.md#about-orchestration) |
-| [Hadoop and MapReduce](2_3_mapreduce.md) | 3h | 16/01/2024 | [MapReduce](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/mapreduce.pdf) |
-| [Spark](2_4_spark.md) | 4h | 17/01/2024 | [Spark](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/spark.pdf) [PySpark](https://spark.apache.org/docs/latest/api/python/pyspark.html) |
-| [Cloud DBMS](2_5_cloud.md) | 3h | 04/12/2023 | 
-| [Dask](2_5_dask.md)| 3h | 13/02/2024 | [Dask documentation](https://docs.dask.org/en/latest/setup/kubernetes.html) |
-| [Dask project](2_6_project.md) | 3h | 13/02/2024 | [Dask](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/dask.pdf) |
+| [Deployment & Intro to Kubernetes](2_2_deployment.md) & [TP](2_2_deployment_tp.md) | 3h | 08/01/2024 | [Readings](1_7_readings.md#about-orchestration) |
+| [TP Kubernetes](2_3_kub_intro.md) | 3h | 09/01/2024 | [Readings](1_7_readings.md#about-orchestration) |
+| [Functional Programming](2_4_mapreduce.md) | 3h | 16/01/2024 |  |
+| [Hadoop and MapReduce](2_5_mapreduce.md) | 3h | 16/01/2024 | [MapReduce](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/mapreduce.pdf) |
+| [Spark](2_6_spark.md) | 4h | 17/01/2024 | [Spark](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/spark.pdf) [PySpark](https://spark.apache.org/docs/latest/api/python/pyspark.html) |
+| [Cloud DBMS](2_7_cloud.md) | 3h | 04/12/2023 | 
+| [Dask](2_8_dask.md)| 3h | 13/02/2024 | [Dask documentation](https://docs.dask.org/en/latest/setup/kubernetes.html) |
+| [Dask project](2_9_project.md) | 3h | 13/02/2024 | [Dask](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/dask.pdf) |
 
 

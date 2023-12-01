@@ -21,7 +21,7 @@ revealOptions:
 
 ### What is the Cloud ?
 
-![cloud](https://imgs.xkcd.com/comics/the_cloud.png)
+<img src="https://imgs.xkcd.com/comics/the_cloud.png" alt="xkcd" width="75%" height="50%" style="background:none; border:none; box-shadow:none;"/>
 
 <!--v-->
 
@@ -108,27 +108,29 @@ Hardware visualisation: Server Example
 
 <!--v-->
 
-![](https://miro.medium.com/max/10698/1*wE7TrQmFyRTDwh6VpbkbMQ.png)
+![vritualization](https://miro.medium.com/max/10698/1*wE7TrQmFyRTDwh6VpbkbMQ.png)
 
 <!--v-->
 
 #### Definitions
 
-- Hypervisor (VMWare, Virtualbox, KVM): A hypervisor is a program for creating and running virtual machines.
-- Virtual Machine: A virtual machine is the emulated equivalent of a computer system that runs on top of another system
-- Containers: Isolated environments that share the same underlying OS (more this afternoon) & resources
+**Hypervisor** : A program for creating and running virtual machines. 
+
+**Virtual Machine**: The emulated equivalent of a computer system that runs on top of another system
+
+**Containers**: Isolated environments that share the same underlying OS & resources
 
 <!--v-->
 
 #### Hypervisor : KVM example (Kernel Virtual Machine)
 
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Kernel-based_Virtual_Machine.svg/400px-Kernel-based_Virtual_Machine.svg.png)
+![kvm](https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Kernel-based_Virtual_Machine.svg/400px-Kernel-based_Virtual_Machine.svg.png)
 
 <!--v-->
 
-#### Nested Hypervisors : Google COmpute Engine
+#### Nested Hypervisors : Google Compute Engine
 
-![](https://cloud.google.com/compute/images/nested-virtualization-diagram.svg)
+![gce](https://cloud.google.com/compute/images/nested-virtualization-diagram.svg)
 
 <!--v-->
 
@@ -158,7 +160,7 @@ Clarke Third Law
 
 ### Where does it come from ?
 
-![](https://blog.scottlogic.com/dsmith/assets/featured/aws-logo.png)
+![aws](https://blog.scottlogic.com/dsmith/assets/featured/aws-logo.png)
 
 <!--v-->
 
@@ -166,7 +168,7 @@ Once upon a time...
 
 Amazon (the e-commerce store) has "scaling" issues
 
-![](https://cdn.chiefmartec.com/wp-content/uploads/2016/11/jeff_bezos_big_mandate.jpg)
+![aws](https://cdn.chiefmartec.com/wp-content/uploads/2016/11/jeff_bezos_big_mandate.jpg)
 
 <!--v-->
 
@@ -189,19 +191,19 @@ http://blog.b3k.us/2009/01/25/ec2-origins.html
 
 Let's sell it !
 
-![](static/img/ec2.png)
+![aws](static/img/ec2.png)
 
 <!--v-->
 
 #### How does Amazon can offer free shipping to everybody
 
-![](https://cdn.geekwire.com/wp-content/uploads/2016/10/amznwoaws-630x369.png)
+<img src="static/img/aws_fuel.png" alt="" width="60%" height="60%" style="background:none; border:none; box-shadow:none;"/>
 
 <!--v-->
 
 #### How does Amazon can offer free shipping to everybody
 
-![](https://image.cnbcfm.com/api/v1/image/106834258-1612301202728-20210202_aws_revenue_growth.png?v=1612301235)
+<img src="static/img/aws_growth.png" alt="" width="60%" height="60%" style="background:none; border:none; box-shadow:none;"/>
 
 <!--s-->
 
@@ -217,15 +219,15 @@ Hybrid Cloud ? Private Cloud ? Public Cloud ?
 
 Cloud providers are offering services with increasing layers of abstraction...
 
-**I**nfrastructure **a**s **a** **S**ervice (IaaS)
-
-**P**latform **a**s **a** **S**ervice (PaaS)
-
-**S**oftware **a**s **a** **S**ervice (SaaS)
+![cloud](https://miro.medium.com/max/541/1*Ktb-8ccVdwGSUkf_2trstA.jpeg) <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 
-Examples
+<img src="https://blogs.bmc.com/wp-content/uploads/2017/09/saas-vs-paas-vs-iaas.png" alt="" width="50%" height="50%" style="background:none; border:none; box-shadow:none;"/>
+
+<!--v-->
+
+#### Examples
 
 - Renting a server with hard drive and storing data
 - Using data storage service like google cloud storage without managing the infrastructure
@@ -233,7 +235,7 @@ Examples
 
 <!--v-->
 
-Examples
+#### Examples
 
 - Renting a server with hard drive and storing data **IaaS**
 - Using data storage service like google cloud storage without managing the infrastructure **PaaS**
@@ -241,7 +243,22 @@ Examples
 
 <!--v-->
 
-<img src="https://blogs.bmc.com/wp-content/uploads/2017/09/saas-vs-paas-vs-iaas.png" alt="" width="50%" height="50%" style="background:none; border:none; box-shadow:none;"/>
+#### Examples
+
+- Renting a GPU farm to deploy your Large Language Model and serve it **IaaS**
+- Using the HuggingFace API to serve predictions from your model **PaaS**
+- Using ChatGPT **SaaS**
+
+<!--v-->
+
+#### It gets harder
+
+![cloud](https://lh3.googleusercontent.com/Zpw-v4ZOiAkbLm9ARSl68tGaZFYsFsz1ABwRbl8Cj_ozj12jCTPmgVGKBARz3Xwum1CUsMQ7Hog=e14-rj-sc0xffffff-h2000-w2000)  <!-- .element: height="50%" width="50%" -->
+
+<!--v-->
+
+![cloud](https://www.catapultsystems.com/wp-content/uploads/2020/03/pizza-model-vert.jpeg)  <!-- .element: height="50%" width="50%" -->
+
 
 <!--s-->
 
@@ -249,7 +266,17 @@ Examples
 
 <!--v-->
 
-![cloud_vendors](https://yogeek.github.io/enseignement/Introduction_Virtualisation_CloudComputing/img/cloud_vendors.jpg)
+![cloud_vendors](https://yogeek.github.io/enseignement/Introduction_Virtualisation_CloudComputing/img/cloud_vendors.jpg)  <!-- .element: height="50%" width="50%" -->
+
+<!--v-->
+
+AI Cloud Providers
+
+![paperspace](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*vuacjjmtbLQEoXoIbbFVNQ.png)  <!-- .element: height="50%" width="50%" -->
+
+- https://www.paperspace.com/core
+- https://lambdalabs.com/
+- https://huggingface.co/hardware
 
 <!--v-->
 
@@ -265,6 +292,8 @@ Examples
 
 OVH went public in 2021
 
+Scaleway is leading the charge for AI in France (& Europe)
+
 <!--v-->
 
 🐓🧀🐸🇫🇷
@@ -273,15 +302,15 @@ OVH went public in 2021
 
 [OVH x Google Cloud](https://corporate.ovhcloud.com/fr/newsroom/news/ovhcloud-and-google-cloud-announce-strategic-partnership-co-build-trusted-cloud-solution-europe/)
 
+[Scaleway et l'IA](https://www.lemonde.fr/economie/article/2023/09/26/xavier-niel-annonce-des-investissements-strategiques-dans-l-ia_6191008_3234.html)
+
 <!--v-->
 
-🇪🇺
+🇪🇺 GAIA-X : Cloud Federation in Europe
 
-Cloud Federation in Europe
+[https://www.data-infrastructure.eu/GAIAX/](https://www.data-infrastructure.eu/GAIAX/)
 
-![gaiax](https://www.data-infrastructure.eu/GAIAX/Redaktion/EN/Bilder/gaia-x.jpg?__blob=normal&v=1&size=834w)
-
-https://www.data-infrastructure.eu/GAIAX/
+[https://www.contexte.com/article/tech/gaia-x-souverainete-cloud_150712.html](https://www.contexte.com/article/tech/gaia-x-souverainete-cloud_150712.html)
 
 <!--v-->
 
@@ -289,9 +318,9 @@ https://www.data-infrastructure.eu/GAIAX/
 
 <!--v-->
 
-![france](https://www.larevuedudigital.com/wp-content/uploads/2022/05/Parts-de-marche-Cloud-2021-2-BFXX.jpg)
+![france](static/img/cloudshare2022.webp) <!-- .element: height="50%" width="50%" -->
 
-https://www.larevuedudigital.com/le-marche-du-cloud-concentre-en-france-entre-amazon-microsoft-et-google/
+[source](https://www.larevuedudigital.com/le-marche-du-cloud-concentre-en-france-entre-amazon-microsoft-et-google/)
 
 <!--s-->
 

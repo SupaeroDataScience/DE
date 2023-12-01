@@ -1,4 +1,4 @@
-# Recap' & Conclusion
+# Recap'
 
 [Link to slides](slides/1_8_conclusion.html)
 
