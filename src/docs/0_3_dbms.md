@@ -40,7 +40,7 @@ Data Management Systems, Uni-processor DBMS, Parallel DBMS, Data Integration Sys
         + [Parallel Queries](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/Chapitre4_Parallelisation_Requete_AH_Oct_2023.pdf)
         + [Systems DB Parallel](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/Systemes_BD_Paralleles_Data_Eng_AH_Oct_2023.pdf)
 
-3. [From Distributed DB to Data Integration Systems DIS](1_5_distributed.md)
+3. [From Distributed DB to Data Integration Systems DIS](1_6_distributed.md)
     + An Ex. of DDB, Motivations & Objectives
     + Designing of DDB
     + Distributed Query Processing
@@ -57,7 +57,7 @@ Data Management Systems, Uni-processor DBMS, Parallel DBMS, Data Integration Sys
         + [Integration Systems complement](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/Complements_SI_MO_Big_Data_AH.pdf)
         + [Distributed DBMS Dec 2023](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/SGBD_Repartis_Data_Eng_AH_Dec_2023.pdf)
 
-4. [Cloud Data Management Systems CDMS](2_5_cloud.md)
+4. [Cloud Data Management Systems CDMS](2_7_cloud.md)
     + Motivations and Objectives
     + Main Characteristics of Big Data and CDMS
     + Classification of Cloud Data Management Systems CDMS
