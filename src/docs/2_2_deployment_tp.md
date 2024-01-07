@@ -87,7 +87,7 @@ Nous allons lancer cette application,
 
 Rendez-vous sur le port 8501 de votre github codespace, 
 
-![streamlit](slides/static/img/companion.png)
+![streamlit](slides/static/img/companionapp.png)
 
 La première étape est de renseigner l'adresse (URL) du backend. Pour tester que vous arrivez bien à joindre le serveur, cliquez sur le bouton "IS ALIVE". Ce bouton (voir code dans `app.py`) envoie une requête à la route /health pour vérifier que le serveur est vivant.
 
