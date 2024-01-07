@@ -1,5 +1,5 @@
 ---
-title: Orchestration (intro)
+title: Intro to Orchestration
 theme: evo
 highlightTheme: vs
 separator: <!--s-->
@@ -33,6 +33,12 @@ Suppose I have a large pool of machines available
 * How do I **expose the http endpoints ?** <!-- .element: class="fragment" data-fragment-index="4" -->
 * How do I **manage failure of containers ?** <!-- .element: class="fragment" data-fragment-index="5" -->
 * How do I **update my model without downtime** <!-- .element: class="fragment" data-fragment-index="6" -->
+
+<!--v-->
+
+### In reality, it's much more complex...
+
+![](static/img/modelserving_complex.png)  <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 

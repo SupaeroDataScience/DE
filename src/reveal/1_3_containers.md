@@ -229,9 +229,27 @@ https://www.youtube.com/c/AurelieVache/videos
 
 <!--v-->
 
+Reproducible development environment
+
+![](https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img/https://godatadriven.com/wp-content/uploads/2022/10/devcontainer-overview-4.png)  <!-- .element: height="55%" width="55%" -->
+
+<!--v-->
+
 Codespace is actally a container...
 
 ![codespace](https://docs.github.com/assets/cb-171798/mw-1440/images/help/codespaces/configure-dev-container.webp)
+
+<!--v-->
+
+Reproducible development environment [at scale](https://medium.com/netflix-techblog/scheduling-notebooks-348e6c14cfd6) !
+
+![netflix](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*WOEEJizYnO8ibtU2l9jWbA.jpeg)
+
+<!--v-->
+
+[Netflix and notebook scheduling](https://medium.com/netflix-techblog/scheduling-notebooks-348e6c14cfd6)
+
+![netflix](https://miro.medium.com/v2/resize:fit:1400/0*058TIxB_YEFxmUDy)  <!-- .element: height="55%" width="55%" -->
 
 <!--v-->
 

@@ -43,6 +43,7 @@ nav:
   - Deployment:
     - Lectures: 2_2_deployment.md
     - TP: 2_2_deployment_tp.md
+    - TP (Version Longue): 2_2_deployment_tp_long.md
   - Kubernetes:
     - TP: 2_3_kub_intro.md
   - Functional Programming: 2_4_functional.md

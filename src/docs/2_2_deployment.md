@@ -1,19 +1,19 @@
 # Intro to MLOPs & Deployment
 
-## Intro to MLOPs & Deployment
+## Intro to Deployment
 
-[Link to slides](slides/1_5a_mlops_deployment.html)
+[Link to slides](slides/2_2a_deployment.html)
 
 <iframe
-  src="slides/1_5a_mlops_deployment.html"
+  src="slides/2_2a_deployment.html"
   style="width:100%; height:600px;"
 ></iframe>
 
 ## Intro to Orchestration
 
-[Link to slides](slides/1_5b_orchestration.html)
+[Link to slides](slides/2_2b_orchestration.html)
 
 <iframe
-  src="slides/1_5b_orchestration.html"
+  src="slides/2_2b_orchestration.html"
   style="width:100%; height:600px;"
 ></iframe>
