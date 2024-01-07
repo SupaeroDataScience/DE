@@ -1358,7 +1358,7 @@
 <p>Nous allons lancer cette application,</p>
 <p><code>docker run --rm -p 8501:8501 --network="host" eu.gcr.io/third-ridge-138414/yolo-v5-streamlit:1.5</code></p>
 <p>Rendez-vous sur le port 8501 de votre github codespace, </p>
-<p><img alt="streamlit" src="slides/static/img/companion.png" /></p>
+<p><img alt="streamlit" src="slides/static/img/companionapp.png" /></p>
 <p>La première étape est de renseigner l'adresse (URL) du backend. Pour tester que vous arrivez bien à joindre le serveur, cliquez sur le bouton "IS ALIVE". Ce bouton (voir code dans <code>app.py</code>) envoie une requête à la route /health pour vérifier que le serveur est vivant.</p>
 <p>Par défaut, l'URL du serveur est <code>http://localhost:8000</code> ce qui semble correct car nous avons ouvert un docker sur le port 8000.</p>
 <p>Vous pouvez maintenant tester le serveur, et s'il marche, uploader une image de votre choix avec le bouton upload puis lancer une prédiction. Cela va uploader l'image dans le frontend, puis envoyer une requête POST à <code>http://url-du-serveur/predict</code> puis récupérer les résultats (le <code>json</code>) et l'interpréter correctement.</p>
