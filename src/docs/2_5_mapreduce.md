@@ -4,6 +4,8 @@ In this class, we start with an overview of the Big Data ecosystem,
 contextualizing Hadoop, No-SQL Databases, and Business Intelligence tools. We
 then cover Hadoop and the HDFS in detail with a simple MapReduce example.
 
+[Slides](https://cnes.github.io/big-data-processing-course/00_OBD_Course_Introduction.html#/big-data-distributed-computing-3h )
+
 - [Introduction to Big Data and its ecosystem (1h)](https://guillaumeeb.github.io/isae-supaero-aibt103-bigdata/01_Introduction_Big_Data.html)
   - What is Big Data?
   - Legacy “Big Data” ecosystem
