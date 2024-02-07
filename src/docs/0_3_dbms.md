@@ -65,6 +65,7 @@ Data Management Systems, Uni-processor DBMS, Parallel DBMS, Data Integration Sys
     + Comparison between Parallel RDBMS and CDMS
     + Introduction to Multi-store/Ploystore Systems
     + Resources:
+        + [Cloud Systems](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/Cours_Data_Eng_A3_Cloud_Data_MS_FV_6_Feb_2024_AH.pdf)
         + [MapReduce examples](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/Program_Examples_MapReduce_A3_AH_Sept_2022.pdf)
 
 5. Conclusion
