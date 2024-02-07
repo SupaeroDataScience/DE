@@ -2,127 +2,127 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://supaerodatascience.github.io/DE/index.html</loc>
-         <lastmod>2024-02-06</lastmod>
+         <lastmod>2024-02-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://supaerodatascience.github.io/DE/0_1_databases.html</loc>
-         <lastmod>2024-02-06</lastmod>
+         <lastmod>2024-02-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://supaerodatascience.github.io/DE/0_2_postgres.html</loc>
-         <lastmod>2024-02-06</lastmod>
+         <lastmod>2024-02-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://supaerodatascience.github.io/DE/0_3_dbms.html</loc>
-         <lastmod>2024-02-06</lastmod>
+         <lastmod>2024-02-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://supaerodatascience.github.io/DE/0_3_project.html</loc>
-         <lastmod>2024-02-06</lastmod>
+         <lastmod>2024-02-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://supaerodatascience.github.io/DE/1_1_overview.html</loc>
-         <lastmod>2024-02-06</lastmod>
+         <lastmod>2024-02-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://supaerodatascience.github.io/DE/1_2_cloud.html</loc>
-         <lastmod>2024-02-06</lastmod>
+         <lastmod>2024-02-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://supaerodatascience.github.io/DE/1_2_gcp_handson.html</loc>
-         <lastmod>2024-02-06</lastmod>
+         <lastmod>2024-02-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://supaerodatascience.github.io/DE/1_3_containers.html</loc>
-         <lastmod>2024-02-06</lastmod>
+         <lastmod>2024-02-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://supaerodatascience.github.io/DE/1_3_docker_tp.html</loc>
-         <lastmod>2024-02-06</lastmod>
+         <lastmod>2024-02-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://supaerodatascience.github.io/DE/1_4_be.html</loc>
-         <lastmod>2024-02-06</lastmod>
+         <lastmod>2024-02-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://supaerodatascience.github.io/DE/1_5_conclusion.html</loc>
-         <lastmod>2024-02-06</lastmod>
+         <lastmod>2024-02-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://supaerodatascience.github.io/DE/1_6_distributed.html</loc>
-         <lastmod>2024-02-06</lastmod>
+         <lastmod>2024-02-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://supaerodatascience.github.io/DE/1_7_readings.html</loc>
-         <lastmod>2024-02-06</lastmod>
+         <lastmod>2024-02-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://supaerodatascience.github.io/DE/2_1_overview.html</loc>
-         <lastmod>2024-02-06</lastmod>
+         <lastmod>2024-02-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://supaerodatascience.github.io/DE/2_2_deployment.html</loc>
-         <lastmod>2024-02-06</lastmod>
+         <lastmod>2024-02-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://supaerodatascience.github.io/DE/2_2_deployment_tp.html</loc>
-         <lastmod>2024-02-06</lastmod>
+         <lastmod>2024-02-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://supaerodatascience.github.io/DE/2_2_deployment_tp_long.html</loc>
-         <lastmod>2024-02-06</lastmod>
+         <lastmod>2024-02-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://supaerodatascience.github.io/DE/2_3_kub_intro.html</loc>
-         <lastmod>2024-02-06</lastmod>
+         <lastmod>2024-02-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://supaerodatascience.github.io/DE/2_4_functional.html</loc>
-         <lastmod>2024-02-06</lastmod>
+         <lastmod>2024-02-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://supaerodatascience.github.io/DE/2_5_mapreduce.html</loc>
-         <lastmod>2024-02-06</lastmod>
+         <lastmod>2024-02-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://supaerodatascience.github.io/DE/2_6_spark.html</loc>
-         <lastmod>2024-02-06</lastmod>
+         <lastmod>2024-02-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://supaerodatascience.github.io/DE/2_7_cloud.html</loc>
-         <lastmod>2024-02-06</lastmod>
+         <lastmod>2024-02-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://supaerodatascience.github.io/DE/2_8_dask.html</loc>
-         <lastmod>2024-02-06</lastmod>
+         <lastmod>2024-02-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://supaerodatascience.github.io/DE/2_9_project.html</loc>
-         <lastmod>2024-02-06</lastmod>
+         <lastmod>2024-02-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
