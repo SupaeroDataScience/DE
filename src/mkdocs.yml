@@ -22,6 +22,8 @@ repo_url: https://github.com/SupaeroDataScience/DE
 nav:
 - Overview:
   - Syllabus: index.md
+- DE Fundamentals:
+  - CTF: ctf.md
 - Data Storage:
   - SQL: 0_1_databases.md
   - PostgreSQL: 0_2_postgres.md

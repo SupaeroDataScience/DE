@@ -21,53 +21,31 @@ classes.
 
 ## Class structure
 
-The class is structured in three parts:
+The class is structured in four parts:
+
+### Data engineering fundamentals
+
+In this primer class, students will cover the basics of Linux command line
+usage, git, ssh, and data manipulation in python. The format of this class is
+an interactive capture-the-flag event.
 
 ### Data storage
 
-  In the first 10 hours of the course, the history of data storage from single
-  databased management systems to distributed filesystems will be presented. For
-  evaluation, students will install and manipulate data in PostgreSQL.
+This module covers Database Management Systems with a focus on SQL systems. For
+evaluation, students will install and manipulate data in PostgreSQL and MongoDB
+and compare the two systems.
   
 ### Data computation
 
-  20 hours on the computing platforms used in the data ecosystem. We will
-  briefly cover cluster computing and then go in depth on cloud computing, using
-  Google Cloud Platform as an example. Finally, a class on GPU computing will be
-  given in coordination with the deep learning section of the AML class.
+A technical overview of the computing platforms used in the data ecosystem.
+We will briefly cover cluster computing and then go in depth on cloud
+computing, using Google Cloud Platform as an example. Finally, a class on GPU
+computing will be given in coordination with the deep learning section of the
+AML class.
 
 ### Data distribution
 
-  20 hours on the distribution of data, with a focus on distributed programming
-  models. We will introduce functional programming and MapReduce, then use these
-  concepts in a practical session on Spark. Finally, students will do a graded
-  exercise with Dask.
-
-## Class schedule
-
-Data Storage | | | Readings |
---- | --- | --- | ---
-[SQL](0_1_databases.md) | 3h | 18/09/2023 | [Databases introduction (fr)](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/bdd.pdf)
-[PostgeSQL](0_2_postgres.md) | 3h | 25/09/2023 | [PostgeSQL](https://www.postgresql.org/docs/manuals/)
-[Parallel DBMS](0_3_dbms.md) | 4h | 04/10/2023 |
-
-Data Computation | | | Readings |
---- | --- | --- | ---
-[Cloud Computing](1_2_cloud.md) | 3h | 21/11/2023 | [Readings](1_7_readings.md#about-cloud-computing) |
-[Containers](1_3_containers.md) | 3h | 28/11/2023 | [Readings](1_7_readings.md#about-containers)
-[Cloud Compute BE](1_4_be.md) | 3h | 29/11/2023 | 
-[Distributed DBMS](1_5_distributed.md) | 3h | 04/12/2023 | 
-GPU computing | 6h | 13/12/2023 |
-Exam | 2h | 19/12/2023 |
-
-| Data Distribution | | | Readings |
-| --- | --- | --- | --- |
-| [Deployment & Intro to Kubernetes](2_2_deployment.md) & [TP](2_2_deployment_tp.md) | 3h | 08/01/2024 | [Readings](1_7_readings.md#about-orchestration) |
-| [TP Kubernetes](2_3_kub_intro.md) | 3h | 09/01/2024 | [Readings](1_7_readings.md#about-orchestration) |
-| [Hadoop and MapReduce](2_5_mapreduce.md) | 3h | 16/01/2024 | [MapReduce](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/mapreduce.pdf) |
-| [Spark](2_6_spark.md) | 2h | 22/01/2024 | [Spark](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/spark.pdf) [PySpark](https://spark.apache.org/docs/latest/api/python/pyspark.html) |
-| [Dask](2_8_dask.md)| 2h | 22/02/2024 | [Dask documentation](https://docs.dask.org/en/latest/setup/kubernetes.html) |
-| [Cloud DBMS](2_7_cloud.md) | 3h | 06/02/2023 |
-| [Dask project](2_9_project.md) | 6h | 13/02/2024 | [Dask](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/dask.pdf) |
-
-
+In the final module, we cover the distribution of data, with a focus on
+distributed programming models. We will introduce functional programming and
+MapReduce, then use these concepts in a practical session on Spark. Finally,
+students will do a graded exercise with Dask.
