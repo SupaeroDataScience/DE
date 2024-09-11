@@ -1,0 +1,1818 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Data Engineering class at ISAE-Supaero as part of the SDD program">
+      
+      
+      
+        <link rel="canonical" href="https://supaerodatascience.github.io/DE/ctf.html">
+      
+      
+        <link rel="prev" href="index.html">
+      
+      
+        <link rel="next" href="0_1_databases.html">
+      
+      
+      <link rel="icon" href="https://raw.githubusercontent.com/SupaeroDataScience/DE/master/src/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
+    
+    
+      
+        <title>CTF - Data Engineering</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.35f28582.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#data-engineering-fundamentals-capture-the-flag" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="Data Engineering" class="md-header__button md-logo" aria-label="Data Engineering" data-md-component="logo">
+      
+  <img src="https://raw.githubusercontent.com/SupaeroDataScience/DE/master/src/favicon.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Data Engineering
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CTF
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/SupaeroDataScience/DE" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    SupaeroDataScience/DE
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Data Engineering" class="md-nav__button md-logo" aria-label="Data Engineering" data-md-component="logo">
+      
+  <img src="https://raw.githubusercontent.com/SupaeroDataScience/DE/master/src/favicon.ico" alt="logo">
+
+    </a>
+    Data Engineering
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/SupaeroDataScience/DE" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    SupaeroDataScience/DE
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Overview
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Syllabus
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    DE Fundamentals
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            DE Fundamentals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    CTF
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="ctf.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    CTF
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Linux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation-on-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation on Windows
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#submission" class="md-nav__link">
+    <span class="md-ellipsis">
+      Submission
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-submission" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python Submission
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bash-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bash Resources
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Git">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git Resources
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git Exercise
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSH
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SSH">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssh-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSH Resources
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux tools
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Linux tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linux-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux Resources
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jupyter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Jupyter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python Resources
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Data Storage
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Data Storage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="0_1_databases.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="0_2_postgres.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PostgreSQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="0_3_dbms.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Parallel DBMS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Data Computation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Data Computation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_1_overview.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cloud Computing
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Cloud Computing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_2_cloud.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lectures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_2_gcp_handson.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Containers, Docker
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Containers, Docker
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_3_containers.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_3_docker_tp.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_4_be.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Google Cloud and Docker BE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_5_conclusion.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recap Cloud & Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_6_distributed.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Distributed DBMS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_7_readings.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reading List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Data Distribution
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Data Distribution
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2_1_overview.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Deployment
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Deployment
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2_2_deployment.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lectures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2_2_deployment_tp.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2_2_deployment_tp_long.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP (Version Longue)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Kubernetes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            Kubernetes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2_3_kub_intro.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2_4_functional.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Functional Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2_5_mapreduce.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hadoop and MapReduce
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2_6_spark.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spark
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2_7_cloud.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cloud DBMS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2_8_dask.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dask on Kubernetes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2_9_project.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dask project
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Linux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation-on-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation on Windows
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#submission" class="md-nav__link">
+    <span class="md-ellipsis">
+      Submission
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-submission" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python Submission
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bash-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bash Resources
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Git">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git Resources
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git Exercise
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSH
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SSH">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssh-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSH Resources
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux tools
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Linux tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linux-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux Resources
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jupyter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Jupyter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python Resources
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="data-engineering-fundamentals-capture-the-flag">Data Engineering Fundamentals Capture the Flag<a class="headerlink" href="#data-engineering-fundamentals-capture-the-flag" title="Permanent link">🔗</a></h1>
+<p>This class is a five day Capture the Flag event to get to know with the basics of systems usage, specifically linux, git, and ssh. There is also a large section on python, with an emphasis on data science scripting practices using numpy and pandas in jupyter notebooks.</p>
+<p>This is a self-guided exercise with resources and questions on this site. You, the participant, must look for the answer to the questions through reading documentation, discussing with others, and trying things. Try to avoid searching for answers online in a search engine; the answers can almost always be found in documentation.</p>
+<p>Answers can be submitted through an API with the CTF server. Questions  will be made available over the course of 5 sessions. Responding correctly to a question gives 1 point, and an additional 0.5 points are awarded for being the first to submit the correct answer to a question. That half point is the flag - be the first to capture it!</p>
+<p>If you're speeding through the questions, consider helping others learn the material. Depending on your background, you may have varied experience with these tools. Get to know the other participants by helping them capture a flag too.</p>
+<h2 id="linux">Linux<a class="headerlink" href="#linux" title="Permanent link">🔗</a></h2>
+<p>Linux is an open-source operating system based on Unix. It is a standard choice for development and is the most dominant operating system for web servers, cloud computing, and high performance computing at 80% of global public servers. There are many different <a href="https://en.wikipedia.org/wiki/List_of_Linux_distributions">distributions</a> but they share a common set of tools, notably <a href="https://en.wikipedia.org/wiki/GNU">GNU</a> software. A very common Linux distribution is Android, at <a href="https://en.wikipedia.org/wiki/Usage_share_of_operating_systems">73% of all mobile devices</a>, so you might be a Linux user already without realizing it!</p>
+<p>You most likely don't use Linux as the operating system of your personal computer, however. If you <strong>are</strong> using one the 2.5 % of personal computers with Linux, you can skip straight to the Submission section</p>
+<p>MacOS is also based on Unix, so if you're using MacOS, most things should work just as in Linux! A few commands will be different from the course instructions, and the questions will always refer to Linux resources, for example documentation. It is highly recommended to install homebrew (https://brew.sh/) which will allow for package installation via the command line.</p>
+<h3 id="installation-on-windows">Installation on Windows<a class="headerlink" href="#installation-on-windows" title="Permanent link">🔗</a></h3>
+<p>The easiest way to use Linux on Windows is through the Windows Subsystem for Linux. Installation instructions are here: <a href="https://docs.microsoft.com/en-us/windows/wsl/install">https://docs.microsoft.com/en-us/windows/wsl/install</a>. Make sure to follow all instructions carefully. If asked to join a "Windows Insiders Program", ignore this. By default, this installs Ubuntu, which is good for this systems class and for all of SDD.</p>
+<p>The WSL is similar to a virtual machine inside of Windows, but it integrates with some existing components of Windows. You can access your Windows files from Linux at <code>/mnt/</code>, but you should make sure you're familiar with Linux first.</p>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/windows/wsl/about">About the WSL</a></li>
+<li><a href="https://docs.microsoft.com/en-us/windows/wsl/faq">WSL FAQ</a></li>
+<li><a href="https://www.howtogeek.com/426749/how-to-access-your-linux-wsl-files-in-windows-10/">How to Access WSL Linux Files from Windows</a></li>
+</ul>
+<h3 id="submission">Submission<a class="headerlink" href="#submission" title="Permanent link">🔗</a></h3>
+<p>All questions will be posted to the <a href="https://github.com/SupaeroDataScience/ctf2024">CTF github repository</a>. In the second class, we will use git to download this repository locally, and it will be used to host the files and data needed to respond to questions.</p>
+<p>The CTF server's IP address is <a href="http://34.163.57.143/"><code>34.163.57.143</code></a>. You can see a leaderboard there and it is the address for submitting answers. The first way we'll look at submitting answers is with <code>curl</code> in Linux.</p>
+<p>Once you have a Unix-type environment, either native Linux or macOS, or through the WSL, you're ready to submit to the CTF. You will use the <code>curl</code> command; you can verify that you have <code>curl</code> by running <code>which curl</code> in the command line. <code>curl</code> is a tool for transferring data from or to a server. How do you know that? By checking the documentation of <code>curl</code> using <code>man curl</code>. Try it out!</p>
+<p>To respond to a question, send a POST request with the data of the question <code>number</code> and <code>answer</code>, and your username as <code>user</code> (your username should be your ISAE login, but you can also check on the leaderboard). For example, the first question asks where the <code>curl</code> executable is (hint: use <code>which</code>). Then use <code>curl</code>:</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s1">&#39;http://34.163.57.143/&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-d<span class="w"> </span><span class="s1">&#39;number=1&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-d<span class="w"> </span><span class="s1">&#39;answer=your answer here&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-d<span class="w"> </span><span class="s1">&#39;user=your username here&#39;</span>
+</code></pre></div>
+<p>Some of the questions will require access to some files, called <code>file_a.txt</code>, <code>file_b.txt</code>, and <code>file_c.txt</code>. Those are available on the CTF git repository. </p>
+<p>You are ready to start answering questions! If you don't know an answer, check the resources below and read documentation using <code>man</code>.</p>
+<p>You can see which questions you have answered by sending a GET request:</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span><span class="s1">&#39;http://34.163.57.143/user/d.wilson&#39;</span>
+</code></pre></div>
+<p>You can also see which questions have remaining flags, the bonus points associated with answering the question for the first time, with a GET request:</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span><span class="s1">&#39;http://34.163.57.143/answers/&#39;</span>
+</code></pre></div>
+<h3 id="python-submission">Python Submission<a class="headerlink" href="#python-submission" title="Permanent link">🔗</a></h3>
+<p>Note that you can use the <code>requests</code> library to submit responses:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;number&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;answer&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;d.wilson&quot;</span><span class="p">}</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;http://34.163.57.143/&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="bash-resources">Bash Resources<a class="headerlink" href="#bash-resources" title="Permanent link">🔗</a></h3>
+<ul>
+<li><a href="https://lms.isae.fr/course/view.php?id=1111">ISAE class on CLI, Linux, and Bash</a></li>
+<li><a href="https://missing.csail.mit.edu/2020/course-shell/">Shell class from MIT</a></li>
+<li><a href="https://www.learnshell.org">Bash exercises</a></li>
+<li><a href="https://exercism.io/tracks/bash">More bash exercises</a></li>
+<li><a href="https://regexone.com/">Short exercises in regular expressions</a></li>
+</ul>
+<h2 id="git">Git<a class="headerlink" href="#git" title="Permanent link">🔗</a></h2>
+<p>Git is a version control system used worldwide for maintaining code, documents, video games, and much more. It has seen wide adoption with servers like Github and Gitlab while being an open-source tool that anyone can install as a client or server. In this class, we will look at repositories hosted on Github, but git is much larger than that and many organizations like ISAE have their own private <a href="https://iris.isae-supaero.fr/git">git server</a>.</p>
+<h3 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">🔗</a></h3>
+<p>If you're using Ubuntu, chances are you already have <code>git</code>. If not, simply do:</p>
+<p><code>sudo apt install git</code></p>
+<p>These questions concern two repositories: the Machine Learning class in SDD (<a href="https://github.com/SupaeroDataScience/machine-learning">https://github.com/SupaeroDataScience/machine-learning</a>) and the Seaborn library, a popular graphing library (<a href="https://github.com/mwaskom/seaborn">https://github.com/mwaskom/seaborn</a>). You will need to download both repositories. First choose a directory to host them in, for example <code>~/SDD/FSD319</code>:</p>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/SDD/FSD319
+<span class="nb">cd</span><span class="w"> </span>~/SDD/FSD319
+</code></pre></div>
+<p>and then download them using git clone:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/SupaeroDataScience/machine-learning.git
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/mwaskom/seaborn.git
+</code></pre></div>
+<p>The commit for all questions on the <code>seaborn</code> repository is <code>1e6739</code> :</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>1e6739
+</code></pre></div>
+<h3 id="git-resources">Git Resources<a class="headerlink" href="#git-resources" title="Permanent link">🔗</a></h3>
+<ul>
+<li><a href="https://www.youtube.com/playlist?list=PLjwdMgw5TTLXuY5i7RW0QqGdW0NZntqiP">Git course</a></li>
+<li><a href="https://lab.github.com/githubtraining/introduction-to-github">Introduction to github</a></li>
+<li><a href="https://www.youtube.com/playlist?list=PL0lo9MOBetEHhfG9vJzVCTiDYcbhAiEqL">Github video course</a></li>
+<li><a href="https://learngitbranching.js.org/">Learn git branching</a></li>
+<li><a href="https://git-scm.com/book/en/v2">Git SCM book</a></li>
+<li><a href="https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf">Git cheat sheet</a></li>
+</ul>
+<h3 id="git-exercise">Git Exercise<a class="headerlink" href="#git-exercise" title="Permanent link">🔗</a></h3>
+<p>In order to access the server for the next parts of the CTF, you will need to provide your public ssh key. The SSH section has references explaining <a href="https://en.wikipedia.org/wiki/Public-key_cryptography">public-key cryptography</a>, but in general you will make a key pair with a private side and public side. You will give the public side to services like this class or Github to perform secure communication, keeping your private key secret to prove that it is you. </p>
+<p>First, start by making a key pair and uploading your public key to Github. This will allow you use to SSH to make push requests, instead of using a personal access token. <a href="https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">Create an SSH key and add it to your Github account</a>.</p>
+<p>Then, we will use git as a way for you to transfer your public key to the class. We could use another means, like a USB key, email, or a very large QR code, but for this exercise we will use git. First <a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo">make a fork</a> of the <a href="https://github.com/SupaeroDataScience/ctf2024">https://github.com/SupaeroDataScience/ctf2024</a> repository. Then, <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request">make a pull request</a> with your key as a file in <code>keys/</code>. Please name your key with your name, like the example <code>keys/dennis-wilson.pub</code>. Be sure to upload <strong>only your public key</strong>. Do not ever upload your private key to public servers.</p>
+<p>Once your key is in the repository, you are ready for the SSH and Python portions of the CTF.</p>
+<h2 id="ssh">SSH<a class="headerlink" href="#ssh" title="Permanent link">🔗</a></h2>
+<p>For the ssh section, you will connect to the CTF server to answer questions about the remote environment. Your public key must be uploaded to the git repository above to get access to the server. You will use the corresponding private key to access the server. Your user on the server is <code>ctf</code> and the IP is the same as the CTF webserver: <code>34.163.57.143</code>.</p>
+<p>Please note that <em>ISAE-EDU and ethernet block ssh to most servers</em>, including this one and <code>github.com</code>. In order to ssh to the server, you will need to either use the eduroam network or a different network like a mobile hotspot.</p>
+<h3 id="ssh-resources">SSH Resources<a class="headerlink" href="#ssh-resources" title="Permanent link">🔗</a></h3>
+<ul>
+<li><a href="https://doc.ubuntu-fr.org/ssh">Ubuntu ssh manual</a></li>
+<li><a href="https://openclassrooms.com/en/courses/43538-reprenez-le-controle-a-laide-de-linux/41773-la-connexion-securisee-a-distance-avec-ssh">Guide in French</a></li>
+<li><a href="https://www.youtube.com/watch?v=MuNyEoU5tSo">Cryptographie Asymétrique</a></li>
+<li><a href="https://www.youtube.com/watch?v=ORcvSkgdA58">How SSH works</a></li>
+</ul>
+<h2 id="linux-tools">Linux tools<a class="headerlink" href="#linux-tools" title="Permanent link">🔗</a></h2>
+<p>Now that you're an expert in Linux, let's quickly look at some useful tools. You may need to install some of these, either using <code>apt</code>, <code>brew</code>, <code>yum</code>, <code>pacman</code>, or whichever package manager you use. Linux comes with many programs installed by default, especially distributions like Ubuntu, however the tools in this section will be more useful than the base Linux tools. We'll cover four: <code>apt</code> for package management, <code>top</code> for system monitoring, <code>tmux</code> for terminal management, and <code>vim</code> for file editing. There are alternatives to all of these programs that are great, but it is worth being familiar with these four.</p>
+<h3 id="linux-resources">Linux Resources<a class="headerlink" href="#linux-resources" title="Permanent link">🔗</a></h3>
+<ul>
+<li><a href="https://manpages.ubuntu.com/manpages/xenial/man8/apt.8.html">apt manual</a></li>
+<li><a href="https://itsfoss.com/linux-system-monitoring-tools/">Alternatives to top</a></li>
+<li><a href="https://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/">Guide to tmux</a></li>
+<li><a href="https://tmuxcheatsheet.com/">tmux cheat sheet</a></li>
+<li><a href="https://missing.csail.mit.edu/2020/editors/">Editors from MIT class</a></li>
+<li><a href="https://vim-adventures.com/">Vim adventures</a></li>
+<li><a href="https://tldr.sh/">tldr, short man pages</a></li>
+</ul>
+<h2 id="python">Python<a class="headerlink" href="#python" title="Permanent link">🔗</a></h2>
+<p>An overview and reminder of the python programming language, with a focus on numpy and pandas manipulation using Jupyter.</p>
+<h3 id="installation_1">Installation<a class="headerlink" href="#installation_1" title="Permanent link">🔗</a></h3>
+<p>You most likely have python installed on your Linux system, but it is worthwhile to make sure and to upgrade. Python 3.8, 3.9, or 3.10 are all supported.</p>
+<div class="highlight"><pre><span></span><code>sudo apt install python3
+</code></pre></div>
+<p>It is highly recommended to make a <code>virtual environment</code> to manage your python packages. There are three main libraries for virtual environments: </p>
+<ul>
+<li><a href="https://docs.python.org/3/tutorial/venv.html">Virtualenv</a></li>
+<li><a href="https://pipenv.pypa.io/en/latest/">Pipenv</a></li>
+<li><a href="https://docs.conda.io/en/latest/">Conda</a></li>
+</ul>
+<p><code>Virtualenv</code> is recommended for new users on Linux. Conda, or the platform Anaconda, can be useful on Windows as many packages are built specifically for windows, but not all packages are available via conda. <code>Pipenv</code> is an exciting project aimed at Python developers, but it adds additional complexity.</p>
+<p>Once you have a virtual environment created, please install the following packages for the rest of the Seminars class:</p>
+<div class="highlight"><pre><span></span><code>numpy
+pandas
+scipy
+matplotlib
+jupyter
+</code></pre></div>
+<p>The following packages will also be used in SDD:</p>
+<div class="highlight"><pre><span></span><code>seaborn
+scikit-learn
+keras
+torch
+geos
+graphviz
+nltk
+networkx
+statsmodels
+pyspark
+cython
+cma
+gym
+</code></pre></div>
+<h3 id="jupyter">Jupyter<a class="headerlink" href="#jupyter" title="Permanent link">🔗</a></h3>
+<p><a href="https://jupyter.org/">Jupyter</a> (stands for the three original languages in the project: Julia, Python, and R) is a way to use and develop code interactively in the browser. Once you've installed the jupyter package, you can run a Jupyter notebook by simply running <code>jupyter notebook</code>.</p>
+<p>For Windows users, you can run Jupyter in the WSL. As explained in <a href="https://harshityadav95.medium.com/jupyter-notebook-in-windows-subsystem-for-linux-wsl-8b46fdf0a536">this blog post</a>, you simply need to execute <code>jupyter notebook --no-browser</code> on the WSL and then copy and paste the URL and token generated into a Windows browser.</p>
+<p>Some additional packages for improving Jupyter are <code>nbopen nbdime RISE</code>. Be sure to read their documentation before installing to verify if these are relevant to you.</p>
+<h3 id="python-resources">Python Resources<a class="headerlink" href="#python-resources" title="Permanent link">🔗</a></h3>
+<ul>
+<li><a href="https://docs.python.org/3/index.html">Python 3 Documentation</a></li>
+<li><a href="https://pypi.org/project/pip/">Pip documentation</a></li>
+<li><a href="https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf">Pandas cheatsheet</a></li>
+<li><a href="https://cs231n.github.io/python-numpy-tutorial/">Stanford Python and Numpy tutorial</a></li>
+<li><a href="https://github.com/xoolive/pyseminar">Python seminar</a></li>
+<li><a href="https://colab.research.google.com/">Google Colab</a>: Jupyter notebooks on the cloud</li>
+<li><a href="https://mybinder.org/">Binder</a>: Also Jupyter notebooks on the cloud, not hosted by Google</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["toc.autohide", "navigation.sections"], "search": "assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.56dfad97.min.js"></script>
+      
+    
+  </body>
+</html>
