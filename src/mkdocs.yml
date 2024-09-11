@@ -27,7 +27,6 @@ nav:
 - Data Storage:
   - SQL: 0_1_databases.md
   - PostgreSQL: 0_2_postgres.md
-  - Parallel DBMS: 0_3_dbms.md
 - Data Computation:
   - Introduction: 1_1_overview.md
   - Cloud Computing:
@@ -38,7 +37,6 @@ nav:
     - TP: 1_3_docker_tp.md
   - Google Cloud and Docker BE: 1_4_be.md
   - Recap Cloud & Docker: 1_5_conclusion.md
-  - Distributed DBMS: 1_6_distributed.md
   - Reading List: 1_7_readings.md
 - Data Distribution:
   - Introduction: 2_1_overview.md
@@ -51,7 +49,6 @@ nav:
   - Functional Programming: 2_4_functional.md
   - Hadoop and MapReduce: 2_5_mapreduce.md
   - Spark: 2_6_spark.md
-  - Cloud DBMS: 2_7_cloud.md
   - Dask on Kubernetes: 2_8_dask.md
   - Dask project: 2_9_project.md
 
