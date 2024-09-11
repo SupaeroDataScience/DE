@@ -432,6 +432,30 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#linux-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux tools
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Linux tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linux-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux Resources
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#git" class="md-nav__link">
     <span class="md-ellipsis">
       Git
@@ -487,30 +511,6 @@
   <a href="#ssh-resources" class="md-nav__link">
     <span class="md-ellipsis">
       SSH Resources
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#linux-tools" class="md-nav__link">
-    <span class="md-ellipsis">
-      Linux tools
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Linux tools">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#linux-resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Linux Resources
     </span>
   </a>
   
@@ -1398,6 +1398,30 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#linux-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux tools
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Linux tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linux-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux Resources
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#git" class="md-nav__link">
     <span class="md-ellipsis">
       Git
@@ -1453,30 +1477,6 @@
   <a href="#ssh-resources" class="md-nav__link">
     <span class="md-ellipsis">
       SSH Resources
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#linux-tools" class="md-nav__link">
-    <span class="md-ellipsis">
-      Linux tools
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Linux tools">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#linux-resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Linux Resources
     </span>
   </a>
   
@@ -1598,14 +1598,26 @@
 <li><a href="https://exercism.io/tracks/bash">More bash exercises</a></li>
 <li><a href="https://regexone.com/">Short exercises in regular expressions</a></li>
 </ul>
+<h2 id="linux-tools">Linux tools<a class="headerlink" href="#linux-tools" title="Permanent link">🔗</a></h2>
+<p>Now that you're an expert in Linux, let's quickly look at some useful tools. You may need to install some of these, either using <code>apt</code>, <code>brew</code>, <code>yum</code>, <code>pacman</code>, or whichever package manager you use. Linux comes with many programs installed by default, especially distributions like Ubuntu, however the tools in this section will be more useful than the base Linux tools. We'll cover four: <code>apt</code> for package management, <code>top</code> for system monitoring, <code>tmux</code> for terminal management, and <code>vim</code> for file editing. There are alternatives to all of these programs that are great, but it is worth being familiar with these four.</p>
+<h3 id="linux-resources">Linux Resources<a class="headerlink" href="#linux-resources" title="Permanent link">🔗</a></h3>
+<ul>
+<li><a href="https://manpages.ubuntu.com/manpages/xenial/man8/apt.8.html">apt manual</a></li>
+<li><a href="https://itsfoss.com/linux-system-monitoring-tools/">Alternatives to top</a></li>
+<li><a href="https://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/">Guide to tmux</a></li>
+<li><a href="https://tmuxcheatsheet.com/">tmux cheat sheet</a></li>
+<li><a href="https://missing.csail.mit.edu/2020/editors/">Editors from MIT class</a></li>
+<li><a href="https://vim-adventures.com/">Vim adventures</a></li>
+<li><a href="https://tldr.sh/">tldr, short man pages</a></li>
+</ul>
 <h2 id="git">Git<a class="headerlink" href="#git" title="Permanent link">🔗</a></h2>
 <p>Git is a version control system used worldwide for maintaining code, documents, video games, and much more. It has seen wide adoption with servers like Github and Gitlab while being an open-source tool that anyone can install as a client or server. In this class, we will look at repositories hosted on Github, but git is much larger than that and many organizations like ISAE have their own private <a href="https://iris.isae-supaero.fr/git">git server</a>.</p>
 <h3 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">🔗</a></h3>
 <p>If you're using Ubuntu, chances are you already have <code>git</code>. If not, simply do:</p>
 <p><code>sudo apt install git</code></p>
-<p>These questions concern two repositories: the Machine Learning class in SDD (<a href="https://github.com/SupaeroDataScience/machine-learning">https://github.com/SupaeroDataScience/machine-learning</a>) and the Seaborn library, a popular graphing library (<a href="https://github.com/mwaskom/seaborn">https://github.com/mwaskom/seaborn</a>). You will need to download both repositories. First choose a directory to host them in, for example <code>~/SDD/FSD319</code>:</p>
-<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/SDD/FSD319
-<span class="nb">cd</span><span class="w"> </span>~/SDD/FSD319
+<p>These questions concern two repositories: the Machine Learning class in SDD (<a href="https://github.com/SupaeroDataScience/machine-learning">https://github.com/SupaeroDataScience/machine-learning</a>) and the Seaborn library, a popular graphing library (<a href="https://github.com/mwaskom/seaborn">https://github.com/mwaskom/seaborn</a>). You will need to download both repositories. First choose a directory to host them in, for example <code>~/SDD/FSD312</code>:</p>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/SDD/FSD312
+<span class="nb">cd</span><span class="w"> </span>~/SDD/FSD312
 </code></pre></div>
 <p>and then download them using git clone:</p>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/SupaeroDataScience/machine-learning.git
@@ -1637,18 +1649,6 @@ git<span class="w"> </span>clone<span class="w"> </span>https://github.com/mwask
 <li><a href="https://openclassrooms.com/en/courses/43538-reprenez-le-controle-a-laide-de-linux/41773-la-connexion-securisee-a-distance-avec-ssh">Guide in French</a></li>
 <li><a href="https://www.youtube.com/watch?v=MuNyEoU5tSo">Cryptographie Asymétrique</a></li>
 <li><a href="https://www.youtube.com/watch?v=ORcvSkgdA58">How SSH works</a></li>
-</ul>
-<h2 id="linux-tools">Linux tools<a class="headerlink" href="#linux-tools" title="Permanent link">🔗</a></h2>
-<p>Now that you're an expert in Linux, let's quickly look at some useful tools. You may need to install some of these, either using <code>apt</code>, <code>brew</code>, <code>yum</code>, <code>pacman</code>, or whichever package manager you use. Linux comes with many programs installed by default, especially distributions like Ubuntu, however the tools in this section will be more useful than the base Linux tools. We'll cover four: <code>apt</code> for package management, <code>top</code> for system monitoring, <code>tmux</code> for terminal management, and <code>vim</code> for file editing. There are alternatives to all of these programs that are great, but it is worth being familiar with these four.</p>
-<h3 id="linux-resources">Linux Resources<a class="headerlink" href="#linux-resources" title="Permanent link">🔗</a></h3>
-<ul>
-<li><a href="https://manpages.ubuntu.com/manpages/xenial/man8/apt.8.html">apt manual</a></li>
-<li><a href="https://itsfoss.com/linux-system-monitoring-tools/">Alternatives to top</a></li>
-<li><a href="https://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/">Guide to tmux</a></li>
-<li><a href="https://tmuxcheatsheet.com/">tmux cheat sheet</a></li>
-<li><a href="https://missing.csail.mit.edu/2020/editors/">Editors from MIT class</a></li>
-<li><a href="https://vim-adventures.com/">Vim adventures</a></li>
-<li><a href="https://tldr.sh/">tldr, short man pages</a></li>
 </ul>
 <h2 id="python">Python<a class="headerlink" href="#python" title="Permanent link">🔗</a></h2>
 <p>An overview and reminder of the python programming language, with a focus on numpy and pandas manipulation using Jupyter.</p>
