@@ -79,6 +79,20 @@ r = requests.post("http://34.163.57.143/", data=data)
 + [More bash exercises](https://exercism.io/tracks/bash)
 + [Short exercises in regular expressions](https://regexone.com/)
 
+## Linux tools
+
+Now that you're an expert in Linux, let's quickly look at some useful tools. You may need to install some of these, either using `apt`, `brew`, `yum`, `pacman`, or whichever package manager you use. Linux comes with many programs installed by default, especially distributions like Ubuntu, however the tools in this section will be more useful than the base Linux tools. We'll cover four: `apt` for package management, `top` for system monitoring, `tmux` for terminal management, and `vim` for file editing. There are alternatives to all of these programs that are great, but it is worth being familiar with these four.
+
+### Linux Resources
+
++ [apt manual](https://manpages.ubuntu.com/manpages/xenial/man8/apt.8.html)
++ [Alternatives to top](https://itsfoss.com/linux-system-monitoring-tools/)
++ [Guide to tmux](https://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/)
++ [tmux cheat sheet](https://tmuxcheatsheet.com/)
++ [Editors from MIT class](https://missing.csail.mit.edu/2020/editors/)
++ [Vim adventures](https://vim-adventures.com/)
++ [tldr, short man pages](https://tldr.sh/)
+
 ## Git
 
 Git is a version control system used worldwide for maintaining code, documents, video games, and much more. It has seen wide adoption with servers like Github and Gitlab while being an open-source tool that anyone can install as a client or server. In this class, we will look at repositories hosted on Github, but git is much larger than that and many organizations like ISAE have their own private [git server](https://iris.isae-supaero.fr/git).
@@ -89,11 +103,11 @@ If you're using Ubuntu, chances are you already have `git`. If not, simply do:
 
 `sudo apt install git`
 
-These questions concern two repositories: the Machine Learning class in SDD ([https://github.com/SupaeroDataScience/machine-learning](https://github.com/SupaeroDataScience/machine-learning)) and the Seaborn library, a popular graphing library ([https://github.com/mwaskom/seaborn](https://github.com/mwaskom/seaborn)). You will need to download both repositories. First choose a directory to host them in, for example `~/SDD/FSD319`:
+These questions concern two repositories: the Machine Learning class in SDD ([https://github.com/SupaeroDataScience/machine-learning](https://github.com/SupaeroDataScience/machine-learning)) and the Seaborn library, a popular graphing library ([https://github.com/mwaskom/seaborn](https://github.com/mwaskom/seaborn)). You will need to download both repositories. First choose a directory to host them in, for example `~/SDD/FSD312`:
 
 ```bash
-mkdir -p ~/SDD/FSD319
-cd ~/SDD/FSD319
+mkdir -p ~/SDD/FSD312
+cd ~/SDD/FSD312
 ```
 
 and then download them using git clone:
@@ -140,20 +154,6 @@ Please note that *ISAE-EDU and ethernet block ssh to most servers*, including th
 + [Guide in French](https://openclassrooms.com/en/courses/43538-reprenez-le-controle-a-laide-de-linux/41773-la-connexion-securisee-a-distance-avec-ssh)
 + [Cryptographie Asymétrique](https://www.youtube.com/watch?v=MuNyEoU5tSo)
 + [How SSH works](https://www.youtube.com/watch?v=ORcvSkgdA58)
-
-## Linux tools
-
-Now that you're an expert in Linux, let's quickly look at some useful tools. You may need to install some of these, either using `apt`, `brew`, `yum`, `pacman`, or whichever package manager you use. Linux comes with many programs installed by default, especially distributions like Ubuntu, however the tools in this section will be more useful than the base Linux tools. We'll cover four: `apt` for package management, `top` for system monitoring, `tmux` for terminal management, and `vim` for file editing. There are alternatives to all of these programs that are great, but it is worth being familiar with these four.
-
-### Linux Resources
-
-+ [apt manual](https://manpages.ubuntu.com/manpages/xenial/man8/apt.8.html)
-+ [Alternatives to top](https://itsfoss.com/linux-system-monitoring-tools/)
-+ [Guide to tmux](https://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/)
-+ [tmux cheat sheet](https://tmuxcheatsheet.com/)
-+ [Editors from MIT class](https://missing.csail.mit.edu/2020/editors/)
-+ [Vim adventures](https://vim-adventures.com/)
-+ [tldr, short man pages](https://tldr.sh/)
 
 ## Python
 
