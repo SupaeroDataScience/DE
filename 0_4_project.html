@@ -10,9 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://supaerodatascience.github.io/DE/0_3_project.html">
+        <link rel="canonical" href="https://supaerodatascience.github.io/DE/0_4_project.html">
       
       
+        <link rel="prev" href="0_3_postgres.html">
+      
+      
+        <link rel="next" href="1_1_overview.html">
       
       
       <link rel="icon" href="https://raw.githubusercontent.com/SupaeroDataScience/DE/master/src/favicon.ico">
@@ -20,7 +24,7 @@
     
     
       
-        <title>NoSQL Databases Project - Data Engineering</title>
+        <title>Project - Data Engineering</title>
       
     
     
@@ -71,7 +75,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#nosql-databases-project" class="md-skip">
+        <a href="#databases-project" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              NoSQL Databases Project
+              Project
             
           </span>
         </div>
@@ -344,19 +348,21 @@
       
   
   
+    
+  
   
     
     
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
@@ -369,7 +375,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Data Storage
@@ -402,7 +408,27 @@
   
   
     <li class="md-nav__item">
-      <a href="0_2_postgres.html" class="md-nav__link">
+      <a href="0_2_ETL.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ETL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="0_3_postgres.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -411,6 +437,80 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Project
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="0_4_project.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Project
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#grading-criteria" class="md-nav__link">
+    Grading Criteria:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deadline" class="md-nav__link">
+    Deadline:
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1057,6 +1157,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#grading-criteria" class="md-nav__link">
+    Grading Criteria:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deadline" class="md-nav__link">
+    Deadline:
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1073,34 +1195,37 @@
   
 
 
-<h1 id="nosql-databases-project">NoSQL Databases Project<a class="headerlink" href="#nosql-databases-project" title="Permanent link">🔗</a></h1>
-<p><img alt="NoSQL databases" src="https://raw.githubusercontent.com/SupaeroDataScience/DE/master/src/reveal/static/img/NoSQL-Database-Types.jpg" /></p>
-<p>The evaluation of the databases class is a presentation of a specific DBMS. You can work in teams of 4 of your choosing.</p>
-<p>The idea of this project is to study new DBMSs, with a focus on NoSQL DBMSs. There is a <a href="https://lms.isae.fr/mod/resource/view.php?id=36332">presentation</a> on the differences between relational databases and various NoSQL DBMSs and another <a href="https://lms.isae.fr/mod/resource/view.php?id=81798">here</a> on the history of NoSQL. In this project, students should compare their DBMS with a relational DBMS (PostgreSQL) to understand the advantages and disadvantages of various NoSQL DBMSs.</p>
-<p>You are working in a company which is looking to replace a relational DBMS currently in use. Each team should present a feasability study of a specific DBMS, showing its advantages, disadvantages, and use cases. We will organize the subjects on 06/10/2021, which is a work class dedicated to the project. Up to two different teams can work on each DBMS.</p>
-<p>The possible DBMSs are:</p>
+<h1 id="databases-project">Databases Project<a class="headerlink" href="#databases-project" title="Permanent link">🔗</a></h1>
+<p>This project is detailed in the <a href="https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/ETL.pdf">ETL</a> class.</p>
+<p>You are part of a 4-person data engineering team at a startup, tasked with designing and implementing an ETL/ELT pipeline. Your assignment is to submit a 2-4 page report detailing the choices made for the ETL/ELT pipeline and to provide a demo of an example database.</p>
+<p>In your report, you need to clearly explain and justify your decisions for each phase of the pipeline:</p>
 <ol>
-<li><a href="https://www.mongodb.org/">MongoDB</a>, a DBMS for documents used, for example, by CERN</li>
-<li><a href="https://cassandra.apache.org/">Cassandra</a>, a distributed data storage system for handling very large amounts of structured data</li>
-<li><a href="http://redis.io/">Redis</a>, a very efficient key/value DBMS</li>
-<li><a href="https://hbase.apache.org/">HBase</a>, a distributed and non-relationed column-based DBMS</li>
-<li><a href="http://neo4j.com/">Neo4j</a>, a native graph DBMS</li>
-<li><a href="https://ravendb.net/">RavenDB</a>, a document DBMS with ACID integrity</li>
-<li><a href="https://www.couchbase.com/">Couchbase</a>, a document DBMS for interactive web applications</li>
-<li><a href="https://couchdb.apache.org/">CouchDB</a>, a JSON-based DBMS with native JavaScript support</li>
-<li><a href="https://www.influxdata.com/get-influxdb/">InfluxDB</a>, a distributed DBMS optimized for timeseries data</li>
-<li><a href="https://orientdb.org/">OrientDB</a>, a DMBS for graph data</li>
+<li>
+<p><strong>Extract (E):</strong> Identify and explain where the data is coming from. Discuss the sources and why they were chosen.</p>
+</li>
+<li>
+<p><strong>Transform (T):</strong> Explain how the data is being transformed. Describe the processes, tools, and techniques used to clean, aggregate, or modify the data to make it useful for its intended purpose.</p>
+</li>
+<li>
+<p><strong>Load (L):</strong> Detail how the data is loaded into the system, how it is stored, and how it will be used or queried. Discuss the database or storage options chosen, and explain how the data will be utilized by the organization or application.</p>
+</li>
 </ol>
-<p>Each team should:</p>
+<p>Along with the report, you are expected to provide a <strong>demo</strong> of an example database. You can use PostgreSQL, MongoDB, or another database system of your choice. The demo should include:</p>
 <ul>
-<li>install their DBMS</li>
-<li>test the DBMS on a relevant database (datasets from <a href="https://datasetsearch.research.google.com/">Google</a>, and <a href="https://www.kaggle.com/datasets">kaggle</a>)</li>
-<li>compare their DBMS with a relational database system</li>
-<li>prepare a presentation of their DBMS and example database which presents convincing argument for using this DBMS</li>
-<li>evaluate how ACID or BASE principles are met by their DBMS</li>
+<li><strong>Documented scripts</strong> to load and manipulate example data that demonstrates the choices made for the ETL pipeline.</li>
+<li>The data used in the demo does not need to be exhaustive, but it should be sufficient to illustrate the key decisions in the ETL process.</li>
 </ul>
-<p>A good example from previous years is <a href="https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/mongodb.pdf">here</a>. This was in the form of a report, but currently a report is not required, just the oral presentation.</p>
-<p>Presentations will take place on 02/11/2021. You should upload your presentation materials to the LMS before midnight on 01/11/2021.</p>
+<h3 id="grading-criteria"><strong>Grading Criteria:</strong><a class="headerlink" href="#grading-criteria" title="Permanent link">🔗</a></h3>
+<ul>
+<li><strong>Report Rigor (6 points):</strong> Depth and thoroughness in explaining your ETL/ELT choices.</li>
+<li><strong>Report Clarity (6 points):</strong> How clearly and effectively your report communicates the ETL/ELT pipeline.</li>
+<li><strong>Demo Data (4 points):</strong> Appropriateness and accuracy of the example data used in the demo.</li>
+<li><strong>Demo Manipulation (4 points):</strong> Functionality and quality of the data manipulation demonstrated in the example.</li>
+</ul>
+<h3 id="deadline"><strong>Deadline:</strong><a class="headerlink" href="#deadline" title="Permanent link">🔗</a></h3>
+<ul>
+<li>The report and demo must be submitted by <strong>October 11, 2024, end of day</strong> to the LMS.</li>
+</ul>
 
 
 
