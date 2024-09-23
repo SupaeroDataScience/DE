@@ -6,7 +6,7 @@ In this first class, we introduce the basics of database management systems and 
 
 [Slides](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/bdd_sql.pdf)
 
-For the [next class](0_2_postgres.md), students should install PostgreSQL and MongoDB on their local machines.
+For the [next class](0_3_postgres.md), students should install PostgreSQL and MongoDB on their local machines.
 
 ## Additional Resources
 
