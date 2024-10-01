@@ -623,6 +623,3 @@ EXECUTE PROCEDURE verifier_moyenne();
 
 </details>
 
-## Deliverables
-
-For evaluation, you should provide a single PostgreSQL script which reproduces the results of all exercises. You should upload the script to the LMS by October 3.
