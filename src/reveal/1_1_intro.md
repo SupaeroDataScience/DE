@@ -26,24 +26,16 @@ by a data scientist, for data scientists
 Florient CHOUTEAU
 
 <!--v-->
-<!-- .slide: data-background="http://i.giphy.com/90F8aUepslB84.gif" -->
-
-### Lesson #1
-
-These slides are built using [reveal.js](https://revealjs.com) and [reveal-md](
-https://github.com/webpro/reveal-md)
-
-This is awesome ! Stop using powerpoint !
-
-<!--v-->
 
 ### Who ?
 
 <img src="static/img/ads_logo.jpg" alt="" width="128px" height="128px" style="background:none; border:none; box-shadow:none;"/>
 
-- Computer Vision Research Engineer at **Airbus Defence and Space**
+- **Florient CHOUTEAU**, SDD 2016
+- Expert (Staff Engineer) in Artificial Intelligence for Space Systems at **Airbus Defence and Space**
+- Computer Vision Team (Earth Observation, Space Exploration, Space Domain Awareness)
 - Specialized in Satellite Imagery Processing & Deep Learning
-- Working daily with Google Cloud Platform & Docker
+- Working regularly on cloud infra, remote development environment, docker
 
 Any question ? contact me on slack !
 
@@ -92,9 +84,11 @@ I am not a Cloud Engineer, or a Devops,  ... <!-- .element: class="fragment" dat
 
 |  Date | Length | Content                                              |
 |:-----:|:------:|------------------------------------------------------|
-| 21/11 |   3h   | Intro to Cloud Computing & GCP                       |
-| 28/11 |   3h   | Containers & Docker                                  |
-| 29/11 |   3h   | BE Docker & GCP : Deploy your Machine Learning Model |
+| 08/10 |   3h   | Intro to Cloud Computing & Remote Dev Env            |
+| 15/10 |   3h   | Google Cloud Platform                                |
+| 22/10 |   3h   | Containers & Docker                                  |
+| 05/11 |   3h   | BE Docker & GCP                                      |
+| 13/11 |   3h   | BE Deploy your ML Model in Production                |
 
 <!--v-->
 
@@ -102,7 +96,7 @@ I am not a Cloud Engineer, or a Devops,  ... <!-- .element: class="fragment" dat
 
 Some things may go wrong, especially because of :
 - The ISAE WIFI / 4G connection inside the room
-- Your computer configuration
+- Your computer configuration (OS, browser, etc.)
 - Google Cloud Platform responsiveness
 
-Brace yourself 💪
+Brace yourselves 💪

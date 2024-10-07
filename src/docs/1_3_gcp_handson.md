@@ -2,7 +2,7 @@
 
 ## 0. Abstract
 
-!! abstract
+!!! abstract
     In this hands on you will configure your GCP account, the google cloud SDK and access the cloud console using Google Cloud Shell,
     You will also discover a very useful tool, a managed jupyter notebook service from google named Google Colab which may be very important for your future developments this year
 

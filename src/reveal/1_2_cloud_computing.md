@@ -17,7 +17,7 @@ revealOptions:
 
 ![the office](https://media.giphy.com/media/5wWf7H89PisM6An8UAU/giphy.gif)
 
-<!--s-->
+<!--v-->
 
 ### What is the Cloud ?
 
@@ -31,11 +31,7 @@ revealOptions:
 
 But it's a bit bigger...
 
-<img src="static/img/fb_datacenter.jpg" alt="" width="30%" height="30%" style="background:none; border:none; box-shadow:none; float:left;margin:0 10px 0 20px;"/>
-
-<img src="https://www.datacenterknowledge.com/sites/datacenterknowledge.com/files/wp-content/uploads/2013/06/lulea-rows.jpg" alt="" width="25%" height="25%" style="background:none; border:none; box-shadow:none;"/>
-
-<img src="https://www.datacenterknowledge.com/sites/datacenterknowledge.com/files/wp-content/uploads/2013/06/fb-lulea-external-fans.jpg" alt="" width="25%" height="25%" style="background:none; border:none; box-shadow:none;"/>
+<img src="static/img/fb_datacenter.jpg" alt="" width="25%" height="25%" style="background:none; border:none; box-shadow:none;"/>
 
 <img src="https://cdn.arstechnica.net/wp-content/uploads/2013/02/openrack2-640x426.jpg" alt="" width="25%" height="25%" style="background:none; border:none; box-shadow:none;"/>
 
@@ -253,11 +249,13 @@ Cloud providers are offering services with increasing layers of abstraction...
 
 #### It gets harder
 
-![cloud](https://lh3.googleusercontent.com/Zpw-v4ZOiAkbLm9ARSl68tGaZFYsFsz1ABwRbl8Cj_ozj12jCTPmgVGKBARz3Xwum1CUsMQ7Hog=e14-rj-sc0xffffff-h2000-w2000)  <!-- .element: height="50%" width="50%" -->
+![cloud](https://lh3.googleusercontent.com/Zpw-v4ZOiAkbLm9ARSl68tGaZFYsFsz1ABwRbl8Cj_ozj12jCTPmgVGKBARz3Xwum1CUsMQ7Hog=e14-rj-sc0xffffff-h2000-w2000)  <!-- .element: height="65%" width="65%" -->
 
 <!--v-->
 
-![cloud](https://www.catapultsystems.com/wp-content/uploads/2020/03/pizza-model-vert.jpeg)  <!-- .element: height="50%" width="50%" -->
+#### Useful analogy
+
+![cloud](static/img/pizzaasaservicev2.jpg)  <!-- .element: height="65%" width="65%" -->
 
 
 <!--s-->
@@ -336,6 +334,13 @@ I am not competent to say anything about this. Some sources
 - Scaleway : https://www.scaleway.com/fr/leadership-environnemental/
 - Google : https://cloud.google.com/sustainability
 - Earth.org : https://earth.org/environmental-impact-of-cloud-computing/
+
+<!--v-->
+
+On "Artificial Intelligence" & sustainability, entry points
+
+- [Power Hungry Processing: Watts Driving the Cost of AI Deployment?](https://arxiv.org/abs/2311.16863)
+- [ The Environmental Impacts of AI -- Primer ](https://huggingface.co/blog/sasha/ai-environment-primer)
 
 <!--s-->
 
@@ -517,6 +522,100 @@ https://aws.amazon.com/message/12721/
 
 ## Cloud Computing & AI
 
+<!--v-->
+
+### All about that scale
+
+This was in 2022,
+
+[BLOOM: A 176B-Parameter Open-Access Multilingual Language Model](https://arxiv.org/pdf/2211.05100)
+
+> Training BLOOM took about 3.5 months to complete and consumed 1,082,990 compute hours. Training was conducted on 48 nodes, each having 8 NVIDIA A100 80GB GPUs (a total of 384 GPUs);
+
+<!--v-->
+
+### All about that scale
+
+This is 2024,
+
+![alt text](https://substackcdn.com/image/fetch/w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F06b6c30c-ad4e-48b8-a506-328b16529a66_2390x570.png)
+
+https://dblalock.substack.com/p/2024-8-4-arxiv-roundup-llama-31-training 
+
+<!--v-->
+
+### AI Distributed Computing
+
+![](static/img/distributed_computing.png)
+
+<!--v-->
+
+### Stable Diffusion
+
+![](https://assets-global.website-files.com/61fd4eb76a8d78bc0676b47d/63cf7cb6264c4050ed2ea00e_Screen%20Shot%202023-01-23%20at%2010.37.19%20PM.png) <!-- .element: height="60%" width="60%" -->
+
+[Stable Diffusion Training Times](https://www.mosaicml.com/blog/training-stable-diffusion-from-scratch-costs-160k)
+
+<!--v--> 
+
+### AI Cloud Providers
+
+![](https://salesforceventures.com/wp-content/uploads/2024/03/4.png)  <!-- .element: height="50%" width="50%" -->
+
+<!--v-->
+
+## Very quick intro to MLOps
+
+- https://huyenchip.com/machine-learning-systems-design/toc.html
+- https://ml-ops.org/content/references.html
+
+
+<!--v-->
+
+![mlsystems](https://huyenchip.com/machine-learning-systems-design/assets/ml_project_flow.png) <!-- .element: height="40%" width="40%" -->
+
+<!--v-->
+
+MLOps Lifecycle
+
+![mlops](static/img/mlops_lifecycle.png)  <!-- .element: height="50%" width="50%" -->
+
+<!--v-->
+
+MLOps Loop
+
+![mlops](https://ml-ops.org/img/mlops-loop-en.jpg) <!-- .element: height="50%" width="50%" -->
+
+<!--v-->
+
+Deployment architecture
+
+![mlops](https://cdn.analyticsvidhya.com/wp-content/uploads/2024/07/Intro.png) <!-- .element: height="50%" width="50%" -->
+
+<!--v-->
+
+### Layers of "enabling technology"
+
+![mlops](static/img/mlopsinfra.png) <!-- .element: height="75%" width="75%" -->
+
+<!--v-->
+
+### A full workflow 
+
+![vertex](https://www.royalcyber.com/blog/wp-content/uploads/2022/05/end-to-end-mlops-on-vertex-ai.png)
+
+<!--v-->
+
+### The need for tech
+
+![](static/img/anyscale.png)  <!-- .element: height="50%" width="50%" -->
+
+And dask !
+
+<!--s-->
+
+## What about me ?
+
 What does it mean for YOU ?
 
 ![me](https://media.giphy.com/media/cRKRlRJkEmoxglbufw/giphy.gif)
@@ -542,83 +641,6 @@ but you will "deal with" cloud computing one way or another !
 
 <!--v-->
 
-#### Personal experience
-
-- What do I use ?
-- Why do I use it ?
-- How do I do ?
-
-<!--v-->
-
-## Very quick intro to MLOps
-
-<!--v-->
-
-![mlsystems](https://huyenchip.com/machine-learning-systems-design/assets/ml_project_flow.png) <!-- .element: height="40%" width="40%" -->
-
-<!--v-->
-
-![mlops](static/img/mlops_lifecycle.png)  <!-- .element: height="50%" width="50%" -->
-
-<!--v-->
-
-![mlops](https://ml-ops.org/img/mlops-loop-en.jpg) <!-- .element: height="50%" width="50%" -->
-
-<!--v-->
-
-### Layers of "enabling technology"
-
-![mlops](static/img/mlopsinfra.png) <!-- .element: height="75%" width="75%" -->
-
-<!--v-->
-
-- https://huyenchip.com/machine-learning-systems-design/toc.html
-- https://ml-ops.org/content/references.html
-
-<!--v-->
-
-### My usage : Flexibility
+### Personal Experience
 
 ![gcp](static/img/infra_army_of_one.png)
-
-<!--v-->
-
-### A full workflow 
-
-![vertex](https://www.royalcyber.com/blog/wp-content/uploads/2022/05/end-to-end-mlops-on-vertex-ai.png)
-
-<!--v-->
-
-### All about that scale
-
-[BLOOM: A 176B-Parameter Open-Access Multilingual Language Model](https://arxiv.org/pdf/2211.05100)
-
-> Training BLOOM took about 3.5 months to complete and consumed 1,082,990 compute hours. Training was conducted on 48 nodes, each having 8 NVIDIA A100 80GB GPUs (a total of 384 GPUs);
-
-<!--v-->
-
-### AI Distributed Computing
-
-![](static/img/distributed_computing.png)
-
-<!--v-->
-
-### Stable Diffusion
-
-![](https://assets-global.website-files.com/61fd4eb76a8d78bc0676b47d/63cf7cb6264c4050ed2ea00e_Screen%20Shot%202023-01-23%20at%2010.37.19%20PM.png) <!-- .element: height="60%" width="60%" -->
-
-[Stable Diffusion Training Times](https://www.mosaicml.com/blog/training-stable-diffusion-from-scratch-costs-160k)
-
-<!--v--> 
-
-### AI Cloud Providers
-
-![](https://salesforceventures.com/wp-content/uploads/2024/03/4.png)  <!-- .element: height="50%" width="50%" -->
-
-<!--v-->
-
-### The need for tech
-
-![](static/img/anyscale.png)  <!-- .element: height="50%" width="50%" -->
-
-And dask !
