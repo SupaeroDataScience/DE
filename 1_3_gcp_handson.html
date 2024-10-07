@@ -1,0 +1,2315 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Data Engineering class at ISAE-Supaero as part of the SDD program">
+      
+      
+      
+        <link rel="canonical" href="https://supaerodatascience.github.io/DE/1_3_gcp_handson.html">
+      
+      
+        <link rel="prev" href="1_3_gcp_lecture.html">
+      
+      
+        <link rel="next" href="1_4_containers.html">
+      
+      
+      <link rel="icon" href="https://raw.githubusercontent.com/SupaeroDataScience/DE/master/src/favicon.ico">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.10">
+    
+    
+      
+        <title>TP - Data Engineering</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="light-blue">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#google-cloud-platform-hands-on" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="Data Engineering" class="md-header__button md-logo" aria-label="Data Engineering" data-md-component="logo">
+      
+  <img src="https://raw.githubusercontent.com/SupaeroDataScience/DE/master/src/favicon.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Data Engineering
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              TP
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/SupaeroDataScience/DE" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    SupaeroDataScience/DE
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Data Engineering" class="md-nav__button md-logo" aria-label="Data Engineering" data-md-component="logo">
+      
+  <img src="https://raw.githubusercontent.com/SupaeroDataScience/DE/master/src/favicon.ico" alt="logo">
+
+    </a>
+    Data Engineering
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/SupaeroDataScience/DE" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    SupaeroDataScience/DE
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Overview
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Syllabus
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    DE Fundamentals
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            DE Fundamentals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ctf.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CTF
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Data Storage
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Data Storage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="0_1_databases.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="0_2_ETL.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ETL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="0_3_postgres.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PostgreSQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="0_4_project.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Project
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Data Computation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Data Computation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_1_overview.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cloud Computing
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Cloud Computing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_2_cloud.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lectures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_2_setup_codespace.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Google Cloud Platform
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Google Cloud Platform
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_3_gcp_lecture.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    TP
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="1_3_gcp_handson.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    TP
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-abstract" class="md-nav__link">
+    <span class="md-ellipsis">
+      0. Abstract
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1a-create-your-gcp-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      1a. Create your GCP Account
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1b-selecting-the-general-gcp-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      1b. Selecting the general gcp project
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-my-first-vm-github-codespaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. My first "VM", Github Codespaces
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. My first "VM", Github Codespaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#intro-to-github-codespaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intro to Github Codespaces
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-your-codespace-and-connect-to-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create your codespace and connect to it
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explore-github-codespaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explore github codespaces
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-demo-of-codespace-port-forwarding-web-preview" class="md-nav__link">
+    <span class="md-ellipsis">
+      A demo of codespace port forwarding / web preview
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-install-google-cloud-sdk-configure-the-shell" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Install Google Cloud SDK &amp; Configure the shell
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-my-first-google-compute-engine-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. My first Google Compute Engine Instance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. My first Google Compute Engine Instance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-my-vm-using-the-console-the-gui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating my VM using the console (the GUI)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connecting-to-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connecting to SSH
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-magic-of-redimensioning-vms" class="md-nav__link">
+    <span class="md-ellipsis">
+      The magic of redimensioning VMs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transfering-files-from-the-computer-or-codespaces-to-this-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transfering files from the computer (or codespaces) to this machine
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-but-useful-persistent-ssh-sessions-with-tmux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optional, but useful : Persistent SSH sessions with TMUX
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-interacting-with-google-cloud-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Interacting with Google Cloud Storage
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-google-compute-engine-from-the-cli-deep-learning-vms-and-ssh-tunnels" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Google Compute Engine from the CLI, "deep learning VMs" and SSH tunnels
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Google Compute Engine from the CLI, "deep learning VMs" and SSH tunnels">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-google-compute-engine-instance-using-the-command-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a google compute engine instance using the command line
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connect-with-ssh-to-this-machine-and-do-a-port-forwarding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connect with ssh to this machine and do a port forwarding
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-important-cleaning-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. IMPORTANT : Cleaning up
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-optional-introduction-to-infrastructure-as-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Optional - Introduction to infrastructure as code
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-optional-google-colaboratory" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Optional - Google Colaboratory
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Optional - Google Colaboratory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#intro-description-of-google-colaboratory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intro &amp; Description of Google Colaboratory
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loading-jupyter-notebooks-interacting-with-google-drive" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loading jupyter notebooks, interacting with google drive
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-nice-usages-of-google-colab" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other nice usages of Google Colab
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Containers, Docker
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Containers, Docker
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_4_containers.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_4_docker_tp.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_5_be.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Google Cloud and Docker BE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_6_conclusion.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recap Cloud & Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Deployment BE
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            Deployment BE
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_8_deployment.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_8_deployment_tp.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_8_deployment_tp_long.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP (Version Longue)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_7_readings.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reading List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Data Distribution
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Data Distribution
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2_1_overview.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Orchestration & Kubernetes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Orchestration & Kubernetes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2_2_orchestration.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lectures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2_3_kub_handson.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2_4_functional.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Functional Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2_5_mapreduce.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hadoop and MapReduce
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2_6_spark.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spark
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2_8_dask.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dask on Kubernetes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2_9_project.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dask project
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-abstract" class="md-nav__link">
+    <span class="md-ellipsis">
+      0. Abstract
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1a-create-your-gcp-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      1a. Create your GCP Account
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1b-selecting-the-general-gcp-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      1b. Selecting the general gcp project
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-my-first-vm-github-codespaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. My first "VM", Github Codespaces
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. My first "VM", Github Codespaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#intro-to-github-codespaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intro to Github Codespaces
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-your-codespace-and-connect-to-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create your codespace and connect to it
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explore-github-codespaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explore github codespaces
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-demo-of-codespace-port-forwarding-web-preview" class="md-nav__link">
+    <span class="md-ellipsis">
+      A demo of codespace port forwarding / web preview
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-install-google-cloud-sdk-configure-the-shell" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Install Google Cloud SDK &amp; Configure the shell
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-my-first-google-compute-engine-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. My first Google Compute Engine Instance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. My first Google Compute Engine Instance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-my-vm-using-the-console-the-gui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating my VM using the console (the GUI)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connecting-to-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connecting to SSH
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-magic-of-redimensioning-vms" class="md-nav__link">
+    <span class="md-ellipsis">
+      The magic of redimensioning VMs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transfering-files-from-the-computer-or-codespaces-to-this-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transfering files from the computer (or codespaces) to this machine
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-but-useful-persistent-ssh-sessions-with-tmux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optional, but useful : Persistent SSH sessions with TMUX
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-interacting-with-google-cloud-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Interacting with Google Cloud Storage
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-google-compute-engine-from-the-cli-deep-learning-vms-and-ssh-tunnels" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Google Compute Engine from the CLI, "deep learning VMs" and SSH tunnels
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Google Compute Engine from the CLI, "deep learning VMs" and SSH tunnels">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-google-compute-engine-instance-using-the-command-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a google compute engine instance using the command line
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connect-with-ssh-to-this-machine-and-do-a-port-forwarding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connect with ssh to this machine and do a port forwarding
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-important-cleaning-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. IMPORTANT : Cleaning up
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-optional-introduction-to-infrastructure-as-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Optional - Introduction to infrastructure as code
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-optional-google-colaboratory" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Optional - Google Colaboratory
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Optional - Google Colaboratory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#intro-description-of-google-colaboratory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intro &amp; Description of Google Colaboratory
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loading-jupyter-notebooks-interacting-with-google-drive" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loading jupyter notebooks, interacting with google drive
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-nice-usages-of-google-colab" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other nice usages of Google Colab
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="google-cloud-platform-hands-on">Google Cloud Platform Hands-on<a class="headerlink" href="#google-cloud-platform-hands-on" title="Permanent link">🔗</a></h1>
+<h2 id="0-abstract">0. Abstract<a class="headerlink" href="#0-abstract" title="Permanent link">🔗</a></h2>
+<p>!! abstract
+    In this hands on you will configure your GCP account, the google cloud SDK and access the cloud console using Google Cloud Shell,
+    You will also discover a very useful tool, a managed jupyter notebook service from google named Google Colab which may be very important for your future developments this year</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Some things may only work on <strong>eduroam</strong> or in 4G...</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Don't forget to shutdown everything after !</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When the TP says to replace "{something}" with a name, don't include the brackets so write “yourname"</p>
+</div>
+<h2 id="1a-create-your-gcp-account">1a. Create your GCP Account<a class="headerlink" href="#1a-create-your-gcp-account" title="Permanent link">🔗</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is possible that you don't have your credits yet, so keep this in mind for when you will be receiving them
+Skip this for now</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you don't have gcp credits yet, put a gmail adress in <a href="https://docs.google.com/spreadsheets/d/1vPrMYu7oGT6LwDZA4SsJxGqMlNjQN4ts5OdzFe30n-U/edit#gid=0">this document</a> to get access to the shared one</p>
+</div>
+<p><a href="https://cloud.google.com/docs/overview">Overview link</a></p>
+<ul>
+<li>Create an account within <a href="https://console.cloud.google.com">Google cloud Platform</a> using your ISAE e-mail</li>
+<li>Use the code given by Dennis to get your free credits</li>
+<li>You should have a <a href="https://cloud.google.com/free">free tier</a> available to you as well as coupons</li>
+<li>From <a href="https://console.cloud.google.com">the interface</a> you should <a href="https://cloud.google.com/resource-manager/docs/creating-managing-projects">create a project</a> with a name of your choice</li>
+</ul>
+<h2 id="1b-selecting-the-general-gcp-project">1b. Selecting the general gcp project<a class="headerlink" href="#1b-selecting-the-general-gcp-project" title="Permanent link">🔗</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you don't have your project yet you should be added to a global ISAE-SDD called <code>sdd2324</code> project
+Select it in the interface</p>
+</div>
+<p>You should have access to the sdd2324 project and be able to access <a href="https://console.cloud.google.com/welcome?project=sdd2324">the interface</a></p>
+<p><img alt="" src="slides/static/img/project.png" /></p>
+<h2 id="2-my-first-vm-github-codespaces">2. My first "VM", Github Codespaces<a class="headerlink" href="#2-my-first-vm-github-codespaces" title="Permanent link">🔗</a></h2>
+<h3 id="intro-to-github-codespaces">Intro to Github Codespaces<a class="headerlink" href="#intro-to-github-codespaces" title="Permanent link">🔗</a></h3>
+<ul>
+<li><a href="https://github.com/features/codespaces">Github Codespaces</a> is a "managed VM" made available to develop without needing to configure locally your environment.</li>
+<li>Compared to configured a VM by yourself, this one comes loaded with developer tools, and thus is faster to use,</li>
+<li>You have a free tier of 60 CPU hours / months and some disk space</li>
+<li>You pay for the CPI when the VM is ON and for the disk when the codespace is create</li>
+</ul>
+<p>Have a look at the overview : <a href="https://docs.github.com/en/codespaces/overview">https://docs.github.com/en/codespaces/overview</a> </p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<ul>
+<li>Can you describe it with your own words ?</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Google Cloud has a similar service with Google Cloud Shell but since Codespaces is way more powerful, we will be using that</p>
+</div>
+<h3 id="create-your-codespace-and-connect-to-it">Create your codespace and connect to it<a class="headerlink" href="#create-your-codespace-and-connect-to-it" title="Permanent link">🔗</a></h3>
+<p>Go to <a href="https://github.com/fchouteau/isae-cloud-computing-codespace">https://github.com/fchouteau/isae-cloud-computing-codespace</a></p>
+<p><img alt="" src="slides/static/img/codespacefchouteau.png" /></p>
+<ul>
+<li>Click on the top left corner for a new codespace</li>
+<li>It should launch a browser with a vscode</li>
+<li>Launch a terminal using the top right menu</li>
+</ul>
+<p><strong>If that does not work,</strong> go to <a href="https://github.com/github/codespaces-blank">https://github.com/github/codespaces-blank</a> and create a codespace from there</p>
+<p><img alt="" src="slides/static/img/codespacesblank.png" /></p>
+<p>You should arrive to a VScode instance</p>
+<p><img alt="" src="slides/static/img/codespacevscode.png" /></p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<ul>
+<li>Where is it running ?</li>
+</ul>
+</div>
+<p>If you go to the core page of <a href="https://github.com/codespaces">https://github.com/codespaces</a> you should see your codespace running</p>
+<p><img alt="img.png" src="slides/static/img/codespace.png" /></p>
+<h3 id="explore-github-codespaces">Explore github codespaces<a class="headerlink" href="#explore-github-codespaces" title="Permanent link">🔗</a></h3>
+<ul>
+<li>Check available disk space</li>
+</ul>
+<details class="note">
+<summary>Bash command to run</summary>
+<p><code>df -h</code></p>
+</details>
+<ul>
+<li>Check the OS name</li>
+</ul>
+<details class="note">
+<summary>Bash command to run</summary>
+<p><code>cat /etc/os-release</code></p>
+</details>
+<ul>
+<li>Check the CPU model</li>
+</ul>
+<details class="note">
+<summary>Bash command to run</summary>
+<p><code>cat /proc/cpuinfo</code></p>
+</details>
+<ul>
+<li>This is the hardware model... how many cores do you have available ? Which amount of RAM ?</li>
+</ul>
+<details class="note">
+<summary>Help</summary>
+<p><code>htop</code> will give you your current usage and available cores, or you can do <code>nproc</code></p>
+</details>
+<ul>
+<li>Try to upload a file from your computer to the codespace by right clicking on the file explorer on the left</li>
+</ul>
+<h3 id="a-demo-of-codespace-port-forwarding-web-preview">A demo of codespace port forwarding / web preview<a class="headerlink" href="#a-demo-of-codespace-port-forwarding-web-preview" title="Permanent link">🔗</a></h3>
+<ul>
+<li>In your codespace, run <code>jupyter lab</code> to launch the jupyter lab installed in it</li>
+<li>Check the "port" preview : It should have a new entry with the 8888 port. If not, create it manually</li>
+<li>Click on open in browser</li>
+<li>Copy the token from your terminal to the web browser</li>
+<li>You are new in a jupyterlab hosted on your github codespace VM !</li>
+</ul>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Magic !? What do you think is happening ? Try to describe it with your own words</p>
+</div>
+<ul>
+<li>Cancel (CTRL+C) the jupyter process</li>
+</ul>
+<p>To learn more about port forwarding in codespaces, refer to the <a href="https://docs.github.com/en/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace">documentation</a></p>
+<h2 id="3-install-google-cloud-sdk-configure-the-shell">3. Install Google Cloud SDK &amp; Configure the shell<a class="headerlink" href="#3-install-google-cloud-sdk-configure-the-shell" title="Permanent link">🔗</a></h2>
+<p>If you want to interact with GCP from your computer or codespaces, you will need to install the <a href="https://cloud.google.com/sdk">Google Cloud SDK</a>, which will also install a shell if you are on windows</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can install the cloud shell locally, but I recommend using your <strong>codespace</strong></p>
+</div>
+<details>
+<summary>Installing locally</summary>
+<p>The best ways to interact with google cloud SDK is with a terminal so in that order:</p>
+<ul>
+<li>Ubuntu / Debian <a href="https://cloud.google.com/sdk/docs/install#deb">https://cloud.google.com/sdk/docs/install#deb</a></li>
+<li>Other Linux (either VM or native): <a href="https://cloud.google.com/sdk/docs/install#linux">https://cloud.google.com/sdk/docs/install#linux</a></li>
+<li>MacOS: <a href="https://cloud.google.com/sdk/docs/install#mac">https://cloud.google.com/sdk/docs/install#mac</a></li>
+<li>Windows Subsystem for Linux: see Linux</li>
+<li>Windows: <a href="https://cloud.google.com/sdk/docs/install#windows">https://cloud.google.com/sdk/docs/install#windows</a></li>
+</ul>
+</details>
+<details>
+<summary>Installing on codespace</summary>
+<p>If you are on codespace, run the commands below to install the gcloud tool to your machine</p>
+<p>Note : If you used the custom codespace, it should already be installed, try gcloud init directly</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb https://packages.cloud.google.com/apt cloud-sdk main&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/apt/sources.list.d/google-cloud-sdk.list
+curl<span class="w"> </span>https://packages.cloud.google.com/apt/doc/apt-key.gpg<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>apt-key<span class="w"> </span>add<span class="w"> </span>-
+sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>google-cloud-cli
+</code></pre></div>
+</details>
+<p>Then run <code>gcloud init</code> in your terminal to configure the <a href="https://cloud.google.com/sdk/docs/initializing">google cloud sdk</a> with your account</p>
+<p>You should at some point see at terminal with a link. Click on the link and login with your google accound, then copy the token to your codespace.</p>
+<p><img alt="logintoken" src="slides/static/img/login.png" /></p>
+<p>Your github codespace is now configured with your google cloud platform credentials</p>
+<h2 id="4-my-first-google-compute-engine-instance">4. My first Google Compute Engine Instance<a class="headerlink" href="#4-my-first-google-compute-engine-instance" title="Permanent link">🔗</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are using sdd2324 project, try either europe-west1-b (Belgium) or europe-west4-a (Netherlands) when asked for a zone</p>
+</div>
+<p>First, we will make our first steps by creating a compute engine instance (a vm) using the console, connecting to it via SSH, interacting with it, uploading some files, and we will shut it down and make the magic happen by resizing it</p>
+<ul>
+<li>What is <a href="https://cloud.google.com/compute/docs/concepts">google cloud compute engine ?</a> try to describe it with your own words</li>
+</ul>
+<h3 id="creating-my-vm-using-the-console-the-gui">Creating my VM using the console (the GUI)<a class="headerlink" href="#creating-my-vm-using-the-console-the-gui" title="Permanent link">🔗</a></h3>
+<ul>
+<li>
+<p>Create your VM from the google cloud interface : Go to <a href="https://cloud.google.com/compute/docs/instances/create-start-instance#startinstanceconsole">this link</a> and follow the "CONSOLE" instruction</p>
+</li>
+<li>
+<p>Create an instance with the following parameters</p>
+<ul>
+<li>type: n1-standard-1</li>
+<li>zone: europe-west1-b (Belgium) or </li>
+<li>os: ubuntu 22.04 x86</li>
+<li>boot disk size: 10 Gb</li>
+<li>boot disk type: pd-standard</li>
+</ul>
+</li>
+<li>Give it a name of your choice (that you can remember)</li>
+<li><strong>DO NOT SHUT IT DOWN</strong> for now</li>
+</ul>
+<details class="note">
+<summary>Note</summary>
+<p>If you were using the command line, you would have done this</p>
+<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create<span class="w"> </span><span class="o">{</span>name<span class="o">}</span><span class="w"> </span>--project<span class="o">={</span>your-project<span class="o">}</span><span class="w"> </span>--zone<span class="o">={</span>your-zone<span class="o">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--machine-type<span class="o">=</span>n1-standard-1<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--image<span class="o">=</span>ubuntu-2204-jammy-v20231030<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--image-project<span class="o">=</span>ubuntu-os-cloud
+<span class="w">  </span>--create-disk<span class="o">=</span>auto-delete<span class="o">=</span>yes,boot<span class="o">=</span>yes,device-name<span class="o">=</span>dev-instance-<span class="o">{</span>index<span class="o">}</span>,image<span class="o">=</span>projects/ubuntu-os-cloud/global/images/ubuntu-2204-jammy-v20231030,mode<span class="o">=</span>rw,size<span class="o">=</span><span class="m">10</span>,type<span class="o">=</span>projects/sdd2324/zones/<span class="o">{</span>your-zone<span class="o">}</span>/diskTypes/pd-standard<span class="w"> </span><span class="se">\</span>
+</code></pre></div>
+</details>
+<h3 id="connecting-to-ssh">Connecting to SSH<a class="headerlink" href="#connecting-to-ssh" title="Permanent link">🔗</a></h3>
+<ul>
+<li>Connect to ssh from the google cloudspace</li>
+</ul>
+<details><summary>Solution</summary>
+
+      `gcloud compute ssh ${MACHINE-NAME}`
+
+  </details>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We are using <code>google compute ssh</code> instead of ssh. This is an automated tool that takes care of locating your machine in GCP and transferring the keys</p>
+</div>
+<ul>
+<li>Check available disk space</li>
+</ul>
+<details><summary>Bash command to run</summary>
+
+    `df -h`
+
+  </details>
+
+<ul>
+<li>Check the OS name</li>
+</ul>
+<details><summary>Bash command to run</summary>
+
+    `cat /etc/os-release`
+
+  </details>
+
+<ul>
+<li>Check the CPU model</li>
+</ul>
+<details><summary>Solution</summary>
+
+    `cat /proc/cpuinfo`
+
+  </details>
+
+<ul>
+<li>Check the number of cores available and the RAM</li>
+</ul>
+<details><summary>Solution</summary>
+
+    `htop`
+
+  </details>
+
+<ul>
+<li>Check instance google cloud properties</li>
+</ul>
+<details><summary>Solution</summary>
+
+    `cat /proc/cpuinfo`
+
+  </details>
+
+<h3 id="the-magic-of-redimensioning-vms">The magic of redimensioning VMs<a class="headerlink" href="#the-magic-of-redimensioning-vms" title="Permanent link">🔗</a></h3>
+<ul>
+<li>Shutdown the VM (from the web browser), check the previous codelab to see how to do it</li>
+<li>Select it and click on EDIT</li>
+<li>Change the machine type to <code>n1-standard-2</code> (<a href="https://cloud.google.com/compute/docs/instances/changing-machine-type-of-stopped-instance">link to documentation</a>)</li>
+<li>Relaunch it, reconnect to it and try to check using <code>htop</code> the number of cores &amp; RAM available</li>
+<li>Note : If you run <code>cat /proc/cpuinfo</code> again you will see that you are running on the same hardware !</li>
+</ul>
+<p>Magic isn't it ? </p>
+<p>Note: If you had any files and specific configuration, they would still be here !</p>
+<h3 id="transfering-files-from-the-computer-or-codespaces-to-this-machine">Transfering files from the computer (or codespaces) to this machine<a class="headerlink" href="#transfering-files-from-the-computer-or-codespaces-to-this-machine" title="Permanent link">🔗</a></h3>
+<ul>
+<li>We will use the terminal to transfer some files <strong><em>from</em>* your computer (or codespaces) </strong>to** this machine,</li>
+<li>
+<p>If you use cloud shell you can do it as well : create a dummy file in cloud shell</p>
+</li>
+<li>
+<p toc="toc">Follow <a href="https://cloud.google.com/compute/docs/instances/transfer-files#transfergcloud">this link</a> to learn how to use the gcloud cli tool to transfer files to your instance
+ TOC</p>
+</li>
+<li>
+<p>For experts, it's possible to do it manually using <a href="https://phoenixnap.com/kb/how-to-rsync-over-ssh">rsync from ssh</a> or <a href="https://cloud.google.com/compute/docs/instances/transfer-files#scp">scp</a></p>
+</li>
+<li>
+<p>Transfer some files to your <code>/home/${USER}</code> directory</p>
+</li>
+<li>
+<p>List them from your instance (<code>ls</code>)</p>
+</li>
+</ul>
+<p>How do we do the opposite ?</p>
+<p>See section 5.</p>
+<h3 id="optional-but-useful-persistent-ssh-sessions-with-tmux">Optional, but useful : Persistent SSH sessions with TMUX<a class="headerlink" href="#optional-but-useful-persistent-ssh-sessions-with-tmux" title="Permanent link">🔗</a></h3>
+<ul>
+<li>Connect to your GCE instance using SSH from the codespace</li>
+<li>Question: What happens if you start a long computation and disconnect ?</li>
+<li>Check that tmux is installed on the remote instance (run <code>tmux</code>). if not <a href="https://computingforgeeks.com/linux-tmux-cheat-sheet/">install it</a></li>
+<li>Follow this tutorial: <a href="https://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/">https://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/</a></li>
+<li>To check you have understood you should be able to:<ul>
+<li>Connect to your remote instance with ssh</li>
+<li>Start a tmux session</li>
+<li>Launch a process (for example <code>htop</code>) inside it</li>
+<li>Detach from the session (<code>CTRL+B</code> then type <code>:detach</code>)</li>
+<li>Kill the ssh connection</li>
+<li>Connect again</li>
+<li><code>tmux attach</code> to your session</li>
+<li>Your process should still be here !</li>
+</ul>
+</li>
+</ul>
+<p>Congratulations :)</p>
+<h2 id="5-interacting-with-google-cloud-storage">5. Interacting with Google Cloud Storage<a class="headerlink" href="#5-interacting-with-google-cloud-storage" title="Permanent link">🔗</a></h2>
+<p>Here we will discover google cloud storage, upload some files from your computer and download them from your instance in the cloud</p>
+<ul>
+<li>
+<p>What is <a href="https://cloud.google.com/storage">Google Cloud Storage ?</a> Try to describe it with your own words</p>
+</li>
+<li>
+<p>Use <a href="https://cloud.google.com/storage/docs/discover-object-storage-console">this tutorial</a> to upload something from your computer to google cloud storage from the web browser (<strong>DO NOT DELETE THE FILES YET</strong>)</p>
+</li>
+</ul>
+<p>Now we will download it using the google cloud CLI tool. Here's <a href="https://cloud.google.com/storage/docs/uploading-objects#gsutil">the documentation</a></p>
+<p>Follow the <a href="https://cloud.google.com/storage/docs/discover-object-storage-gsutil">tutorial</a> to learn how to do what you just did, but this time using <code>gsutil</code> from your codespace</p>
+<ul>
+<li>List the content of the bucket you just created (if you deleted it previously, create a new one)</li>
+<li>Upload a file to a bucket </li>
+<li>Download a file from a bucket</li>
+</ul>
+<p><strong>Optional : What if we want to do the same from the GCE instance ?</strong></p>
+<ul>
+<li>
+<p>Now go back to your machine</p>
+</li>
+<li>
+<p>Try to list bucket, download and upload files</p>
+</li>
+<li>
+<p>Is it possible ?</p>
+</li>
+<li>
+<p>If not, it's because you have to allow the instance to access google cloud storage</p>
+</li>
+<li>
+<p>Shutdown the VM and edit it (like we did when we resized the instance)</p>
+</li>
+<li>
+<p>Check "access scopes", select "set access for each api", and select "storage / admin"</p>
+</li>
+<li>
+<p>Now restart you machine, connect back to it. You should be able to upload to google cloud storage now files now</p>
+</li>
+<li>
+<p>Now you can delete the bucket you just created</p>
+</li>
+<li>
+<p>You can delete the VM as well, we will not use it</p>
+</li>
+</ul>
+<p><strong>DELETE THE BUCKET NOW</strong></p>
+<h2 id="6-google-compute-engine-from-the-cli-deep-learning-vms-and-ssh-tunnels">6. Google Compute Engine from the CLI, "deep learning VMs" and SSH tunnels<a class="headerlink" href="#6-google-compute-engine-from-the-cli-deep-learning-vms-and-ssh-tunnels" title="Permanent link">🔗</a></h2>
+<p>Here we will use the google cloud sdk to create a more complex VM with a pre-installed image and connect to its jupyter server</p>
+<p>This will be useful for the next part of our workshop because both git and docker are already installed !</p>
+<p>Google Cloud Platform comes with a set of services targeted at data scientists called <a href="https://cloud.google.com/ai-platform">AI Platform</a>, among them are <a href="https://cloud.google.com/ai-platform/deep-learning-vm/docs">Deep Learning VMs</a> which are essentially preinstalled VMs (more or less the same configuration as google colab) with some bonuses.</p>
+<ul>
+<li>What are "Deep Learning VMs" ? Try to use your own words</li>
+<li>What would be the alternative if you wanted to get a machine with the same installation ?</li>
+</ul>
+<h3 id="create-a-google-compute-engine-instance-using-the-command-line">Create a google compute engine instance using the command line<a class="headerlink" href="#create-a-google-compute-engine-instance-using-the-command-line" title="Permanent link">🔗</a></h3>
+<p>Instead of using the browser to create this machine, we will be using the <a href="https://cloud.google.com/ai-platform/deep-learning-vm/docs/cli">CLI to create instances</a></p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">INSTANCE_NAME</span><span class="o">=</span><span class="s2">&quot;fch-dlvm-1&quot;</span><span class="w"> </span><span class="c1"># &lt;--- RENAME THIS !!!!!!!!!!</span>
+
+gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create<span class="w"> </span><span class="nv">$INSTANCE_NAME</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--zone<span class="o">=</span><span class="s2">&quot;europe-west1-b&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--image-family<span class="o">=</span><span class="s2">&quot;common-cpu&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--image-project<span class="o">=</span><span class="s2">&quot;deeplearning-platform-release&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--maintenance-policy<span class="o">=</span><span class="s2">&quot;TERMINATE&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--scopes<span class="o">=</span><span class="s2">&quot;storage-rw&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--machine-type<span class="o">=</span><span class="s2">&quot;n1-standard-1&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--boot-disk-size<span class="o">=</span><span class="s2">&quot;50GB&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--boot-disk-type<span class="o">=</span><span class="s2">&quot;pd-standard&quot;</span>
+</code></pre></div>
+<ul>
+<li>Notice the similarities between the first VM you created and this one,</li>
+<li>What changed ?</li>
+<li>If you want to learn more about compute images, image families etc... <a href="https://cloud.google.com/ai-platform/deep-learning-vm/docs/concepts-images">go here</a></li>
+</ul>
+<h3 id="connect-with-ssh-to-this-machine-and-do-a-port-forwarding">Connect with ssh to this machine and do a port forwarding<a class="headerlink" href="#connect-with-ssh-to-this-machine-and-do-a-port-forwarding" title="Permanent link">🔗</a></h3>
+<ul>
+<li>
+<p>Connect to your instance using the gcloud cli &amp; ssh from the codespace</p>
+</li>
+<li>
+<p>This time, you will <a href="https://cloud.google.com/ai-platform/deep-learning-vm/docs">forward some ports</a> as well</p>
+</li>
+</ul>
+<details><summary>Solution</summary>
+    gcloud compute ssh user@machine-name --zone=europe-west1-b -- -L 8080:localhost:8080
+  </details>
+
+<p>If you are in codespace, use the port forwarding utility, add a new port (8080). It may be done automatically, you should be in a jupyter notebook under the user <code>jupyter</code></p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Where are we ? Where is the jupyter lab hosted ?
+What is the difference between this and the jupyter lab we launched from codespace</p>
+</div>
+<p><img alt="tunnels" src="slides/static/img/codespaceception.png" /></p>
+<p>You can try to play with the jupyter lab (that has a code editor and terminal capabilities) to get a feel of manipulating a remote instance</p>
+<p>Try to <code>pip3 list</code> to check all dependencies installed !</p>
+<ul>
+<li>Delete the instance</li>
+</ul>
+<h2 id="7-important-cleaning-up">7. IMPORTANT : Cleaning up<a class="headerlink" href="#7-important-cleaning-up" title="Permanent link">🔗</a></h2>
+<ul>
+<li><strong>DELETE ALL THE GCP INSTANCES YOU CREATED</strong></li>
+<li><strong>SHUTDOWN YOUR CODESPACE</strong></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Don't forget to delete your instances in GCP</p>
+</div>
+<p>How to shutdown codespaces :</p>
+<p><img alt="stop" src="slides/static/img/stop.png" /></p>
+<ul>
+<li>Click on stop codespace to shut it down (you "pay" for the disk with your free credits)</li>
+<li>Click on kill codespace to delete it</li>
+</ul>
+<h2 id="8-optional-introduction-to-infrastructure-as-code">8. Optional - Introduction to infrastructure as code<a class="headerlink" href="#8-optional-introduction-to-infrastructure-as-code" title="Permanent link">🔗</a></h2>
+<ul>
+<li>
+<p><a href="https://cloud.google.com/deployment-manager/docs/quickstart">This tutorial</a> will guide you through google cloud deployment manager, which is a way to deploy google compute engine instances using configuration files</p>
+</li>
+<li>
+<p>Don't forget to adapt machine configurations and zone to your use case (see above)</p>
+</li>
+</ul>
+<p>If you run this, don't forget to clean everything up afterwards</p>
+<h2 id="9-optional-google-colaboratory">9. Optional - Google Colaboratory<a class="headerlink" href="#9-optional-google-colaboratory" title="Permanent link">🔗</a></h2>
+<div class="admonition abstract">
+<p class="admonition-title">Abstract</p>
+<p>Previous versions of this class happened before the ML Class so there was an introduction to google collab. You should have extensively used this tool before, so skip this :)</p>
+</div>
+<p>Here, you will look at Google Colaboratory, which is a very handy tool for doing data science work (based on jupyter notebooks) on the cloud, using a preconfigured instance (which can access a GPU). You will be able to store data on Google Drive and to share</p>
+<p><strong>I highly recommend using this for Jupyter based AML BE</strong>, but I invite you to discover google colab <em>at home, or during AML BE</em> because it's a useful tool but mastering it is not relevant for our cloud class</p>
+<h4 id="intro-description-of-google-colaboratory">Intro &amp; Description of Google Colaboratory<a class="headerlink" href="#intro-description-of-google-colaboratory" title="Permanent link">🔗</a></h4>
+<ul>
+<li>Open <a href="https://colab.research.google.com/notebooks/intro.ipynb">Google Colab</a></li>
+<li><a href="https://ledatascientist.com/google-colab-le-guide-ultime/">Some intro</a>, <a href="https://towardsdatascience.com/getting-started-with-google-colab-f2fff97f594c">another one</a></li>
+</ul>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<ul>
+<li>Can you describe what it is ?</li>
+<li>Is it IaaS ? PaaS ? SaaS ? why exactly ?</li>
+</ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Colaboratory, or "Colab" for short, allows you to write and execute Python in your browser, with</p>
+<ul>
+<li>Zero configuration required</li>
+<li>Free access to GPUs</li>
+<li>Easy sharing</li>
+</ul>
+<p>It offers a "jupyter notebook - like" interface, and allows to install your own dependencies by running bash commands inside the VM, with connection to google drive, google sheets</p>
+<p>You can manipulate the notebooks from your Google Drive and share it like it was a GDoc document</p>
+<p>It's essentially between SaaS and PaaS, it offers you a development platform without you having to manage anything except your code and your data (which are both data from the cloud provider point of view)</p>
+</div>
+<h4 id="loading-jupyter-notebooks-interacting-with-google-drive">Loading jupyter notebooks, interacting with google drive<a class="headerlink" href="#loading-jupyter-notebooks-interacting-with-google-drive" title="Permanent link">🔗</a></h4>
+<ul>
+<li>Open a notebook you previously ran on your computer (from AML class), you can <a href="https://colab.research.google.com/github/googlecolab/colabtools/blob/master/notebooks/colab-github-demo.ipOther references:ynb">run a notebook on github directly in google colab</a></li>
+<li>Try to run it inside google colab</li>
+<li>Link <a href="https://colab.research.google.com/notebooks/io.ipynb">google colab and google drive</a> and upload something on google drive (like an image) and display in on google colab</li>
+</ul>
+<h4 id="other-nice-usages-of-google-colab">Other nice usages of Google Colab<a class="headerlink" href="#other-nice-usages-of-google-colab" title="Permanent link">🔗</a></h4>
+<ul>
+<li><a href="https://colab.research.google.com/notebooks/markdown_guide.ipynb">Writing markdown to generate reports</a></li>
+<li><a href="https://colab.research.google.com/notebooks/snippets/importing_libraries.ipynb">Installing custom dependencies</a></li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["toc.autohide", "navigation.sections"], "search": "assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.6c14ae12.min.js"></script>
+      
+    
+  </body>
+</html>
