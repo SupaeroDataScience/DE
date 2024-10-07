@@ -15,19 +15,25 @@ Introduction to data computation module
 
 ### Cloud Computing & Remote Development (3h)
 
-Intro to cloud computing & google cloud platform
+Intro to cloud computing & remote development environments
+
+### Google Cloud Platform (3h)
+
+Discover Google Cloud Platform with your student credits !
 
 ### Containers (3h)
 
 Intro to containers & docker
 
-### BE (3h)
+### BE : GCP & Containers (3h)
 
 A small workshop that puts everything together: Google cloud & docker
 
-### Deployment (3h)
+### BE : Deploy your ML model in production (3h)
 
 Deploy your machine learning model in production with everything you've learnt
+
+We will then switch to the introduction to orchestration and kubernetes lectures
 
 ### Quiz and recap
 
