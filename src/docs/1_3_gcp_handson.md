@@ -1,4 +1,4 @@
-# GCP Hands On, first VMs, Google Cloud Storage
+# Google Cloud Platform Hands-on
 
 ## 0. Abstract
 

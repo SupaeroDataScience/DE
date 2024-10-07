@@ -33,21 +33,25 @@ nav:
   - Introduction: 1_1_overview.md
   - Cloud Computing:
     - Lectures: 1_2_cloud.md
-    - TP: 1_2_gcp_handson.md
+    - TP: 1_2_setup_codespace.md
+  - Google Cloud Platform:
+    - Lecture: 1_3_gcp_lecture.md
+    - TP: 1_3_gcp_handson.md
   - Containers, Docker:
-    - Lecture: 1_3_containers.md
-    - TP: 1_3_docker_tp.md
-  - Google Cloud and Docker BE: 1_4_be.md
-  - Recap Cloud & Docker: 1_5_conclusion.md
+    - Lecture: 1_4_containers.md
+    - TP: 1_4_docker_tp.md
+  - Google Cloud and Docker BE: 1_5_be.md
+  - Recap Cloud & Docker: 1_6_conclusion.md
+  - Deployment BE:
+    - Lecture: 1_8_deployment.md
+    - TP: 1_8_deployment_tp.md
+    - TP (Version Longue): 1_8_deployment_tp_long.md
   - Reading List: 1_7_readings.md
 - Data Distribution:
   - Introduction: 2_1_overview.md
-  - Deployment:
-    - Lectures: 2_2_deployment.md
-    - TP: 2_2_deployment_tp.md
-    - TP (Version Longue): 2_2_deployment_tp_long.md
-  - Kubernetes:
-    - TP: 2_3_kub_intro.md
+  - Orchestration & Kubernetes:
+    - Lectures: 2_2_orchestration.md
+    - TP: 2_3_kub_handson.md
   - Functional Programming: 2_4_functional.md
   - Hadoop and MapReduce: 2_5_mapreduce.md
   - Spark: 2_6_spark.md
