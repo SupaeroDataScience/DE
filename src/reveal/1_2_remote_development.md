@@ -46,7 +46,15 @@ https://newsletter.pragmaticengineer.com/p/cloud-development-environments-why-no
 
 ![hub](https://geohackweek.github.io/Introductory/fig/geohackweek_aws_setup.png)  <!-- .element: height="40%" width="40%" -->
 
-Also Google Colab
+Another example (more managed) [Google Colab](https://colab.research.google.com/)
+
+<!--v-->
+
+#### Your future daily routine
+
+An AI-centric example, https://lightning.ai/studios
+
+![studio](https://pl-bolts-doc-images.s3.us-east-2.amazonaws.com/app-2/work_project.png)  <!-- .element: height="40%" width="40%" -->
 
 <!--v-->
 

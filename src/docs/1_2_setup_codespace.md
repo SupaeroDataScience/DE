@@ -16,6 +16,19 @@ Remote Development hands-on
 !!! note
     When the TP says to replace "{something}" with a name, don't include the brackets so write “yourname"
 
+## 1. Early Setup : Google Cloud Platform
+
+In order to anticipate for the next session, you will each create a Google Cloud Platform account and project using the student credits given this year,
+
+We will do the Google Cloud Platform class next week, however by doing this now we will gain precious time in the next class
+
+[Overview link](https://cloud.google.com/docs/overview)
+
+* Create an account within [Google cloud Platform](https://console.cloud.google.com) using your ISAE e-mail
+* Use the code given by Dennis to redeem your free credits
+* You should have a [free tier](https://cloud.google.com/free) available to you as well as coupons
+* From [the interface](https://console.cloud.google.com) you should [create a project](https://cloud.google.com/resource-manager/docs/creating-managing-projects) with a name of your choice (it is recommended to put for example sdd2425-yourname so that it is clear)
+
 ## 2. My first "Virtual Machine", Github Codespaces
 
 First, you will need a [GitHub](https://github.com/) account. You should already have one, otherwise create one.
@@ -119,7 +132,15 @@ As an exercise, you will setup your development environment in the codespace and
 
 - Transfer a notebook you are working on from your computer
 - Transfer the data as well if it's not downloaded
-- Transfer 
+- Setup your environment using pip, conda, etc... as you would do in your local machine
+- Run jupyter lab or jupyter notebook from your codespace and connect to it like previously
+- You can continue your script / etc... 
+
+If you don't have anything at hand you can use this simple repo as an example (you will see that later on your DL classes) : 
+[https://github.com/pytorch/examples/tree/main/mnist](https://github.com/pytorch/examples/tree/main/mnist)
+
+!!! question
+    How comfortable do you feel with this remote machine ? Is it easy to get data in or out ? Code in or out ?
 
 ## 4. Let's discover Streamlit
 
