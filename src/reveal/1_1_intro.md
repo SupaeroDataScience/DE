@@ -47,6 +47,14 @@ Introduction to global concepts of cloud computing, virtualisation, containers e
 
 <!--v-->
 
+### Why ?
+
+The building blocks of "AI" : Data, Computational Power, Software
+
+And the people running everything
+
+<!--v-->
+
 eg. having manipulated and having a rough idea of...
 
 ... tools & concepts you **will** need in later workshops (DL, Spark, Dask, Hackathon)...
