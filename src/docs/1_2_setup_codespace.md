@@ -16,20 +16,7 @@
 !!! note
     When the TP says to replace "{something}" with a name, don't include the brackets so write “yourname"
 
-## 1. Early Setup : Google Cloud Platform
-
-In order to anticipate for the next session, you will each create a Google Cloud Platform account and project using the student credits given this year,
-
-We will do the Google Cloud Platform class next week, however by doing this now we will gain precious time in the next class
-
-[Overview link](https://cloud.google.com/docs/overview)
-
-* Create an account within [Google cloud Platform](https://console.cloud.google.com) using your ISAE e-mail
-* Use the code given by Dennis to redeem your free credits
-* You should have a [free tier](https://cloud.google.com/free) available to you as well as coupons
-* From [the interface](https://console.cloud.google.com) you should [create a project](https://cloud.google.com/resource-manager/docs/creating-managing-projects) with a name of your choice (it is recommended to put for example sdd2425-yourname so that it is clear)
-
-## 2. My first "Virtual Machine", Github Codespaces
+## 1. My first "Virtual Machine", Github Codespaces
 
 First, you will need a [GitHub](https://github.com/) account. You should already have one, otherwise create one.
 
@@ -126,7 +113,7 @@ You can then carry these commands in order to get a feel of the "computer" behin
 
 To learn more about port forwarding in codespaces, refer to the [documentation](https://docs.github.com/en/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)
 
-## 3. Running your notebooks in the VM
+## 2. Running your notebooks in the VM
 
 As an exercise, you will setup your development environment in the codespace and run an MLClass Notebook inside the VM,
 
@@ -142,7 +129,7 @@ If you don't have anything at hand you can use this simple repo as an example (y
 !!! question
     How comfortable do you feel with this remote machine ? Is it easy to get data in or out ? Code in or out ?
 
-## 4. Let's discover Streamlit
+## 3. Let's discover Streamlit
 
 We will now introduce streamlit, which is a very nice tool to build quick webapps in python !
 
@@ -161,7 +148,7 @@ Then, take a look at an [introduction to streamlit](https://www.askpython.com/py
     Can you describe what exactly is streamlit ?
     Could you find any way it could be useful to you ?
 
-### 4.1. Your first streamlit application
+### 3.1. Your first streamlit application
 
 Take a look at the code below, 
 
@@ -215,7 +202,7 @@ image_comparison(
 !!! question
     Can you describe, by reading the documentation, what does the code do ?
 
-### 4.2. Local deployment in codespace
+### 3.2. Local deployment in codespace
 
 First, we will install in the codespace the dependencies for our application,
 
@@ -231,7 +218,7 @@ This will launch the application on the port 8501 (by default) of our codespace.
 
 Now you can quit the server.
 
-### 4.3. A more complex application
+### 3.3. A more complex application
 
 We will run and package a more complex application, but a lot more useful for your deep learning class.
 

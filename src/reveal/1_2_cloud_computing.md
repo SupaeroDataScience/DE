@@ -312,7 +312,7 @@ Scaleway is leading the charge for AI in France (& Europe)
 
 <!--v-->
 
-<img src="https://cdn.statcdn.com/Infographic/images/normal/18819.jpeg" alt="" width="50%" height="50%" style="background:none; border:none; box-shadow:none;"/>
+![cloud](https://cdn.statcdn.com/Infographic/images/normal/18819.jpeg) <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 

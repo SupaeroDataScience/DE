@@ -15,7 +15,7 @@ revealOptions:
 
 # Google Cloud Platform
 
-<img src="https://i.pinimg.com/736x/a2/58/39/a258398316189a70bc8f7ff17d7decdb.jpg" alt="" width="60%" height="60%" style="background:none; border:none; box-shadow:none;"/>
+![gcp](https://cloud.orange-business.com/wp-content/uploads/2020/11/logo-google-cloud-platform.png)  <!-- .element: height="40%" width="40%" -->
 
 <!--v-->
 
@@ -28,11 +28,14 @@ revealOptions:
 
 <!--v-->
 
-![](https://cloud.orange-business.com/wp-content/uploads/2020/11/logo-google-cloud-platform.png)
+![gcp](https://www.turbogeek.co.uk/wp-content/uploads/2019/02/word-image-4.png
+)  <!-- .element: height="40%" width="40%" -->
 
 <!--v-->
 
-<img src="https://raw.githubusercontent.com/gregsramblings/google-cloud-4-words/master/Poster-medres.png" alt="" width="75%" height="75%" style="background:none; border:none; box-shadow:none;"/>
+<img src="https://raw.githubusercontent.com/gregsramblings/google-cloud-4-words/master/Poster-medres.png" alt="" width="50%" height="50%" style="background:none; border:none; box-shadow:none;"/>
+
+[GCP Services in 4 words or less](https://googlecloudcheatsheet.withgoogle.com/)
 
 <!--v-->
 
@@ -117,10 +120,20 @@ revealOptions:
 
 #### Objectives
 
-- Create your GCP account, configure your credentials
-- Connect to github Codespace
-- Creating your first VMs and connect to it via SSH
-- Interaction with Google Cloud Storage
+- ✅ Discover GitHub Codespace
+- ✅ Create your GCP account, configure your credentials
+- Create your first VMs and connect to it via SSH
+    - Learn to use Tmux for detachable SSH sessions
+- Interact with Google Cloud Storage
+- End to End example : 
+    - Write code in your codespace
+    - Transfer it to your GCE instance
+    - Run the code, it produces a model
+    - Transfer the model weights to google cloud storage
+    - Get it back from your codespace
+- Bonus content
+    - Managed SQL
+    - Infrastructure as code
 
 <!--v-->
 
@@ -162,14 +175,6 @@ We usually connect to web app using `http://{ip}:{port}`
 
 <!--v-->
 
-#### Github Codespaces
-
-![codespaces](https://github.blog/wp-content/uploads/2021/08/1200x630-codespaces-social.png)
-
-https://docs.github.com/en/codespaces/overview
-
-<!--v-->
-
 #### Tunnels of tunnels
 
 * Some of you did Local Machine -> (browser) -> Codespace -> (ssh) -> VM -> Jupyterlab on port 8888
@@ -181,7 +186,3 @@ https://docs.github.com/en/codespaces/overview
 <!--v-->
 
 #### Demo
-
-- Google Compute Engine Interface
-- Github Codespaces
-

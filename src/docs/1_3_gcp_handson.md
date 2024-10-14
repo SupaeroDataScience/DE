@@ -10,59 +10,43 @@
     Some things may only work on **eduroam** or in 4G...
 
 !!! warning
-    Don't forget to shutdown everything after !
+    Don't forget to shutdown everything when you're done since it costs you money. At the end, even if you have not finished the TP, go to the section 8 "Cleaning Up"
 
-!!! note
+!!! tip
     When the TP says to replace "{something}" with a name, don't include the brackets so write “yourname"
 
-## 1a. Create your GCP Account
+!!! tip
+    If you are lost on where you are, normally the terminal has the hostname indicated, otherwise run the command `hostname`
+
+## 1. Create your GCP Account
 
 !!! note
-    It is possible that you don't have your credits yet, so keep this in mind for when you will be receiving them
-    Skip this for now
+    You should have already done that last week
 
-!!! note
-    If you don't have gcp credits yet, put a gmail adress in [this document](https://docs.google.com/spreadsheets/d/1vPrMYu7oGT6LwDZA4SsJxGqMlNjQN4ts5OdzFe30n-U/edit#gid=0) to get access to the shared one
+Here you will each create a Google Cloud Platform account and project using the student credits given this year,
 
 [Overview link](https://cloud.google.com/docs/overview)
 
 * Create an account within [Google cloud Platform](https://console.cloud.google.com) using your ISAE e-mail
-* Use the code given by Dennis to get your free credits
+* Use the code given by Dennis to redeem your free credits
 * You should have a [free tier](https://cloud.google.com/free) available to you as well as coupons
-* From [the interface](https://console.cloud.google.com) you should [create a project](https://cloud.google.com/resource-manager/docs/creating-managing-projects) with a name of your choice
+* From [the interface](https://console.cloud.google.com) you should [create a project](https://cloud.google.com/resource-manager/docs/creating-managing-projects) with a name of your choice (it is recommended to put for example sdd2425-yourname so that it is clear)
 
-## 1b. Selecting the general gcp project
+## 2. (re)connect to GitHub Codespaces
 
-!!! note
-    If you don't have your project yet you should be added to a global ISAE-SDD called `sdd2324` project
-    Select it in the interface
+### If you still have your codespace from last time
 
-You should have access to the sdd2324 project and be able to access [the interface](https://console.cloud.google.com/welcome?project=sdd2324)
+If you go to the core page of [https://github.com/codespaces](https://github.com/codespaces) and you see an existing codespace from last week, you can restart it using the (...) menu
 
-![](slides/static/img/project.png)
+![img](slides/static/img/codespacemenu.png)
 
-## 2. My first "VM", Github Codespaces
-
-### Intro to Github Codespaces
-
-* [Github Codespaces](https://github.com/features/codespaces) is a "managed VM" made available to develop without needing to configure locally your environment.
-* Compared to configured a VM by yourself, this one comes loaded with developer tools, and thus is faster to use,
-* You have a free tier of 60 CPU hours / months and some disk space
-* You pay for the CPI when the VM is ON and for the disk when the codespace is create
-
-Have a look at the overview : [https://docs.github.com/en/codespaces/overview](https://docs.github.com/en/codespaces/overview) 
-
-!!! question
-    * Can you describe it with your own words ?
-
-!!! note
-    Google Cloud has a similar service with Google Cloud Shell but since Codespaces is way more powerful, we will be using that
+If you don't have one, recreate it (see below)
 
 ### Create your codespace and connect to it
 
 Go to [https://github.com/fchouteau/isae-cloud-computing-codespace](https://github.com/fchouteau/isae-cloud-computing-codespace)
 
-![](slides/static/img/codespacefchouteau.png)
+![img](slides/static/img/codespacefchouteau.png)
 
 * Click on the top left corner for a new codespace
 * It should launch a browser with a vscode
@@ -70,61 +54,22 @@ Go to [https://github.com/fchouteau/isae-cloud-computing-codespace](https://gith
 
 **If that does not work,** go to [https://github.com/github/codespaces-blank](https://github.com/github/codespaces-blank) and create a codespace from there
 
-![](slides/static/img/codespacesblank.png)
+![img](slides/static/img/codespacesblank.png)
 
 You should arrive to a VScode instance
 
-![](slides/static/img/codespacevscode.png)
-
-!!! question
-    * Where is it running ?
+![img](slides/static/img/codespacevscode.png)
 
 If you go to the core page of [https://github.com/codespaces](https://github.com/codespaces) you should see your codespace running
 
-![img.png](slides/static/img/codespace.png)
-
-### Explore github codespaces
-
-* Check available disk space
-
-??? note "Bash command to run"
-    `df -h`
-
-* Check the OS name
-
-??? note "Bash command to run"
-    `cat /etc/os-release`
-
-* Check the CPU model
-
-??? note "Bash command to run"
-    `cat /proc/cpuinfo`
-
-* This is the hardware model... how many cores do you have available ? Which amount of RAM ?
-
-??? note "Help"
-    `htop` will give you your current usage and available cores, or you can do `nproc`
-
-* Try to upload a file from your computer to the codespace by right clicking on the file explorer on the left
-
-### A demo of codespace port forwarding / web preview
-
-* In your codespace, run `jupyter lab` to launch the jupyter lab installed in it
-* Check the "port" preview : It should have a new entry with the 8888 port. If not, create it manually
-* Click on open in browser
-* Copy the token from your terminal to the web browser
-* You are new in a jupyterlab hosted on your github codespace VM !
-
-!!! question
-    Magic !? What do you think is happening ? Try to describe it with your own words
-
-* Cancel (CTRL+C) the jupyter process
-
-To learn more about port forwarding in codespaces, refer to the [documentation](https://docs.github.com/en/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)
+![img](slides/static/img/codespace.png)
 
 ## 3. Install Google Cloud SDK & Configure the shell
 
 If you want to interact with GCP from your computer or codespaces, you will need to install the [Google Cloud SDK](https://cloud.google.com/sdk), which will also install a shell if you are on windows
+
+!!! warning
+    If you have a codespace cloned from [mine](https://github.com/fchouteau/isae-cloud-computing-codespace), the google cloud sdk is already installed. Try `gcloud`to check that, and skip this if this returns something
 
 !!! note
     You can install the cloud shell locally, but I recommend using your **codespace**
@@ -162,20 +107,17 @@ Your github codespace is now configured with your google cloud platform credenti
 
 ## 4. My first Google Compute Engine Instance
 
-!!! note
-    If you are using sdd2324 project, try either europe-west1-b (Belgium) or europe-west4-a (Netherlands) when asked for a zone
-
 First, we will make our first steps by creating a compute engine instance (a vm) using the console, connecting to it via SSH, interacting with it, uploading some files, and we will shut it down and make the magic happen by resizing it
 
 * What is [google cloud compute engine ?](https://cloud.google.com/compute/docs/concepts) try to describe it with your own words
 
-### Creating my VM using the console (the GUI)
+### 4a. Creating my VM using the console (the GUI)
 
 * Create your VM from the google cloud interface : Go to [this link](https://cloud.google.com/compute/docs/instances/create-start-instance#startinstanceconsole) and follow the "CONSOLE" instruction
 
 * Create an instance with the following parameters
     * type: n1-standard-1
-    * zone: europe-west1-b (Belgium) or 
+    * zone: europe-west1-b (Belgium)
     * os: ubuntu 22.04 x86
     * boot disk size: 10 Gb
     * boot disk type: pd-standard
@@ -194,60 +136,37 @@ First, we will make our first steps by creating a compute engine instance (a vm)
       --create-disk=auto-delete=yes,boot=yes,device-name=dev-instance-{index},image=projects/ubuntu-os-cloud/global/images/ubuntu-2204-jammy-v20231030,mode=rw,size=10,type=projects/sdd2324/zones/{your-zone}/diskTypes/pd-standard \
     ```
 
-### Connecting to SSH
+### 4b. Connecting to SSH
 
-* Connect to ssh from the google cloudspace
+* Connect to ssh from the github codespace
 
-  <details><summary>Solution</summary>
+    ??? solution
+        `gcloud compute ssh ${MACHINE-NAME}`
 
-      `gcloud compute ssh ${MACHINE-NAME}`
-
-  </details>
-
-!!! note
-    We are using `google compute ssh` instead of ssh. This is an automated tool that takes care of locating your machine in GCP and transferring the keys
+    !!! note
+        We are using `google compute ssh` instead of ssh. This is an automated tool that takes care of locating your machine in GCP and transferring the keys
 
 * Check available disk space
 
-  <details><summary>Bash command to run</summary>
-
-    `df -h`
-
-  </details>
+    ??? solution
+        `df -h`
 
 * Check the OS name
 
-  <details><summary>Bash command to run</summary>
-
-    `cat /etc/os-release`
-
-  </details>
+    ??? solution
+        `cat /etc/os-release`
 
 * Check the CPU model
 
-  <details><summary>Solution</summary>
-
-    `cat /proc/cpuinfo`
-
-  </details>
+    ??? solution
+        `cat /proc/cpuinfo`
 
 * Check the number of cores available and the RAM
 
-  <details><summary>Solution</summary>
+    ??? solution
+        `htop`
 
-    `htop`
-
-  </details>
-  
-* Check instance google cloud properties
-
-  <details><summary>Solution</summary>
-
-    `cat /proc/cpuinfo`
-
-  </details>
-
-### The magic of redimensioning VMs
+### 4c. The magic of redimensioning VMs
 
 * Shutdown the VM (from the web browser), check the previous codelab to see how to do it
 * Select it and click on EDIT
@@ -259,7 +178,7 @@ Magic isn't it ?
 
 Note: If you had any files and specific configuration, they would still be here !
 
-### Transfering files from the computer (or codespaces) to this machine
+### 4d. Transfering files from the computer (or codespaces) to this machine
 
 * We will use the terminal to transfer some files ***from** your computer (or codespaces) **to** this machine,
 * If you use cloud shell you can do it as well : create a dummy file in cloud shell
@@ -277,7 +196,7 @@ How do we do the opposite ?
 
 See section 5.
 
-### Optional, but useful : Persistent SSH sessions with TMUX
+### 4e. Persistent SSH sessions with TMUX
 
 * Connect to your GCE instance using SSH from the codespace
 * Question: What happens if you start a long computation and disconnect ?
@@ -327,24 +246,20 @@ Follow the [tutorial](https://cloud.google.com/storage/docs/discover-object-stor
 
 * Now restart you machine, connect back to it. You should be able to upload to google cloud storage now files now
 
-* Now you can delete the bucket you just created
-
 * You can delete the VM as well, we will not use it
 
-**DELETE THE BUCKET NOW**
+## 6. Deep Learning VM, SSH and Port Forwarding
 
-## 6. Google Compute Engine from the CLI, "deep learning VMs" and SSH tunnels
+### 6a. deep learning vm
 
 Here we will use the google cloud sdk to create a more complex VM with a pre-installed image and connect to its jupyter server
-
-This will be useful for the next part of our workshop because both git and docker are already installed !
 
 Google Cloud Platform comes with a set of services targeted at data scientists called [AI Platform](https://cloud.google.com/ai-platform), among them are [Deep Learning VMs](https://cloud.google.com/ai-platform/deep-learning-vm/docs) which are essentially preinstalled VMs (more or less the same configuration as google colab) with some bonuses.
 
 * What are "Deep Learning VMs" ? Try to use your own words
 * What would be the alternative if you wanted to get a machine with the same installation ?
 
-### Create a google compute engine instance using the command line
+### 6b. create a google compute engine instance using the command line
 
 Instead of using the browser to create this machine, we will be using the [CLI to create instances](https://cloud.google.com/ai-platform/deep-learning-vm/docs/cli)
 
@@ -366,37 +281,93 @@ gcloud compute instances create $INSTANCE_NAME \
 * What changed ?
 * If you want to learn more about compute images, image families etc... [go here](https://cloud.google.com/ai-platform/deep-learning-vm/docs/concepts-images)
 
-### Connect with ssh to this machine and do a port forwarding
+### 6c. connect with ssh to this machine with port forwarding
 
-* Connect to your instance using the gcloud cli & ssh from the codespace
+* Connect to your instance using the gcloud cli & ssh from the codespace with port forwarding
 
-* This time, you will [forward some ports](https://cloud.google.com/ai-platform/deep-learning-vm/docs) as well
+* Forward the port 8888 when you're connecting to the instance
 
-  <details><summary>Solution</summary>
-    gcloud compute ssh user@machine-name --zone=europe-west1-b -- -L 8080:localhost:8080
-  </details>
+* Documentation [forward some ports](https://cloud.google.com/ai-platform/deep-learning-vm/docs) as well
 
-If you are in codespace, use the port forwarding utility, add a new port (8080). It may be done automatically, you should be in a jupyter notebook under the user `jupyter`
+??? solution
+    `gcloud compute ssh user@machine-name --zone=europe-west1-b -- -L 8888:localhost:8888`
+
+If you are in codespace, use the port forwarding utility, add a new port (8888). It may be done automatically.
+
+* Explore the machine the same way we did previously
+
+* You can see you have a conda envirnoment installed. Try to query the list of things installed
+
+??? solution
+    `conda list`
+    `pip list`
+
+* is (py)torch installed ? If not, install it
+
+??? solution
+    `pip list | grep torch`
+    `pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu`
+
+### 6d. Run jupyter lab on the GCE VM
+
+* In the GCE VM, run `jupyter lab`
+
+* Copy the credentials
+
+* Connect to the port 8888 of the GitHub CodeSpace. You should be redirected to a jupyter instance
 
 !!! question
     Where are we ? Where is the jupyter lab hosted ?
-    What is the difference between this and the jupyter lab we launched from codespace
+    What is the difference between this and the jupyter lab we launched from codespace last week ?
 
 ![tunnels](slides/static/img/codespaceception.png)
 
-You can try to play with the jupyter lab (that has a code editor and terminal capabilities) to get a feel of manipulating a remote instance
+Don't disconnect from the VM, we will continue below
 
-Try to `pip3 list` to check all dependencies installed !
+## 7. End to end example
 
-* Delete the instance
+We will replicate the following setup (simplified)
 
-## 7. IMPORTANT : Cleaning up
+![setup](slides/static/img/infra_army_of_one.png)
 
-* **DELETE ALL THE GCP INSTANCES YOU CREATED**
-* **SHUTDOWN YOUR CODESPACE**
+- Your development machine (the github codespace) has some training code
+- You have a "high performance" machine in the cloud
+- You want to transfer the training code to the VM
+- You want to run the training in a remote machine
+- Once the training is done you want to upload the model weights to google cloud storage
+
+* In your codespace, in a new folder (eg. `training`), copy the content of [this](https://github.com/pytorch/examples/tree/main/mnist)
+
+??? solution
+    `gcloud compute scp --recurse training ${USER}@{MACHINE}:/home/${USER}/`
+
+You should find it on your GCE VM
+
+* Run it using `python train.py --epochs 1 --save-model`. 
+
+It should train a neural network on the MNIST dataset. BONUS : Run it inside a tmux session ;)
+
+* Once it has finished, you should see a new file, the model weights `mnist_cnn.pt`
+
+* From the GCE VM : Upload the weights to the google cloud storage bucket you previously created
+
+??? solution
+    `gcloud storage cp mnist_cnn.pt gs://(...)`
+
+* From the GitHubCodespace : Download the model weights from google cloud storage
+
+??? solution
+    `gcloud storage cp gs://(...) mnist_cnn.pt`
+
+!!! success
+    yay ! Don't forget to cleanup
+
+## 8. IMPORTANT : Cleaning up
 
 !!! warning
-    Don't forget to delete your instances in GCP
+    * **DELETE ALL THE BUCKES YOU CREATED**
+    * **DELETE ALL THE GCP INSTANCES YOU CREATED**
+    * **SHUTDOWN YOUR CODESPACE**
 
 How to shutdown codespaces :
 
@@ -405,7 +376,7 @@ How to shutdown codespaces :
 - Click on stop codespace to shut it down (you "pay" for the disk with your free credits)
 - Click on kill codespace to delete it
 
-## 8. Optional - Introduction to infrastructure as code
+## 9. Optional - Introduction to infrastructure as code
 
 * [This tutorial](https://cloud.google.com/deployment-manager/docs/quickstart) will guide you through google cloud deployment manager, which is a way to deploy google compute engine instances using configuration files
 
@@ -413,44 +384,16 @@ How to shutdown codespaces :
 
 If you run this, don't forget to clean everything up afterwards
 
-## 9. Optional - Google Colaboratory
+## 10. Optional - Managed Database
 
-!!! abstract
-    Previous versions of this class happened before the ML Class so there was an introduction to google collab. You should have extensively used this tool before, so skip this :)
+* I think you've just done a class on SQL databases
 
-Here, you will look at Google Colaboratory, which is a very handy tool for doing data science work (based on jupyter notebooks) on the cloud, using a preconfigured instance (which can access a GPU). You will be able to store data on Google Drive and to share
-
-**I highly recommend using this for Jupyter based AML BE**, but I invite you to discover google colab *at home, or during AML BE* because it's a useful tool but mastering it is not relevant for our cloud class
-
-#### Intro & Description of Google Colaboratory
-
-* Open [Google Colab](https://colab.research.google.com/notebooks/intro.ipynb)
-* [Some intro](https://ledatascientist.com/google-colab-le-guide-ultime/), [another one](https://towardsdatascience.com/getting-started-with-google-colab-f2fff97f594c)
+* Here are the [managed SQL services of google cloud](https://console.cloud.google.com/sql/instances)
 
 !!! question
-    - Can you describe what it is ?
-    - Is it IaaS ? PaaS ? SaaS ? why exactly ?
+    Can you describe what it is ?
+    What do you pay to google ? How much does it cost ?
+    What is a managed service in cloud vocabulary ?
 
-!!! info
-    Colaboratory, or "Colab" for short, allows you to write and execute Python in your browser, with
+* If you still have some code to interact with a database, you can try launching one here and redoing your classes
 
-    * Zero configuration required
-    * Free access to GPUs
-    * Easy sharing
-
-    It offers a "jupyter notebook - like" interface, and allows to install your own dependencies by running bash commands inside the VM, with connection to google drive, google sheets
-
-    You can manipulate the notebooks from your Google Drive and share it like it was a GDoc document
-
-    It's essentially between SaaS and PaaS, it offers you a development platform without you having to manage anything except your code and your data (which are both data from the cloud provider point of view)
-
-#### Loading jupyter notebooks, interacting with google drive
-
-* Open a notebook you previously ran on your computer (from AML class), you can [run a notebook on github directly in google colab](https://colab.research.google.com/github/googlecolab/colabtools/blob/master/notebooks/colab-github-demo.ipOther references:ynb)
-* Try to run it inside google colab
-* Link [google colab and google drive](https://colab.research.google.com/notebooks/io.ipynb) and upload something on google drive (like an image) and display in on google colab
-
-#### Other nice usages of Google Colab
-
-* [Writing markdown to generate reports](https://colab.research.google.com/notebooks/markdown_guide.ipynb)
-* [Installing custom dependencies](https://colab.research.google.com/notebooks/snippets/importing_libraries.ipynb)
