@@ -92,6 +92,10 @@ If you had to remember only one thing
 
 </script></section><section data-markdown><script type="text/template">
 
+![cloud](https://qph.fs.quoracdn.net/main-qimg-6a4c094bd9465389d35529b12b6caa77.webp)
+
+</script></section><section data-markdown><script type="text/template">
+
 ![vm](static/img/virtualization.png) <!-- .element: height="50%" width="50%" -->
 
 </script></section><section data-markdown><script type="text/template">
@@ -104,7 +108,7 @@ If you had to remember only one thing
 
 </script></section><section data-markdown><script type="text/template">
 
-![cloud](https://www.catapultsystems.com/wp-content/uploads/2020/03/pizza-model-vert.jpeg)  <!-- .element: height="50%" width="50%" -->
+![cloud](static/img/pizzaasaservicev2.jpg)  <!-- .element: height="65%" width="65%" -->
 
 </script></section><section data-markdown><script type="text/template">
 
@@ -116,9 +120,53 @@ Cloud, technical evolution, usage revolution
 
 ![petcattle](static/img/pet-vs-cattle.png)
 
+</script></section></section><section ><section data-markdown><script type="text/template">
+
+### Take-away for Remote Development Environment
+
 </script></section><section data-markdown><script type="text/template">
 
-#### SSH Tunnel, Port Forwarding
+### Key use case
+
+![remote](https://substackcdn.com/image/fetch/w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5f009c59-64f4-46ff-8097-c5be8f865eaf_1616x1372.png) <!-- .element: height="40%" width="40%" -->
+
+https://newsletter.pragmaticengineer.com/p/cloud-development-environments-why-now
+
+</script></section><section data-markdown><script type="text/template">
+
+#### Remote Development : Your future daily routine
+
+![remote](https://blog.uber-cdn.com/cdn-cgi/image/width=1810,quality=80,onerror=redirect,format=auto/wp-content/uploads/2022/12/Figure-2-Devpod-overview-Remote-development-environment-@-Uber.png)  <!-- .element: height="50%" width="50%" -->
+
+[Uber Blog describing their way of working](https://www.uber.com/en-FR/blog/devpod-improving-developer-productivity-at-uber/)
+
+</script></section><section data-markdown><script type="text/template">
+
+#### [Github Codespaces](https://docs.github.com/en/codespaces/overview)
+
+![codespaces](https://github.blog/wp-content/uploads/2021/08/1200x630-codespaces-social.png) <!-- .element: height="50%" width="50%" -->
+
+</script></section><section data-markdown><script type="text/template">
+
+* [Github Codespaces](https://docs.github.com/en/codespaces) : A managed development environment by Microsoft Azure
+* A virtual machine and a [containerized development environment](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)
+* A lot of built-in bonuses including "in-browser" connection & TCP port forwarding with reverse proxy
+
+![](https://docs.github.com/assets/cb-79257/images/help/codespaces/port-forwarding.png)  <!-- .element: height="40%" width="40%" -->
+
+</script></section><section data-markdown><script type="text/template">
+
+#### Tunnels of tunnels
+
+* Some of you did Local Machine -> (browser) -> Codespace -> (ssh) -> VM -> Jupyterlab on port 8888
+* With port transfers !
+* What happens when you go to `http://(url-generated-by-codespaces):8888` in this case ?
+
+![tunnelception](static/img/codespaceception.png)
+
+</script></section></section><section ><section data-markdown><script type="text/template">
+
+### SSH Tunnel, Port Forwarding
 
 > In computer networking, **a port is a communication endpoint**. At the software level, within an operating system, a port is a logical construct that identifies a specific process or a type of network service. **A port is identified for each transport protocol and address combination** by a 16-bit unsigned number, known as the port number. The most common transport protocols that use port numbers are the Transmission Control Protocol (TCP) and the User Datagram Protocol (UDP).
 
@@ -153,35 +201,6 @@ We usually connect to web app using `http://{ip}:{port}`
 ![ssh-tunnel](https://iximiuz.com/ssh-tunnels/local-port-forwarding-2000-opt.png)  <!-- .element: height="50%" width="50%" -->
 
 [Visual guide](https://iximiuz.com/en/posts/ssh-tunnels/)
-
-</script></section><section data-markdown><script type="text/template">
-
-#### [Github Codespaces](https://docs.github.com/en/codespaces/overview)
-
-* [Github Codespaces](https://docs.github.com/en/codespaces) : A managed development environment by Microsoft Azure
-* A virtual machine and a [containerized development environment](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)
-* A lot of built-in bonuses including "in-browser" connection & TCP port forwarding with reverse proxy
-
-![](https://docs.github.com/assets/cb-79257/images/help/codespaces/port-forwarding.png)  <!-- .element: height="50%" width="50%" -->
-
-
-</script></section><section data-markdown><script type="text/template">
-
-#### Remote Development : Your future daily routine
-
-![remote](https://blog.uber-cdn.com/cdn-cgi/image/width=1810,quality=80,onerror=redirect,format=auto/wp-content/uploads/2022/12/Figure-2-Devpod-overview-Remote-development-environment-@-Uber.png)  <!-- .element: height="50%" width="50%" -->
-
-[Uber Blog describing their way of working](https://www.uber.com/en-FR/blog/devpod-improving-developer-productivity-at-uber/)
-
-</script></section><section data-markdown><script type="text/template">
-
-#### Tunnels of tunnels
-
-* Some of you did Local Machine -> (browser) -> Codespace -> (ssh) -> VM -> Jupyterlab on port 8888
-* With port transfers !
-* What happens when you go to `http://(url-generated-by-codespaces):8888` in this case ?
-
-![tunnelception](static/img/codespaceception.png)
 
 </script></section></section><section ><section data-markdown><script type="text/template">
 
