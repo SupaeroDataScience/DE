@@ -406,13 +406,15 @@ A [Dockerfile](https://docs.docker.com/engine/reference/builder/) is a text file
   We'll start by specifying our base image, using the `FROM` keyword:
 
   ```
-  FROM alpine:3.15
+  FROM alpine:3.18
   ```
 
-2. The next step usually is to write the commands of copying the files and installing the dependencies. But first we will install the Python pip package to the alpine linux distribution. This will not just install the pip package but any other dependencies too, which includes the python interpreter. Add the following [RUN](https://docs.docker.com/engine/reference/builder/#run) command next:
+  Note : If you use the latest version of alpine which is 3.20, follow this [tutorial](https://jairoandres.com/python-dependencies-break-your-system-if-you-want/) to handle an error you might be getting
+
+2. The next step usually is to write the commands of copying the files and installing the dependencies. But first we will install the Python pip package to the alpine linux distribution. This will not just install the pip package but any other dependencies too, which includes the python interpreter. Add the following [RUN](https://docs.docker.com/engine/reference/builder/#run) command next. Additionnally, we will do something to handle the newest python rules []
 
   ```
-  RUN apk add --update py3-pip
+  RUN apk add --update py-pip
   ```
 
 3. Let's add the files that make up the Flask Application.
@@ -440,7 +442,7 @@ A [Dockerfile](https://docs.docker.com/engine/reference/builder/) is a text file
 5. The last step is the command for running the application which is simply - `python ./app.py`. Use the [CMD](https://docs.docker.com/engine/reference/builder/#cmd) command to do that:
 
   ```
-  CMD ["python3", "/usr/src/app/app.py"]
+  CMD ["python", "/usr/src/app/app.py"]
   ```
 
   The primary purpose of `CMD` is to tell the container which command it should run by default when it is started.
@@ -451,14 +453,14 @@ A [Dockerfile](https://docs.docker.com/engine/reference/builder/) is a text file
 
   ```
   # our base image
-  FROM alpine:3.15
+  FROM alpine:3.18
 
   # Install python and pip
-  RUN apk add --update py3-pip
+  RUN apk add --update py-pip
 
   # install Python modules needed by the Python app
   COPY requirements.txt /usr/src/app/
-  RUN pip3 install --no-cache-dir -r /usr/src/app/requirements.txt
+  RUN pip install --no-cache-dir -r /usr/src/app/requirements.txt
 
   # copy files required for the app to run
   COPY app.py /usr/src/app/
@@ -468,7 +470,7 @@ A [Dockerfile](https://docs.docker.com/engine/reference/builder/) is a text file
   EXPOSE 5000
 
   # run the application
-  CMD ["python3", "/usr/src/app/app.py"]
+  CMD ["python", "/usr/src/app/app.py"]
   ```
 
 ### 2.3.3 Build the image
@@ -482,7 +484,7 @@ The `docker build` command is quite simple - it takes an optional tag name with 
 ```
 $ docker build -t myfirstapp:1.0 .
 Sending build context to Docker daemon 9.728 kB
-Step 1 : FROM alpine:latest
+Step 1 : FROM alpine:18
  ---> 0d81fc72e790
 Step 2 : RUN apk add --update py-pip
  ---> Running in 8abd4091b5f5
@@ -545,7 +547,7 @@ Removing intermediate container 78e324d26576
 Successfully built 2f7357a0805d
 ```
 
-If you don't have the `alpine:3.5` image, the client will first pull the image and then create your image. Therefore, your output on running the command will look different from mine. If everything went well, your image should be ready! Run `docker images` and see if your image (`<YOUR_USERNAME>/myfirstapp`) shows.
+If you don't have the `alpine:3.18` image, the client will first pull the image and then create your image. Therefore, your output on running the command will look different from mine. If everything went well, your image should be ready! Run `docker images` and see if your image (`<YOUR_USERNAME>/myfirstapp`) shows.
 
 ### 2.3.4 Run your image
 
@@ -592,96 +594,158 @@ publishing ports by means of the `-p` flag when using `$ docker run`.
 
 ## 3. Running CLI apps packaged in docker while mounting volumes
 
-Instead of serving web app you can also run applications, like command line interfaces or training scripts, packaged in docker. It is very useful to deliver packaged apps with specific installation to other users. This is often used when you want to package your machine learning environment to run training in distributed fashion.
+Beyond serving web applications, Docker also enables the deployment of packaged applications, such as command-line interfaces and training scripts. This allows for seamless delivery of self-contained apps with bespoke installations to end-users. A particularly valuable use case is packaging machine learning environments for distributed training, facilitating efficient collaboration and scalability
 
-Usually you just edit config files in an external editor and pass it to the docker
+To do so, we have to learn about : 
+- Executing command line applications packaged inside docker images
+- Passing both text and files inputs, including files not in the docker image
+- Getting accesss to file outputs such as models
 
-* Let's modify the `app.py` in 2. with the following
+For that we will do several things : 
+- Write a CLI application using [typer](https://typer.tiangolo.com/), a very useful tool for the rest of your career
+- Package the CLI application with both text / file inputs in a docker image
+- Mounting volumes when running a docker images to provide it with the input files, and having access to the results from the main computer
+
+### 3.1 A local CLI application
+
+* Let's modify the `app.py` in 2. with the following code.
 
 ```python
-import typer
-from typing import Optional
+import time
 from pathlib import Path
+from typing import Annotated, Optional
+
+import typer
 
 app = typer.Typer()
 
 
 @app.command()
-def hello(name: str):
+def say_hello(name: str):
     typer.echo(f"Hello {name}")
 
+
 @app.command()
-def run_config(config: Optional[Path] = typer.Option(None)):
-    if config is None:
-        typer.echo("No config file")
-        raise typer.Abort()
-    if config.is_file():
-        text = config.read_text()
-        typer.echo(f"Config file contents:\n{text}")
-    elif config.is_dir():
-        typer.echo("Config is a directory, will use all its config files")
-    elif not config.exists():
-        typer.echo("The config doesn't exist")
+def run_training(
+    config: Annotated[
+        Path,
+        typer.Option(
+            exists=True,
+            file_okay=True,
+            dir_okay=False,
+            writable=False,
+            readable=True,
+            resolve_path=True,
+        ),
+    ],
+    output_dir: Annotated[
+        Path,
+        typer.Option(
+            dir_okay=True,
+            writable=True,
+            readable=True,
+            resolve_path=True,
+            file_okay=False,
+        ),
+    ],
+):
+    text = config.read_text()
+    print(f"Config file contents: {text}")
+
+    print(f"Running training in {output_dir}...")
+
+    time.sleep(10)
+
+    output_dir.mkdir(exist_ok=True,parents=True)
+
+    with open(output_dir / "results.txt", "w") as f:
+        f.write("Training successful !")
+
 
 if __name__ == "__main__":
     app()
 
 ```
 
-With your terminal you would call it using `python app.py hello {my name}` or `python app.py run-config --config-file {my config}`
+* Test the application locally using `pip install typer`then `python app.py say-hello {my name}` or `python app.py run-training --config {my config} --output-dir {somewhere}`
+
+### 3.2 Packaging it in a dockerfile
+
+We will now package it in a docker file
 
 * Modify the dockerfile : 
   * Replace `CMD ["python3", "/usr/src/app/app.py"]`
   * By `ENTRYPOINT ["python3", "/usr/src/app/app.py"]`
 
-* Rebuild your docker image (maybe git it another name)
+* [Differences between CMD and ENTRYPOINT](https://spacelift.io/blog/docker-entrypoint-vs-cmd)
 
-* Now to run the CLI you just have to `docker run --rm {your image} {your args}`. Try it with `docker run {...} hello {your name}`
+* Rebuild your docker image (maybe give it another name)
 
-In order to pass a config file, or data to your docker, you need to make it available to your docker. To do that, we have to [mount volumes](https://docs.docker.com/storage/volumes/)
+### 3.3 Mounting volumes
 
-Create a dummy config file (`config.txt`) in another folder (ex: `config/`) then mount it when you run the docker:
+* Now to run the CLI you just have to pass the arguments when running the docker `docker run --rm {your image} {your args}`. Try it with `docker run {...} hello {your name}`
 
-```
+!!! warning
+    once you have built your container and it works, don't rebuild it again ! We will test the volume mounting options now
+
+* In order to pass a config file, or data to your docker, you need to make it available to your docker. To do that, we have to [mount volumes](https://docs.docker.com/storage/volumes/)
+
+Create a dummy config file (`config.txt`) in another folder (ex: `config/`) then mount it when you run the docker container. You can expose the output directory as well to be able to get your results
+
+```bash
 docker run --rm \
   -v {local path to your configs}:/home/configs \
+  -v {local path to your outputs}:/home/outputs \
   --workdir /home/ \
   {your image} \
-  run-config --config {path to your config in DOCKER, eg /home/configs/config.txt}
+  run-training --config {path to your config in DOCKER, eg /home/configs/config.txt}  \
+  --output-dir /home/outputs/
 ```
 
-Note that since you mounted volumes, you must pass the **path in the docker** to your config file for it to work
+Note that since you mounted volumes, you must pass the **local path in the docker container** to your config file for it to work and not the **path in your codespace**
+
+!!! success
+    To be successful here you have to be able to pass a config file that is in your codespace and get the results in your codespace, all while not rebuilding the image as long as the first `hello` passes
 
 ## 4. Containers Registry
 
 Remember Container Registries ? Here as [some explainers](https://blogs.vmware.com/cloudnative/2017/06/21/what-is-a-container-registry/)
 
-The main container registry is dockerhub, https://hub.docker.com/
+The main container registry is dockerhub, [https://hub.docker.com/](https://hub.docker.com/)
 
 All docker engines that have access to the internet have access to this main hub, and this is where we pulled our base images from before
 
 Example, the [Python Image](https://hub.docker.com/_/python)
 
-Google Cloud has a [Container Registry](https://cloud.google.com/container-registry/docs) per project, which ensures the docker images you build are accessible for the people who have access to your project only.
+Google Cloud has an [Artifacts Registry](https://cloud.google.com/artifact-registry/docs/repositories/create-repos) per project, which ensures the docker images you build are accessible for the people who have access to your project only.
 
-However, it requires naming the image in a specific fashion: `eu.gcr.io/${PROJECT_ID}/name:tag`
+We will follow [this tutorial](https://cloud.google.com/artifact-registry/docs/docker/store-docker-container-images) to push our images to artifact registry
 
-* Use the [docker cli to tag](https://cloud.google.com/container-registry/docs/pushing-and-pulling#tag_the_local_image_with_the_registry_name) your previous myfirstapp image to the right namespace
+* First, create a Docker Artifact registry using this [tutorial](https://cloud.google.com/artifact-registry/docs/repositories/create-repos#create-console), example `fch-sdd2425-artifacts-registry` (that's mine, name it with your name). Set the repository in `multi-region/europe`
 
-`docker tag myfirstapp eu.gcr.io/{PROJECT_ID}/{a-unique-name-describing-your-app}:1.0`
+* Pushing our images requires authenticating, `gcloud auth configure-docker europe-docker.pkg.dev`
 
-* Upload it on container registry `docker push [HOSTNAME]/[PROJECT-ID]/[IMAGE]:[TAG]`
+* Pushing our images requires tagging them in a [specific way](https://cloud.google.com/artifact-registry/docs/docker/store-docker-container-images#add-image) : `europe-docker.pkg.dev/${PROJECT_ID}/${REPO_ID}/${IMAGE}:${TAG}`
 
-* If you have a problem of authentification, `gcloud auth configure-docker`
+* Use the [docker cli to tag](https://cloud.google.com/container-registry/docs/pushing-and-pulling#tag_the_local_image_with_the_registry_name) your previous `myfirstapp` image to the right namespace
+
+  `docker tag myfirstapp:1.0 europe-docker.pkg.dev/${PROJECT_ID}/${REPO_ID}/myfirstapp:1.0`
+
+* Upload it on container registry 
+
+  `docker push europe-docker.pkg.dev/${PROJECT_ID}/${REPO_ID}/[IMAGE]:[TAG]`
 
 !!! hint
     to get your project id: `PROJECT_ID=$(gcloud config get-value project 2> /dev/null)`
+    to get your artifact repository id look at [this page](https://console.cloud.google.com/artifacts/docker/), you can get your project id this way as well
 
-* Go to container registry https://console.cloud.google.com/gcr, you should see your docker image :)
+* Go to your artifact registry [https://console.cloud.google.com/artifacts](https://console.cloud.google.com/artifacts), you should see your docker image :)
 
-## 5. Bonus - Data Science Standardized Environment and mounting volumes
+## 5. Bonus. Data Science Standardized Environment and mounting volumes
 
 Note : This may not run in your native github codespace due to the storage available. If you encounter a storage error, run `docker system prune` to cleanup everything
+
+The purpose of this tutorial is to reproduce a sort of google colab environment using docker and github codespace.
 
 ### 5.1 Intro
 
@@ -741,6 +805,20 @@ So to connect to the jupyter lab we mapped the ports local 8888 to vm 8888 and v
 We also exposed the local disk to the container
 
 ## 6. Bonus - Docker Compose
+
+Docker Compose is used to manage applications and increase efficiency in container development. Configurations are defined in a single YAML file, making applications easy to build and scale. Docker Compose is often used to set up a local environment
+
+The tutorial below aims to introduce fundamental concepts of Docker Compose by guiding you through the development of a basic Python web application.
+
+Using the Flask framework, the application features a hit counter in Redis, providing a practical example of how Docker Compose can be applied in web development scenarios.
+
+The concepts demonstrated here should be understandable even if you're not familiar with Python.
+
+This is a non-normative example that just highlights the key things you can do with Compose.
+
+[https://docs.docker.com/compose/gettingstarted/](https://docs.docker.com/compose/gettingstarted/)
+
+You can find a more extensive example here : 
 
 <https://hackernoon.com/practical-introduction-to-docker-compose-d34e79c4c2b6>
 
