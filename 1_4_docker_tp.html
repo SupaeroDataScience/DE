@@ -983,6 +983,39 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="3. Running CLI apps packaged in docker while mounting volumes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-a-local-cli-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 A local CLI application
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-packaging-it-in-a-dockerfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Packaging it in a dockerfile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-mounting-volumes" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Mounting volumes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -997,11 +1030,11 @@
         <li class="md-nav__item">
   <a href="#5-bonus-data-science-standardized-environment-and-mounting-volumes" class="md-nav__link">
     <span class="md-ellipsis">
-      5. Bonus - Data Science Standardized Environment and mounting volumes
+      5. Bonus. Data Science Standardized Environment and mounting volumes
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="5. Bonus - Data Science Standardized Environment and mounting volumes">
+    <nav class="md-nav" aria-label="5. Bonus. Data Science Standardized Environment and mounting volumes">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1705,6 +1738,39 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="3. Running CLI apps packaged in docker while mounting volumes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-a-local-cli-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 A local CLI application
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-packaging-it-in-a-dockerfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Packaging it in a dockerfile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-mounting-volumes" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Mounting volumes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1719,11 +1785,11 @@
         <li class="md-nav__item">
   <a href="#5-bonus-data-science-standardized-environment-and-mounting-volumes" class="md-nav__link">
     <span class="md-ellipsis">
-      5. Bonus - Data Science Standardized Environment and mounting volumes
+      5. Bonus. Data Science Standardized Environment and mounting volumes
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="5. Bonus - Data Science Standardized Environment and mounting volumes">
+    <nav class="md-nav" aria-label="5. Bonus. Data Science Standardized Environment and mounting volumes">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2109,12 +2175,13 @@ typer
 <li>Create a file called <strong>Dockerfile</strong>, and add content to it as described below.</li>
 </ol>
 <p>We'll start by specifying our base image, using the <code>FROM</code> keyword:</p>
-<div class="highlight"><pre><span></span><code>FROM alpine:3.15
+<div class="highlight"><pre><span></span><code>FROM alpine:3.18
 </code></pre></div>
+<p>Note : If you use the latest version of alpine which is 3.20, follow this <a href="https://jairoandres.com/python-dependencies-break-your-system-if-you-want/">tutorial</a> to handle an error you might be getting</p>
 <ol>
-<li>The next step usually is to write the commands of copying the files and installing the dependencies. But first we will install the Python pip package to the alpine linux distribution. This will not just install the pip package but any other dependencies too, which includes the python interpreter. Add the following <a href="https://docs.docker.com/engine/reference/builder/#run">RUN</a> command next:</li>
+<li>The next step usually is to write the commands of copying the files and installing the dependencies. But first we will install the Python pip package to the alpine linux distribution. This will not just install the pip package but any other dependencies too, which includes the python interpreter. Add the following <a href="https://docs.docker.com/engine/reference/builder/#run">RUN</a> command next. Additionnally, we will do something to handle the newest python rules []</li>
 </ol>
-<div class="highlight"><pre><span></span><code>RUN apk add --update py3-pip
+<div class="highlight"><pre><span></span><code>RUN apk add --update py-pip
 </code></pre></div>
 <ol>
 <li>Let's add the files that make up the Flask Application.</li>
@@ -2135,7 +2202,7 @@ COPY templates/index.html /usr/src/app/templates/
 <ol>
 <li>The last step is the command for running the application which is simply - <code>python ./app.py</code>. Use the <a href="https://docs.docker.com/engine/reference/builder/#cmd">CMD</a> command to do that:</li>
 </ol>
-<div class="highlight"><pre><span></span><code>CMD [&quot;python3&quot;, &quot;/usr/src/app/app.py&quot;]
+<div class="highlight"><pre><span></span><code>CMD [&quot;python&quot;, &quot;/usr/src/app/app.py&quot;]
 </code></pre></div>
 <p>The primary purpose of <code>CMD</code> is to tell the container which command it should run by default when it is started.</p>
 <ol>
@@ -2143,14 +2210,14 @@ COPY templates/index.html /usr/src/app/templates/
 </ol>
 <p>Our <code>Dockerfile</code> is now ready. This is how it looks:</p>
 <div class="highlight"><pre><span></span><code># our base image
-FROM alpine:3.15
+FROM alpine:3.18
 
 # Install python and pip
-RUN apk add --update py3-pip
+RUN apk add --update py-pip
 
 # install Python modules needed by the Python app
 COPY requirements.txt /usr/src/app/
-RUN pip3 install --no-cache-dir -r /usr/src/app/requirements.txt
+RUN pip install --no-cache-dir -r /usr/src/app/requirements.txt
 
 # copy files required for the app to run
 COPY app.py /usr/src/app/
@@ -2160,7 +2227,7 @@ COPY templates/index.html /usr/src/app/templates/
 EXPOSE 5000
 
 # run the application
-CMD [&quot;python3&quot;, &quot;/usr/src/app/app.py&quot;]
+CMD [&quot;python&quot;, &quot;/usr/src/app/app.py&quot;]
 </code></pre></div>
 <h3 id="233-build-the-image">2.3.3 Build the image<a class="headerlink" href="#233-build-the-image" title="Permanent link">🔗</a></h3>
 <p>Now that you have your <code>Dockerfile</code>, you can build your image. The <code>docker build</code> command does the heavy-lifting of creating a docker image from a <code>Dockerfile</code>.</p>
@@ -2168,7 +2235,7 @@ CMD [&quot;python3&quot;, &quot;/usr/src/app/app.py&quot;]
 <p><code>docker build -t myfirstapp:1.0 .</code></p>
 <div class="highlight"><pre><span></span><code>$ docker build -t myfirstapp:1.0 .
 Sending build context to Docker daemon 9.728 kB
-Step 1 : FROM alpine:latest
+Step 1 : FROM alpine:18
  ---&gt; 0d81fc72e790
 Step 2 : RUN apk add --update py-pip
  ---&gt; Running in 8abd4091b5f5
@@ -2230,7 +2297,7 @@ Step 8 : CMD python /usr/src/app/app.py
 Removing intermediate container 78e324d26576
 Successfully built 2f7357a0805d
 </code></pre></div>
-<p>If you don't have the <code>alpine:3.5</code> image, the client will first pull the image and then create your image. Therefore, your output on running the command will look different from mine. If everything went well, your image should be ready! Run <code>docker images</code> and see if your image (<code>&lt;YOUR_USERNAME&gt;/myfirstapp</code>) shows.</p>
+<p>If you don't have the <code>alpine:3.18</code> image, the client will first pull the image and then create your image. Therefore, your output on running the command will look different from mine. If everything went well, your image should be ready! Run <code>docker images</code> and see if your image (<code>&lt;YOUR_USERNAME&gt;/myfirstapp</code>) shows.</p>
 <h3 id="234-run-your-image">2.3.4 Run your image<a class="headerlink" href="#234-run-your-image" title="Permanent link">🔗</a></h3>
 <p>The next step in this section is to run the image and see if it actually works.</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </span><span class="m">8888</span>:5000<span class="w"> </span>--name<span class="w"> </span>myfirstapp<span class="w"> </span>myfirstapp:1.0
@@ -2274,39 +2341,78 @@ publishing ports by means of the <code>-p</code> flag when using <code>$ docker 
 <p><strong>Note:</strong> If you want to learn more about Dockerfiles, check out <a href="https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/">Best practices for writing Dockerfiles</a>.</p>
 </blockquote>
 <h2 id="3-running-cli-apps-packaged-in-docker-while-mounting-volumes">3. Running CLI apps packaged in docker while mounting volumes<a class="headerlink" href="#3-running-cli-apps-packaged-in-docker-while-mounting-volumes" title="Permanent link">🔗</a></h2>
-<p>Instead of serving web app you can also run applications, like command line interfaces or training scripts, packaged in docker. It is very useful to deliver packaged apps with specific installation to other users. This is often used when you want to package your machine learning environment to run training in distributed fashion.</p>
-<p>Usually you just edit config files in an external editor and pass it to the docker</p>
+<p>Beyond serving web applications, Docker also enables the deployment of packaged applications, such as command-line interfaces and training scripts. This allows for seamless delivery of self-contained apps with bespoke installations to end-users. A particularly valuable use case is packaging machine learning environments for distributed training, facilitating efficient collaboration and scalability</p>
+<p>To do so, we have to learn about : 
+- Executing command line applications packaged inside docker images
+- Passing both text and files inputs, including files not in the docker image
+- Getting accesss to file outputs such as models</p>
+<p>For that we will do several things : 
+- Write a CLI application using <a href="https://typer.tiangolo.com/">typer</a>, a very useful tool for the rest of your career
+- Package the CLI application with both text / file inputs in a docker image
+- Mounting volumes when running a docker images to provide it with the input files, and having access to the results from the main computer</p>
+<h3 id="31-a-local-cli-application">3.1 A local CLI application<a class="headerlink" href="#31-a-local-cli-application" title="Permanent link">🔗</a></h3>
 <ul>
-<li>Let's modify the <code>app.py</code> in 2. with the following</li>
+<li>Let's modify the <code>app.py</code> in 2. with the following code.</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">typer</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Annotated</span><span class="p">,</span> <span class="n">Optional</span>
+
+<span class="kn">import</span> <span class="nn">typer</span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">typer</span><span class="o">.</span><span class="n">Typer</span><span class="p">()</span>
 
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">say_hello</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
     <span class="n">typer</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
+
 <span class="nd">@app</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">run_config</span><span class="p">(</span><span class="n">config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="n">typer</span><span class="o">.</span><span class="n">Option</span><span class="p">(</span><span class="kc">None</span><span class="p">)):</span>
-    <span class="k">if</span> <span class="n">config</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">typer</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="s2">&quot;No config file&quot;</span><span class="p">)</span>
-        <span class="k">raise</span> <span class="n">typer</span><span class="o">.</span><span class="n">Abort</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
-        <span class="n">text</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span>
-        <span class="n">typer</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Config file contents:</span><span class="se">\n</span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">config</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
-        <span class="n">typer</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="s2">&quot;Config is a directory, will use all its config files&quot;</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="ow">not</span> <span class="n">config</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
-        <span class="n">typer</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="s2">&quot;The config doesn&#39;t exist&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">run_training</span><span class="p">(</span>
+    <span class="n">config</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
+        <span class="n">Path</span><span class="p">,</span>
+        <span class="n">typer</span><span class="o">.</span><span class="n">Option</span><span class="p">(</span>
+            <span class="n">exists</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">file_okay</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">dir_okay</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">writable</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">readable</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">resolve_path</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">),</span>
+    <span class="p">],</span>
+    <span class="n">output_dir</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
+        <span class="n">Path</span><span class="p">,</span>
+        <span class="n">typer</span><span class="o">.</span><span class="n">Option</span><span class="p">(</span>
+            <span class="n">dir_okay</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">writable</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">readable</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">resolve_path</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">file_okay</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="p">),</span>
+    <span class="p">],</span>
+<span class="p">):</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Config file contents: </span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Running training in </span><span class="si">{</span><span class="n">output_dir</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+    <span class="n">output_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_dir</span> <span class="o">/</span> <span class="s2">&quot;results.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Training successful !&quot;</span><span class="p">)</span>
+
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">app</span><span class="p">()</span>
 </code></pre></div>
-<p>With your terminal you would call it using <code>python app.py hello {my name}</code> or <code>python app.py run-config --config-file {my config}</code></p>
+<ul>
+<li>Test the application locally using <code>pip install typer</code>then <code>python app.py say-hello {my name}</code> or <code>python app.py run-training --config {my config} --output-dir {somewhere}</code></li>
+</ul>
+<h3 id="32-packaging-it-in-a-dockerfile">3.2 Packaging it in a dockerfile<a class="headerlink" href="#32-packaging-it-in-a-dockerfile" title="Permanent link">🔗</a></h3>
+<p>We will now package it in a docker file</p>
 <ul>
 <li>Modify the dockerfile : </li>
 <li>Replace <code>CMD ["python3", "/usr/src/app/app.py"]</code></li>
@@ -2314,49 +2420,74 @@ publishing ports by means of the <code>-p</code> flag when using <code>$ docker 
 <p>By <code>ENTRYPOINT ["python3", "/usr/src/app/app.py"]</code></p>
 </li>
 <li>
-<p>Rebuild your docker image (maybe git it another name)</p>
+<p><a href="https://spacelift.io/blog/docker-entrypoint-vs-cmd">Differences between CMD and ENTRYPOINT</a></p>
 </li>
 <li>
-<p>Now to run the CLI you just have to <code>docker run --rm {your image} {your args}</code>. Try it with <code>docker run {...} hello {your name}</code></p>
+<p>Rebuild your docker image (maybe give it another name)</p>
 </li>
 </ul>
-<p>In order to pass a config file, or data to your docker, you need to make it available to your docker. To do that, we have to <a href="https://docs.docker.com/storage/volumes/">mount volumes</a></p>
-<p>Create a dummy config file (<code>config.txt</code>) in another folder (ex: <code>config/</code>) then mount it when you run the docker:</p>
-<div class="highlight"><pre><span></span><code>docker run --rm \
-  -v {local path to your configs}:/home/configs \
-  --workdir /home/ \
-  {your image} \
-  run-config --config {path to your config in DOCKER, eg /home/configs/config.txt}
-</code></pre></div>
-<p>Note that since you mounted volumes, you must pass the <strong>path in the docker</strong> to your config file for it to work</p>
-<h2 id="4-containers-registry">4. Containers Registry<a class="headerlink" href="#4-containers-registry" title="Permanent link">🔗</a></h2>
-<p>Remember Container Registries ? Here as <a href="https://blogs.vmware.com/cloudnative/2017/06/21/what-is-a-container-registry/">some explainers</a></p>
-<p>The main container registry is dockerhub, https://hub.docker.com/</p>
-<p>All docker engines that have access to the internet have access to this main hub, and this is where we pulled our base images from before</p>
-<p>Example, the <a href="https://hub.docker.com/_/python">Python Image</a></p>
-<p>Google Cloud has a <a href="https://cloud.google.com/container-registry/docs">Container Registry</a> per project, which ensures the docker images you build are accessible for the people who have access to your project only.</p>
-<p>However, it requires naming the image in a specific fashion: <code>eu.gcr.io/${PROJECT_ID}/name:tag</code></p>
+<h3 id="33-mounting-volumes">3.3 Mounting volumes<a class="headerlink" href="#33-mounting-volumes" title="Permanent link">🔗</a></h3>
 <ul>
-<li>Use the <a href="https://cloud.google.com/container-registry/docs/pushing-and-pulling#tag_the_local_image_with_the_registry_name">docker cli to tag</a> your previous myfirstapp image to the right namespace</li>
+<li>Now to run the CLI you just have to pass the arguments when running the docker <code>docker run --rm {your image} {your args}</code>. Try it with <code>docker run {...} hello {your name}</code></li>
 </ul>
-<p><code>docker tag myfirstapp eu.gcr.io/{PROJECT_ID}/{a-unique-name-describing-your-app}:1.0</code></p>
-<ul>
-<li>
-<p>Upload it on container registry <code>docker push [HOSTNAME]/[PROJECT-ID]/[IMAGE]:[TAG]</code></p>
-</li>
-<li>
-<p>If you have a problem of authentification, <code>gcloud auth configure-docker</code></p>
-</li>
-</ul>
-<div class="admonition hint">
-<p class="admonition-title">Hint</p>
-<p>to get your project id: <code>PROJECT_ID=$(gcloud config get-value project 2&gt; /dev/null)</code></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>once you have built your container and it works, don't rebuild it again ! We will test the volume mounting options now</p>
 </div>
 <ul>
-<li>Go to container registry https://console.cloud.google.com/gcr, you should see your docker image :)</li>
+<li>In order to pass a config file, or data to your docker, you need to make it available to your docker. To do that, we have to <a href="https://docs.docker.com/storage/volumes/">mount volumes</a></li>
 </ul>
-<h2 id="5-bonus-data-science-standardized-environment-and-mounting-volumes">5. Bonus - Data Science Standardized Environment and mounting volumes<a class="headerlink" href="#5-bonus-data-science-standardized-environment-and-mounting-volumes" title="Permanent link">🔗</a></h2>
+<p>Create a dummy config file (<code>config.txt</code>) in another folder (ex: <code>config/</code>) then mount it when you run the docker container. You can expose the output directory as well to be able to get your results</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-v<span class="w"> </span><span class="o">{</span><span class="nb">local</span><span class="w"> </span>path<span class="w"> </span>to<span class="w"> </span>your<span class="w"> </span>configs<span class="o">}</span>:/home/configs<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-v<span class="w"> </span><span class="o">{</span><span class="nb">local</span><span class="w"> </span>path<span class="w"> </span>to<span class="w"> </span>your<span class="w"> </span>outputs<span class="o">}</span>:/home/outputs<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--workdir<span class="w"> </span>/home/<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="o">{</span>your<span class="w"> </span>image<span class="o">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>run-training<span class="w"> </span>--config<span class="w"> </span><span class="o">{</span>path<span class="w"> </span>to<span class="w"> </span>your<span class="w"> </span>config<span class="w"> </span><span class="k">in</span><span class="w"> </span>DOCKER,<span class="w"> </span>eg<span class="w"> </span>/home/configs/config.txt<span class="o">}</span><span class="w">  </span><span class="se">\</span>
+<span class="w">  </span>--output-dir<span class="w"> </span>/home/outputs/
+</code></pre></div>
+<p>Note that since you mounted volumes, you must pass the <strong>local path in the docker container</strong> to your config file for it to work and not the <strong>path in your codespace</strong></p>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>To be successful here you have to be able to pass a config file that is in your codespace and get the results in your codespace, all while not rebuilding the image as long as the first <code>hello</code> passes</p>
+</div>
+<h2 id="4-containers-registry">4. Containers Registry<a class="headerlink" href="#4-containers-registry" title="Permanent link">🔗</a></h2>
+<p>Remember Container Registries ? Here as <a href="https://blogs.vmware.com/cloudnative/2017/06/21/what-is-a-container-registry/">some explainers</a></p>
+<p>The main container registry is dockerhub, <a href="https://hub.docker.com/">https://hub.docker.com/</a></p>
+<p>All docker engines that have access to the internet have access to this main hub, and this is where we pulled our base images from before</p>
+<p>Example, the <a href="https://hub.docker.com/_/python">Python Image</a></p>
+<p>Google Cloud has an <a href="https://cloud.google.com/artifact-registry/docs/repositories/create-repos">Artifacts Registry</a> per project, which ensures the docker images you build are accessible for the people who have access to your project only.</p>
+<p>We will follow <a href="https://cloud.google.com/artifact-registry/docs/docker/store-docker-container-images">this tutorial</a> to push our images to artifact registry</p>
+<ul>
+<li>
+<p>First, create a Docker Artifact registry using this <a href="https://cloud.google.com/artifact-registry/docs/repositories/create-repos#create-console">tutorial</a>, example <code>fch-sdd2425-artifacts-registry</code> (that's mine, name it with your name). Set the repository in <code>multi-region/europe</code></p>
+</li>
+<li>
+<p>Pushing our images requires authenticating, <code>gcloud auth configure-docker europe-docker.pkg.dev</code></p>
+</li>
+<li>
+<p>Pushing our images requires tagging them in a <a href="https://cloud.google.com/artifact-registry/docs/docker/store-docker-container-images#add-image">specific way</a> : <code>europe-docker.pkg.dev/${PROJECT_ID}/${REPO_ID}/${IMAGE}:${TAG}</code></p>
+</li>
+<li>
+<p>Use the <a href="https://cloud.google.com/container-registry/docs/pushing-and-pulling#tag_the_local_image_with_the_registry_name">docker cli to tag</a> your previous <code>myfirstapp</code> image to the right namespace</p>
+</li>
+</ul>
+<p><code>docker tag myfirstapp:1.0 europe-docker.pkg.dev/${PROJECT_ID}/${REPO_ID}/myfirstapp:1.0</code></p>
+<ul>
+<li>Upload it on container registry </li>
+</ul>
+<p><code>docker push europe-docker.pkg.dev/${PROJECT_ID}/${REPO_ID}/[IMAGE]:[TAG]</code></p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>to get your project id: <code>PROJECT_ID=$(gcloud config get-value project 2&gt; /dev/null)</code>
+to get your artifact repository id look at <a href="https://console.cloud.google.com/artifacts/docker/">this page</a>, you can get your project id this way as well</p>
+</div>
+<ul>
+<li>Go to your artifact registry <a href="https://console.cloud.google.com/artifacts">https://console.cloud.google.com/artifacts</a>, you should see your docker image :)</li>
+</ul>
+<h2 id="5-bonus-data-science-standardized-environment-and-mounting-volumes">5. Bonus. Data Science Standardized Environment and mounting volumes<a class="headerlink" href="#5-bonus-data-science-standardized-environment-and-mounting-volumes" title="Permanent link">🔗</a></h2>
 <p>Note : This may not run in your native github codespace due to the storage available. If you encounter a storage error, run <code>docker system prune</code> to cleanup everything</p>
+<p>The purpose of this tutorial is to reproduce a sort of google colab environment using docker and github codespace.</p>
 <h3 id="51-intro">5.1 Intro<a class="headerlink" href="#51-intro" title="Permanent link">🔗</a></h3>
 <p>Those of us who work on a team know how hard it is to create a standardize development environment. Or if you have ever updated a dependency and had everything break, you understand the importance of keeping development environments isolated.</p>
 <p>Using Docker, we can create a project / team image with our development environment and mount a volume with our notebooks and data.</p>
@@ -2397,6 +2528,13 @@ publishing ports by means of the <code>-p</code> flag when using <code>$ docker 
 <p>So to connect to the jupyter lab we mapped the ports local 8888 to vm 8888 and vm 8888 to docker 8888</p>
 <p>We also exposed the local disk to the container</p>
 <h2 id="6-bonus-docker-compose">6. Bonus - Docker Compose<a class="headerlink" href="#6-bonus-docker-compose" title="Permanent link">🔗</a></h2>
+<p>Docker Compose is used to manage applications and increase efficiency in container development. Configurations are defined in a single YAML file, making applications easy to build and scale. Docker Compose is often used to set up a local environment</p>
+<p>The tutorial below aims to introduce fundamental concepts of Docker Compose by guiding you through the development of a basic Python web application.</p>
+<p>Using the Flask framework, the application features a hit counter in Redis, providing a practical example of how Docker Compose can be applied in web development scenarios.</p>
+<p>The concepts demonstrated here should be understandable even if you're not familiar with Python.</p>
+<p>This is a non-normative example that just highlights the key things you can do with Compose.</p>
+<p><a href="https://docs.docker.com/compose/gettingstarted/">https://docs.docker.com/compose/gettingstarted/</a></p>
+<p>You can find a more extensive example here : </p>
 <p><a href="https://hackernoon.com/practical-introduction-to-docker-compose-d34e79c4c2b6">https://hackernoon.com/practical-introduction-to-docker-compose-d34e79c4c2b6</a></p>
 <p><a href="https://github.com/docker/labs/blob/master/beginner/chapters/votingapp.md">https://github.com/docker/labs/blob/master/beginner/chapters/votingapp.md</a></p>
 <h2 id="7-bonus-using-google-cloud-tools-for-docker">7. Bonus - Using Google Cloud Tools for Docker<a class="headerlink" href="#7-bonus-using-google-cloud-tools-for-docker" title="Permanent link">🔗</a></h2>
