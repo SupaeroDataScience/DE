@@ -145,19 +145,25 @@ https://newsletter.pragmaticengineer.com/p/cloud-development-environments-why-no
 
 ![](https://docs.github.com/assets/cb-79257/images/help/codespaces/port-forwarding.png)  <!-- .element: height="40%" width="40%" -->
 
-<!--v-->
-
-#### Tunnels of tunnels
-
-* Some of you did Local Machine -> (browser) -> Codespace -> (ssh) -> VM -> Jupyterlab on port 8888
-* With port transfers !
-* What happens when you go to `http://(url-generated-by-codespaces):8888` in this case ?
-
-![tunnelception](static/img/codespaceception.png)
-
 <!--s-->
 
-### SSH Tunnel, Port Forwarding
+### Take-away for GCP
+
+<!--v-->
+
+<img src="https://raw.githubusercontent.com/gregsramblings/google-cloud-4-words/master/Poster-medres.png" alt="" width="50%" height="50%" style="background:none; border:none; box-shadow:none;"/>
+
+[GCP Services in 4 words or less](https://googlecloudcheatsheet.withgoogle.com/)
+
+<!--v-->
+
+#### An example workflow for your future routine
+
+![workflow](static/img/gce_workflow.png)
+
+<!--v-->
+
+#### SSH Tunnel, Port Forwarding
 
 > In computer networking, **a port is a communication endpoint**. At the software level, within an operating system, a port is a logical construct that identifies a specific process or a type of network service. **A port is identified for each transport protocol and address combination** by a 16-bit unsigned number, known as the port number. The most common transport protocols that use port numbers are the Transmission Control Protocol (TCP) and the User Datagram Protocol (UDP).
 
@@ -192,6 +198,16 @@ We usually connect to web app using `http://{ip}:{port}`
 ![ssh-tunnel](https://iximiuz.com/ssh-tunnels/local-port-forwarding-2000-opt.png)  <!-- .element: height="50%" width="50%" -->
 
 [Visual guide](https://iximiuz.com/en/posts/ssh-tunnels/)
+
+<!--v-->
+
+#### Tunnels of tunnels
+
+* Some of you did Local Machine -> (browser) -> Codespace -> (ssh) -> VM -> Jupyterlab on port 8888
+* With port transfers !
+* What happens when you go to `http://(url-generated-by-codespaces):8888` in this case ?
+
+![tunnelception](static/img/codespaceception.png)
 
 <!--s-->
 

@@ -82,7 +82,9 @@ revealOptions:
 
 <!--s-->
 
-![](https://pointful.github.io/docker-intro/docker-img/docker.png)
+### Docker
+
+![](https://pointful.github.io/docker-intro/docker-img/docker.png) <!-- .element: height="≈%" width="©%" -->
 
 <!--v-->
 
@@ -185,6 +187,7 @@ https://www.youtube.com/c/AurelieVache/videos
   (Docker makes Windows container possible though)
 * Isolation is not perfect since containers share underlying kernels (security and stability)
 
+
 <!--s-->
 
 ### Containers for Data Science
@@ -229,27 +232,33 @@ https://www.youtube.com/c/AurelieVache/videos
 
 <!--v-->
 
+Build, Ship, Run in Data Science
+
+![bsr](https://www.embedded.com/embedded/wp-content/uploads/sites/2/2022/07/07rn_f4r.png)   <!-- .element: height="50%" width="50%" -->
+
+<!--v-->
+
+Deployment
+
+![](https://labs.ovhcloud.com/sites/default/files/styles/desktop_full_width/public/2023-03/ai.deploy.lab1__1.webp)   <!-- .element: height="50%" width="50%" -->
+
+<!--v-->
+
 Reproducible development environment
 
-![](https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img/https://godatadriven.com/wp-content/uploads/2022/10/devcontainer-overview-4.png)  <!-- .element: height="55%" width="55%" -->
+![](https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img/https://godatadriven.com/wp-content/uploads/2022/10/devcontainer-overview-4.png) <!-- .element: height="40%" width="40%" -->
 
 <!--v-->
 
 Codespace is actally a container...
 
-![codespace](https://docs.github.com/assets/cb-171798/mw-1440/images/help/codespaces/configure-dev-container.webp)
+![codespace](https://docs.github.com/assets/cb-171798/mw-1440/images/help/codespaces/configure-dev-container.webp) <!-- .element: height="40%" width="40%" -->
 
 <!--v-->
 
-Reproducible development environment [at scale](https://medium.com/netflix-techblog/scheduling-notebooks-348e6c14cfd6) !
+Machine Learning [at scale](https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning#mlops_level_1_ml_pipeline_automation) !
 
-![netflix](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*WOEEJizYnO8ibtU2l9jWbA.jpeg)
-
-<!--v-->
-
-[Netflix and notebook scheduling](https://medium.com/netflix-techblog/scheduling-notebooks-348e6c14cfd6)
-
-![netflix](https://miro.medium.com/v2/resize:fit:1400/0*058TIxB_YEFxmUDy)  <!-- .element: height="55%" width="55%" -->
+![gcp](https://cloud.google.com/static/architecture/images/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning-3-ml-automation-ct.svg)
 
 <!--v-->
 

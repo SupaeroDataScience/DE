@@ -48,6 +48,12 @@ Suppose I have a large pool of machines available
 
 <!--v-->
 
+#### The next step
+
+![](https://miro.medium.com/v2/resize:fit:4800/format:webp/1*chfFaFDHCiHCfcUAycQSHA.png)
+
+<!--v-->
+
 #### Orchestration
 
 - containers are a lightweight mechanism for isolating an application's environment

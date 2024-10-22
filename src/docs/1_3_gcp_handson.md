@@ -328,7 +328,7 @@ Don't disconnect from the VM, we will continue below
 
 We will replicate the following setup (simplified)
 
-![setup](slides/static/img/infra_army_of_one.png)
+![setup](slides/static/img/gce_workflow.png)
 
 - Your development machine (the github codespace) has some training code
 - You have a "high performance" machine in the cloud
