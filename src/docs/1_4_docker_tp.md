@@ -140,8 +140,8 @@ docker run -d dockersamples/static-site
 
 Files:
 
-* [Dockerfile](resources/Dockerfile)
-* [hello_docker.html](resources/hello_docker.html)
+* [Dockerfile](https://github.com/docker/labs/blob/master/beginner/static-site/Dockerfile)
+* [hello_docker.html](https://github.com/docker/labs/blob/master/beginner/static-site/Hello_docker.html)
 
 >**Note:** The current version of this image doesn't run without the `-d` flag. The `-d` flag enables **detached mode**, which detaches the running container from the terminal/shell and returns your prompt after the container starts. We are debugging the problem with this image but for now, use `-d` even for this first example.
 
