@@ -245,6 +245,12 @@ workflow
 
 <!--v-->
 
+dockerfile / layer / image / container 
+
+![analogy](static/img/docker_analogy.png) <!-- .element: height="40%" width="40%" -->
+
+<!--v-->
+
 containers is not magic
 
 ![devops](https://miro.medium.com/max/1810/1*bB-rHCq8L-g5xzWLqsy3EQ.png)

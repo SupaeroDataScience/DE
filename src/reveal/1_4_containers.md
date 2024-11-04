@@ -346,7 +346,7 @@ container = NewImage(a=0,b=1)
 
 <!--v-->
 
-#### Layer / Image Analogy
+#### Dockerfile / Layer / Image / Container Analogy
 
 ![analogy](static/img/docker_analogy.png) <!-- .element: height="40%" width="40%" -->
 
