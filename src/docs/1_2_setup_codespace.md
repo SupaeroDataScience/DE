@@ -206,7 +206,7 @@ image_comparison(
 
 First, we will install in the codespace the dependencies for our application,
 
-`pip install streamlit streamlit opencv-python-headless`
+`pip install streamlit streamlit opencv-python-headless streamlit-image-comparison`
 
 Then create a file `streamlit_jswt.py` and copy/paste the code above.
 

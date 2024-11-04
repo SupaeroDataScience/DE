@@ -257,6 +257,23 @@ containers for data science
 
 <!--v-->
 
+more about docker
+
+* Containers really shine when you are deploying multi-containers applications
+  - [This tutorial on microservices w/ Compose](https://training.play-with-docker.com/microservice-orchestration/)
+* Containers really shine when you are in a cluster world
+  - [Docker swarm](https://training.play-with-docker.com/swarm-stack-intro/)
+* Orchestration & Scheduling
+  - [Read this excellent Kubernetes comic !](https://cloud.google.com/kubernetes-engine/kubernetes-comic/)
+
+<!--v-->
+
+what's next ?
+
+![](https://miro.medium.com/v2/resize:fit:750/format:webp/1*eONPUauKcQRHGHcrGxeftg.png)  <!-- .element: height="70%" width="70%" -->
+
+<!--s-->
+
 ### BE : Why ?
 
 ![](https://miro.medium.com/max/1400/1*b-NfGtOQXsqIBCLpckP66Q.png)  <!-- .element: height="70%" width="70%" -->
@@ -267,20 +284,7 @@ containers for data science
 
 ![](static/img/tunnelception2.png) <!-- .element: height="70%" width="70%" -->
 
-<!--v-->
-
-![](https://miro.medium.com/v2/resize:fit:750/format:webp/1*eONPUauKcQRHGHcrGxeftg.png)  <!-- .element: height="70%" width="70%" -->
-
-<!--v-->
-
-### More about docker
-
-* Containers really shine when you are deploying multi-containers applications
-  - [This tutorial on microservices w/ Compose](https://training.play-with-docker.com/microservice-orchestration/)
-* Containers really shine when you are in a cluster world
-  - [Docker swarm](https://training.play-with-docker.com/swarm-stack-intro/)
-* Orchestration & Scheduling
-  - [Read this excellent Kubernetes comic !](https://cloud.google.com/kubernetes-engine/kubernetes-comic/)
+[docker port forwarding](https://iximiuz.com/en/posts/docker-publish-container-ports/)
 
 <!--s-->
 
