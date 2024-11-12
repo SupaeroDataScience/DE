@@ -22,11 +22,13 @@ Nous nous plaçons dans un contexte "microservices" où le front-end et le backe
 
 ## 1 - Mise en place du projet Google Cloud Platform
 
-Maintenant que vous avez vos crédits, suivez les instructions du [1er TP Google Cloud Platform](https://supaerodatascience.github.io/DE/1_2_gcp_handson.html#1a-create-your-gcp-account) pour créer votre propre projet GCP 
+Sélectionnez votre projet Google Cloud Platform personnel
 
-## 2 - Démarrage du Code Space
+## 2 - Démarrage du GitHub Codespace
 
-Démarrez un github codespace depuis le repository [https://github.com/fchouteau/isae-cloud-computing-codespace](https://github.com/fchouteau/isae-cloud-computing-codespace)
+Si vous avez déjà démarré un GitHub Codespace précédemment, vous pouvez le relancer via l'[interface habituelle](https://github.com/codespaces)
+
+Sinon, démarrez un github codespace depuis le repository [https://github.com/fchouteau/isae-cloud-computing-codespace](https://github.com/fchouteau/isae-cloud-computing-codespace)
 
 Il est nécéssaire d'utiliser un codespace à partir de ce repository car il contient tout ce dont vous avez besoin pour ce TP.
 
@@ -42,7 +44,7 @@ Le `README.md` du dossier `backend` contient des détails concernant la construc
 
 Le code principal se trouve dans `app.py`. On déclare des "routes" (des méthodes d'interactions avec le serveur) puis on leur assigne des fonctions.
 
-Par exemple, vous pouvez regarder la route `predict` qui est associée à la fonction du même nom.
+Par exemple, vous pouvez regarder la route `/predict` qui est associée à la fonction du même nom.
 
 ```python
 @app.post(
@@ -55,7 +57,12 @@ Par exemple, vous pouvez regarder la route `predict` qui est associée à la fon
 
 Cette fonction effectue l'inférence sur l'image qui est donnée via la requête REST vers la route /predict.
 
-Afin de mieux illustrer les possibilités d'intéraction avec ce serveur, nous allons le lancer localement, en utilisant l'image docker déjà construite (Remarque: vous pouvez reproduire le docker en lançant `docker build -f Dockerfile -t eu.gcr.io/third-ridge-138414/yolo-v5:1.2`)
+Afin de mieux illustrer les possibilités d'intéraction avec ce serveur, nous allons le lancer localement, en utilisant l'image docker déjà construite 
+
+!!! note
+    Remarque: vous pouvez reproduire le docker en lançant 
+
+    `docker build -f Dockerfile -t eu.gcr.io/third-ridge-138414/yolo-v5:1.2`
 
 Lancez la commande suivante `docker run --rm -p 8000:8000 eu.gcr.io/third-ridge-138414/yolo-v5:1.2`
 
@@ -63,13 +70,13 @@ Cela lance un container depuis l'image docker du backend en exposant le port 800
 
 Connectez-vous au port 8000 du codespace. Vous devriez avoir une page vierge qui contient `"YOLO-V5 WebApp created with FastAPI"`
 
-Nous allons maintenant regarder la documentation de l'application. Celle-ci est automatiquement générée à partir du code de `app.py` et est disponible sur la route `/docs` 
+Nous allons maintenant regarder la documentation de l'application. Celle-ci est automatiquement générée à partir du code de `app.py` via le framework FastAPI et est disponible sur la route `/docs`. Pour plus d'informations, voir [ici](https://fastapi.tiangolo.com/features/#automatic-docs)
 
 Connectez-vous donc à la route `/docs` en rajoutant ce terme à l'URL du codespace. 
 
 ![fastapidoc](slides/static/img/apidoc.png)
 
-Cette page web décrit les différentes routes accessibles et leurs méthodes d'intéraction, ainsi que les formats d'entrée et de sortie. C'est la documentation de l'API et lorsque vous interagissez avec le serveur, c'est la seule chose dont vous avez besoin.
+Cette page web décrit les différentes routes accessibles et leurs méthodes d'intéraction, ainsi que les formats d'entrée et de sortie. C'est la documentation de l'API et lorsque vous interagissez avec le serveur, c'est la seule chose dont vous avez besoin. La documentation de l'API est [normalisée](https://github.com/swagger-api/swagger-ui).
 
 Nous allons maintenant interagir avec ce serveur.
 
@@ -81,7 +88,7 @@ Laissez le terminal avec le container démarré pour l'instant,
 
 Comme vous aurez pu le constater, ce n'est pas très intuitif d'interagir avec le backend via des scripts, on aimerait pouvoir visualiser plus facilement les prédictions, faire des seuils sur la confiance des objets, etc...
 
-Pour cela nous allons créer une application `streamlit` (remarque: pour une introduction à streamlit rendez-vous dans la [section 6 du BE](https://supaerodatascience.github.io/DE/1_4_be.html#6-lets-discover-streamlit))
+Pour cela nous allons créer une application `streamlit` (remarque: pour une introduction à streamlit rendez-vous dans la [section 6 du BE](/1_5_be.md##21-lets-discover-streamlit))
 
 Dans votre codespace, démarrez un nouveau terminal puis allez dans le dossier `frontend`. Là encore, le fichier `app.py` contient le code de l'applicaiton streamlit. Celle-ci va récupérer une image que vous allez uploader (image de votre choix) puis l'envoyer au serveur dont vous spécifiez l'IP dans la case en haut à gauche.
 
@@ -140,11 +147,11 @@ Une fois que vous avez interagi avec votre déploiement, nous allons maintenant 
 
 ## 6 - Deploiement du backend sur une VM Google Compute Engine
 
-Nous allons maintenant démarrer une instance de VM Google Compute Engine et directement y déployer un container. Vous avez déjà vu cette méthode dans la [section streamlit du BE](https://supaerodatascience.github.io/DE/1_4_be.html#64-deployment-in-a-vm)
+Nous allons maintenant démarrer une instance de VM Google Compute Engine et directement y déployer un container. Vous avez déjà vu cette méthode dans la [section streamlit du BE](1_5_be.md#26-deployment-in-a-vm)
 
 N'oubliez pas de connecter votre github codespace à votre projet gcp en utilisant `gcloud init`
 
-Récupérez votre project_id gcp :  `PROJECT_ID=$(gcloud config get-value project 2> /dev/null)``
+Récupérez votre project_id gcp via l'interface ou via la variable suivante : `PROJECT_ID=$(gcloud config get-value project 2> /dev/null)`
 
 Puis nous allons créer directement une VM en y déployant un container. Notez que l'on utilise cette fois un OS dédié à l'hébergement de containers (pas prévu pour s'y connecter en ssh) plutôt qu'ubuntu comme précédemment. 
 
@@ -171,12 +178,67 @@ gcloud compute --project=${PROJECT_ID} firewall-rules create open-8000 --directi
 Nous allons maintenant tester que notre backend est bien déployé. Il faut pour cela relancer le front-end et changer l'IP pour l'IP de la machine virtuelle précédemment lancée
 
 - relancez le docker du frontend `docker run --rm -p 8501:8501 eu.gcr.io/third-ridge-138414/yolo-v5-streamlit:1.5`
-- connectez vous au port 8501 du github codespace, comme précédemment, et modifiez l'IP du backend pour qu'il corresponde à celle du serveur distant (toujours sur le port 8000)
-- si vous envoyez une requête, elle est maintenant transmise au backend !
+- connectez vous au port 8501 du github codespace, comme précédemment, et modifiez l'IP du backend pour qu'il corresponde à celle du serveur distant, c'est à dire l'IP publique de votre VM GCP (toujours sur le port 8000)
+- si vous envoyez une requête, elle est maintenant transmise au backend hébergée sur GCP !
 
 ## 8. Yay !
 
 !!! success
     🍾 *Et voilà, vous avez déployé votre premier modèle sur le cloud*
 
-N'oubliez pas de supprimer votre VM GCP une fois le travail terminé
+!!! warning
+    N'oubliez pas de supprimer votre VM GCE une fois le travail terminé
+
+## 9. BONUS - Passer à l'échelle 
+
+Nous venons de déployer un modèle sur une unique machine.
+
+Il manque certains éléments à notre déploiement :
+
+- Un nom de domaine
+- Une capacité à passer à l'échelle sur plusieurs machines, ou d'être à zéro machines s'il n'y a pas de demandes
+- Une gestion des mises à jour : Comment déployer une nouvelle version de l'application ?
+- Un routage du trafic sur la bonne instance
+
+Nous allons donc voir une solution de déploiement de container "managée" (aussi dite serverless / "Container as a Service") : [Google Cloud Run](https://cloud.google.com/run/docs/overview/what-is-cloud-run?hl=fr). Pour en savoir plus, lisez [l'introduction au service](https://cloud.google.com/run/docs/overview/what-is-cloud-run?hl=fr).
+
+L'objectif est de déployer notre container qui est un service, sans gérer l'infrastructure, ni le routage.
+![gcr](https://cloud.google.com/static/run/docs/images/cloud-run-service.svg?hl=fr)
+
+Nous allons suivre à peu près les étapes du [tutorial](https://cloud.google.com/run/docs/deploying)
+
+!!! hint
+    Afin de tester le passage à l'échelle, il est recommandé de se mettre en groupe et de ne faire qu'un seul déploiement et ensuite de tous essayer d'utiliser le même service (la même URL) une fois celui-ci déployé.
+
+- Rendez-vous sur la page de [GCR](https://console.cloud.google.com/run?project=third-ridge-138414)
+- Sélectionnez "déployer un container"
+- Entrez l'URL du container à déployer `eu.gcr.io/third-ridge-138414/yolo-v5:1.2``
+- Entrez un nom de service
+- Sélectionnez la zone europe (west1, west4, west9)
+- Autorisez les requêtes non authentifiées
+- Ingress control : all
+- Dans les paramètres du container, sélectionnez le port 8000 et allouez lui 2 Go de RAM
+- Réglez 10s de timeout et 5 requêtes maximum par instance
+- Mettez 5 instances maximum
+- Et voilà !
+
+Normalement, votre service se crée. Une fois celui-ci démarré, une instance est démarrée (vous n'avez pas la main sur l'infrastructure) et la prédiction est accessible à l'URL du service.
+
+Relancez le front end depuis votre codespace puis entrez l'URL du service. Lancez une prédiction.
+
+!!! success
+    🍾 *Et voilà, vous avez déployé votre premier modèle sur le cloud*
+
+Si vous essayez de faire plusieurs requêtes simultanées au service avec des images différentes depuis plusieurs personnes, il est possible que le service "passe à l'échelle" automatiquement
+
+Pour surveiller le trafic de votre service vous pouvez utilisez :
+- Soit la page web du service google cloud run
+- Soit le [Metrics Explorer](https://console.cloud.google.com/monitoring/metrics-explorer) en sélectionnant la métrique Cloud Run Révision - Container - Instance Count. Vous pouvez aussi ajouter cette métrique en widget du dashboard gcr...
+
+!!! hint
+    Normalement une URL d'un service a été postée sur slack, vous pouvez l'essayer...
+
+!!! warning
+    N'oubliez pas de supprimer votre service google cloud run une fois le travail terminé
+
+

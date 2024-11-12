@@ -27,7 +27,7 @@ You just deployed your ML model in production **on one machine** <!-- .element: 
 
 Suppose I have a large pool of machines available
 
-* How do I **deploy my container on all machines ?** <!-- .element: class="fragment" data-fragment-index="1" -->
+* How do I **deploy my container on several machines ?** <!-- .element: class="fragment" data-fragment-index="1" -->
 * How do I **put the right containers at the right spot ?** <!-- .element: class="fragment" data-fragment-index="2" -->
 * How do I **scale (up and down) to demand ?** <!-- .element: class="fragment" data-fragment-index="3" -->
 * How do I **expose the http endpoints ?** <!-- .element: class="fragment" data-fragment-index="4" -->
