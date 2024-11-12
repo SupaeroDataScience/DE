@@ -957,9 +957,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-demarrage-du-code-space" class="md-nav__link">
+  <a href="#2-demarrage-du-github-codespace" class="md-nav__link">
     <span class="md-ellipsis">
-      2 - Démarrage du Code Space
+      2 - Démarrage du GitHub Codespace
     </span>
   </a>
   
@@ -1014,6 +1014,15 @@
   <a href="#8-yay" class="md-nav__link">
     <span class="md-ellipsis">
       8. Yay !
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-bonus-passer-a-lechelle" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. BONUS - Passer à l'échelle
     </span>
   </a>
   
@@ -1378,9 +1387,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-demarrage-du-code-space" class="md-nav__link">
+  <a href="#2-demarrage-du-github-codespace" class="md-nav__link">
     <span class="md-ellipsis">
-      2 - Démarrage du Code Space
+      2 - Démarrage du GitHub Codespace
     </span>
   </a>
   
@@ -1440,6 +1449,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#9-bonus-passer-a-lechelle" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. BONUS - Passer à l'échelle
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1460,20 +1478,27 @@
 
 <h1 id="deploy-your-ml-model-into-production">Deploy your ML model into production<a class="headerlink" href="#deploy-your-ml-model-into-production" title="Permanent link">🔗</a></h1>
 <h2 id="objectifs">Objectifs<a class="headerlink" href="#objectifs" title="Permanent link">🔗</a></h2>
-<p>L'objectif du TP est de convertir <a href="https://colab.research.google.com/drive/1YnJVW-IbMkUhl7s5nJ7BsT5tsTTvMmUB?usp=sharing">ce notebook</a> en deux services containerisés : Un back-end qui est un serveur qui reçoit des images et sort des prédictions, ainsi qu'un front-end qui vous permet d'envoyer des images au modèle et d'afficher les prédictions sur lesdites images,</p>
-<p>Afin de gagner du temps, les dockerfiles ont déjà été construits et sont prêts à être testés et déployés. Si vous souhaitez rentrer dans les détails et écrire vous-même le code, vous pouvez consulter la version longue de ce TP (qui n'est pas à jour). </p>
-<p>Nous allons donc voir :
-- La création d'un docker "backend" qui contient le modèle derrière une "API"
-- L'interaction avec ce docker
-- La création d'un docker "frontend" qui contient une IHM permettant d'interagir plus facilement avec le backend
-- docker-compose pour lancer des applications multi-container
-- Le déploiement du backend sur GCP
-- Le test final</p>
+<p>L'objectif du TP est de convertir <a href="https://colab.research.google.com/drive/1YnJVW-IbMkUhl7s5nJ7BsT5tsTTvMmUB?usp=sharing">ce notebook</a> en deux services containerisés : </p>
+<ul>
+<li>un back-end qui est un serveur qui reçoit des images et sort des prédictions, </li>
+<li>un front-end qui vous permet d'envoyer des images au modèle et d'afficher les prédictions sur lesdites images,</li>
+</ul>
+<p>Afin de gagner du temps, les dockerfiles ont déjà été construits et sont prêts à être testés et déployés. Si vous souhaitez rentrer dans les détails et écrire vous-même le code, vous pouvez consulter la version longue de ce TP <a href="1_8_deployment_tp_long.html">ci-dessous</a> (qui n'est pas à jour). </p>
+<p>Nous allons donc voir :</p>
+<ul>
+<li>La création d'un docker "backend" qui contient le modèle derrière une "API"</li>
+<li>L'interaction avec ce docker</li>
+<li>La création d'un docker "frontend" qui contient une IHM permettant d'interagir plus facilement avec le backend</li>
+<li>docker-compose pour lancer des applications multi-container</li>
+<li>Le déploiement du backend sur GCP</li>
+<li>Le test final</li>
+</ul>
 <p>Nous nous plaçons dans un contexte "microservices" où le front-end et le backend sont 2 containers différents. Il aurait été possible de n'en faire qu'un qui contient les deux (un "monolithe"). Une architecture microservices peut avoir certains avantages (modularité, maintenance) mais est plus complexe à mettre en oeuvre.</p>
 <h2 id="1-mise-en-place-du-projet-google-cloud-platform">1 - Mise en place du projet Google Cloud Platform<a class="headerlink" href="#1-mise-en-place-du-projet-google-cloud-platform" title="Permanent link">🔗</a></h2>
-<p>Maintenant que vous avez vos crédits, suivez les instructions du <a href="https://supaerodatascience.github.io/DE/1_2_gcp_handson.html#1a-create-your-gcp-account">1er TP Google Cloud Platform</a> pour créer votre propre projet GCP </p>
-<h2 id="2-demarrage-du-code-space">2 - Démarrage du Code Space<a class="headerlink" href="#2-demarrage-du-code-space" title="Permanent link">🔗</a></h2>
-<p>Démarrez un github codespace depuis le repository <a href="https://github.com/fchouteau/isae-cloud-computing-codespace">https://github.com/fchouteau/isae-cloud-computing-codespace</a></p>
+<p>Sélectionnez votre projet Google Cloud Platform personnel</p>
+<h2 id="2-demarrage-du-github-codespace">2 - Démarrage du GitHub Codespace<a class="headerlink" href="#2-demarrage-du-github-codespace" title="Permanent link">🔗</a></h2>
+<p>Si vous avez déjà démarré un GitHub Codespace précédemment, vous pouvez le relancer via l'<a href="https://github.com/codespaces">interface habituelle</a></p>
+<p>Sinon, démarrez un github codespace depuis le repository <a href="https://github.com/fchouteau/isae-cloud-computing-codespace">https://github.com/fchouteau/isae-cloud-computing-codespace</a></p>
 <p>Il est nécéssaire d'utiliser un codespace à partir de ce repository car il contient tout ce dont vous avez besoin pour ce TP.</p>
 <p><img alt="codespace" src="slides/static/img/codespacefchouteau.png" /></p>
 <p>Normalement, une fois le codespace lancé, vous devriez obtenir une interface vscode avec deux dossiers dont un nommé <code>tp-deployment</code>. Rendez-vous dans ce dossier,</p>
@@ -1481,7 +1506,7 @@
 <h2 id="3-construction-et-tests-du-backend">3 - Construction et tests du backend<a class="headerlink" href="#3-construction-et-tests-du-backend" title="Permanent link">🔗</a></h2>
 <p>Le <code>README.md</code> du dossier <code>backend</code> contient des détails concernant la construction du serveur et de son API (qui était auparavant laissé en exercice). Nous utilisons <a href="https://fastapi.tiangolo.com/">FastAPI</a> qui un framework de construction d'applications Web.</p>
 <p>Le code principal se trouve dans <code>app.py</code>. On déclare des "routes" (des méthodes d'interactions avec le serveur) puis on leur assigne des fonctions.</p>
-<p>Par exemple, vous pouvez regarder la route <code>predict</code> qui est associée à la fonction du même nom.</p>
+<p>Par exemple, vous pouvez regarder la route <code>/predict</code> qui est associée à la fonction du même nom.</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
     <span class="s2">&quot;/predict&quot;</span><span class="p">,</span>
     <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Send a base64 encoded image + the model name, get detections&quot;</span><span class="p">,</span>
@@ -1490,20 +1515,25 @@
 <span class="p">)</span>
 </code></pre></div>
 <p>Cette fonction effectue l'inférence sur l'image qui est donnée via la requête REST vers la route /predict.</p>
-<p>Afin de mieux illustrer les possibilités d'intéraction avec ce serveur, nous allons le lancer localement, en utilisant l'image docker déjà construite (Remarque: vous pouvez reproduire le docker en lançant <code>docker build -f Dockerfile -t eu.gcr.io/third-ridge-138414/yolo-v5:1.2</code>)</p>
+<p>Afin de mieux illustrer les possibilités d'intéraction avec ce serveur, nous allons le lancer localement, en utilisant l'image docker déjà construite </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Remarque: vous pouvez reproduire le docker en lançant </p>
+<p><code>docker build -f Dockerfile -t eu.gcr.io/third-ridge-138414/yolo-v5:1.2</code></p>
+</div>
 <p>Lancez la commande suivante <code>docker run --rm -p 8000:8000 eu.gcr.io/third-ridge-138414/yolo-v5:1.2</code></p>
 <p>Cela lance un container depuis l'image docker du backend en exposant le port 8000.</p>
 <p>Connectez-vous au port 8000 du codespace. Vous devriez avoir une page vierge qui contient <code>"YOLO-V5 WebApp created with FastAPI"</code></p>
-<p>Nous allons maintenant regarder la documentation de l'application. Celle-ci est automatiquement générée à partir du code de <code>app.py</code> et est disponible sur la route <code>/docs</code> </p>
+<p>Nous allons maintenant regarder la documentation de l'application. Celle-ci est automatiquement générée à partir du code de <code>app.py</code> via le framework FastAPI et est disponible sur la route <code>/docs</code>. Pour plus d'informations, voir <a href="https://fastapi.tiangolo.com/features/#automatic-docs">ici</a></p>
 <p>Connectez-vous donc à la route <code>/docs</code> en rajoutant ce terme à l'URL du codespace. </p>
 <p><img alt="fastapidoc" src="slides/static/img/apidoc.png" /></p>
-<p>Cette page web décrit les différentes routes accessibles et leurs méthodes d'intéraction, ainsi que les formats d'entrée et de sortie. C'est la documentation de l'API et lorsque vous interagissez avec le serveur, c'est la seule chose dont vous avez besoin.</p>
+<p>Cette page web décrit les différentes routes accessibles et leurs méthodes d'intéraction, ainsi que les formats d'entrée et de sortie. C'est la documentation de l'API et lorsque vous interagissez avec le serveur, c'est la seule chose dont vous avez besoin. La documentation de l'API est <a href="https://github.com/swagger-api/swagger-ui">normalisée</a>.</p>
 <p>Nous allons maintenant interagir avec ce serveur.</p>
 <p>Dans le dossier <code>backend</code> se trouve un fichier python <code>test_webapp.py</code>. Il va automatiquement envoyer les bonnes requêtes au serveur. Executez-le (<code>python test_webapp.py</code>), vous devriez voir s'afficher des tests correspondants au code, ainsi que les prédictions des chats sur l'image <code>cats.png</code> </p>
 <p>Laissez le terminal avec le container démarré pour l'instant,</p>
 <h2 id="4-construction-et-tests-du-frontend">4 - Construction et tests du frontend<a class="headerlink" href="#4-construction-et-tests-du-frontend" title="Permanent link">🔗</a></h2>
 <p>Comme vous aurez pu le constater, ce n'est pas très intuitif d'interagir avec le backend via des scripts, on aimerait pouvoir visualiser plus facilement les prédictions, faire des seuils sur la confiance des objets, etc...</p>
-<p>Pour cela nous allons créer une application <code>streamlit</code> (remarque: pour une introduction à streamlit rendez-vous dans la <a href="https://supaerodatascience.github.io/DE/1_4_be.html#6-lets-discover-streamlit">section 6 du BE</a>)</p>
+<p>Pour cela nous allons créer une application <code>streamlit</code> (remarque: pour une introduction à streamlit rendez-vous dans la <a href="/1_5_be.md##21-lets-discover-streamlit">section 6 du BE</a>)</p>
 <p>Dans votre codespace, démarrez un nouveau terminal puis allez dans le dossier <code>frontend</code>. Là encore, le fichier <code>app.py</code> contient le code de l'applicaiton streamlit. Celle-ci va récupérer une image que vous allez uploader (image de votre choix) puis l'envoyer au serveur dont vous spécifiez l'IP dans la case en haut à gauche.</p>
 <p>Nous allons lancer cette application,</p>
 <p><code>docker run --rm -p 8501:8501 --network="host" eu.gcr.io/third-ridge-138414/yolo-v5-streamlit:1.5</code></p>
@@ -1538,9 +1568,9 @@
 <p>Comme précédemment, vous pouvez vous connecter au frontend sur le port 8501 du codespace pour interagir directement avec le backend. La petite nuance est que ce backend est disponible sur <code>http://yolo:8000</code> plutôt que <code>http://localhost:8000</code> car le <code>docker-compose</code> a nommé les containers avec un hostname correspondant à celui spécifié (et les a mis en réseau)</p>
 <p>Une fois que vous avez interagi avec votre déploiement, nous allons maintenant déployer le backend sur un serveur sur google cloud.</p>
 <h2 id="6-deploiement-du-backend-sur-une-vm-google-compute-engine">6 - Deploiement du backend sur une VM Google Compute Engine<a class="headerlink" href="#6-deploiement-du-backend-sur-une-vm-google-compute-engine" title="Permanent link">🔗</a></h2>
-<p>Nous allons maintenant démarrer une instance de VM Google Compute Engine et directement y déployer un container. Vous avez déjà vu cette méthode dans la <a href="https://supaerodatascience.github.io/DE/1_4_be.html#64-deployment-in-a-vm">section streamlit du BE</a></p>
+<p>Nous allons maintenant démarrer une instance de VM Google Compute Engine et directement y déployer un container. Vous avez déjà vu cette méthode dans la <a href="1_5_be.html#26-deployment-in-a-vm">section streamlit du BE</a></p>
 <p>N'oubliez pas de connecter votre github codespace à votre projet gcp en utilisant <code>gcloud init</code></p>
-<p>Récupérez votre project_id gcp :  `PROJECT_ID=$(gcloud config get-value project 2&gt; /dev/null)``</p>
+<p>Récupérez votre project_id gcp via l'interface ou via la variable suivante : <code>PROJECT_ID=$(gcloud config get-value project 2&gt; /dev/null)</code></p>
 <p>Puis nous allons créer directement une VM en y déployant un container. Notez que l'on utilise cette fois un OS dédié à l'hébergement de containers (pas prévu pour s'y connecter en ssh) plutôt qu'ubuntu comme précédemment. </p>
 <div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create-with-container<span class="w"> </span>fch-yolo-backend<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--project<span class="o">=</span><span class="si">${</span><span class="nv">PROJECT_ID</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
@@ -1559,15 +1589,66 @@
 <p>Nous allons maintenant tester que notre backend est bien déployé. Il faut pour cela relancer le front-end et changer l'IP pour l'IP de la machine virtuelle précédemment lancée</p>
 <ul>
 <li>relancez le docker du frontend <code>docker run --rm -p 8501:8501 eu.gcr.io/third-ridge-138414/yolo-v5-streamlit:1.5</code></li>
-<li>connectez vous au port 8501 du github codespace, comme précédemment, et modifiez l'IP du backend pour qu'il corresponde à celle du serveur distant (toujours sur le port 8000)</li>
-<li>si vous envoyez une requête, elle est maintenant transmise au backend !</li>
+<li>connectez vous au port 8501 du github codespace, comme précédemment, et modifiez l'IP du backend pour qu'il corresponde à celle du serveur distant, c'est à dire l'IP publique de votre VM GCP (toujours sur le port 8000)</li>
+<li>si vous envoyez une requête, elle est maintenant transmise au backend hébergée sur GCP !</li>
 </ul>
 <h2 id="8-yay">8. Yay !<a class="headerlink" href="#8-yay" title="Permanent link">🔗</a></h2>
 <div class="admonition success">
 <p class="admonition-title">Success</p>
 <p>🍾 <em>Et voilà, vous avez déployé votre premier modèle sur le cloud</em></p>
 </div>
-<p>N'oubliez pas de supprimer votre VM GCP une fois le travail terminé</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>N'oubliez pas de supprimer votre VM GCE une fois le travail terminé</p>
+</div>
+<h2 id="9-bonus-passer-a-lechelle">9. BONUS - Passer à l'échelle<a class="headerlink" href="#9-bonus-passer-a-lechelle" title="Permanent link">🔗</a></h2>
+<p>Nous venons de déployer un modèle sur une unique machine.</p>
+<p>Il manque certains éléments à notre déploiement :</p>
+<ul>
+<li>Un nom de domaine</li>
+<li>Une capacité à passer à l'échelle sur plusieurs machines, ou d'être à zéro machines s'il n'y a pas de demandes</li>
+<li>Une gestion des mises à jour : Comment déployer une nouvelle version de l'application ?</li>
+<li>Un routage du trafic sur la bonne instance</li>
+</ul>
+<p>Nous allons donc voir une solution de déploiement de container "managée" (aussi dite serverless / "Container as a Service") : <a href="https://cloud.google.com/run/docs/overview/what-is-cloud-run?hl=fr">Google Cloud Run</a>. Pour en savoir plus, lisez <a href="https://cloud.google.com/run/docs/overview/what-is-cloud-run?hl=fr">l'introduction au service</a>.</p>
+<p>L'objectif est de déployer notre container qui est un service, sans gérer l'infrastructure, ni le routage.
+<img alt="gcr" src="https://cloud.google.com/static/run/docs/images/cloud-run-service.svg?hl=fr" /></p>
+<p>Nous allons suivre à peu près les étapes du <a href="https://cloud.google.com/run/docs/deploying">tutorial</a></p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Afin de tester le passage à l'échelle, il est recommandé de se mettre en groupe et de ne faire qu'un seul déploiement et ensuite de tous essayer d'utiliser le même service (la même URL) une fois celui-ci déployé.</p>
+</div>
+<ul>
+<li>Rendez-vous sur la page de <a href="https://console.cloud.google.com/run?project=third-ridge-138414">GCR</a></li>
+<li>Sélectionnez "déployer un container"</li>
+<li>Entrez l'URL du container à déployer `eu.gcr.io/third-ridge-138414/yolo-v5:1.2``</li>
+<li>Entrez un nom de service</li>
+<li>Sélectionnez la zone europe (west1, west4, west9)</li>
+<li>Autorisez les requêtes non authentifiées</li>
+<li>Ingress control : all</li>
+<li>Dans les paramètres du container, sélectionnez le port 8000 et allouez lui 2 Go de RAM</li>
+<li>Réglez 10s de timeout et 5 requêtes maximum par instance</li>
+<li>Mettez 5 instances maximum</li>
+<li>Et voilà !</li>
+</ul>
+<p>Normalement, votre service se crée. Une fois celui-ci démarré, une instance est démarrée (vous n'avez pas la main sur l'infrastructure) et la prédiction est accessible à l'URL du service.</p>
+<p>Relancez le front end depuis votre codespace puis entrez l'URL du service. Lancez une prédiction.</p>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>🍾 <em>Et voilà, vous avez déployé votre premier modèle sur le cloud</em></p>
+</div>
+<p>Si vous essayez de faire plusieurs requêtes simultanées au service avec des images différentes depuis plusieurs personnes, il est possible que le service "passe à l'échelle" automatiquement</p>
+<p>Pour surveiller le trafic de votre service vous pouvez utilisez :
+- Soit la page web du service google cloud run
+- Soit le <a href="https://console.cloud.google.com/monitoring/metrics-explorer">Metrics Explorer</a> en sélectionnant la métrique Cloud Run Révision - Container - Instance Count. Vous pouvez aussi ajouter cette métrique en widget du dashboard gcr...</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Normalement une URL d'un service a été postée sur slack, vous pouvez l'essayer...</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>N'oubliez pas de supprimer votre service google cloud run une fois le travail terminé</p>
+</div>
 
 
 
