@@ -2,11 +2,15 @@
 
 ## Objectifs
 
-L'objectif du TP est de convertir [ce notebook](https://colab.research.google.com/drive/1YnJVW-IbMkUhl7s5nJ7BsT5tsTTvMmUB?usp=sharing) en deux services containerisés : Un back-end qui est un serveur qui reçoit des images et sort des prédictions, ainsi qu'un front-end qui vous permet d'envoyer des images au modèle et d'afficher les prédictions sur lesdites images,
+L'objectif du TP est de convertir [ce notebook](https://colab.research.google.com/drive/1YnJVW-IbMkUhl7s5nJ7BsT5tsTTvMmUB?usp=sharing) en deux services containerisés : 
 
-Afin de gagner du temps, les dockerfiles ont déjà été construits et sont prêts à être testés et déployés. Si vous souhaitez rentrer dans les détails et écrire vous-même le code, vous pouvez consulter la version longue de ce TP (qui n'est pas à jour). 
+- un back-end qui est un serveur qui reçoit des images et sort des prédictions, 
+- un front-end qui vous permet d'envoyer des images au modèle et d'afficher les prédictions sur lesdites images,
+
+Afin de gagner du temps, les dockerfiles ont déjà été construits et sont prêts à être testés et déployés. Si vous souhaitez rentrer dans les détails et écrire vous-même le code, vous pouvez consulter la version longue de ce TP [ci-dessous](1_8_deployment_tp_long.md) (qui n'est pas à jour). 
 
 Nous allons donc voir :
+
 - La création d'un docker "backend" qui contient le modèle derrière une "API"
 - L'interaction avec ce docker
 - La création d'un docker "frontend" qui contient une IHM permettant d'interagir plus facilement avec le backend

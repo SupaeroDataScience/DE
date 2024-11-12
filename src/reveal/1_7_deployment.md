@@ -25,6 +25,14 @@ revealOptions:
 
 ### Communicating between applications
 
+[Application Programming Interface](https://glossary.cncf.io/application-programming-interface/)
+
+> Une API (application programming interface ou « interface de programmation d’application ») est une interface logicielle qui permet de « connecter » un logiciel ou un service à un autre logiciel ou service afin d’échanger des données et des fonctionnalités.
+
+<!--v-->
+
+### API
+
 ![api](static/img/infographie_api.jpg) <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
@@ -87,20 +95,19 @@ I want to deploy it on the cloud for other to use
 
 <!--v-->
 
-How I would do it
+Today we will do it by hand
 
-![deploy](static/img/deploy.jpg)  <!-- .element: height="50%" width="50%" -->
+![deploy](static/img/deployment.png)  <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 
-Higher level method for ml model packaging
+Other methods for ML Model packaging behind a web server
 
 ![package](static/img/packaging.png)
 
 - cog : https://github.com/replicate/cog
 - pesto : https://github.com/AirbusDefenceAndSpace/pesto
-
-Today, we will do it "by hand"
+- litserve : https://github.com/Lightning-AI/LitServe
 
 <!--v-->
 
@@ -158,6 +165,15 @@ In reality, it's much more complex...
 
 <!--v-->
 
-More links
+How to scale deployment ?
+
+- [CS229 - Class by Chip Huyen](https://docs.google.com/presentation/d/1U_zKs19VLJKnGE02JDRnzxJ8lgeVF22WSZ_GrA646fY/edit#slide=id.p)
+- [CS229 - Deployment with Ray Serve](https://github.com/anyscale/academy/blob/main/ray-serve/e2e/tutorial.ipynb)
+- https://docs.ray.io/en/latest/serve/develop-and-deploy.html
+
+<!--v-->
+
+Some links
 
 - https://github.com/EthicalML/awesome-production-machine-learning
+- Machine Learning System Designs https://stanford-cs329s.github.io/

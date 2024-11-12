@@ -119,6 +119,26 @@ Kubernetes manages your containers on a cluster of machine while taking care of
 
 <!--v-->
 
+Kubernetes is part of [Cloud Native Computing Foundation](https://www.cncf.io/)
+
+![cncf](https://landscape.cncf.io/images/cncf-landscape-horizontal-color.svg) <!-- .element: height="40%" width="40%" -->
+
+> As part of the Linux Foundation, we provide support, oversight and direction for fast-growing, cloud native projects, including Kubernetes, Envoy, and Prometheus.
+
+<!--v-->
+
+[Cloud Native Computing Foundation Landscape](https://landscape.cncf.io/) 
+
+![cncf](https://www.civo.com/assets/public/academy/courses/kubernetes-introduction/cncf-and-its-landscapes/cncf-landscape-lg-76deb3155685ef877c983fca1eb2d6bde90598d42e0806f6f3b119f72aee3dde.jpg) <!-- .element: height="50%" width="60%" -->
+
+<!--v-->
+
+[Cloud Native Computing Foundation Projects](https://landscape.cncf.io/)
+
+![cncf](https://www.cncf.io/wp-content/uploads/2020/08/CNCF_TrailMap_latest-1.png) <!-- .element: height="30%" width="30%" -->
+
+<!--v-->
+
 😱 😱 😱 😱
 
 ![k8s](https://platform9.com/wp-content/uploads/2019/05/kubernetes-constructs-concepts-architecture-1024x800.jpg) <!-- .element: height="40%" width="40%" -->
