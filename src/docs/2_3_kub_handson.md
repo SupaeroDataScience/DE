@@ -1,5 +1,7 @@
 # Kubernetes: Zero to Jupyterhub using Google Kubernetes Engine
 
+[Slides here](https://cnes.github.io/big-data-processing-course/13_Dask_On_Cloud.html#/)
+
 ## What is JupyterHub
 
 JupyterHub brings the power of notebooks to groups of users. It gives users access to computational environments and resources without burdening the users with installation and maintenance tasks. Users - including students, researchers, and data scientists - can get their work done in their own workspaces on shared resources which can be managed efficiently by system administrators.
@@ -30,8 +32,5 @@ This project will help you set up your own JupyterHub on a cloud and leverage th
 * [Go here](https://zero-to-jupyterhub.readthedocs.io/en/latest/) and follow the instructions
 
 * Use [Google Kubernetes Engine](https://zero-to-jupyterhub.readthedocs.io/en/latest/google/step-zero-gcp.html) to setup your cluster
-
-!!! info
-    You will use the same method later in the year to [setup a Dask Kubernetes cluster using helm](https://docs.dask.org/en/latest/setup/kubernetes-helm.html)
 
 * Give some people the public IP of your cluster so that they can connect to it... try to make it scale !

@@ -1,5 +1,7 @@
 # Introduction to Data Distribution
 
+[Overview slides](https://cnes.github.io/big-data-processing-course/00_SDD_DE_Course_Introduction.html)
+
 ## Course Overview
 
 - Data Distribution & Big Data Processing

@@ -49,11 +49,10 @@ nav:
   - Reading List: 1_7_readings.md
 - Data Distribution:
   - Introduction: 2_1_overview.md
+    - Hadoop and MapReduce: 2_5_mapreduce.md
   - Orchestration & Kubernetes:
     - Lectures: 2_2_orchestration.md
     - TP: 2_3_kub_handson.md
-  - Functional Programming: 2_4_functional.md
-  - Hadoop and MapReduce: 2_5_mapreduce.md
   - Spark: 2_6_spark.md
   - Dask on Kubernetes: 2_8_dask.md
   - Dask project: 2_9_project.md
