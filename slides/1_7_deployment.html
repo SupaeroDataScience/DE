@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Deployment</title>
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="./dist/reveal.css" />
+    <link rel="stylesheet" href="./static/css/reset.css" />
+    <link rel="stylesheet" href="./static/css/evo.css" />
+    <!-- <link rel="stylesheet" href="./_assets/evo" id="theme" /> -->
+    <link rel="stylesheet" href="./css/highlight/vs.css" />
+
+    <link rel="stylesheet" href="./../_assets/static/css/evo.css" />
+    <link rel="stylesheet" href="./../_assets/static/css/reset.css" />
+
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides"><section ><section data-markdown><script type="text/template">
+
+## Intro to deployment
+
+</script></section><section data-markdown><script type="text/template">
+
+### Architecturing (web) applications
+
+![api](static/img/webapp_architecture.jpg)  <!-- .element: height="50%" width="50%" -->
+
+</script></section><section data-markdown><script type="text/template">
+
+### Communicating between applications
+
+[Application Programming Interface](https://glossary.cncf.io/application-programming-interface/)
+
+> Une API (application programming interface ou « interface de programmation d’application ») est une interface logicielle qui permet de « connecter » un logiciel ou un service à un autre logiciel ou service afin d’échanger des données et des fonctionnalités.
+
+</script></section><section data-markdown><script type="text/template">
+
+### API
+
+![api](static/img/infographie_api.jpg) <!-- .element: height="50%" width="50%" -->
+
+</script></section><section data-markdown><script type="text/template">
+
+### REST API
+
+Representational state transfer (REST)
+
+![rest](https://images.tutorialedge.net/uploads/rest-api.png) <!-- .element: height="50%" width="50%" -->
+
+</script></section><section data-markdown><script type="text/template">
+
+### Microservices vs "monoliths"
+
+![microservices](https://www.sourcefuse.com/wp-content/uploads/2021/01/D-image4-min.png) <!-- .element: height="50%" width="50%" -->
+
+PS: [Microservices are hard](https://dwmkerr.com/the-death-of-microservice-madness-in-2018/)
+
+</script></section><section data-markdown><script type="text/template">
+
+### Multi applications & docker
+
+![docker-compose](https://hosting.analythium.io/content/images/2021/06/compose-3.png) <!-- .element: height="50%" width="50%" -->
+
+</script></section><section data-markdown><script type="text/template">
+
+### How does it relate to me ?
+
+</script></section><section data-markdown><script type="text/template">
+
+### Hands-On
+
+- **Backend** How to expose an ML model to a community of users through a web app
+- **Frontend** How to build a companion app to interact with your model in an ergonomic fashion
+- **Deployment** How to deploy both applications on a single instance
+
+</script></section><section data-markdown><script type="text/template">
+
+In the data science workflow, 
+
+![](static/img/mlworkflow.png)  <!-- .element: height="50%" width="50%" -->
+
+</script></section><section data-markdown><script type="text/template">
+
+I have an **awesome** ML model
+
+![model](static/img/meme_2.jpg)  <!-- .element: height="50%" width="50%" -->
+
+</script></section><section data-markdown><script type="text/template">
+
+(Just kidding)
+
+![model](static/img/meme_3.jpg)  <!-- .element: height="50%" width="50%" -->
+
+</script></section><section data-markdown><script type="text/template">
+
+I want to deploy it on the cloud for other to use
+
+![model](static/img/mistralserving.png)  <!-- .element: height="50%" width="50%" -->
+
+</script></section><section data-markdown><script type="text/template">
+
+Today we will do it by hand
+
+![deploy](static/img/deployment.png)  <!-- .element: height="50%" width="50%" -->
+
+</script></section><section data-markdown><script type="text/template">
+
+Other methods for ML Model packaging behind a web server
+
+![package](static/img/packaging.png)
+
+- cog : https://github.com/replicate/cog
+- pesto : https://github.com/AirbusDefenceAndSpace/pesto
+- litserve : https://github.com/Lightning-AI/LitServe
+
+</script></section><section data-markdown><script type="text/template">
+
+Interaction with user ? We use CURL 👎 
+
+```bash
+curl -X POST "http://my-instance/predict" \
+    -H  "accept: application/json" \
+    -H  "Content-Type: application/json" \
+    -d "{\"model\":\"string\",\"image\":\"...\"}"
+```
+
+</script></section><section data-markdown><script type="text/template">
+
+Interaction with user ? We use CURL 👎 
+
+![json](static/img/json.png)  <!-- .element: height="30%" width="30%" -->
+
+</script></section><section data-markdown><script type="text/template">
+
+Interaction with users ? 👍
+
+![results](static/img/results.png)  <!-- .element: height="50%" width="50%" -->
+
+</script></section><section data-markdown><script type="text/template">
+
+Webapp builder for data scientists
+
+![streamlit](static/img/streamlit.png)  <!-- .element: height="50%" width="50%" -->
+
+
+[you've seen it before](http://supaerodatascience.github.io/DE/1_4_be.html#6-lets-discover-streamlit)
+
+</script></section><section data-markdown><script type="text/template">
+
+Webapp builder for data scientists
+
+- [streamlit](https://streamlit.io/)
+- [gradio](https://gradio.app/)
+
+</script></section><section data-markdown><script type="text/template">
+
+Let's build it !
+
+- A model behind a Restful API, packaged in a docker
+- A frontend using streamlit, packaged in a docker
+- Deploy it on Google Cloud Platform using GCE & docker-compose
+- Send it to your friends !
+
+</script></section><section data-markdown><script type="text/template">
+
+In reality, it's much more complex...
+
+![](static/img/modelserving_complex.png)  <!-- .element: height="50%" width="50%" -->
+
+</script></section><section data-markdown><script type="text/template">
+
+How to scale deployment ?
+
+- [CS229 - Class by Chip Huyen](https://docs.google.com/presentation/d/1U_zKs19VLJKnGE02JDRnzxJ8lgeVF22WSZ_GrA646fY/edit#slide=id.p)
+- [CS229 - Deployment with Ray Serve](https://github.com/anyscale/academy/blob/main/ray-serve/e2e/tutorial.ipynb)
+- https://docs.ray.io/en/latest/serve/develop-and-deploy.html
+
+</script></section><section data-markdown><script type="text/template">
+
+Some links
+
+- https://github.com/EthicalML/awesome-production-machine-learning
+- Machine Learning System Designs https://stanford-cs329s.github.io/
+</script></section></section></div>
+    </div>
+    <!-- <div id="footer-container" style="display:none;"> -->
+    <div id="footer-container">
+        <div id="footer">
+            Tools of Big Data
+            <br />
+            <a href="https://supaerodatascience.github.io/deep-learning/">https://supaerodatascience.github.io/DE/</a>
+            <br />
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License"
+                    style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+        </div>
+    </div>
+    <script src="./dist/reveal.js"></script>
+
+    <script src="./plugin/markdown/markdown.js"></script>
+    <script src="./plugin/highlight/highlight.js"></script>
+    <script src="./plugin/zoom/zoom.js"></script>
+    <script src="./plugin/notes/notes.js"></script>
+    <script src="./plugin/math/math.js"></script>
+    <script>
+        function extend() {
+            var target = {};
+            for (var i = 0; i < arguments.length; i++) {
+                var source = arguments[i];
+                for (var key in source) {
+                    if (source.hasOwnProperty(key)) {
+                        target[key] = source[key];
+                    }
+                }
+            }
+            return target;
+        }
+
+        // default options to init reveal.js
+        var defaultOptions = {
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+            transition: 'default', // none/fade/slide/convex/concave/zoom
+            plugins: [
+                RevealMarkdown,
+                RevealHighlight,
+                RevealZoom,
+                RevealNotes,
+                RevealMath
+            ]
+        };
+
+        // options from URL query string
+        var queryOptions = Reveal().getQueryHash() || {};
+
+        var options = extend(defaultOptions, {"transition":"fade","transitionSpeed":"default","controls":true,"slideNumber":true,"width":"100%","height":"100%"}, queryOptions);
+    </script>
+
+
+    <script>
+        Reveal.initialize(options);
+        var footer = $('#footer-container').html();
+        $('div.reveal').append(footer);
+        var logo = $('#logo-container').html();
+        $('div.reveal').append(logo);
+    </script>
+</body>
+
+</html>

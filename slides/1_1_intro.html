@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Data Computation Intro</title>
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="./dist/reveal.css" />
+    <link rel="stylesheet" href="./static/css/reset.css" />
+    <link rel="stylesheet" href="./static/css/evo.css" />
+    <!-- <link rel="stylesheet" href="./_assets/evo" id="theme" /> -->
+    <link rel="stylesheet" href="./css/highlight/vs.css" />
+
+    <link rel="stylesheet" href="./../_assets/static/css/evo.css" />
+    <link rel="stylesheet" href="./../_assets/static/css/reset.css" />
+
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides"><section ><section data-markdown><script type="text/template">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/97/120106-G-IA651-272_%286668116881%29.jpg" alt="" width="40%" height="40%" style="background:none; border:none; box-shadow:none;"/>
+
+</script></section><section data-markdown><script type="text/template">
+
+## Cloud Computing, Containers & Orchestration
+
+by a data scientist, for data scientists
+
+**ISAE-SUPAERO, SDD, November 2023**
+
+Florient CHOUTEAU
+
+</script></section><section data-markdown><script type="text/template">
+
+### Who ?
+
+<img src="static/img/ads_logo.jpg" alt="" width="128px" height="128px" style="background:none; border:none; box-shadow:none;"/>
+
+- **Florient CHOUTEAU**, SDD 2016
+- Expert (Staff Engineer) in Artificial Intelligence for Space Systems at **Airbus Defence and Space**
+- Computer Vision Team (Earth Observation, Space Exploration, Space Domain Awareness)
+- Specialized in Satellite Imagery Processing & Deep Learning
+- Working regularly on cloud infra, remote development environment, docker
+
+Any question ? contact me on slack !
+
+</script></section><section data-markdown><script type="text/template">
+
+### Objectives of this class
+
+Introduction to global concepts of cloud computing, virtualisation, containers etc. from a **user** point of view
+
+</script></section><section data-markdown><script type="text/template">
+
+### Why ?
+
+The building blocks of "AI" : Data, Computational Power, Software
+
+And the people running everything
+
+</script></section><section data-markdown><script type="text/template">
+
+eg. having manipulated and having a rough idea of...
+
+... tools & concepts you **will** need in later workshops (DL, Spark, Dask, Hackathon)...
+
+... tools & concepts you **may** need during your internships and early career...
+
+... *cloud native* culture you **should** need later !
+
+</script></section><section data-markdown><script type="text/template">
+
+### Disclaimer !
+
+I am not a Cloud Engineer, or a Devops,  ... <!-- .element: class="fragment" data-fragment-index="1" -->
+
+... so I'll be showing you these from a "AI Engineer" point of view  <!-- .element: class="fragment" data-fragment-index="2" -->
+
+... and try to give you pointers for your internship / 1st job ...  <!-- .element: class="fragment" data-fragment-index="3" -->
+
+... "as if I was the one on the other side of the classroom" <!-- .element: class="fragment" data-fragment-index="4" -->
+
+</script></section><section data-markdown><script type="text/template">
+
+### This class will be successful if...
+
+- You understand why & how the cloud can be useful for you <!-- .element: class="fragment" data-fragment-index="1" -->
+- You can connect to and manipulate remote machines <!-- .element: class="fragment" data-fragment-index="3" -->
+- You are familiar with remote development environments <!-- .element: class="fragment" data-fragment-index="4" -->
+- You know the basics of containerisation and docker <!-- .element: class="fragment" data-fragment-index="5" -->
+- And you have applied them to deploy your model into "production" <!-- .element: class="fragment" data-fragment-index="6" -->
+- You have a rough idea of the problematic of orchestration <!-- .element: class="fragment" data-fragment-index="7" -->
+
+</script></section><section data-markdown><script type="text/template">
+
+### Schedule
+
+|  Date | Length | Content                                              |
+|:-----:|:------:|------------------------------------------------------|
+| 08/10 |   3h   | Intro to Cloud Computing & Remote Dev Env            |
+| 15/10 |   3h   | Google Cloud Platform                                |
+| 22/10 |   3h   | Containers & Docker                                  |
+| 05/11 |   3h   | BE Docker & GCP                                      |
+| 13/11 |   3h   | BE Deploy your ML Model in Production                |
+
+</script></section><section data-markdown><script type="text/template">
+
+### ⚠️
+
+Some things may go wrong, especially because of :
+- The ISAE WIFI / 4G connection inside the room
+- Your computer configuration (OS, browser, etc.)
+- Google Cloud Platform responsiveness
+
+Brace yourselves 💪
+</script></section></section></div>
+    </div>
+    <!-- <div id="footer-container" style="display:none;"> -->
+    <div id="footer-container">
+        <div id="footer">
+            Tools of Big Data
+            <br />
+            <a href="https://supaerodatascience.github.io/deep-learning/">https://supaerodatascience.github.io/DE/</a>
+            <br />
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License"
+                    style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+        </div>
+    </div>
+    <script src="./dist/reveal.js"></script>
+
+    <script src="./plugin/markdown/markdown.js"></script>
+    <script src="./plugin/highlight/highlight.js"></script>
+    <script src="./plugin/zoom/zoom.js"></script>
+    <script src="./plugin/notes/notes.js"></script>
+    <script src="./plugin/math/math.js"></script>
+    <script>
+        function extend() {
+            var target = {};
+            for (var i = 0; i < arguments.length; i++) {
+                var source = arguments[i];
+                for (var key in source) {
+                    if (source.hasOwnProperty(key)) {
+                        target[key] = source[key];
+                    }
+                }
+            }
+            return target;
+        }
+
+        // default options to init reveal.js
+        var defaultOptions = {
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+            transition: 'default', // none/fade/slide/convex/concave/zoom
+            plugins: [
+                RevealMarkdown,
+                RevealHighlight,
+                RevealZoom,
+                RevealNotes,
+                RevealMath
+            ]
+        };
+
+        // options from URL query string
+        var queryOptions = Reveal().getQueryHash() || {};
+
+        var options = extend(defaultOptions, {"transition":"fade","transitionSpeed":"default","controls":true,"slideNumber":true,"width":"100%","height":"100%"}, queryOptions);
+    </script>
+
+
+    <script>
+        Reveal.initialize(options);
+        var footer = $('#footer-container').html();
+        $('div.reveal').append(footer);
+        var logo = $('#logo-container').html();
+        $('div.reveal').append(logo);
+    </script>
+</body>
+
+</html>
