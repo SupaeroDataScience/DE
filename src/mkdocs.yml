@@ -48,7 +48,8 @@ nav:
     - TP (Version Longue): 1_8_deployment_tp_long.md
   - Reading List: 1_7_readings.md
 - Data Distribution:
-  - Introduction: 2_1_overview.md
+  - Introduction:
+    - Overview: 2_1_overview.md
     - Hadoop and MapReduce: 2_5_mapreduce.md
   - Orchestration & Kubernetes:
     - Lectures: 2_2_orchestration.md
