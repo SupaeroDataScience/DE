@@ -163,19 +163,34 @@ An overview and reminder of the python programming language, with a focus on num
 
 You most likely have python installed on your Linux system, but it is worthwhile to make sure and to upgrade. Python 3.8, 3.9, or 3.10 are all supported.
 
+There are multiple ways to setup Python.The recommended one is to install Python through Anaconda. Conda, or the platform Anaconda, can be useful on Windows as many packages are built specifically for windows, but not all packages are available via conda.
+
+The installation instructions can be found [on the Anaconda website](https://www.anaconda.com/docs/getting-started/anaconda/install#basic-install-instructions).
+
+It is highly recommended to make a `virtual environment` to manage your python packages. This feature is directly available with `conda` .
+
+For example the following command creates a `conda` virtual environment named `myenv` with Python 3.12:
+
+```bash
+conda create -y -n myenv -c conda-forge python=3.12
 ```
-sudo apt install python3
+
+Then activate the newly created environment with:
+
+```bash
+conda activate myenv
 ```
 
-It is highly recommended to make a `virtual environment` to manage your python packages. There are three main libraries for virtual environments:
+Within the virtual environment all operations implying Python (`pip install` , running `python script.py`...) are isolated from the Python (or "system Python", the Python used by the OS itself) already installed on the laptop. This mitigates the risk of dealing unrecoverable damage to the OS (and avoids to reinstall everything from scratch).
 
-- [Virtualenv](https://docs.python.org/3/tutorial/venv.html)
-- [Pipenv](https://pipenv.pypa.io/en/latest/)
-- [Conda](https://docs.conda.io/en/latest/)
+More information can be found in [Conda's docs](https://docs.conda.io/en/latest/).
 
-`Virtualenv` is recommended for new users on Linux. Conda, or the platform Anaconda, can be useful on Windows as many packages are built specifically for windows, but not all packages are available via conda. `Pipenv` is an exciting project aimed at Python developers, but it adds additional complexity.
+There are other well-known libraries for virtual environments:
 
-Once you have a virtual environment created, please install the following packages for the rest of the Seminars class:
+- [Virtualenv](https://docs.python.org/3/tutorial/venv.html) most straight-forward and convenient for new users on Linux with Python already installed.
+- [Pipenv](https://pipenv.pypa.io/en/latest/) is an exciting project aimed at Python developers, but it adds additional complexity.
+
+Once you have a virtual environment **created and activated**, please install the following packages for the rest of the Seminars class:
 
 ```
 numpy
