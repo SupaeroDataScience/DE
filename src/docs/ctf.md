@@ -138,13 +138,20 @@ In order to access the server for the next parts of the CTF, you will need to pr
 
 First, start by making a key pair and uploading your public key to Github. This will allow you use to SSH to make push requests, instead of using a personal access token. [Create an SSH key and add it to your Github account](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
 
-Then, we will use git as a way for you to transfer your public key to the class. We could use another means, like a USB key, email, or a very large QR code, but for this exercise we will use git. First [make a fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) of the [https://github.com/SupaeroDataScience/ctf2025](https://github.com/SupaeroDataScience/ctf2025) repository. Then, [make a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) with your key as a file in `keys/`. Please name your key with your name, like the example `keys/dennis-wilson.pub`. Be sure to upload **only your public key**. Do not ever upload your private key to public servers.
+Then, we will use git as a way for you to transfer your public key to the class. We could use another means, like a USB key, email, or a very large QR code, but for this exercise we will use git.
+
+- First [make a fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) of the [https://github.com/SupaeroDataScience/ctf2025](https://github.com/SupaeroDataScience/ctf2025) repository.
+- Then, [make a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) with your key as a file in `keys/`. Please name your key with your name, like the example `keys/dennis-wilson.pub`. Be sure to upload **only your public key**. Do not ever upload your private key to public servers.
 
 Once your key is in the repository, you are ready for the SSH and Python portions of the CTF.
 
 ## SSH
 
-For the ssh section, you will connect to the CTF server to answer questions about the remote environment. Your public key must be uploaded to the git repository above to get access to the server. You will use the corresponding private key to access the server. Your user on the server is `ctf` and the IP is the same as the CTF webserver: `34.163.196.38`.
+For the ssh section, you will connect to a new server to answer questions about the remote environment.
+
+**Pre-requisite**: Your public key must be uploaded to the git repository above to get access to the server. You will use the corresponding private key to access the server.
+
+Your user on the server is `ctf` and the IP is: `35.190.209.18`.
 
 Please note that _ISAE-EDU and ethernet block ssh to most servers_, including this one and `github.com`. In order to ssh to the server, you will need to either use the eduroam network or a different network like a mobile hotspot.
 
