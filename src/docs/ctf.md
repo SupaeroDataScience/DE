@@ -30,14 +30,14 @@ The WSL is similar to a virtual machine inside of Windows, but it integrates wit
 
 All questions will be posted to the [CTF github repository](https://github.com/SupaeroDataScience/ctf2025). In the second class, we will use git to download this repository locally, and it will be used to host the files and data needed to respond to questions.
 
-The CTF server's IP address is [`34.155.94.97`](http://34.155.94.97/). You can see a leaderboard there and it is the address for submitting answers. The first way we'll look at submitting answers is with `curl` in Linux.
+The CTF server's IP address is [`34.163.196.38`](http://34.163.196.38/). You can see a leaderboard there and it is the address for submitting answers. The first way we'll look at submitting answers is with `curl` in Linux.
 
 Once you have a Unix-type environment, either native Linux or macOS, or through the WSL, you're ready to submit to the CTF. You will use the `curl` command; you can verify that you have `curl` by running `which curl` in the command line. `curl` is a tool for transferring data from or to a server. How do you know that? By checking the documentation of `curl` using `man curl`. Try it out!
 
 To respond to a question, send a POST request with the data of the question `number` and `answer`, and your username as `user` (your username should be your ISAE login, but you can also check on the leaderboard). For example, the first question asks where the `curl` executable is (hint: use `which`). Then use `curl`:
 
 ```bash
-curl -X POST 'http://34.155.94.97/' \
+curl -X POST 'http://34.163.196.38/' \
     -d 'number=1' \
     -d 'answer=your answer here' \
     -d 'user=your username here'
@@ -50,13 +50,13 @@ You are ready to start answering questions! If you don't know an answer, check t
 You can see which questions you have answered by sending a GET request:
 
 ```bash
-curl 'http://34.155.94.97/user/d.wilson'
+curl 'http://34.163.196.38/user/d.wilson'
 ```
 
 You can also see which questions have remaining flags, the bonus points associated with answering the question for the first time, with a GET request:
 
 ```bash
-curl 'http://34.155.94.97/answers/'
+curl 'http://34.163.196.38/answers/'
 ```
 
 ### Python Submission
@@ -68,7 +68,7 @@ import requests
 data = {"number": "1",
         "answer": "",
         "user": "d.wilson"}
-r = requests.post("http://34.155.94.97/", data=data)
+r = requests.post("http://34.163.196.38/", data=data)
 ```
 
 ### Bash Resources
@@ -144,7 +144,7 @@ Once your key is in the repository, you are ready for the SSH and Python portion
 
 ## SSH
 
-For the ssh section, you will connect to the CTF server to answer questions about the remote environment. Your public key must be uploaded to the git repository above to get access to the server. You will use the corresponding private key to access the server. Your user on the server is `ctf` and the IP is the same as the CTF webserver: `34.155.94.97`.
+For the ssh section, you will connect to the CTF server to answer questions about the remote environment. Your public key must be uploaded to the git repository above to get access to the server. You will use the corresponding private key to access the server. Your user on the server is `ctf` and the IP is the same as the CTF webserver: `34.163.196.38`.
 
 Please note that _ISAE-EDU and ethernet block ssh to most servers_, including this one and `github.com`. In order to ssh to the server, you will need to either use the eduroam network or a different network like a mobile hotspot.
 
