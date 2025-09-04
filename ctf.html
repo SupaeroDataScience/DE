@@ -1831,10 +1831,10 @@
 </ul>
 <h3 id="submission">Submission<a class="headerlink" href="#submission" title="Permanent link">🔗</a></h3>
 <p>All questions will be posted to the <a href="https://github.com/SupaeroDataScience/ctf2025">CTF github repository</a>. In the second class, we will use git to download this repository locally, and it will be used to host the files and data needed to respond to questions.</p>
-<p>The CTF server's IP address is <a href="http://34.155.94.97/"><code>34.155.94.97</code></a>. You can see a leaderboard there and it is the address for submitting answers. The first way we'll look at submitting answers is with <code>curl</code> in Linux.</p>
+<p>The CTF server's IP address is <a href="http://34.163.196.38/"><code>34.163.196.38</code></a>. You can see a leaderboard there and it is the address for submitting answers. The first way we'll look at submitting answers is with <code>curl</code> in Linux.</p>
 <p>Once you have a Unix-type environment, either native Linux or macOS, or through the WSL, you're ready to submit to the CTF. You will use the <code>curl</code> command; you can verify that you have <code>curl</code> by running <code>which curl</code> in the command line. <code>curl</code> is a tool for transferring data from or to a server. How do you know that? By checking the documentation of <code>curl</code> using <code>man curl</code>. Try it out!</p>
 <p>To respond to a question, send a POST request with the data of the question <code>number</code> and <code>answer</code>, and your username as <code>user</code> (your username should be your ISAE login, but you can also check on the leaderboard). For example, the first question asks where the <code>curl</code> executable is (hint: use <code>which</code>). Then use <code>curl</code>:</p>
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s1">&#39;http://34.155.94.97/&#39;</span><span class="w"> </span><span class="se">\</span>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s1">&#39;http://34.163.196.38/&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-d<span class="w"> </span><span class="s1">&#39;number=1&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-d<span class="w"> </span><span class="s1">&#39;answer=your answer here&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-d<span class="w"> </span><span class="s1">&#39;user=your username here&#39;</span>
@@ -1842,10 +1842,10 @@
 <p>Some of the questions will require access to some files, called <code>file_a.txt</code>, <code>file_b.txt</code>, and <code>file_c.txt</code>. Those are available on the CTF git repository.</p>
 <p>You are ready to start answering questions! If you don't know an answer, check the resources below and read documentation using <code>man</code>.</p>
 <p>You can see which questions you have answered by sending a GET request:</p>
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span><span class="s1">&#39;http://34.155.94.97/user/d.wilson&#39;</span>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span><span class="s1">&#39;http://34.163.196.38/user/d.wilson&#39;</span>
 </code></pre></div>
 <p>You can also see which questions have remaining flags, the bonus points associated with answering the question for the first time, with a GET request:</p>
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span><span class="s1">&#39;http://34.155.94.97/answers/&#39;</span>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span><span class="s1">&#39;http://34.163.196.38/answers/&#39;</span>
 </code></pre></div>
 <h3 id="python-submission">Python Submission<a class="headerlink" href="#python-submission" title="Permanent link">🔗</a></h3>
 <p>Note that you can use the <code>requests</code> library to submit responses:</p>
@@ -1853,7 +1853,7 @@
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;number&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
         <span class="s2">&quot;answer&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
         <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;d.wilson&quot;</span><span class="p">}</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;http://34.155.94.97/&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;http://34.163.196.38/&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="bash-resources">Bash Resources<a class="headerlink" href="#bash-resources" title="Permanent link">🔗</a></h3>
 <ul>
@@ -1906,7 +1906,7 @@ git<span class="w"> </span>clone<span class="w"> </span>https://github.com/mwask
 <p>Then, we will use git as a way for you to transfer your public key to the class. We could use another means, like a USB key, email, or a very large QR code, but for this exercise we will use git. First <a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo">make a fork</a> of the <a href="https://github.com/SupaeroDataScience/ctf2025">https://github.com/SupaeroDataScience/ctf2025</a> repository. Then, <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request">make a pull request</a> with your key as a file in <code>keys/</code>. Please name your key with your name, like the example <code>keys/dennis-wilson.pub</code>. Be sure to upload <strong>only your public key</strong>. Do not ever upload your private key to public servers.</p>
 <p>Once your key is in the repository, you are ready for the SSH and Python portions of the CTF.</p>
 <h2 id="ssh">SSH<a class="headerlink" href="#ssh" title="Permanent link">🔗</a></h2>
-<p>For the ssh section, you will connect to the CTF server to answer questions about the remote environment. Your public key must be uploaded to the git repository above to get access to the server. You will use the corresponding private key to access the server. Your user on the server is <code>ctf</code> and the IP is the same as the CTF webserver: <code>34.155.94.97</code>.</p>
+<p>For the ssh section, you will connect to the CTF server to answer questions about the remote environment. Your public key must be uploaded to the git repository above to get access to the server. You will use the corresponding private key to access the server. Your user on the server is <code>ctf</code> and the IP is the same as the CTF webserver: <code>34.163.196.38</code>.</p>
 <p>Please note that <em>ISAE-EDU and ethernet block ssh to most servers</em>, including this one and <code>github.com</code>. In order to ssh to the server, you will need to either use the eduroam network or a different network like a mobile hotspot.</p>
 <h3 id="ssh-resources">SSH Resources<a class="headerlink" href="#ssh-resources" title="Permanent link">🔗</a></h3>
 <ul>
