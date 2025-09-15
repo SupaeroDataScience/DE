@@ -26,8 +26,8 @@ nav:
   - CTF: ctf.md
 - Data Storage:
   - SQL: 0_1_databases.md
-  - ETL: 0_2_ETL.md
   - PostgreSQL: 0_3_postgres.md
+  - ETL: 0_2_ETL.md
   - Project: 0_4_project.md
 - Data Computation:
   - Introduction: 1_1_overview.md

@@ -2,7 +2,7 @@
 
 This project is detailed in the [ETL](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/ETL.pdf) class.
 
-You are part of a 4-person data engineering team at a startup, tasked with designing and implementing an ETL/ELT pipeline. Your assignment is to submit a 2-4 page report detailing the choices made for the ETL/ELT pipeline and to provide a demo of an example database.
+You are part of a 4-person data engineering team at a startup, tasked with designing and implementing an ETL/ELT pipeline. Your assignment is to submit a 2-4 page report detailing the choices made for the ETL/ELT pipeline and to provide a demo of an example database. Your startup ideas will be defined in the AI Business Models class; the goal of this project is to make a proof-of-concept of the data pipeline for part of your startup.
 
 In your report, you need to clearly explain and justify your decisions for each phase of the pipeline:
 
@@ -25,5 +25,5 @@ Along with the report, you are expected to provide a **demo** of an example data
 - **Demo Manipulation (4 points):** Functionality and quality of the data manipulation demonstrated in the example.
 
 ### **Deadline:**
-- The report and demo must be submitted by **October 11, 2024, end of day** to the LMS.
-
+- There will be a 3 hour work session on this project on **Sep 30 2025**
+- The report and demo must be submitted by **October 23, 2025, end of day** to the LMS.
