@@ -27,7 +27,9 @@ nav:
 - Data Storage:
   - SQL: 0_1_databases.md
   - PostgreSQL: 0_3_postgres.md
-  - ETL: 0_2_ETL.md
+  - ETL: 
+    - Lecture: 0_2_ETL.md
+    - TP: 0_5_airlife.md
   - Project: 0_4_project.md
 - Data Computation:
   - Introduction: 1_1_overview.md

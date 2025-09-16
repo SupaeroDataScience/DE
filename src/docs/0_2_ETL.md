@@ -6,6 +6,6 @@ In this first class, we introduce the basics of ETL processes and cover high-lev
 
 [Slides](https://raw.githubusercontent.com/SupaeroDataScience/DE/master/readings/ETL.pdf)
 
-In the second class, we will work through an example case on aircraft component data.
+In the [second class](0_5_airlife.md), we will work through an example case on aircraft component data.
 
 For evaluation, students will design and implement an ETL pipeline as a graded [project](0_4_project.md).
