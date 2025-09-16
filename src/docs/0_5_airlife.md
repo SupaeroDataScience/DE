@@ -46,12 +46,12 @@ In this 3-hour hands-on workshop, you will build a proof-of-concept ETL pipeline
 
 2. **Fork the Repository:** 
 
-   - Click "Fork" on the repository page
-   - Clone your forked version locally:
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/ETL-AirLife.git
-   cd ETL-AirLife
-   ```
+    - Click "Fork" on the repository page
+    - Clone your forked version locally:
+    ```bash
+    git clone https://github.com/YOUR_USERNAME/ETL-AirLife.git
+    cd ETL-AirLife
+    ```
 
 3. **Explore Repository Structure:**
    ```
@@ -84,10 +84,10 @@ Let's test the OpenSky Network API to see what data looks like:
 
 2. **Understand the Response:** You'll see JSON data with current flights. Each flight has:
 
-   - Aircraft identifier
-   - Country of origin  
-   - Longitude and latitude
-   - Altitude and speed
+    - Aircraft identifier
+    - Country of origin  
+    - Longitude and latitude
+    - Altitude and speed
 
 3. **Note:** This API has rate limits, so we'll be careful not to call it too often!
 
