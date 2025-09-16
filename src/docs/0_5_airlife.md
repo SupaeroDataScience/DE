@@ -5,6 +5,7 @@
 In this 3-hour hands-on workshop, you will build a proof-of-concept ETL pipeline for **AirLife**, a startup that tracks aircraft lifecycle data including flight history, carbon footprint, and real-time location. You'll work through the complete ETL process from API data extraction to database loading, gaining practical experience with real-world data engineering challenges.
 
 **Learning Objectives:**
+
 - Understand ETL pipeline design and implementation
 - Work with REST APIs for data extraction  
 - Apply data transformation techniques using Python and SQL
@@ -13,6 +14,7 @@ In this 3-hour hands-on workshop, you will build a proof-of-concept ETL pipeline
 - Document and present your ETL solution
 
 **Prerequisites:**
+
 - Basic understanding of Python programming
 - Familiarity with SQL queries
 - Git fundamentals
@@ -27,12 +29,14 @@ In this 3-hour hands-on workshop, you will build a proof-of-concept ETL pipeline
 **AirLife** is a startup that tracks basic information about aircraft and flights. For this workshop, we'll focus on a simple version of their data pipeline.
 
 **Our Goal Today:**
+
 - Extract airport data from a CSV file
 - Extract some live flight data from a simple API
 - Clean and combine this data 
 - Load it into a PostgreSQL database
 
 **Data Sources We'll Use:**
+
 - **OpenFlights CSV**: Airport information (name, city, country, coordinates)
 - **OpenSky Network API**: Current flights over Europe
 
@@ -41,6 +45,7 @@ In this 3-hour hands-on workshop, you will build a proof-of-concept ETL pipeline
 1. **Access the Starter Repository:** https://github.com/SupaeroDataScience/ETL-AirLife
 
 2. **Fork the Repository:** 
+
    - Click "Fork" on the repository page
    - Clone your forked version locally:
    ```bash
@@ -78,6 +83,7 @@ Let's test the OpenSky Network API to see what data looks like:
    ```
 
 2. **Understand the Response:** You'll see JSON data with current flights. Each flight has:
+
    - Aircraft identifier
    - Country of origin  
    - Longitude and latitude
@@ -370,10 +376,10 @@ You should save your progress to Git often:
 
 ```bash
 # Add all your changes
-git add .
+git add CHANGED_FILENAMES
 
 # Commit with a descriptive message
-git commit -m "Complete AirLife ETL pipeline with extract, transform, and load functionality"
+git commit -m "MESSAGE HERE"
 
 # Push to your forked repository
 git push origin main
@@ -420,7 +426,7 @@ WHERE altitude IS NOT NULL
 ORDER BY altitude DESC LIMIT 3;
 ```
 
-## What You've Learned
+## What We've Covered
 
 - **ETL Basics:** Extract, Transform, Load workflow
 - **API Integration:** Making HTTP requests and handling JSON responses  
