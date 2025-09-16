@@ -119,7 +119,6 @@ First, let's create our PostgreSQL database and tables.
 
 3. **Verify Tables:** Check that your tables were created:
    ```sql
-   \dt
    SELECT * FROM airports LIMIT 5;
    ```
 
@@ -141,8 +140,6 @@ def extract_airports():
     # TODO: Read the airports.csv file using pandas
     # TODO: Print how many airports were loaded
     # TODO: Return the DataFrame
-    
-    # HINT: Use pd.read_csv() 
     # The file is in data/airports.csv
     pass
 
