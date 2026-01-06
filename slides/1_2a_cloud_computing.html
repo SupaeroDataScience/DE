@@ -51,7 +51,7 @@ But it's a bit bigger...
 
 <!--v-->
 
-![gcloud_datacenter.png](static/img/gcloud_datacenter.png)
+![datacenters](https://cloud.google.com/images/locations/regions.png)
 
 Google Cloud Platform datacenters locations
 
@@ -61,9 +61,10 @@ Google Cloud Platform datacenters locations
 
 **Todd Hoff in "Explain the Cloud like I'm 10"**
 
-<!--v-->
+<!--s-->
 
 ### What about "Cloud Computing" ?
+
 
 For us the cloud is a set of *cloud providers* renting *cloud services* 
 
@@ -113,7 +114,7 @@ Hardware visualisation: Server Example
 
 <!--v-->
 
-![virtualisation](https://miro.medium.com/max/10698/1*wE7TrQmFyRTDwh6VpbkbMQ.png)
+![vritualization](https://miro.medium.com/max/10698/1*wE7TrQmFyRTDwh6VpbkbMQ.png)
 
 <!--v-->
 
@@ -129,13 +130,13 @@ Hardware visualisation: Server Example
 
 #### Hypervisor : KVM example (Kernel Virtual Machine)
 
-![kvm](https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Kernel-based_Virtual_Machine.svg/400px-Kernel-based_Virtual_Machine.svg.png) <!-- .element: height="30%" width="30%" -->
+![kvm](https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Kernel-based_Virtual_Machine.svg/400px-Kernel-based_Virtual_Machine.svg.png)
 
 <!--v-->
 
 #### Nested Hypervisors : Google Compute Engine
 
-![gce](https://docs.cloud.google.com/static/compute/images/nested-virtualization-diagram.svg?hl=fr) <!-- .element: height="30%" width="30%" -->
+![gce](https://cloud.google.com/compute/images/nested-virtualization-diagram.svg)
 
 <!--v-->
 
@@ -262,15 +263,9 @@ Cloud providers are offering services with increasing layers of abstraction...
 
 <!--v-->
 
-#### Useful analogy (1)
+#### Useful analogy
 
-![paas](https://www.optimizely.com/contentassets/dc07499e97874038afcea97b4c89b785/3-pizza-as-a-service.png)  <!-- .element: height="50%" width="50%" -->
-
-<!--v-->
-
-#### Useful analogy (2)
-
-![paas2](static/img/pizzaasaservicev2.jpg)  <!-- .element: height="50%" width="50%" -->
+![cloud](static/img/pizzaasaservicev2.jpg)  <!-- .element: height="65%" width="65%" -->
 
 <!--s-->
 
@@ -302,12 +297,15 @@ Cloud providers are offering services with increasing layers of abstraction...
 
 <img src="https://fr.outscale.com/wp-content/uploads/2018/08/3DS_OUTSCALE_Dark-Blue_RGB.png" alt="" width="20%" height="20%" style="background:none; border:none; box-shadow:none;"/>
 
-<img src="https://solnum.b-cdn.net/wp-content/uploads/2024/09/bleu.png" alt="" width="20%" height="20%" style="background:none; border:none; box-shadow:none;"/>
+<img src="https://www.bleucloud.fr/app/themes/bleu-theme/public/images/logo-white.74ccb8.svg" alt="" width="20%" height="20%" style="background:none; border:none; box-shadow:none;"/>
 
-- OVH went public in 2021
-- Scaleway is leading the charge for AI in France (& Europe)
-- Outscale is focusing on SecNumCloud
-- BleuCloud is CapGemini x Orange
+OVH went public in 2021
+
+Scaleway is leading the charge for AI in France (& Europe)
+
+Outscale is focusing on SecNumCloud
+
+BleuCloud is CapGemini x Orange
 
 <!--v-->
 
@@ -316,10 +314,10 @@ Cloud providers are offering services with increasing layers of abstraction...
 - Cloud Act !
 - SecNumCloud : ANSSI's security qualification for cloud providers handling sensitive French data
 
-| Project | Partners | Tech | Status |
-|:---:|---|---|---|
-| Bleu | Orange + Capgemini (100% French ownership), <br>Microsoft as tech partner (not shareholder) | Azure + M365 | Commercial operations launched 2024.<br>First clients include EDF, Dassault Aviation. |
-| S3NS. | Thales (majority) <br>Google Cloud (minority shareholder, <24%) | GCP | SecNumCloud 3.2 obtained December 2024.<br>Offers IaaS/PaaS/CaaS |
+| Project | Partners                                                                                    | Tech | Status |
+|:---:|---------------------------------------------------------------------------------------------|---|---|
+| Bleu | Orange + Capgemini (100% French ownership), <br>Microsoft as tech partner (not shareholder) | Azure + M365 | Commercial operations launched 2024.<br>First clients include EDF, Dassault Aviation.  |
+| S3NS. | Thales (majority) <br>Google Cloud (minority shareholder, <24%)                             | GCP | SecNumCloud 3.2 obtained December 2024.<br>Offers IaaS/PaaS/CaaS |
 
 <!--v-->
 
@@ -468,18 +466,6 @@ resources:
 
 <!--v-->
 
-#### Cloud Native Computing Foundation
-
-![CNCF](https://www.lemagit.fr/visuals/LeMagIT/hero_article/CNCF-Logo.jpg)
-
-<!--v-->
-
-#### Cloud Native Computing Foundation
-
-![CNCF](https://www.civo.com/assets/public/academy/courses/kubernetes-introduction/cncf-and-its-landscapes/cncf-landscape-lg-76deb3155685ef877c983fca1eb2d6bde90598d42e0806f6f3b119f72aee3dde.jpg)
-
-<!--v-->
-
 ### Let's discuss
 
 <!--v-->
@@ -490,9 +476,9 @@ resources:
 - 👍 Access to latest hardware without investment
 - 👎 Fully utilized hardware is more expensive on the cloud
 - 👎 CLOUD HYGIENE !
-  - ⚠️ Watch for unused services / storage
-  - ⚠️ Shutdown machines when not used
-  - ⚠️ Services stack up...
+  - Watch for unused services / storage
+  - Shutdown machines when not used
+  - Services stack up...
 
 <!-- .element: class="fragment" -->
 
@@ -513,14 +499,14 @@ resources:
 
 <!--v-->
 
-#### File Storage vs Object Storage
+#### Block Storage vs Object Storage
 
-| Aspect | File Storage | Object Storage |
+| Aspect | Block Storage | Object Storage |
 |---|---|---|
-| Model | Hierarchical directories and files | Buckets and objects (flat namespace) |
-| Access | Mount as network drive, POSIX (NFS/SMB) | HTTP API (REST) |
-| Use case | Shared storage, legacy apps, home directories | Data lakes, ML datasets, backups |
-| Scalability | Limited to file system capacity | Built with scale in mind (abstraction over the storage location) |
+| Model | Disk partitions, file systems | Buckets and objects |
+| Access | Mount as drive, POSIX | HTTP API (REST) |
+| Use case | Databases, OS disks | Data lakes, ML datasets |
+| Scalability | Harder to scale | Built with scale in mind (abstraction over the storage location) |
 
 <!--v-->
 
@@ -621,8 +607,6 @@ https://aws.amazon.com/message/12721/
 
 [Mind boggling statistics on Amazon Prime Day](https://aws.amazon.com/blogs/aws/amazon-prime-day-2019-powered-by-aws/)
 
-[Scaling ChatGPT](https://newsletter.pragmaticengineer.com/p/scaling-chatgpt)
-
 <!--s-->
 
 ## Cloud Computing & AI
@@ -641,11 +625,11 @@ This was in 2022,
 
 ### All about that scale
 
-This was 2024,
+This is 2024,
 
 ![alt text](https://substackcdn.com/image/fetch/w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F06b6c30c-ad4e-48b8-a506-328b16529a66_2390x570.png)
 
-https://dblalock.substack.com/p/2024-8-4-arxiv-roundup-llama-31-training
+https://dblalock.substack.com/p/2024-8-4-arxiv-roundup-llama-31-training 
 
 <!--v-->
 
@@ -659,7 +643,7 @@ https://dblalock.substack.com/p/2024-8-4-arxiv-roundup-llama-31-training
 
 ![](https://assets-global.website-files.com/61fd4eb76a8d78bc0676b47d/63cf7cb6264c4050ed2ea00e_Screen%20Shot%202023-01-23%20at%2010.37.19%20PM.png) <!-- .element: height="60%" width="60%" -->
 
-[Stable Diffusion Training Times](https://www.databricks.com/blog/stable-diffusion-2)
+[Stable Diffusion Training Times](https://www.mosaicml.com/blog/training-stable-diffusion-from-scratch-costs-160k)
 
 <!--v--> 
 
@@ -711,11 +695,11 @@ Deployment architecture
 
 <!--v-->
 
-### The need for tech to orchestrate ML workflows
+### The need for tech
 
 ![](static/img/anyscale.png)  <!-- .element: height="50%" width="50%" -->
 
-(And dask !)
+And dask !
 
 <!--s-->
 
@@ -816,7 +800,7 @@ but you will "deal with" cloud computing one way or another !
       // options from URL query string
       var queryOptions = Reveal().getQueryHash() || {};
 
-      var options = extend(defaultOptions, {"transition":"fade","transitionSpeed":"default","controls":true,"slideNumber":true,"width":"100%","height":"100%","_":["."],"template":"static/template/reveal.html","listing-template":"static/template/listing.html","listingTemplate":"static/template/listing.html","css":["static/css/evo.css","static/css/reset.css"],"static-dirs":"static","staticDirs":"static","static":"../../slides_new"}, queryOptions);
+      var options = extend(defaultOptions, {"transition":"fade","transitionSpeed":"default","controls":true,"slideNumber":true,"width":"100%","height":"100%","_":["."],"template":"static/template/reveal.html","listing-template":"static/template/listing.html","listingTemplate":"static/template/listing.html","css":["static/css/evo.css","static/css/reset.css"],"static-dirs":"static","staticDirs":"static","static":"../docs/slides"}, queryOptions);
     </script>
 
 
