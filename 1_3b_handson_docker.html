@@ -16,7 +16,7 @@
         <link rel="prev" href="1_3a_containers.html">
       
       
-        <link rel="next" href="1_4a_docker_workflow.html">
+        <link rel="next" href="1_4a_gcp_workflow.html">
       
       
         
@@ -1050,10 +1050,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#0-how-to-run-this" class="md-nav__link">
+  <a href="#0-abstract" class="md-nav__link">
     <span class="md-ellipsis">
       
-        0. How to run this ?
+        0. Abstract
       
     </span>
   </a>
@@ -1239,15 +1239,191 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#236-docker-build-context-and-dockerignore" class="md-nav__link">
+  <a href="#236-build-context" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.3.6 Docker build context and .dockerignore
+        2.3.6 Build context
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2.3.6 Docker build context and .dockerignore">
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-running-cli-apps-with-docker-passing-data-at-runtime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Running CLI Apps with Docker: Passing Data at Runtime
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Running CLI Apps with Docker: Passing Data at Runtime">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-volume-mounting-sharing-files-with-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Volume Mounting: Sharing Files with Containers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-a-local-cli-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 A local CLI application
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-packaging-it-in-a-dockerfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Packaging it in a Dockerfile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-running-the-cli-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Running the CLI App
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-mounting-volumes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 Mounting volumes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-troubleshooting-volume-mounts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 Troubleshooting Volume Mounts
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-containers-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Containers Registry
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youve-learned" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You've Learned
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What's Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-pre-built-data-science-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced - Pre-built Data Science Environments
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-docker-compose-preview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced - Docker Compose Preview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-cloud-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced - Cloud Build
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-going-further" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced - Going Further
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-docker-build-context-and-dockerignore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced - Docker Build Context and .dockerignore
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced - Docker Build Context and .dockerignore">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1276,17 +1452,29 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#237-debugging-containers" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.3.7 Debugging containers
+        Troubleshooting
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2.3.7 Debugging containers">
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#debugging-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debugging Containers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Debugging Containers">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1340,161 +1528,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-running-cli-apps-packaged-in-docker-while-mounting-volumes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Running CLI apps packaged in docker while mounting volumes
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Running CLI apps packaged in docker while mounting volumes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31-a-local-cli-application" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.1 A local CLI application
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#32-packaging-it-in-a-dockerfile" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.2 Packaging it in a dockerfile
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#33-mounting-volumes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.3 Mounting volumes
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-containers-registry" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Containers Registry
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-bonus-data-science-standardized-environment-and-mounting-volumes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Bonus. Data Science Standardized Environment and mounting volumes
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Bonus. Data Science Standardized Environment and mounting volumes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#51-intro" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.1 Intro
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#52-jupyter-stack-docker-image" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.2 Jupyter Stack Docker Image
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#53-get-the-algorithm-in-ml-git-in-your-virtual-machine" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.3 Get the algorithm in ML git in your Virtual Machine
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#54-mounting-volumes-and-ports" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.4 Mounting volumes and ports
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-bonus-docker-compose" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Bonus - Docker Compose
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-bonus-using-google-cloud-tools-for-docker" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. Bonus - Using Google Cloud Tools for Docker
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-bonus-going-further" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8. Bonus - Going further
-      
-    </span>
-  </a>
   
 </li>
       
@@ -1571,14 +1604,14 @@
   
   
     <li class="md-nav__item">
-      <a href="1_4a_docker_workflow.html" class="md-nav__link">
+      <a href="1_4a_gcp_workflow.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    1. Docker Workflow
+    1. GCP Compute Workflow
   
 
     
@@ -1599,14 +1632,14 @@
   
   
     <li class="md-nav__item">
-      <a href="1_4b_gcp_workflow.html" class="md-nav__link">
+      <a href="1_4b_docker_workflow.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    2. GCP Compute Workflow
+    2. Docker Workflow
   
 
     
@@ -2228,10 +2261,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#0-how-to-run-this" class="md-nav__link">
+  <a href="#0-abstract" class="md-nav__link">
     <span class="md-ellipsis">
       
-        0. How to run this ?
+        0. Abstract
       
     </span>
   </a>
@@ -2417,15 +2450,191 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#236-docker-build-context-and-dockerignore" class="md-nav__link">
+  <a href="#236-build-context" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.3.6 Docker build context and .dockerignore
+        2.3.6 Build context
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2.3.6 Docker build context and .dockerignore">
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-running-cli-apps-with-docker-passing-data-at-runtime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Running CLI Apps with Docker: Passing Data at Runtime
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Running CLI Apps with Docker: Passing Data at Runtime">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-volume-mounting-sharing-files-with-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Volume Mounting: Sharing Files with Containers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-a-local-cli-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 A local CLI application
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-packaging-it-in-a-dockerfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Packaging it in a Dockerfile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-running-the-cli-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Running the CLI App
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-mounting-volumes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 Mounting volumes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-troubleshooting-volume-mounts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 Troubleshooting Volume Mounts
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-containers-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Containers Registry
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youve-learned" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You've Learned
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What's Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-pre-built-data-science-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced - Pre-built Data Science Environments
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-docker-compose-preview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced - Docker Compose Preview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-cloud-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced - Cloud Build
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-going-further" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced - Going Further
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-docker-build-context-and-dockerignore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced - Docker Build Context and .dockerignore
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced - Docker Build Context and .dockerignore">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2454,17 +2663,29 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#237-debugging-containers" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.3.7 Debugging containers
+        Troubleshooting
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2.3.7 Debugging containers">
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#debugging-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debugging Containers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Debugging Containers">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2521,161 +2742,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#3-running-cli-apps-packaged-in-docker-while-mounting-volumes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Running CLI apps packaged in docker while mounting volumes
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Running CLI apps packaged in docker while mounting volumes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31-a-local-cli-application" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.1 A local CLI application
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#32-packaging-it-in-a-dockerfile" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.2 Packaging it in a dockerfile
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#33-mounting-volumes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.3 Mounting volumes
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-containers-registry" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Containers Registry
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-bonus-data-science-standardized-environment-and-mounting-volumes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Bonus. Data Science Standardized Environment and mounting volumes
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Bonus. Data Science Standardized Environment and mounting volumes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#51-intro" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.1 Intro
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#52-jupyter-stack-docker-image" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.2 Jupyter Stack Docker Image
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#53-get-the-algorithm-in-ml-git-in-your-virtual-machine" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.3 Get the algorithm in ML git in your Virtual Machine
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#54-mounting-volumes-and-ports" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.4 Mounting volumes and ports
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-bonus-docker-compose" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Bonus - Docker Compose
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-bonus-using-google-cloud-tools-for-docker" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. Bonus - Using Google Cloud Tools for Docker
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-bonus-going-further" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8. Bonus - Going further
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2696,15 +2762,16 @@
   
 
 
-<h1 id="docker-hands-on">Docker: Hands on<a class="headerlink" href="#docker-hands-on" title="Permanent link">🔗</a></h1>
+<h1 id="docker-hands-on">Docker Hands-on<a class="headerlink" href="#docker-hands-on" title="Permanent link">🔗</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you are lost, <code>docker system prune</code> will remove dangling images and stopped containers </p>
+<p>If you are lost, <code>docker system prune</code> will remove dangling images and stopped containers.</p>
 </div>
-<h2 id="0-how-to-run-this">0. How to run this ?<a class="headerlink" href="#0-how-to-run-this" title="Permanent link">🔗</a></h2>
+<h2 id="0-abstract">0. Abstract<a class="headerlink" href="#0-abstract" title="Permanent link">🔗</a></h2>
 <div class="admonition abstract">
 <p class="admonition-title">Abstract</p>
-<p>We will discover the basics of docker and you will be able to manipulate your first images and containers !</p>
+<p>In this hands-on, you will discover the basics of Docker and learn to manipulate
+images and containers.</p>
 </div>
 <p>You should be inside the Github Codespace you created and have google cloud SDK installed in it</p>
 <p>If not, refer to the previous tutorial and do step 2 and 3</p>
@@ -2782,7 +2849,7 @@ Running the <code>run</code> command with the <code>-it</code> flags attaches us
 <li><em>Docker Hub</em> - A <a href="https://hub.docker.com/">registry</a> of Docker images, where you can find trusted and enterprise ready containers, plugins, and Docker editions. You'll be using this later in this tutorial.</li>
 </ul>
 <div class="admonition success">
-<p class="admonition-title">What you learned in this section</p>
+<p class="admonition-title">What You Learned</p>
 <ul>
 <li><strong>docker pull</strong>: Download images from a registry (Docker Hub)</li>
 <li><strong>docker run</strong>: Create and start a container from an image</li>
@@ -3110,90 +3177,72 @@ publishing ports by means of the <code>-p</code> flag when using <code>$ docker 
 <p><strong>Note:</strong> To push your image to a registry, use the <code>docker push</code> command (not a Dockerfile instruction). Example: <code>docker push username/imagename:tag</code></p>
 <p><strong>Note:</strong> If you want to learn more about Dockerfiles, check out <a href="https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/">Best practices for writing Dockerfiles</a>.</p>
 </blockquote>
-<h3 id="236-docker-build-context-and-dockerignore">2.3.6 Docker build context and .dockerignore<a class="headerlink" href="#236-docker-build-context-and-dockerignore" title="Permanent link">🔗</a></h3>
-<p>When you run <code>docker build</code>, Docker sends all files in the current directory (the <strong>build context</strong>) to the Docker daemon. This can slow down builds and bloat your image if unnecessary files are included.</p>
-<h4 id="the-build-context">The build context<a class="headerlink" href="#the-build-context" title="Permanent link">🔗</a></h4>
-<p>The build context is everything in the directory you specify when running <code>docker build</code>. For example:</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>myapp:1.0<span class="w"> </span>.
-</code></pre></div>
-<p>The <code>.</code> means "use the current directory as the build context". Docker will send all files in this directory to the daemon, which can be slow if you have large files (datasets, model weights, etc.).</p>
-<h4 id="using-dockerignore">Using .dockerignore<a class="headerlink" href="#using-dockerignore" title="Permanent link">🔗</a></h4>
-<p>Create a <code>.dockerignore</code> file to exclude files from the build context. This works like <code>.gitignore</code>:</p>
-<div class="highlight"><pre><span></span><code># .dockerignore example
-.git
-__pycache__
-*.pyc
-.env
-data/
-models/
-*.tar.gz
-node_modules/
-.vscode/
-</code></pre></div>
+<h3 id="236-build-context">2.3.6 Build context<a class="headerlink" href="#236-build-context" title="Permanent link">🔗</a></h3>
+<p>When you run <code>docker build</code>, Docker sends all files in the current directory to the Docker daemon. This is called the <strong>build context</strong>. Keep your build directory clean to speed up builds.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Always create a <code>.dockerignore</code> file in your project. It speeds up builds and prevents accidentally including sensitive files (like <code>.env</code> with secrets) in your image.</p>
-</div>
-<h3 id="237-debugging-containers">2.3.7 Debugging containers<a class="headerlink" href="#237-debugging-containers" title="Permanent link">🔗</a></h3>
-<p>When things go wrong, these commands will help you troubleshoot:</p>
-<h4 id="view-container-logs">View container logs<a class="headerlink" href="#view-container-logs" title="Permanent link">🔗</a></h4>
-<div class="highlight"><pre><span></span><code><span class="c1"># See logs from a running or stopped container</span>
-docker<span class="w"> </span>logs<span class="w"> </span>&lt;container-name-or-id&gt;
-
-<span class="c1"># Follow logs in real-time (like tail -f)</span>
-docker<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>&lt;container-name-or-id&gt;
-
-<span class="c1"># Show only the last 100 lines</span>
-docker<span class="w"> </span>logs<span class="w"> </span>--tail<span class="w"> </span><span class="m">100</span><span class="w"> </span>&lt;container-name-or-id&gt;
-</code></pre></div>
-<h4 id="get-a-shell-inside-a-running-container">Get a shell inside a running container<a class="headerlink" href="#get-a-shell-inside-a-running-container" title="Permanent link">🔗</a></h4>
-<div class="highlight"><pre><span></span><code><span class="c1"># Open an interactive shell in a running container</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>&lt;container-name-or-id&gt;<span class="w"> </span>/bin/sh
-
-<span class="c1"># Or use bash if available</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>&lt;container-name-or-id&gt;<span class="w"> </span>/bin/bash
-</code></pre></div>
-<h4 id="inspect-container-details">Inspect container details<a class="headerlink" href="#inspect-container-details" title="Permanent link">🔗</a></h4>
-<div class="highlight"><pre><span></span><code><span class="c1"># See detailed container configuration (ports, volumes, env vars, etc.)</span>
-docker<span class="w"> </span>inspect<span class="w"> </span>&lt;container-name-or-id&gt;
-
-<span class="c1"># See resource usage (CPU, memory)</span>
-docker<span class="w"> </span>stats<span class="w"> </span>&lt;container-name-or-id&gt;
-</code></pre></div>
-<h4 id="debug-a-failed-build">Debug a failed build<a class="headerlink" href="#debug-a-failed-build" title="Permanent link">🔗</a></h4>
-<p>If your build fails, you can run a container from the last successful layer:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Find the last successful layer ID in the build output, then:</span>
-docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>&lt;layer-id&gt;<span class="w"> </span>/bin/sh
-</code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>These debugging skills are essential when deploying ML models. Container logs are often the first place to check when a model serving endpoint fails.</p>
+<p>For details on excluding files with <code>.dockerignore</code>, see the Advanced section at the end.</p>
 </div>
 <div class="admonition success">
-<p class="admonition-title">What you learned in this section</p>
+<p class="admonition-title">What You Learned</p>
 <ul>
 <li><strong>Running web apps</strong>: Use <code>-d</code> for detached mode, <code>-p host:container</code> for port mapping</li>
 <li><strong>Building images</strong>: Write a <code>Dockerfile</code>, then <code>docker build -t name:tag .</code></li>
 <li><strong>Dockerfile instructions</strong>: <code>FROM</code>, <code>RUN</code>, <code>COPY</code>, <code>EXPOSE</code>, <code>CMD</code> and their purposes</li>
 <li><strong>Build context &amp; .dockerignore</strong>: Control what gets sent to the Docker daemon</li>
-<li><strong>Debugging</strong>: <code>docker logs</code>, <code>docker exec -it</code>, <code>docker inspect</code> for troubleshooting</li>
 </ul>
 </div>
-<h2 id="3-running-cli-apps-packaged-in-docker-while-mounting-volumes">3. Running CLI apps packaged in docker while mounting volumes<a class="headerlink" href="#3-running-cli-apps-packaged-in-docker-while-mounting-volumes" title="Permanent link">🔗</a></h2>
-<p>Beyond serving web applications, Docker also enables the deployment of packaged applications, such as command-line interfaces and training scripts. This allows for seamless delivery of self-contained apps with bespoke installations to end-users. A particularly valuable use case is packaging machine learning environments for distributed training, facilitating efficient collaboration and scalability</p>
-<p>To do so, we have to learn about:</p>
+<h2 id="3-running-cli-apps-with-docker-passing-data-at-runtime">3. Running CLI Apps with Docker: Passing Data at Runtime<a class="headerlink" href="#3-running-cli-apps-with-docker-passing-data-at-runtime" title="Permanent link">🔗</a></h2>
+<p>In Section 2, you built a static website where all content was baked into the image. Now we'll package <strong>CLI applications</strong> that process data passed at runtime - the pattern used for ML training.</p>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Static Web (Section 2)</th>
+<th>CLI App (Section 3)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content</td>
+<td>Baked into image at build time</td>
+<td>Passed at runtime via volumes</td>
+</tr>
+<tr>
+<td>Rebuild needed?</td>
+<td>Yes, for any content change</td>
+<td>No - same image, different data</td>
+</tr>
+<tr>
+<td>Use case</td>
+<td>Web servers, APIs</td>
+<td>Training scripts, data processing</td>
+</tr>
+</tbody>
+</table>
+<h3 id="31-volume-mounting-sharing-files-with-containers">3.1 Volume Mounting: Sharing Files with Containers<a class="headerlink" href="#31-volume-mounting-sharing-files-with-containers" title="Permanent link">🔗</a></h3>
+<p>The <code>-v</code> flag connects a folder on your host to a path inside the container, which allows to share files at <strong>runtime</strong>.</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span>/path/on/host:/path/in/container<span class="w"> </span>my-image
+</code></pre></div>
+<p>For example with <code>./</code> in host and <code>/app/</code> in container,</p>
+<div class="highlight"><pre><span></span><code>Host Machine              Container
+┌──────────────┐         ┌──────────────┐
+│ ./configs/   │ ◄─────► │ /app/configs │
+│ ./outputs/   │ ◄─────► │ /app/outputs │
+└──────────────┘         └──────────────┘
+</code></pre></div>
 <ul>
-<li>Executing command line applications packaged inside docker images</li>
-<li>Passing both text and files inputs, including files not in the docker image</li>
-<li>Getting access to file outputs such as models</li>
+<li>Files are shared bidirectionally (changes appear on both sides)</li>
+<li>Container paths must be absolute (<code>/app/configs</code>, not <code>configs</code>)</li>
+<li>No image rebuild needed - just run with different volumes</li>
 </ul>
-<p>For that we will do several things : 
-- Write a CLI application using <a href="https://typer.tiangolo.com/">typer</a>, a very useful tool for the rest of your career
-- Package the CLI application with both text / file inputs in a docker image
-- Mounting volumes when running a docker images to provide it with the input files, and having access to the results from the main computer</p>
-<h3 id="31-a-local-cli-application">3.1 A local CLI application<a class="headerlink" href="#31-a-local-cli-application" title="Permanent link">🔗</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">Now Let's Build This</p>
+<p>In the following exercises, you'll create a training CLI, package it in Docker, and run it with different config files <strong>without rebuilding the image</strong>.</p>
+</div>
+<h3 id="32-a-local-cli-application">3.2 A local CLI application<a class="headerlink" href="#32-a-local-cli-application" title="Permanent link">🔗</a></h3>
 <ul>
-<li>Let's modify the <code>app.py</code> in 2. with the following code.</li>
+<li>In the <code>docker/app.py</code>, I provided you with the following code :</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
@@ -3250,27 +3299,35 @@ docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </s
     <span class="n">app</span><span class="p">()</span>
 </code></pre></div>
 <ul>
-<li>Test the application locally using <code>pip install typer</code>then <code>python app.py say-hello {my name}</code> or <code>python app.py run-training --config {my config} --output-dir {somewhere}</code></li>
+<li>You can the application locally using <code>pip install typer</code>then <code>python app.py say-hello {my name}</code> or <code>python app.py run-training --config {my config} --output-dir {somewhere}</code></li>
 </ul>
-<h3 id="32-packaging-it-in-a-dockerfile">3.2 Packaging it in a dockerfile<a class="headerlink" href="#32-packaging-it-in-a-dockerfile" title="Permanent link">🔗</a></h3>
+<h3 id="33-packaging-it-in-a-dockerfile">3.3 Packaging it in a Dockerfile<a class="headerlink" href="#33-packaging-it-in-a-dockerfile" title="Permanent link">🔗</a></h3>
 <p>We will now package it in a docker file</p>
 <ul>
-<li>Modify the Dockerfile:</li>
-<li>Replace <code>CMD ["python", "/usr/src/app/app.py"]</code></li>
-<li>
-<p>With <code>ENTRYPOINT ["python", "/usr/src/app/app.py"]</code></p>
-</li>
-<li>
-<p><a href="https://spacelift.io/blog/docker-entrypoint-vs-cmd">Differences between CMD and ENTRYPOINT</a></p>
-</li>
-<li>
-<p>Rebuild your docker image (maybe give it another name)</p>
-</li>
+<li>A provided a <code>Dockerfile</code> in the <code>docker/</code> folder. Compared to the previous one, here are the key differences:</li>
+<li>Replaced <code>CMD ["python", "/usr/src/app/app.py"]</code></li>
+<li>With <code>ENTRYPOINT ["python", "/usr/src/app/app.py"]</code></li>
 </ul>
-<h3 id="33-mounting-volumes">3.3 Mounting volumes<a class="headerlink" href="#33-mounting-volumes" title="Permanent link">🔗</a></h3>
+<div class="admonition info">
+<p class="admonition-title">CMD vs ENTRYPOINT</p>
+<ul>
+<li><strong>CMD</strong>: Arguments in <code>docker run myimage arg1</code> <strong>replace</strong> the entire CMD</li>
+<li><strong>ENTRYPOINT</strong>: Arguments in <code>docker run myimage arg1</code> are <strong>appended</strong> to ENTRYPOINT</li>
+</ul>
+<p>For CLI apps, use ENTRYPOINT so users pass arguments naturally:
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>myimage<span class="w"> </span>say-hello<span class="w"> </span>Alice<span class="w">   </span><span class="c1"># Runs: python app.py say-hello Alice</span>
+</code></pre></div></p>
+<p>See also: <a href="https://spacelift.io/blog/docker-entrypoint-vs-cmd">CMD vs ENTRYPOINT deep dive</a></p>
+</div>
+<ul>
+<li>Build the docker image for that application using what you learned.</li>
+</ul>
+<h3 id="34-running-the-cli-app">3.4 Running the CLI App<a class="headerlink" href="#34-running-the-cli-app" title="Permanent link">🔗</a></h3>
 <ul>
 <li>Now to run the CLI you just have to pass the arguments when running the docker <code>docker run --rm {your image} {your args}</code>. Try it with <code>docker run --rm {your image} say-hello {your name}</code></li>
 </ul>
+<p>Now you know how to pass arguments to CLI applications in docker containers.</p>
+<h3 id="35-mounting-volumes">3.5 Mounting volumes<a class="headerlink" href="#35-mounting-volumes" title="Permanent link">🔗</a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>once you have built your container and it works, don't rebuild it again ! We will test the volume mounting options now</p>
@@ -3278,27 +3335,64 @@ docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </s
 <ul>
 <li>In order to pass a config file, or data to your docker, you need to make it available to your docker. To do that, we have to <a href="https://docs.docker.com/storage/volumes/">mount volumes</a></li>
 </ul>
-<p>Create a dummy config file (<code>config.txt</code>) in another folder (ex: <code>config/</code>) then mount it when you run the docker container. You can expose the output directory as well to be able to get your results</p>
+<p>Create a dummy config file (<code>config.txt</code>) in a folder (e.g., <code>configs/</code>) and an empty <code>outputs/</code> folder. Then mount them when you run the container:</p>
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-v<span class="w"> </span><span class="o">{</span><span class="nb">local</span><span class="w"> </span>path<span class="w"> </span>to<span class="w"> </span>your<span class="w"> </span>configs<span class="o">}</span>:/home/configs<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-v<span class="w"> </span><span class="o">{</span><span class="nb">local</span><span class="w"> </span>path<span class="w"> </span>to<span class="w"> </span>your<span class="w"> </span>outputs<span class="o">}</span>:/home/outputs<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--workdir<span class="w"> </span>/home/<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-v<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/configs:/app/configs<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-v<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/outputs:/app/outputs<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span><span class="o">{</span>your<span class="w"> </span>image<span class="o">}</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>run-training<span class="w"> </span>--config<span class="w"> </span><span class="o">{</span>path<span class="w"> </span>to<span class="w"> </span>your<span class="w"> </span>config<span class="w"> </span><span class="k">in</span><span class="w"> </span>DOCKER,<span class="w"> </span>eg<span class="w"> </span>/home/configs/config.txt<span class="o">}</span><span class="w">  </span><span class="se">\</span>
-<span class="w">  </span>--output-dir<span class="w"> </span>/home/outputs/
+<span class="w">  </span>run-training<span class="w"> </span>--config<span class="w"> </span>/app/configs/config.txt<span class="w"> </span>--output-dir<span class="w"> </span>/app/outputs/
 </code></pre></div>
-<p>Note that since you mounted volumes, you must pass the <strong>local path in the docker container</strong> to your config file for it to work and not the <strong>path in your codespace</strong></p>
-<div class="admonition success">
-<p class="admonition-title">Success</p>
-<p>To be successful here you have to be able to pass a config file that is in your codespace and get the results in your codespace, all while not rebuilding the image as long as the first <code>hello</code> passes</p>
+<div class="admonition warning">
+<p class="admonition-title">Container Paths vs Host Paths</p>
+<p>The paths after <code>run-training</code> are <strong>container paths</strong> (where Docker sees the files), not your local paths:</p>
+<ul>
+<li><code>$(pwd)/configs</code> → your local folder (host)</li>
+<li><code>/app/configs</code> → where Docker mounts it (container)</li>
+</ul>
+<p>Your CLI receives <code>/app/configs/config.txt</code> because that's where the file exists inside the container.</p>
 </div>
 <div class="admonition success">
-<p class="admonition-title">What you learned in this section</p>
+<p class="admonition-title">You've Mastered This When:</p>
+<ol>
+<li>You run training with <strong>different config files</strong> without rebuilding the image</li>
+<li>Output files appear in your <strong>local <code>outputs/</code> folder</strong> after the container exits</li>
+<li>You understand why the CLI uses <code>/app/configs</code> (container path) not <code>./configs</code> (host path)</li>
+</ol>
+</div>
+<h3 id="36-troubleshooting-volume-mounts">3.6 Troubleshooting Volume Mounts<a class="headerlink" href="#36-troubleshooting-volume-mounts" title="Permanent link">🔗</a></h3>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Likely Cause</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"File not found" in container</td>
+<td>Wrong mount path</td>
+<td>Verify with <code>docker run --rm -v $(pwd)/configs:/app/configs myimage ls /app/configs</code></td>
+</tr>
+<tr>
+<td>Changes don't appear on host</td>
+<td>Volume not mounted</td>
+<td>Check <code>-v</code> syntax is <code>host:container</code>, not reversed</td>
+</tr>
+<tr>
+<td>Permission denied</td>
+<td>Host dir permissions</td>
+<td>Run <code>chmod -R 755 ./outputs</code> or check file ownership</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition success">
+<p class="admonition-title">What You Learned</p>
 <ul>
-<li><strong>ENTRYPOINT vs CMD</strong>: <code>ENTRYPOINT</code> for CLI apps, <code>CMD</code> for default arguments</li>
-<li><strong>Volume mounting</strong>: <code>-v host_path:container_path</code> to share files with containers</li>
-<li><strong>ML training pattern</strong>: Mount config/data in, mount results out, keep image unchanged</li>
-<li><strong>Packaging CLI tools</strong>: Distribute complete environments as Docker images</li>
+<li><strong>ENTRYPOINT vs CMD</strong>: <code>ENTRYPOINT</code> for CLI apps that accept arguments</li>
+<li><strong>Volume mounting</strong>: <code>-v host_path:container_path</code> connects local folders to containers</li>
+<li><strong>Path distinction</strong>: Host paths for <code>-v</code>, container paths for your CLI</li>
+<li><strong>ML training pattern</strong>: Mount config/data in, mount outputs out, keep image unchanged</li>
 </ul>
 </div>
 <h2 id="4-containers-registry">4. Containers Registry<a class="headerlink" href="#4-containers-registry" title="Permanent link">🔗</a></h2>
@@ -3336,7 +3430,7 @@ to get your artifact repository id look at <a href="https://console.cloud.google
 <li>Go to your artifact registry <a href="https://console.cloud.google.com/artifacts">https://console.cloud.google.com/artifacts</a>, you should see your docker image :)</li>
 </ul>
 <div class="admonition success">
-<p class="admonition-title">What you learned in this section</p>
+<p class="admonition-title">What You Learned</p>
 <ul>
 <li><strong>Container registries</strong>: Central storage for Docker images (like GitHub for code)</li>
 <li><strong>Docker Hub vs private registries</strong>: Public images vs organization-private images</li>
@@ -3345,95 +3439,129 @@ to get your artifact repository id look at <a href="https://console.cloud.google
 <li><strong>Image naming convention</strong>: <code>registry/project/image:tag</code> format</li>
 </ul>
 </div>
-<h2 id="5-bonus-data-science-standardized-environment-and-mounting-volumes">5. Bonus. Data Science Standardized Environment and mounting volumes<a class="headerlink" href="#5-bonus-data-science-standardized-environment-and-mounting-volumes" title="Permanent link">🔗</a></h2>
-<p>Note : This may not run in your native github codespace due to the storage available. If you encounter a storage error, run <code>docker system prune</code> to cleanup everything</p>
-<p>The purpose of this tutorial is to reproduce a sort of google colab environment using docker and github codespace.</p>
-<h3 id="51-intro">5.1 Intro<a class="headerlink" href="#51-intro" title="Permanent link">🔗</a></h3>
-<p>Those of us who work on a team know how hard it is to create a standardize development environment. Or if you have ever updated a dependency and had everything break, you understand the importance of keeping development environments isolated.</p>
-<p>Using Docker, we can create a project / team image with our development environment and mount a volume with our notebooks and data.</p>
-<p>The benefits of this workflow are that we can:</p>
+<hr />
+<h2 id="what-youve-learned">What You've Learned<a class="headerlink" href="#what-youve-learned" title="Permanent link">🔗</a></h2>
+<div class="admonition success">
+<p class="admonition-title">Core Docker Skills</p>
+<p>You now know how to:</p>
 <ul>
-<li>Separate out projects</li>
-<li>Spin up a container to onboard new employees</li>
-<li>Build an automated testing pipeline to confirm upgrade dependencies do not break code</li>
+<li><strong>Pull and run</strong> containers from Docker Hub</li>
+<li><strong>Build custom images</strong> with Dockerfiles</li>
+<li><strong>Mount volumes</strong> to pass data at runtime</li>
+<li><strong>Push images</strong> to a container registry</li>
 </ul>
-<h3 id="52-jupyter-stack-docker-image">5.2 Jupyter Stack Docker Image<a class="headerlink" href="#52-jupyter-stack-docker-image" title="Permanent link">🔗</a></h3>
-<p>For this exercise we will use <a href="https://jupyter-docker-stacks.readthedocs.io/en/latest/using/running.html#">Jupyter Stack Docker Image</a> which is a fully configured docker image that can be used as a data science container</p>
-<p>Take a look at the documentation and <a href="https://hub.docker.com/r/jupyter/scipy-notebook/tags/">the dockerhub repository</a></p>
-<p>To get the docker image, run</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>pull<span class="w"> </span>jupyter/scipy-notebook:lab-3.5.3
+</div>
+<h2 id="whats-next">What's Next<a class="headerlink" href="#whats-next" title="Permanent link">🔗</a></h2>
+<p>In Day 2, you'll combine Docker with GCP to deploy containerized ML models to the cloud.</p>
+<hr />
+<p><em>The following sections are </em><em>Advanced</em><em> - useful reference material that you can explore after completing the core content.</em></p>
+<hr />
+<h2 id="advanced-pre-built-data-science-environments">Advanced - Pre-built Data Science Environments<a class="headerlink" href="#advanced-pre-built-data-science-environments" title="Permanent link">🔗</a></h2>
+<p>Docker images like <a href="https://jupyter-docker-stacks.readthedocs.io/en/latest/">Jupyter Docker Stacks</a> provide fully configured data science environments. These images combine:</p>
+<ul>
+<li><strong>Volume mounting</strong>: Connect your local notebooks to the container</li>
+<li><strong>Port forwarding</strong>: Access Jupyter in your browser</li>
+</ul>
+<p>Example usage:
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-p<span class="w"> </span><span class="m">8888</span>:8888<span class="w"> </span>-v<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/home/jovyan/work<span class="w"> </span>jupyter/scipy-notebook
+</code></pre></div></p>
+<p>This pattern—pulling a pre-configured image and mounting your data—is useful for:</p>
+<ul>
+<li>Standardizing team development environments</li>
+<li>Quickly onboarding new team members</li>
+<li>Testing dependency upgrades without affecting your system</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These images can be large (several GB). Try this at home rather than during class to avoid network congestion.</p>
+</div>
+<h2 id="advanced-docker-compose-preview">Advanced - Docker Compose Preview<a class="headerlink" href="#advanced-docker-compose-preview" title="Permanent link">🔗</a></h2>
+<p><strong>Docker Compose</strong> manages multi-container applications with a single YAML file. Instead of running multiple <code>docker run</code> commands, you define your entire stack in <code>docker-compose.yml</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">web</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myapp:1.0</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8080:5000&quot;</span>
+<span class="w">  </span><span class="nt">redis</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">redis:alpine</span>
 </code></pre></div>
-<h3 id="53-get-the-algorithm-in-ml-git-in-your-virtual-machine">5.3 Get the algorithm in ML git in your Virtual Machine<a class="headerlink" href="#53-get-the-algorithm-in-ml-git-in-your-virtual-machine" title="Permanent link">🔗</a></h3>
-<ul>
-<li>From your vm, run <code>git clone https://github.com/erachelson/MLclass.git</code>, this should setup your AML class inside your VM</li>
-</ul>
-<h3 id="54-mounting-volumes-and-ports">5.4 Mounting volumes and ports<a class="headerlink" href="#54-mounting-volumes-and-ports" title="Permanent link">🔗</a></h3>
-<p>Now let's run the image. This container has a Jupyter notebook accessible from port 8888, so we will need to map the host port 8888 to the container port 8888 using <a href="https://docs.docker.com/config/containers/container-networking/">port forwarding</a>.</p>
-<p>We will also need to make available the notebooks on the VM to the container... we will <a href="https://docs.docker.com/storage/volumes/">mount volumes</a>. Your data is located in <code>/home/${USER}/MLClass</code> and we want to mount it in <code>/home/jovyan/work/MLClass</code></p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-it<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-p<span class="w"> </span><span class="m">8888</span>:8888<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-v<span class="w"> </span>/home/<span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/MLclass:/home/jovyan/work/MLClass<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--workdir<span class="w"> </span>/home/jovyan/work<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>jupyter/scipy-notebook:lab-3.5.3
-</code></pre></div>
-<p>Note: this image is large, delete it afterwards using <code>docker rmi</code></p>
-<p>Options breakdown:</p>
-<ul>
-<li><code>--rm</code> remove the container when we stop it</li>
-<li><code>-it</code> run the container in interactive mode</li>
-<li><code>-p</code> forward port from host:container</li>
-<li>other: options from the kaggle container</li>
-</ul>
-<p>You should now see a jupyter lab with mlclass accessible if you do another port mapping</p>
-<p>So to connect to the jupyter lab we mapped the ports local 8888 to vm 8888 and vm 8888 to docker 8888</p>
-<p>We also exposed the local disk to the container</p>
-<div class="admonition success">
-<p class="admonition-title">What you learned in this section</p>
-<ul>
-<li><strong>Pre-built data science images</strong>: Jupyter stacks provide ready-to-use ML environments</li>
-<li><strong>Combining port forwarding and volumes</strong>: Access Jupyter while using local data</li>
-<li><strong>Double port mapping</strong>: Codespace → VM → Container chain for remote access</li>
-</ul>
-</div>
-<h2 id="6-bonus-docker-compose">6. Bonus - Docker Compose<a class="headerlink" href="#6-bonus-docker-compose" title="Permanent link">🔗</a></h2>
-<p>Docker Compose is used to manage applications and increase efficiency in container development. Configurations are defined in a single YAML file, making applications easy to build and scale. Docker Compose is often used to set up a local environment</p>
-<p>The tutorial below aims to introduce fundamental concepts of Docker Compose by guiding you through the development of a basic Python web application.</p>
-<p>Using the Flask framework, the application features a hit counter in Redis, providing a practical example of how Docker Compose can be applied in web development scenarios.</p>
-<p>The concepts demonstrated here should be understandable even if you're not familiar with Python.</p>
-<p>This is a non-normative example that just highlights the key things you can do with Compose.</p>
-<p><a href="https://docs.docker.com/compose/gettingstarted/">https://docs.docker.com/compose/gettingstarted/</a></p>
-<p>You can find a more extensive example here : </p>
-<p><a href="https://hackernoon.com/practical-introduction-to-docker-compose-d34e79c4c2b6">https://hackernoon.com/practical-introduction-to-docker-compose-d34e79c4c2b6</a></p>
-<p><a href="https://github.com/docker/labs/blob/master/beginner/chapters/votingapp.md">https://github.com/docker/labs/blob/master/beginner/chapters/votingapp.md</a></p>
-<div class="admonition success">
-<p class="admonition-title">What you learned in this section</p>
-<ul>
-<li><strong>Docker Compose</strong>: Define multi-container apps in a single YAML file</li>
-<li><strong>Service orchestration</strong>: Link containers (e.g., web app + database) together</li>
-<li><strong>Local development</strong>: <code>docker compose up</code> to start your entire stack</li>
-</ul>
-</div>
-<h2 id="7-bonus-using-google-cloud-tools-for-docker">7. Bonus - Using Google Cloud Tools for Docker<a class="headerlink" href="#7-bonus-using-google-cloud-tools-for-docker" title="Permanent link">🔗</a></h2>
-<p>Using codespace, you should be able to do the Hello World Dockerfile exercise except that instead of using docker build you use Google Cloud Build</p>
-<p>Tutorial: <a href="https://cloud.google.com/cloud-build/docs/quickstart-docker">https://cloud.google.com/cloud-build/docs/quickstart-docker</a></p>
-<p>Example command: <code>gcloud builds submit --tag europe-docker.pkg.dev/$PROJECT_ID/$REPO_ID/{image}:{tag} .</code></p>
-<div class="admonition help">
-<p class="admonition-title">Help</p>
-<p>to get your project id: <code>PROJECT_ID=$(gcloud config get-value project 2&gt; /dev/null)</code></p>
-</div>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<p>Try to build the hello world app</p>
-</div>
-<div class="admonition success">
-<p class="admonition-title">What you learned in this section</p>
-<ul>
-<li><strong>Cloud Build</strong>: Build Docker images in the cloud without local Docker</li>
-<li><strong>Remote builds</strong>: Useful when local resources are limited or for CI/CD pipelines</li>
-</ul>
-</div>
-<h2 id="8-bonus-going-further">8. Bonus - Going further<a class="headerlink" href="#8-bonus-going-further" title="Permanent link">🔗</a></h2>
+<p>Then start everything with:
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>compose<span class="w"> </span>up
+</code></pre></div></p>
+<p>You'll use Docker Compose on Day 2 when deploying a multi-container ML application (API backend + web frontend). For now, just know it exists.</p>
+<p><strong>Further reading:</strong> <a href="https://docs.docker.com/compose/gettingstarted/">Docker Compose Getting Started</a></p>
+<h2 id="advanced-cloud-build">Advanced - Cloud Build<a class="headerlink" href="#advanced-cloud-build" title="Permanent link">🔗</a></h2>
+<p><strong>Google Cloud Build</strong> builds Docker images in the cloud, without needing Docker installed locally. This is useful for CI/CD pipelines.</p>
+<p>Instead of:
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>myimage<span class="w"> </span>.
+docker<span class="w"> </span>push<span class="w"> </span>europe-docker.pkg.dev/...
+</code></pre></div></p>
+<p>You run:
+<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>builds<span class="w"> </span>submit<span class="w"> </span>--tag<span class="w"> </span>europe-docker.pkg.dev/<span class="nv">$PROJECT_ID</span>/<span class="nv">$REPO</span>/myimage<span class="w"> </span>.
+</code></pre></div></p>
+<p>Cloud Build pulls your code, builds the image on Google's infrastructure, and pushes to Artifact Registry automatically. You'll see this in action if you continue with GCP-based ML deployments.</p>
+<h2 id="advanced-going-further">Advanced - Going Further<a class="headerlink" href="#advanced-going-further" title="Permanent link">🔗</a></h2>
 <p><a href="https://container.training/">https://container.training/</a></p>
+<h2 id="advanced-docker-build-context-and-dockerignore">Advanced - Docker Build Context and .dockerignore<a class="headerlink" href="#advanced-docker-build-context-and-dockerignore" title="Permanent link">🔗</a></h2>
+<p>When you run <code>docker build</code>, Docker sends all files in the current directory (the <strong>build context</strong>) to the Docker daemon. This can slow down builds and bloat your image if unnecessary files are included.</p>
+<h3 id="the-build-context">The build context<a class="headerlink" href="#the-build-context" title="Permanent link">🔗</a></h3>
+<p>The build context is everything in the directory you specify when running <code>docker build</code>. For example:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>myapp:1.0<span class="w"> </span>.
+</code></pre></div>
+<p>The <code>.</code> means "use the current directory as the build context". Docker will send all files in this directory to the daemon, which can be slow if you have large files (datasets, model weights, etc.).</p>
+<h3 id="using-dockerignore">Using .dockerignore<a class="headerlink" href="#using-dockerignore" title="Permanent link">🔗</a></h3>
+<p>Create a <code>.dockerignore</code> file to exclude files from the build context. This works like <code>.gitignore</code>:</p>
+<div class="highlight"><pre><span></span><code># .dockerignore example
+.git
+__pycache__
+*.pyc
+.env
+data/
+models/
+*.tar.gz
+node_modules/
+.vscode/
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Always create a <code>.dockerignore</code> file in your project. It speeds up builds and prevents accidentally including sensitive files (like <code>.env</code> with secrets) in your image.</p>
+</div>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">🔗</a></h2>
+<h3 id="debugging-containers">Debugging Containers<a class="headerlink" href="#debugging-containers" title="Permanent link">🔗</a></h3>
+<p>When things go wrong, these commands will help you troubleshoot:</p>
+<h4 id="view-container-logs">View container logs<a class="headerlink" href="#view-container-logs" title="Permanent link">🔗</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># See logs from a running or stopped container</span>
+docker<span class="w"> </span>logs<span class="w"> </span>&lt;container-name-or-id&gt;
+
+<span class="c1"># Follow logs in real-time (like tail -f)</span>
+docker<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>&lt;container-name-or-id&gt;
+
+<span class="c1"># Show only the last 100 lines</span>
+docker<span class="w"> </span>logs<span class="w"> </span>--tail<span class="w"> </span><span class="m">100</span><span class="w"> </span>&lt;container-name-or-id&gt;
+</code></pre></div>
+<h4 id="get-a-shell-inside-a-running-container">Get a shell inside a running container<a class="headerlink" href="#get-a-shell-inside-a-running-container" title="Permanent link">🔗</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># Open an interactive shell in a running container</span>
+docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>&lt;container-name-or-id&gt;<span class="w"> </span>/bin/sh
+
+<span class="c1"># Or use bash if available</span>
+docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>&lt;container-name-or-id&gt;<span class="w"> </span>/bin/bash
+</code></pre></div>
+<h4 id="inspect-container-details">Inspect container details<a class="headerlink" href="#inspect-container-details" title="Permanent link">🔗</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># See detailed container configuration (ports, volumes, env vars, etc.)</span>
+docker<span class="w"> </span>inspect<span class="w"> </span>&lt;container-name-or-id&gt;
+
+<span class="c1"># See resource usage (CPU, memory)</span>
+docker<span class="w"> </span>stats<span class="w"> </span>&lt;container-name-or-id&gt;
+</code></pre></div>
+<h4 id="debug-a-failed-build">Debug a failed build<a class="headerlink" href="#debug-a-failed-build" title="Permanent link">🔗</a></h4>
+<p>If your build fails, you can run a container from the last successful layer:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Find the last successful layer ID in the build output, then:</span>
+docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>&lt;layer-id&gt;<span class="w"> </span>/bin/sh
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These debugging skills are essential when deploying ML models. Container logs are often the first place to check when a model serving endpoint fails.</p>
+</div>
 
 
 

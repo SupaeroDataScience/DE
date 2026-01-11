@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://supaerodatascience.github.io/DE/1_4c_deployment_workflow.html">
       
       
-        <link rel="prev" href="1_4b_gcp_workflow.html">
+        <link rel="prev" href="1_4b_docker_workflow.html">
       
       
         <link rel="next" href="1_5a_deployment.html">
@@ -1075,14 +1075,14 @@
   
   
     <li class="md-nav__item">
-      <a href="1_4a_docker_workflow.html" class="md-nav__link">
+      <a href="1_4a_gcp_workflow.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    1. Docker Workflow
+    1. GCP Compute Workflow
   
 
     
@@ -1103,14 +1103,14 @@
   
   
     <li class="md-nav__item">
-      <a href="1_4b_gcp_workflow.html" class="md-nav__link">
+      <a href="1_4b_docker_workflow.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    2. GCP Compute Workflow
+    2. Docker Workflow
   
 
     
@@ -1191,10 +1191,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#21-lets-discover-streamlit" class="md-nav__link">
+  <a href="#31-introduction" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.1 - Let's discover Streamlit
+        3.1 - Introduction
       
     </span>
   </a>
@@ -1202,10 +1202,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#22-your-first-streamlit-application" class="md-nav__link">
+  <a href="#32-the-application" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.2 Your first streamlit application
+        3.2 - The Application
       
     </span>
   </a>
@@ -1213,10 +1213,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#23-local-deployment-in-codespace" class="md-nav__link">
+  <a href="#33-the-docker-image" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.3 - Local deployment in codespace
+        3.3 - The Docker Image
       
     </span>
   </a>
@@ -1224,10 +1224,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#24-a-more-complex-application" class="md-nav__link">
+  <a href="#34-deploy-to-gce-vm" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.4 - A more complex application
+        3.4 - Deploy to GCE VM
       
     </span>
   </a>
@@ -1235,10 +1235,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#25-transform-application-into-docker-image" class="md-nav__link">
+  <a href="#35-expose-to-the-web" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.5 - Transform application into docker image
+        3.5 - Expose to the Web
       
     </span>
   </a>
@@ -1246,10 +1246,82 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#26-deployment-in-a-vm" class="md-nav__link">
+  <a href="#36-going-to-production-conceptual" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.6 - Deployment in a VM
+        3.6 - Going to Production (Conceptual)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.6 - Going to Production (Conceptual)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#current-situation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current Situation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sslipio-trick" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sslip.io Trick
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whats-missing-for-production" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What's Missing for Production
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-were-not-doing-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why We're Not Doing This
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What's Next
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#37-cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.7 - Cleanup
       
     </span>
   </a>
@@ -1257,32 +1329,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#27-publish-the-results-on-the-web" class="md-nav__link">
+  <a href="#38-conclusion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.7 - Publish the results on the web
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#28-cleanup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.8 - Cleanup
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#29-yay" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.9 - Yay !
+        3.8 - Conclusion
       
     </span>
   </a>
@@ -1878,10 +1928,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#21-lets-discover-streamlit" class="md-nav__link">
+  <a href="#31-introduction" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.1 - Let's discover Streamlit
+        3.1 - Introduction
       
     </span>
   </a>
@@ -1889,10 +1939,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#22-your-first-streamlit-application" class="md-nav__link">
+  <a href="#32-the-application" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.2 Your first streamlit application
+        3.2 - The Application
       
     </span>
   </a>
@@ -1900,10 +1950,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#23-local-deployment-in-codespace" class="md-nav__link">
+  <a href="#33-the-docker-image" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.3 - Local deployment in codespace
+        3.3 - The Docker Image
       
     </span>
   </a>
@@ -1911,10 +1961,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#24-a-more-complex-application" class="md-nav__link">
+  <a href="#34-deploy-to-gce-vm" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.4 - A more complex application
+        3.4 - Deploy to GCE VM
       
     </span>
   </a>
@@ -1922,10 +1972,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#25-transform-application-into-docker-image" class="md-nav__link">
+  <a href="#35-expose-to-the-web" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.5 - Transform application into docker image
+        3.5 - Expose to the Web
       
     </span>
   </a>
@@ -1933,10 +1983,82 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#26-deployment-in-a-vm" class="md-nav__link">
+  <a href="#36-going-to-production-conceptual" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.6 - Deployment in a VM
+        3.6 - Going to Production (Conceptual)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.6 - Going to Production (Conceptual)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#current-situation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current Situation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sslipio-trick" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sslip.io Trick
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whats-missing-for-production" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What's Missing for Production
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-were-not-doing-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why We're Not Doing This
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What's Next
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#37-cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.7 - Cleanup
       
     </span>
   </a>
@@ -1944,32 +2066,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#27-publish-the-results-on-the-web" class="md-nav__link">
+  <a href="#38-conclusion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.7 - Publish the results on the web
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#28-cleanup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.8 - Cleanup
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#29-yay" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.9 - Yay !
+        3.8 - Conclusion
       
     </span>
   </a>
@@ -1996,157 +2096,178 @@
   
 
 
-<h1 id="bureau-detudes-cloud-docker-partie-3">Bureau d'études Cloud &amp; Docker Partie 3<a class="headerlink" href="#bureau-detudes-cloud-docker-partie-3" title="Permanent link">🔗</a></h1>
-<h2 id="21-lets-discover-streamlit">2.1 - Let's discover Streamlit<a class="headerlink" href="#21-lets-discover-streamlit" title="Permanent link">🔗</a></h2>
-<p>We will now introduce streamlit, which is a very nice tool to build quick webapps in python !</p>
-<p>In this TP you will build your first interactive webapp in python and package it in a container.</p>
-<p>First, look at this video, </p>
-<video width="320" height="240" controls>
-  <source src="https://s3-us-west-2.amazonaws.com/assets.streamlit.io/videos/hero-video.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-
-<p>Then, take a look at an <a href="https://www.askpython.com/python-modules/introduction-to-streamlit">introduction to streamlit</a> and <a href="https://streamlit.io/gallery">the streamlit application gallery</a></p>
+<h1 id="bureau-detudes-cloud-docker-partie-3">Bureau d'etudes Cloud &amp; Docker Partie 3<a class="headerlink" href="#bureau-detudes-cloud-docker-partie-3" title="Permanent link">🔗</a></h1>
+<h2 id="31-introduction">3.1 - Introduction<a class="headerlink" href="#31-introduction" title="Permanent link">🔗</a></h2>
+<p>In the previous sessions, you learned Docker basics: building images from Dockerfiles, running containers, and pushing images to a registry.</p>
+<p>In this session, we focus on <strong>deployment</strong>: taking a containerized application and running it on a cloud VM that's accessible from the internet. You won't need to write any Dockerfile - the image is already built. The goal is to understand the deployment workflow.</p>
+<h2 id="32-the-application">3.2 - The Application<a class="headerlink" href="#32-the-application" title="Permanent link">🔗</a></h2>
+<p>The application files are already available in the <code>be-docker-deploy/</code> folder of your codespace. This is a Streamlit app that visualizes neural network activation functions - useful reference material after your Deep Learning class.</p>
+<p>Let's test it locally first:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>be-docker-deploy
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+streamlit<span class="w"> </span>run<span class="w"> </span>app.py
+</code></pre></div>
+<p>Access the app on port 8501 in your codespace (click the port forwarding notification or use the Ports tab).</p>
+<p>Explore the interface, then quit the server with <code>Ctrl+C</code>.</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Can you describe what exactly is streamlit ?
-Could you find any way it could be useful to you ?</p>
+<p>What does this application visualize? How could it help you understand neural networks?</p>
 </div>
-<h2 id="22-your-first-streamlit-application">2.2 Your first streamlit application<a class="headerlink" href="#22-your-first-streamlit-application" title="Permanent link">🔗</a></h2>
-<p>Take a look at the code below, </p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">streamlit</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">st</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">streamlit_image_comparison</span><span class="w"> </span><span class="kn">import</span> <span class="n">image_comparison</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
-
-<span class="n">st</span><span class="o">.</span><span class="n">set_page_config</span><span class="p">(</span><span class="s2">&quot;Webb Space Telescope vs Hubble Telescope&quot;</span><span class="p">,</span> <span class="s2">&quot;🔭&quot;</span><span class="p">)</span>
-
-<span class="n">st</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s2">&quot;🔭 J. Webb Space Telescope vs Hubble Telescope&quot;</span><span class="p">)</span>
-
-<span class="n">st</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="s2">&quot;This is a reproduction of the fantastic [WebbCompare](https://www.webbcompare.com/index.html) app by [John Christensen](https://twitter.com/JohnnyC1423). It&#39;s built in Streamlit and takes only 10 lines of Python code. If you like this app, please star [John&#39;s original repo](https://github.com/JohnEdChristensen/WebbCompare)!&quot;</span>
-<span class="n">st</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-
-<span class="n">st</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="s2">&quot;### Southern Nebula&quot;</span><span class="p">)</span>
-<span class="n">image_comparison</span><span class="p">(</span>
-    <span class="n">img1</span><span class="o">=</span><span class="s2">&quot;https://www.webbcompare.com/img/hubble/southern_nebula_700.jpg&quot;</span><span class="p">,</span>
-    <span class="n">img2</span><span class="o">=</span><span class="s2">&quot;https://www.webbcompare.com/img/webb/southern_nebula_700.jpg&quot;</span><span class="p">,</span>
-    <span class="n">label1</span><span class="o">=</span><span class="s2">&quot;Hubble&quot;</span><span class="p">,</span>
-    <span class="n">label2</span><span class="o">=</span><span class="s2">&quot;Webb&quot;</span><span class="p">,</span>
-<span class="p">)</span>
-
-
-<span class="n">st</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="s2">&quot;### Galaxy Cluster SMACS 0723&quot;</span><span class="p">)</span>
-<span class="n">image_comparison</span><span class="p">(</span>
-    <span class="n">img1</span><span class="o">=</span><span class="s2">&quot;https://www.webbcompare.com/img/hubble/deep_field_700.jpg&quot;</span><span class="p">,</span>
-    <span class="n">img2</span><span class="o">=</span><span class="s2">&quot;https://www.webbcompare.com/img/webb/deep_field_700.jpg&quot;</span><span class="p">,</span>
-    <span class="n">label1</span><span class="o">=</span><span class="s2">&quot;Hubble&quot;</span><span class="p">,</span>
-    <span class="n">label2</span><span class="o">=</span><span class="s2">&quot;Webb&quot;</span><span class="p">,</span>
-<span class="p">)</span>
-
-<span class="n">st</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="s2">&quot;### Carina Nebula&quot;</span><span class="p">)</span>
-<span class="n">image_comparison</span><span class="p">(</span>
-    <span class="n">img1</span><span class="o">=</span><span class="s2">&quot;https://www.webbcompare.com/img/hubble/carina_2800.png&quot;</span><span class="p">,</span>
-    <span class="n">img2</span><span class="o">=</span><span class="s2">&quot;https://www.webbcompare.com/img/webb/carina_2800.jpg&quot;</span><span class="p">,</span>
-    <span class="n">label1</span><span class="o">=</span><span class="s2">&quot;Hubble&quot;</span><span class="p">,</span>
-    <span class="n">label2</span><span class="o">=</span><span class="s2">&quot;Webb&quot;</span><span class="p">,</span>
-<span class="p">)</span>
-
-<span class="n">st</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="s2">&quot;### Stephan&#39;s Quintet&quot;</span><span class="p">)</span>
-<span class="n">image_comparison</span><span class="p">(</span>
-    <span class="n">img1</span><span class="o">=</span><span class="s2">&quot;https://www.webbcompare.com/img/hubble/stephans_quintet_2800.jpg&quot;</span><span class="p">,</span>
-    <span class="n">img2</span><span class="o">=</span><span class="s2">&quot;https://www.webbcompare.com/img/webb/stephans_quintet_2800.jpg&quot;</span><span class="p">,</span>
-    <span class="n">label1</span><span class="o">=</span><span class="s2">&quot;Hubble&quot;</span>
-    <span class="n">label2</span><span class="o">=</span><span class="s2">&quot;Webb&quot;</span><span class="p">,</span>
-<span class="p">)</span>
+<h2 id="33-the-docker-image">3.3 - The Docker Image<a class="headerlink" href="#33-the-docker-image" title="Permanent link">🔗</a></h2>
+<p>For this exercise, the Docker image has been <strong>pre-built and pushed</strong> to our shared Artifact Registry. You already learned how to build and push images in the previous workshops - this session focuses purely on deployment.</p>
+<p>The pre-built image is:</p>
+<div class="highlight"><pre><span></span><code>europe-docker.pkg.dev/isae-sdd-481407/isae-sdd-de-2526-docker/demo-streamlit-activation-function:1.0
 </code></pre></div>
-<div class="admonition question">
-<p class="admonition-title">Question</p>
-<p>Can you describe, by reading the documentation, what does the code do ?</p>
+<div class="admonition note">
+<p class="admonition-title">For teachers</p>
+<p>If you need to rebuild the image, the source files are in <code>be-docker-deploy/</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>be-docker-deploy
+docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>europe-docker.pkg.dev/isae-sdd-481407/isae-sdd-de-2526-docker/demo-streamlit-activation-function:1.0<span class="w"> </span>.
+docker<span class="w"> </span>push<span class="w"> </span>europe-docker.pkg.dev/isae-sdd-481407/isae-sdd-de-2526-docker/demo-streamlit-activation-function:1.0
+</code></pre></div>
 </div>
-<h2 id="23-local-deployment-in-codespace">2.3 - Local deployment in codespace<a class="headerlink" href="#23-local-deployment-in-codespace" title="Permanent link">🔗</a></h2>
-<p>First, we will install in the codespace the dependencies for our application,</p>
-<p><code>pip install streamlit streamlit opencv-python-headless streamlit-image-comparison</code></p>
-<p>Then create a file <code>streamlit_jswt.py</code> and copy/paste the code above.</p>
-<p>Then execute it <code>streamlit run streamlit_jswt.py</code></p>
-<p>This will launch the application on the port 8501 (by default) of our codespace. You can connect to it as usual.</p>
-<p>🤩 Nice, isn't it ?</p>
-<p>Now you can quit the server.</p>
-<h2 id="24-a-more-complex-application">2.4 - A more complex application<a class="headerlink" href="#24-a-more-complex-application" title="Permanent link">🔗</a></h2>
-<p>We will run and package a more complex application, but a lot more useful for your deep learning class</p>
-<p>Clone the following repository <code>git clone https://github.com/fchouteau/isae-demo-streamlit-activation-functions.git</code></p>
-<p>cd to the directory <code>cd isae-demo-streamlit-activation-functions</code> then as last time, install the dependencies <code>pip install -r requirements.txt</code> then run the application <code>streamlit run app.py</code></p>
-<p>You can visualize it as last time. This should be quite useful for you given you just left the Deep Learning Class !</p>
-<h2 id="25-transform-application-into-docker-image">2.5 - Transform application into docker image<a class="headerlink" href="#25-transform-application-into-docker-image" title="Permanent link">🔗</a></h2>
-<p>Refer to <a href="1_3b_handson_docker.html#231-create-a-python-flask-app-that-displays-random-cat-pix">the previous TP</a> where we built a website to convert what we just did into a docker image.</p>
-<p>In short, create a <code>Dockerfile</code> that inherits from <code>FROM python:3.10</code>, copy all the app files <code>COPY ./ /app/</code>, install the dependencies <code>RUN pip install -r /app/requirements.txt</code>, expose the port <code>EXPOSE 8501</code> then run as the app as an entrypoint <code>CMD ["python", "-m", "streamlit", "run", "app.py"]</code>. </p>
-<p>You should be able to do it yourself, but if you need help, here's what your <code>Dockerfile</code> looks like :</p>
-<details><summary>Solution</summary>
-
-      <div class="highlight"><pre><span></span><code><span class="w">  </span>FROM<span class="w"> </span>python:3.10
-
-<span class="w">  </span>COPY<span class="w"> </span>./<span class="w"> </span>/app/
-<span class="w">  </span>RUN<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>/app/requirements.txt
-
-<span class="w">  </span>EXPOSE<span class="w"> </span><span class="m">8501</span>
-
-<span class="w">  </span>WORKDIR<span class="w"> </span>/app/
-
-<span class="w">  </span>CMD<span class="w"> </span><span class="o">[</span><span class="s2">&quot;python&quot;</span>,<span class="w"> </span><span class="s2">&quot;-m&quot;</span>,<span class="w"> </span><span class="s2">&quot;streamlit&quot;</span>,<span class="w"> </span><span class="s2">&quot;run&quot;</span>,<span class="w"> </span><span class="s2">&quot;app.py&quot;</span><span class="o">]</span>
-</code></pre></div>
-
-  </details>
-
-<p>Then build your image, and run it locally (using the correct port forwarding which is 8501)</p>
-<details><summary>Solution</summary>
-
-      <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="c1"># build</span>
-<span class="w">  </span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>eu.gcr.io/sdd2324/streamlit-fch:1.0<span class="w"> </span>-f<span class="w"> </span>Dockerfile<span class="w"> </span>.<span class="w"> </span>
-<span class="w">  </span><span class="c1"># run</span>
-<span class="w">  </span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-p<span class="w"> </span><span class="m">8501</span>:8501<span class="w"> </span>eu.gcr.io/sdd2324/streamlit-fch:1.0<span class="w"> </span><span class="c1"># change this name to yours</span>
-</code></pre></div>
-
-  </details>
-
-<p>Once you know it works locally, tag it and push it to our shared container registry</p>
-<details><summary>Solution</summary>
-
-      <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="c1"># push to registry</span>
-<span class="w">  </span>docker<span class="w"> </span>push<span class="w"> </span>eu.gcr.io/sdd2324/streamlit-fch:1.0<span class="w"> </span><span class="c1"># change this name to yours</span>
-</code></pre></div>
-
-  </details>
-
-<h2 id="26-deployment-in-a-vm">2.6 - Deployment in a VM<a class="headerlink" href="#26-deployment-in-a-vm" title="Permanent link">🔗</a></h2>
-<p>We will now create yet another VM to deploy our application. This time, we will deploy directly our container in a VM without connecting to ssh to it,</p>
-<p>Don't forget to change the instance name &amp; zone according to what you did previously.</p>
-<p>Take a note to the <code>--container-image</code> and change it to the name of the image you just pushed</p>
-<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create-with-container<span class="w"> </span>fch-streamlit-demo<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--project<span class="o">=[</span>your<span class="w"> </span>project<span class="o">]</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--zone<span class="o">=</span>europe-west1-b<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--machine-type<span class="o">=</span>n1-standard-1<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--image<span class="o">=</span>projects/cos-cloud/global/images/cos-stable-109-17800-66-27<span class="w"> </span><span class="se">\</span>
+<h2 id="34-deploy-to-gce-vm">3.4 - Deploy to GCE VM<a class="headerlink" href="#34-deploy-to-gce-vm" title="Permanent link">🔗</a></h2>
+<p>We'll create a VM that automatically runs our container at boot - no SSH required.</p>
+<p>Run this command, replacing <code>FIRSTNAME</code> with your unique identifier (e.g., <code>streamlit-vm-marie</code>):</p>
+<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create-with-container<span class="w"> </span>streamlit-vm-FIRSTNAME<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--project<span class="o">=</span>isae-sdd-481407<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--zone<span class="o">=</span>europe-west9-a<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--machine-type<span class="o">=</span>e2-small<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--image<span class="o">=</span>projects/cos-cloud/global/images/cos-stable-117-18613-75-72<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--boot-disk-size<span class="o">=</span>10GB<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--boot-disk-type<span class="o">=</span>pd-standard<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--container-image<span class="o">=[</span>your<span class="w"> </span>image<span class="o">]</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--container-restart-policy<span class="o">=</span>always
+<span class="w">    </span>--container-image<span class="o">=</span>europe-docker.pkg.dev/isae-sdd-481407/isae-sdd-de-2526-docker/demo-streamlit-activation-function:1.0<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--container-restart-policy<span class="o">=</span>always<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--tags<span class="o">=</span>http-server-8501
 </code></pre></div>
-<p>Compared to previously, note that we explicitly specify a container to deploy to the VM and we don't use ubuntu but a container optimized OS.</p>
-<h2 id="27-publish-the-results-on-the-web">2.7 - Publish the results on the web<a class="headerlink" href="#27-publish-the-results-on-the-web" title="Permanent link">🔗</a></h2>
-<p>First run this command in your codespace. This will expose the port 8501 to the web</p>
-<p><div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>compute<span class="w"> </span>--project<span class="o">=[</span>your<span class="w"> </span>project<span class="o">]</span><span class="w"> </span>firewall-rules<span class="w"> </span>create<span class="w"> </span>open-8501<span class="w"> </span>--direction<span class="o">=</span>INGRESS<span class="w"> </span>--priority<span class="o">=</span><span class="m">1000</span><span class="w"> </span>--network<span class="o">=</span>default<span class="w"> </span>--action<span class="o">=</span>ALLOW<span class="w"> </span>--rules<span class="o">=</span>tcp:8501<span class="w"> </span>--source-ranges<span class="o">=</span><span class="m">0</span>.0.0.0/0
+<p><strong>Key differences from previous VM creation:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--container-image</code></td>
+<td>Deploys the container automatically at boot</td>
+</tr>
+<tr>
+<td><code>--image=.../cos-...</code></td>
+<td>Uses Container-Optimized OS (lightweight, designed for containers)</td>
+</tr>
+<tr>
+<td><code>--tags=http-server-8501</code></td>
+<td>Labels the VM so firewall rules can target it</td>
+</tr>
+<tr>
+<td><code>--container-restart-policy=always</code></td>
+<td>Restarts the container if it crashes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="35-expose-to-the-web">3.5 - Expose to the Web<a class="headerlink" href="#35-expose-to-the-web" title="Permanent link">🔗</a></h2>
+<p>By default, GCP blocks all incoming traffic to VMs. A <strong>firewall rule</strong> opens specific ports.</p>
+<p>A firewall rule for port 8501 already exists in our project:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># This rule already exists - no need to run it</span>
+<span class="c1"># gcloud compute firewall-rules create allow-8501 \</span>
+<span class="c1">#     --allow=tcp:8501 \</span>
+<span class="c1">#     --target-tags=http-server-8501</span>
 </code></pre></div>
-Then, locate the public IP of your VM using the google cloud console.</p>
-<p>Finally, take your phone (it won't work over ISAE wifi, maybe on eduroam) and connect to its port 8501, http://ip-of-the-machine:8501</p>
-<p>🧐 The app should appear !</p>
-<p>We just deployed a webapp written in python to a public website :)</p>
-<h2 id="28-cleanup">2.8 - Cleanup<a class="headerlink" href="#28-cleanup" title="Permanent link">🔗</a></h2>
-<p>As usual, cleanup your resources. Delete the GCE VM.</p>
-<h2 id="29-yay">2.9 - Yay !<a class="headerlink" href="#29-yay" title="Permanent link">🔗</a></h2>
+<p><strong>How it works:</strong></p>
+<ul>
+<li>The rule <code>allow-8501</code> permits TCP traffic on port 8501</li>
+<li><code>--target-tags=http-server-8501</code> applies only to VMs with that tag</li>
+<li>Your VM has this tag (we set it with <code>--tags</code> above)</li>
+</ul>
+<p><strong>Get your VM's external IP:</strong></p>
+<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>list<span class="w"> </span>--filter<span class="o">=</span><span class="s2">&quot;name=streamlit-vm-FIRSTNAME&quot;</span>
+</code></pre></div>
+<p>Or find it in the Google Cloud Console: <strong>Compute Engine</strong> &gt; <strong>VM instances</strong></p>
+<p><strong>Access your app:</strong></p>
+<p>Open your browser and go to: <code>http://EXTERNAL_IP:8501</code></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This won't work on ISAE wifi due to network restrictions. Try eduroam or mobile data.</p>
+</div>
+<h2 id="36-going-to-production-conceptual">3.6 - Going to Production (Conceptual)<a class="headerlink" href="#36-going-to-production-conceptual" title="Permanent link">🔗</a></h2>
+<h3 id="current-situation">Current Situation<a class="headerlink" href="#current-situation" title="Permanent link">🔗</a></h3>
+<p>Accessing via <code>http://IP:8501</code> works for learning, but it isn't production-ready:</p>
+<ul>
+<li>IP addresses are hard to remember</li>
+<li>IPs can change when VMs are recreated</li>
+<li>No encryption (HTTP, not HTTPS)</li>
+<li>Non-standard port (8501 instead of 80/443)</li>
+</ul>
+<h3 id="sslipio-trick">sslip.io Trick<a class="headerlink" href="#sslipio-trick" title="Permanent link">🔗</a></h3>
+<p>For a slightly more readable URL, you can use <a href="https://sslip.io">sslip.io</a> - a free DNS service that resolves hostnames to embedded IP addresses.</p>
+<p>If your VM's IP is <code>35.205.123.45</code>, you can access it via:</p>
+<div class="highlight"><pre><span></span><code>http://35-205-123-45.sslip.io:8501
+</code></pre></div>
+<p>How it works: sslip.io resolves <code>35-205-123-45.sslip.io</code> to <code>35.205.123.45</code>.</p>
+<p>You still need to specify port 8501, but at least you have a hostname instead of raw numbers.</p>
+<h3 id="whats-missing-for-production">What's Missing for Production<a class="headerlink" href="#whats-missing-for-production" title="Permanent link">🔗</a></h3>
+<p>A production setup typically looks like this:</p>
+<div class="highlight"><pre><span></span><code>┌──────────┐    ┌─────────────────┐    ┌─────────┐    ┌───────────┐
+│   User   │───▶│  Load Balancer  │───▶│   VM    │───▶│ Container │
+└──────────┘    │   (HTTPS:443)   │    │ (:8501) │    │  (:8501)  │
+                └─────────────────┘    └─────────┘    └───────────┘
+                        │
+                ┌───────┴───────┐
+                │ SSL Certificate│
+                │ Custom Domain  │
+                │ (myapp.com)    │
+                └────────────────┘
+</code></pre></div>
+<p><strong>What we're missing:</strong></p>
+<ul>
+<li><strong>HTTPS</strong>: Encrypted connection (SSL/TLS certificate)</li>
+<li><strong>Standard ports</strong>: 80 (HTTP) or 443 (HTTPS) instead of 8501</li>
+<li><strong>Custom domain</strong>: <code>myapp.com</code> instead of IP address</li>
+<li><strong>Load balancing</strong>: Distribute traffic, handle failures</li>
+</ul>
+<h3 id="why-were-not-doing-this">Why We're Not Doing This<a class="headerlink" href="#why-were-not-doing-this" title="Permanent link">🔗</a></h3>
+<p>Setting up production infrastructure requires:</p>
+<ul>
+<li>A domain name (cost + DNS configuration)</li>
+<li>SSL certificates (Let's Encrypt or paid)</li>
+<li>Load balancer configuration (complexity + cost)</li>
+</ul>
+<p>For learning purposes, accessing via IP:port is sufficient.</p>
+<h3 id="whats-next">What's Next<a class="headerlink" href="#whats-next" title="Permanent link">🔗</a></h3>
+<p>In the next session, we'll discover <strong>Cloud Run</strong> which provides:</p>
+<ul>
+<li>Automatic HTTPS with a public URL</li>
+<li>No infrastructure to manage</li>
+<li>Auto-scaling based on traffic</li>
+<li>Pay only when your app is running</li>
+</ul>
+<h2 id="37-cleanup">3.7 - Cleanup<a class="headerlink" href="#37-cleanup" title="Permanent link">🔗</a></h2>
+<p>Delete your VM to avoid unnecessary charges:</p>
+<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>delete<span class="w"> </span>streamlit-vm-FIRSTNAME<span class="w"> </span>--zone<span class="o">=</span>europe-west9-a
+</code></pre></div>
+<p>Confirm the deletion when prompted.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The firewall rule stays - it's shared across all students and doesn't cost anything.</p>
+</div>
+<h2 id="38-conclusion">3.8 - Conclusion<a class="headerlink" href="#38-conclusion" title="Permanent link">🔗</a></h2>
 <div class="admonition success">
 <p class="admonition-title">Success</p>
-<p>🍾 <em>you have successfully finished the all parts of the BE. You know how to manipulate the basic notions around cloud computing and docker so that you won't be completely lost when someone will talk about it</em></p>
+<p>You have successfully deployed a containerized webapp to a public VM!</p>
 </div>
-<p>Finish the previous hands-on (cloud &amp; docker) if you have time. In particular, take a look at the docker-compose section.</p>
+<p><strong>What you learned:</strong></p>
+<ul>
+<li>Deploying containers to GCE VMs with Container-Optimized OS</li>
+<li>How firewall rules control network access</li>
+<li>Using pre-built images from Artifact Registry</li>
+<li>Conceptual understanding of production infrastructure (load balancers, domains, HTTPS)</li>
+</ul>
+<p><strong>Next steps:</strong></p>
+<ul>
+<li>Finish previous hands-on if time remains (docker-compose section)</li>
+<li>Next session: Cloud Run for fully managed deployments</li>
+</ul>
 
 
 

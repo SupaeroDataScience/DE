@@ -1,0 +1,2823 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Data Engineering class at ISAE-Supaero as part of the SDD program">
+      
+      
+      
+        <link rel="canonical" href="https://supaerodatascience.github.io/DE/1_4a_gcp_workflow.html">
+      
+      
+        <link rel="prev" href="1_3b_handson_docker.html">
+      
+      
+        <link rel="next" href="1_4b_docker_workflow.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="https://raw.githubusercontent.com/SupaeroDataScience/DE/master/src/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>1. GCP Compute Workflow - Data Engineering</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#gcp-compute-workflow-hands-on" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="Data Engineering" class="md-header__button md-logo" aria-label="Data Engineering" data-md-component="logo">
+      
+  <img src="https://raw.githubusercontent.com/SupaeroDataScience/DE/master/src/favicon.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Data Engineering
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1. GCP Compute Workflow
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/SupaeroDataScience/DE" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    SupaeroDataScience/DE
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Data Engineering" class="md-nav__button md-logo" aria-label="Data Engineering" data-md-component="logo">
+      
+  <img src="https://raw.githubusercontent.com/SupaeroDataScience/DE/master/src/favicon.ico" alt="logo">
+
+    </a>
+    Data Engineering
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/SupaeroDataScience/DE" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    SupaeroDataScience/DE
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Overview
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Syllabus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DE Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    DE Fundamentals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ctf.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CTF
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Storage
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data Storage
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="0_1_databases.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="0_3_postgres.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PostgreSQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ETL
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ETL
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="0_2_ETL.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="0_5_airlife.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="0_4_project.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Computation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data Computation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_1_overview.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Computing & Google Cloud Platform
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cloud Computing & Google Cloud Platform
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_2a_cloud.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Lecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_2b_handson_setup.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Hands-on (Setup)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_2c_handson_codespace.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Hands-on (Remote Development)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_2d_handson_gcp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Hands-on (GCP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Containers, Docker
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Containers, Docker
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_3a_containers.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Lecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_3b_handson_docker.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Hands-on (Docker)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workshop GCP & Docker
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workshop GCP & Docker
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. GCP Compute Workflow
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="1_4a_gcp_workflow.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. GCP Compute Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. Overview
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0. Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-key-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Key Concepts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set Environment Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verify-bucket-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify Bucket Access
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-create-vm-and-run-training" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Create VM and Run Training
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Create VM and Run Training">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-the-deep-learning-vm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create the Deep Learning VM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy-the-training-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Copy the Training Script
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh-into-the-vm-and-run-training" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSH into the VM and Run Training
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-verify-completion-cleanup-retrieve-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Verify Completion, Cleanup &amp; Retrieve Results
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Verify Completion, Cleanup &amp; Retrieve Results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verify-training-completed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify Training Completed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-all-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        List All Results
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pull-results-to-codespace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pull Results to Codespace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-the-vm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delete the VM
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-analyze-results-in-jupyter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Analyze Results in Jupyter
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Analyze Results in Jupyter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cell-1-load-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cell 1: Load Metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cell-2-plot-training-curves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cell 2: Plot Training Curves
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cell-3-inspect-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cell 3: Inspect Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-bonus-automation-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Bonus: Automation Script
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-looking-ahead-mlops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Looking Ahead: MLOps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_4b_docker_workflow.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Docker Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_4c_deployment_workflow.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. GCP Deployment Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workshop Deploy your ML model into production
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workshop Deploy your ML model into production
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_5a_deployment.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Lecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_5b_deployment_be.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Deploy your ML model into production
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_6_conclusion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recap & Reading List
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_7_appendixes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendixes & Technical Notions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Distribution
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data Distribution
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Introduction
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2_1_overview.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2_5_mapreduce.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hadoop and MapReduce
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Orchestration & Kubernetes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Orchestration & Kubernetes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2_2_orchestration.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lectures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2_3_kub_handson.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2_6_spark.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spark
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2_8_dask.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dask on Kubernetes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2_9_project.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dask project
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. Overview
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0. Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-key-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Key Concepts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set Environment Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verify-bucket-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify Bucket Access
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-create-vm-and-run-training" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Create VM and Run Training
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Create VM and Run Training">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-the-deep-learning-vm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create the Deep Learning VM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy-the-training-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Copy the Training Script
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh-into-the-vm-and-run-training" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSH into the VM and Run Training
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-verify-completion-cleanup-retrieve-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Verify Completion, Cleanup &amp; Retrieve Results
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Verify Completion, Cleanup &amp; Retrieve Results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verify-training-completed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify Training Completed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-all-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        List All Results
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pull-results-to-codespace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pull Results to Codespace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-the-vm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delete the VM
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-analyze-results-in-jupyter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Analyze Results in Jupyter
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Analyze Results in Jupyter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cell-1-load-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cell 1: Load Metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cell-2-plot-training-curves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cell 2: Plot Training Curves
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cell-3-inspect-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cell 3: Inspect Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-bonus-automation-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Bonus: Automation Script
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-looking-ahead-mlops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Looking Ahead: MLOps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="gcp-compute-workflow-hands-on">GCP Compute Workflow Hands-on<a class="headerlink" href="#gcp-compute-workflow-hands-on" title="Permanent link">🔗</a></h1>
+<h2 id="0-overview">0. Overview<a class="headerlink" href="#0-overview" title="Permanent link">🔗</a></h2>
+<div class="admonition abstract">
+<p class="admonition-title">Abstract</p>
+<p>In this hands-on, you will learn a core data science workflow: offloading compute-intensive
+training to a cloud VM while keeping your development environment lightweight.</p>
+<p>You will:</p>
+<ul>
+<li>Create a Deep Learning VM on Google Compute Engine</li>
+<li>Run PyTorch training remotely via SSH</li>
+<li>Upload results to Google Cloud Storage</li>
+<li>Pull results back to your Codespace for analysis</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Cost Warning</p>
+<p>GCP resources cost money. A <code>n1-standard-2</code> VM costs ~$0.10/hour.</p>
+<p><strong>CRITICAL:</strong> Always verify training is complete before deleting your VM, then delete it immediately.
+Leaving a VM running overnight wastes money and your free credits.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>When replacing <code>{something}</code> in commands, don't include the brackets.
+Write <code>yourname</code>, not <code>{yourname}</code>.</p>
+</div>
+<h3 id="the-problem">The Problem<a class="headerlink" href="#the-problem" title="Permanent link">🔗</a></h3>
+<p>Your GitHub Codespace has 2 CPU cores and 8GB RAM. You need to train a CNN on MNIST - doable locally, but imagine this was a ResNet on ImageNet. How do data scientists handle compute-intensive training when their laptop or dev environment isn't enough?</p>
+<p><strong>The solution:</strong> Offload training to a cloud VM, save results to cloud storage, pull back for analysis.</p>
+<h3 id="the-workflow">The Workflow<a class="headerlink" href="#the-workflow" title="Permanent link">🔗</a></h3>
+<div class="highlight"><pre><span></span><code>┌─────────────────┐         ┌─────────────────┐         ┌─────────────────┐
+│    CODESPACE    │         │    GCE VM       │         │      GCS        │
+│  (your laptop)  │         │ (training box)  │         │ (cloud storage) │
+└────────┬────────┘         └────────┬────────┘         └────────┬────────┘
+         │                           │                           │
+         │  1. Create VM             │                           │
+         │ ─────────────────────────&gt;│                           │
+         │                           │                           │
+         │  2. SSH + run training    │                           │
+         │ ─────────────────────────&gt;│                           │
+         │                           │  3. Upload model+metrics  │
+         │                           │ ─────────────────────────&gt;│
+         │                           │                           │
+         │  4. Delete VM             │                           │
+         │ ─────────────────────────&gt;│                           │
+         │                           │                           │
+         │  5. Pull results from GCS                             │
+         │ &lt;─────────────────────────────────────────────────────│
+         │                           │                           │
+         │  6. Analyze in Jupyter    │                           │
+         ▼                           │                           │
+   ┌──────────┐                      │                           │
+   │ Notebook │                      │                           │
+   └──────────┘                      │                           │
+</code></pre></div>
+<p>Here's the same workflow as a diagram:</p>
+<p><img alt="GCE Workflow" src="slides/static/img/gce_workflow.png" /></p>
+<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">🔗</a></h3>
+<p>Before starting, you should have:</p>
+<ul>
+<li>Completed the <a href="1_2d_handson_gcp.html">GCP Hands-on</a> (gcloud configured, project access)</li>
+<li>Access to the GitHub Codespace</li>
+</ul>
+<hr />
+<h2 id="1-key-concepts">1. Key Concepts<a class="headerlink" href="#1-key-concepts" title="Permanent link">🔗</a></h2>
+<p>Before diving in, let's understand the two GCP services we'll use.</p>
+<div class="admonition info">
+<p class="admonition-title">What is Google Compute Engine (GCE)?</p>
+<p><strong>Google Compute Engine (GCE)</strong> is GCP's virtual machine service. You can:</p>
+<ul>
+<li>Create VMs with specific CPU, RAM, and disk configurations</li>
+<li>Choose from pre-built images (including Deep Learning VMs with PyTorch pre-installed)</li>
+<li>Pay only for the time the VM is running (billed per second)</li>
+<li>Access VMs via SSH from anywhere</li>
+</ul>
+<p>Think of it as renting a computer in Google's data center. You control it entirely,
+but Google handles the physical hardware, networking, and maintenance.</p>
+<p><strong>Key difference from your laptop:</strong> GCE VMs are <em>ephemeral</em>—designed to be created,
+used, and deleted. Don't treat them as permanent storage.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">What is Google Cloud Storage (GCS)?</p>
+<p><strong>Google Cloud Storage (GCS)</strong> is GCP's object storage service. You can:</p>
+<ul>
+<li>Store any file (models, datasets, logs) in "buckets"</li>
+<li>Access files from anywhere (VMs, your laptop, other GCP services)</li>
+<li>Pay only for storage used and data transferred</li>
+<li>Files persist until you delete them—independent of any VM</li>
+</ul>
+<p>Think of it as a cloud hard drive with unlimited capacity. Unlike a VM's disk,
+GCS data survives VM deletion.</p>
+<p><strong>Why use GCS for ML?</strong> Your trained model and metrics live in GCS, so you can
+delete the expensive VM immediately after training and still have all your results.</p>
+</div>
+<hr />
+<h2 id="2-setup">2. Setup<a class="headerlink" href="#2-setup" title="Permanent link">🔗</a></h2>
+<h3 id="set-environment-variables">Set Environment Variables<a class="headerlink" href="#set-environment-variables" title="Permanent link">🔗</a></h3>
+<p>First, configure your environment with a unique run identifier:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Project and shared bucket (already created by instructor)</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PROJECT_ID</span><span class="o">=</span><span class="k">$(</span>gcloud<span class="w"> </span>config<span class="w"> </span>get-value<span class="w"> </span>project<span class="w"> </span><span class="m">2</span>&gt;<span class="w"> </span>/dev/null<span class="k">)</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">GCS_BUCKET</span><span class="o">=</span><span class="s2">&quot;gs://isae-sdd-de-2526&quot;</span>
+
+<span class="c1"># Unique run identifier: username + timestamp</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">RUN_ID</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">USER</span><span class="si">}</span><span class="s2">-</span><span class="k">$(</span>date<span class="w"> </span>+%Y%m%d-%H%M%S<span class="k">)</span><span class="s2">&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">INSTANCE_NAME</span><span class="o">=</span><span class="s2">&quot;training-vm-</span><span class="si">${</span><span class="nv">RUN_ID</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">GCS_OUTPUT</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">GCS_BUCKET</span><span class="si">}</span><span class="s2">/runs/</span><span class="si">${</span><span class="nv">RUN_ID</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="c1"># Display configuration</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Project: </span><span class="si">${</span><span class="nv">PROJECT_ID</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Run ID: </span><span class="si">${</span><span class="nv">RUN_ID</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Results will be saved to: </span><span class="si">${</span><span class="nv">GCS_OUTPUT</span><span class="si">}</span><span class="s2">&quot;</span>
+</code></pre></div>
+<h3 id="verify-bucket-access">Verify Bucket Access<a class="headerlink" href="#verify-bucket-access" title="Permanent link">🔗</a></h3>
+<p>The shared bucket is pre-created by the instructor. Verify you can access it:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># The bucket already exists - verify you can access it</span>
+gcloud<span class="w"> </span>storage<span class="w"> </span>ls<span class="w"> </span><span class="si">${</span><span class="nv">GCS_BUCKET</span><span class="si">}</span>
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Checkpoint 1</p>
+<p>You should see the bucket contents listed (may be empty or have other students' runs).
+If you get a permission error, check with the instructor.</p>
+</div>
+<hr />
+<h2 id="3-create-vm-and-run-training">3. Create VM and Run Training<a class="headerlink" href="#3-create-vm-and-run-training" title="Permanent link">🔗</a></h2>
+<h3 id="create-the-deep-learning-vm">Create the Deep Learning VM<a class="headerlink" href="#create-the-deep-learning-vm" title="Permanent link">🔗</a></h3>
+<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create<span class="w"> </span><span class="si">${</span><span class="nv">INSTANCE_NAME</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--zone<span class="o">=</span>europe-west1-b<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--image-family<span class="o">=</span>pytorch-latest-cpu<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--image-project<span class="o">=</span>deeplearning-platform-release<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--machine-type<span class="o">=</span>n1-standard-2<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--scopes<span class="o">=</span>storage-rw<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--boot-disk-size<span class="o">=</span>50GB
+</code></pre></div>
+<p><strong>Key flags explained:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--image-family=pytorch-latest-cpu</code></td>
+<td>Pre-installed PyTorch, no GPU needed</td>
+</tr>
+<tr>
+<td><code>--scopes=storage-rw</code></td>
+<td>VM can write to GCS without extra auth</td>
+</tr>
+<tr>
+<td><code>--machine-type=n1-standard-2</code></td>
+<td>2 vCPUs, 7.5 GB RAM</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition success">
+<p class="admonition-title">Checkpoint 2</p>
+<p>VM creation takes ~60 seconds. Run <code>gcloud compute instances list</code> - your VM should show <code>RUNNING</code> status.</p>
+</div>
+<h3 id="copy-the-training-script">Copy the Training Script<a class="headerlink" href="#copy-the-training-script" title="Permanent link">🔗</a></h3>
+<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>compute<span class="w"> </span>scp<span class="w"> </span>train.py<span class="w"> </span><span class="si">${</span><span class="nv">INSTANCE_NAME</span><span class="si">}</span>:~<span class="w"> </span>--zone<span class="o">=</span>europe-west1-b
+</code></pre></div>
+<h3 id="ssh-into-the-vm-and-run-training">SSH into the VM and Run Training<a class="headerlink" href="#ssh-into-the-vm-and-run-training" title="Permanent link">🔗</a></h3>
+<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>compute<span class="w"> </span>ssh<span class="w"> </span><span class="si">${</span><span class="nv">INSTANCE_NAME</span><span class="si">}</span><span class="w"> </span>--zone<span class="o">=</span>europe-west1-b
+</code></pre></div>
+<p>Once inside the VM, run training with <code>nohup</code> to keep it running even if SSH disconnects:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Use nohup to ensure training continues even if SSH disconnects</span>
+nohup<span class="w"> </span>python<span class="w"> </span>train.py<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--epochs<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--output-gcs<span class="w"> </span><span class="si">${</span><span class="nv">GCS_OUTPUT</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>&gt;<span class="w"> </span>training.log<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">&amp;</span>
+
+<span class="c1"># Monitor progress</span>
+tail<span class="w"> </span>-f<span class="w"> </span>training.log
+<span class="c1"># Press Ctrl+C to stop watching (training continues in background)</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Why nohup?</p>
+<p>If your SSH connection drops (network hiccup, laptop sleeps), the training process continues.
+Without nohup, a disconnection would kill your training mid-run.</p>
+<p>For longer interactive sessions, you could also use <a href="1_2d_handson_gcp.html#4e-persistent-ssh-sessions-with-tmux">tmux</a>
+which you learned about earlier.</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Checkpoint 3</p>
+<p>Training is complete when you see <code>Results uploaded to gs://...</code> in the log.
+Exit SSH with <code>exit</code>.</p>
+</div>
+<hr />
+<h2 id="4-verify-completion-cleanup-retrieve-results">4. Verify Completion, Cleanup &amp; Retrieve Results<a class="headerlink" href="#4-verify-completion-cleanup-retrieve-results" title="Permanent link">🔗</a></h2>
+<h3 id="verify-training-completed">Verify Training Completed<a class="headerlink" href="#verify-training-completed" title="Permanent link">🔗</a></h3>
+<div class="admonition danger">
+<p class="admonition-title">CRITICAL: Verify before deleting!</p>
+<p>Never delete your VM until you've confirmed results are in GCS.
+Once deleted, any data on the VM is <strong>gone forever</strong>.</p>
+</div>
+<p>From your Codespace (not the VM), check if results exist:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check if results exist in GCS (training script uploads on completion)</span>
+gcloud<span class="w"> </span>storage<span class="w"> </span>ls<span class="w"> </span><span class="si">${</span><span class="nv">GCS_OUTPUT</span><span class="si">}</span>/metrics.json
+</code></pre></div>
+<p>If you see the file listed, training is complete. If you get "One or more URLs matched no objects", training is still running.</p>
+<p><strong>Wait for completion (if needed):</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Poll until metrics.json appears (check every 30 seconds)</span>
+<span class="k">while</span><span class="w"> </span>!<span class="w"> </span>gcloud<span class="w"> </span>storage<span class="w"> </span>ls<span class="w"> </span><span class="si">${</span><span class="nv">GCS_OUTPUT</span><span class="si">}</span>/metrics.json<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>date<span class="k">)</span><span class="s2">: Training still in progress...&quot;</span>
+<span class="w">    </span>sleep<span class="w"> </span><span class="m">30</span>
+<span class="k">done</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Training complete! Results ready in </span><span class="si">${</span><span class="nv">GCS_OUTPUT</span><span class="si">}</span><span class="s2">&quot;</span>
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Checkpoint 4a</p>
+<p>You should see <code>gs://isae-sdd-de-2526/runs/yourname-YYYYMMDD-HHMMSS/metrics.json</code> listed.</p>
+</div>
+<h3 id="list-all-results">List All Results<a class="headerlink" href="#list-all-results" title="Permanent link">🔗</a></h3>
+<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>storage<span class="w"> </span>ls<span class="w"> </span><span class="si">${</span><span class="nv">GCS_OUTPUT</span><span class="si">}</span>/
+</code></pre></div>
+<p>Expected output:
+<div class="highlight"><pre><span></span><code>gs://isae-sdd-de-2526/runs/yourname-20260111-143052/model.pt
+gs://isae-sdd-de-2526/runs/yourname-20260111-143052/metrics.json
+</code></pre></div></p>
+<h3 id="pull-results-to-codespace">Pull Results to Codespace<a class="headerlink" href="#pull-results-to-codespace" title="Permanent link">🔗</a></h3>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>./results/<span class="si">${</span><span class="nv">RUN_ID</span><span class="si">}</span>
+gcloud<span class="w"> </span>storage<span class="w"> </span>cp<span class="w"> </span><span class="si">${</span><span class="nv">GCS_OUTPUT</span><span class="si">}</span>/*<span class="w"> </span>./results/<span class="si">${</span><span class="nv">RUN_ID</span><span class="si">}</span>/
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Checkpoint 5</p>
+<p>Run <code>ls ./results/${RUN_ID}/</code> - you should see <code>model.pt</code> and <code>metrics.json</code>.</p>
+</div>
+<h3 id="delete-the-vm">Delete the VM<a class="headerlink" href="#delete-the-vm" title="Permanent link">🔗</a></h3>
+<p><strong>Only after verifying results are in GCS!</strong></p>
+<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>delete<span class="w"> </span><span class="si">${</span><span class="nv">INSTANCE_NAME</span><span class="si">}</span><span class="w"> </span>--zone<span class="o">=</span>europe-west1-b<span class="w"> </span>--quiet
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Checkpoint 4b</p>
+<p>Run <code>gcloud compute instances list</code> - your VM should no longer appear.</p>
+</div>
+<hr />
+<h2 id="5-analyze-results-in-jupyter">5. Analyze Results in Jupyter<a class="headerlink" href="#5-analyze-results-in-jupyter" title="Permanent link">🔗</a></h2>
+<p>Open the <code>analyze.ipynb</code> notebook in your Codespace.</p>
+<h3 id="cell-1-load-metrics">Cell 1: Load Metrics<a class="headerlink" href="#cell-1-load-metrics" title="Permanent link">🔗</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Find the most recent run (or specify RUN_ID manually)</span>
+<span class="n">results_dir</span> <span class="o">=</span> <span class="s2">&quot;./results&quot;</span>
+<span class="n">runs</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">results_dir</span><span class="p">))</span>
+<span class="n">run_id</span> <span class="o">=</span> <span class="n">runs</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># Most recent run</span>
+<span class="n">run_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">results_dir</span><span class="p">,</span> <span class="n">run_id</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Analyzing run: </span><span class="si">{</span><span class="n">run_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">run_path</span><span class="p">,</span> <span class="s2">&quot;metrics.json&quot;</span><span class="p">))</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">metrics</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Final accuracy: </span><span class="si">{</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;test_accuracy&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Final loss: </span><span class="si">{</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;test_loss&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="cell-2-plot-training-curves">Cell 2: Plot Training Curves<a class="headerlink" href="#cell-2-plot-training-curves" title="Permanent link">🔗</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;epoch&#39;</span><span class="p">],</span> <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;test_loss&#39;</span><span class="p">])</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Epoch&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Loss&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Test Loss over Training&#39;</span><span class="p">)</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;epoch&#39;</span><span class="p">],</span> <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;test_accuracy&#39;</span><span class="p">])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Epoch&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Accuracy (%)&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Test Accuracy over Training&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">run_path</span><span class="p">,</span> <span class="s1">&#39;training_curves.png&#39;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="cell-3-inspect-model">Cell 3: Inspect Model<a class="headerlink" href="#cell-3-inspect-model" title="Permanent link">🔗</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="n">model_state</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">run_path</span><span class="p">,</span> <span class="s1">&#39;model.pt&#39;</span><span class="p">),</span> <span class="n">map_location</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Model layers: </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">model_state</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total parameters: </span><span class="si">{</span><span class="nb">sum</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">numel</span><span class="p">()</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">model_state</span><span class="o">.</span><span class="n">values</span><span class="p">())</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Checkpoint 6 (Final)</p>
+<p>You should see training curves plotted and ~93-98% accuracy after 5 epochs.</p>
+</div>
+<hr />
+<h2 id="6-summary">6. Summary<a class="headerlink" href="#6-summary" title="Permanent link">🔗</a></h2>
+<div class="admonition success">
+<p class="admonition-title">What You Learned</p>
+<ul>
+<li><strong>Deep Learning VMs</strong>: Pre-configured GCE images with ML frameworks ready</li>
+<li><strong>Remote training pattern</strong>: SSH → run → upload to GCS → delete VM</li>
+<li><strong>GCS as artifact storage</strong>: Durable, accessible from anywhere, decoupled from compute</li>
+<li><strong>Cloud workflow</strong>: Compute is ephemeral, storage is persistent</li>
+</ul>
+</div>
+<hr />
+<h2 id="7-bonus-automation-script">7. Bonus: Automation Script<a class="headerlink" href="#7-bonus-automation-script" title="Permanent link">🔗</a></h2>
+<p>Every command you ran could be a script. Here's what a fully automated <code>train_remote.sh</code> looks like:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="nb">set</span><span class="w"> </span>-e<span class="w">  </span><span class="c1"># Exit on any error</span>
+
+<span class="c1"># Configuration</span>
+<span class="nv">GCS_BUCKET</span><span class="o">=</span><span class="s2">&quot;gs://isae-sdd-de-2526&quot;</span>
+<span class="nv">RUN_ID</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">USER</span><span class="si">}</span><span class="s2">-</span><span class="k">$(</span>date<span class="w"> </span>+%Y%m%d-%H%M%S<span class="k">)</span><span class="s2">&quot;</span>
+<span class="nv">INSTANCE_NAME</span><span class="o">=</span><span class="s2">&quot;training-vm-</span><span class="si">${</span><span class="nv">RUN_ID</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="nv">ZONE</span><span class="o">=</span><span class="s2">&quot;europe-west1-b&quot;</span>
+<span class="nv">GCS_OUTPUT</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">GCS_BUCKET</span><span class="si">}</span><span class="s2">/runs/</span><span class="si">${</span><span class="nv">RUN_ID</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="nv">EPOCHS</span><span class="o">=</span><span class="si">${</span><span class="nv">1</span><span class="k">:-</span><span class="nv">5</span><span class="si">}</span><span class="w">  </span><span class="c1"># Default 5 epochs, or pass as argument</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;==&gt; Run ID: </span><span class="si">${</span><span class="nv">RUN_ID</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;==&gt; Results will be saved to: </span><span class="si">${</span><span class="nv">GCS_OUTPUT</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;==&gt; Creating VM </span><span class="si">${</span><span class="nv">INSTANCE_NAME</span><span class="si">}</span><span class="s2">...&quot;</span>
+gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create<span class="w"> </span><span class="si">${</span><span class="nv">INSTANCE_NAME</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--zone<span class="o">=</span><span class="si">${</span><span class="nv">ZONE</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--image-family<span class="o">=</span>pytorch-latest-cpu<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--image-project<span class="o">=</span>deeplearning-platform-release<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--machine-type<span class="o">=</span>n1-standard-2<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--scopes<span class="o">=</span>storage-rw<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--boot-disk-size<span class="o">=</span>50GB
+
+<span class="c1"># Wait for SSH to become available (more reliable than sleep)</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;==&gt; Waiting for SSH to become available...&quot;</span>
+<span class="k">until</span><span class="w"> </span>gcloud<span class="w"> </span>compute<span class="w"> </span>ssh<span class="w"> </span><span class="si">${</span><span class="nv">INSTANCE_NAME</span><span class="si">}</span><span class="w"> </span>--zone<span class="o">=</span><span class="si">${</span><span class="nv">ZONE</span><span class="si">}</span><span class="w"> </span>--command<span class="o">=</span><span class="s2">&quot;echo ready&quot;</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;    Waiting for VM...&quot;</span>
+<span class="w">    </span>sleep<span class="w"> </span><span class="m">5</span>
+<span class="k">done</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;==&gt; Copying training script...&quot;</span>
+gcloud<span class="w"> </span>compute<span class="w"> </span>scp<span class="w"> </span>train.py<span class="w"> </span><span class="si">${</span><span class="nv">INSTANCE_NAME</span><span class="si">}</span>:~<span class="w"> </span>--zone<span class="o">=</span><span class="si">${</span><span class="nv">ZONE</span><span class="si">}</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;==&gt; Starting training in background...&quot;</span>
+gcloud<span class="w"> </span>compute<span class="w"> </span>ssh<span class="w"> </span><span class="si">${</span><span class="nv">INSTANCE_NAME</span><span class="si">}</span><span class="w"> </span>--zone<span class="o">=</span><span class="si">${</span><span class="nv">ZONE</span><span class="si">}</span><span class="w"> </span>--command<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="s2">&quot;nohup python train.py --epochs </span><span class="si">${</span><span class="nv">EPOCHS</span><span class="si">}</span><span class="s2"> --output-gcs </span><span class="si">${</span><span class="nv">GCS_OUTPUT</span><span class="si">}</span><span class="s2"> &gt; training.log 2&gt;&amp;1 &amp;&quot;</span>
+
+<span class="c1"># Poll for completion by checking if metrics.json exists in GCS</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;==&gt; Waiting for training to complete...&quot;</span>
+<span class="k">while</span><span class="w"> </span>!<span class="w"> </span>gcloud<span class="w"> </span>storage<span class="w"> </span>ls<span class="w"> </span><span class="si">${</span><span class="nv">GCS_OUTPUT</span><span class="si">}</span>/metrics.json<span class="w"> </span><span class="p">&amp;</span>&gt;<span class="w"> </span>/dev/null<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;    </span><span class="k">$(</span>date<span class="k">)</span><span class="s2">: Training in progress...&quot;</span>
+<span class="w">    </span>sleep<span class="w"> </span><span class="m">30</span>
+<span class="k">done</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;==&gt; Training complete! Deleting VM...&quot;</span>
+gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>delete<span class="w"> </span><span class="si">${</span><span class="nv">INSTANCE_NAME</span><span class="si">}</span><span class="w"> </span>--zone<span class="o">=</span><span class="si">${</span><span class="nv">ZONE</span><span class="si">}</span><span class="w"> </span>--quiet
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;==&gt; Done! Results at </span><span class="si">${</span><span class="nv">GCS_OUTPUT</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;==&gt; Download with: gcloud storage cp </span><span class="si">${</span><span class="nv">GCS_OUTPUT</span><span class="si">}</span><span class="s2">/* ./results/</span><span class="si">${</span><span class="nv">RUN_ID</span><span class="si">}</span><span class="s2">/&quot;</span>
+</code></pre></div>
+<p>Now launching a training run is one command:</p>
+<div class="highlight"><pre><span></span><code>./train_remote.sh<span class="w"> </span><span class="m">10</span><span class="w">  </span><span class="c1"># Train for 10 epochs</span>
+</code></pre></div>
+<p>This is how reproducible ML pipelines start. Tools like <strong>Terraform</strong> and <strong>Pulumi</strong> formalize this further, letting you version control your infrastructure alongside your code.</p>
+<hr />
+<h2 id="8-looking-ahead-mlops">8. Looking Ahead: MLOps<a class="headerlink" href="#8-looking-ahead-mlops" title="Permanent link">🔗</a></h2>
+<p>You just did manually what MLOps platforms automate:</p>
+<table>
+<thead>
+<tr>
+<th>What You Did</th>
+<th>Production Tools</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Create VM, run training</td>
+<td><strong>Vertex AI</strong> (GCP), <strong>SageMaker</strong> (AWS)</td>
+</tr>
+<tr>
+<td>Track metrics.json</td>
+<td><strong>MLflow</strong>, <strong>Weights &amp; Biases</strong></td>
+</tr>
+<tr>
+<td>Script the workflow</td>
+<td><strong>Kubeflow</strong>, <strong>Airflow</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The pattern you learned is the foundation—cloud platforms add automation on top.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["toc.autohide", "navigation.sections"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

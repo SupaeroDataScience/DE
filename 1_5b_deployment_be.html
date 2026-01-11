@@ -1073,14 +1073,14 @@
   
   
     <li class="md-nav__item">
-      <a href="1_4a_docker_workflow.html" class="md-nav__link">
+      <a href="1_4a_gcp_workflow.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    1. Docker Workflow
+    1. GCP Compute Workflow
   
 
     
@@ -1101,14 +1101,14 @@
   
   
     <li class="md-nav__item">
-      <a href="1_4b_gcp_workflow.html" class="md-nav__link">
+      <a href="1_4b_docker_workflow.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    2. GCP Compute Workflow
+    2. Docker Workflow
   
 
     
@@ -1304,10 +1304,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#objectifs" class="md-nav__link">
+  <a href="#objectives" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Objectifs
+        Objectives
       
     </span>
   </a>
@@ -1315,10 +1315,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-mise-en-place-du-projet-google-cloud-platform" class="md-nav__link">
+  <a href="#workshop-overview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1 - Mise en place du projet Google Cloud Platform
+        Workshop Overview
       
     </span>
   </a>
@@ -1326,90 +1326,385 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-demarrage-du-github-codespace" class="md-nav__link">
+  <a href="#1-key-concepts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2 - Démarrage du GitHub Codespace
+        1 - Key Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 - Key Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-an-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is an API?
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#3-construction-et-tests-du-backend" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#why-microservices" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3 - Construction et tests du backend
+        Why Microservices?
       
     </span>
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#4-construction-et-tests-du-frontend" class="md-nav__link">
+  <a href="#2-setup" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4 - Construction et tests du frontend
+        2 - Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 - Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#select-your-gcp-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Select your GCP Project
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#5-docker-compose" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#start-your-github-codespace" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5 - docker-compose
+        Start your GitHub Codespace
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#6-deploiement-du-backend-sur-une-vm-google-compute-engine" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#verify-gcloud-configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6 - Deploiement du backend sur une VM Google Compute Engine
+        Verify gcloud configuration
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#7-tests" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#navigate-to-the-workshop-folder" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7 - Tests
+        Navigate to the workshop folder
       
     </span>
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#8-yay" class="md-nav__link">
+  <a href="#3-understanding-and-testing-the-backend" class="md-nav__link">
     <span class="md-ellipsis">
       
-        8. Yay !
+        3 - Understanding and Testing the Backend
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 - Understanding and Testing the Backend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explore-the-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explore the code
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#9-bonus-passer-a-lechelle" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#run-the-backend-locally" class="md-nav__link">
     <span class="md-ellipsis">
       
-        9. BONUS - Passer à l'échelle
+        Run the backend locally
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-the-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test the API
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-understanding-and-testing-the-frontend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 - Understanding and Testing the Frontend
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 - Understanding and Testing the Frontend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explore-the-code_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explore the code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-the-frontend-locally" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run the frontend locally
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-the-full-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test the full flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-multi-container-orchestration-with-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 - Multi-Container Orchestration with docker-compose
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5 - Multi-Container Orchestration with docker-compose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-solution-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The solution: docker-compose
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-with-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run with docker-compose
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-the-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test the application
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stop-the-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stop the services
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-deploying-to-google-cloud-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6 - Deploying to Google Cloud Run
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6 - Deploying to Google Cloud Run">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-cloud-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is Cloud Run?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deploy-the-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deploy the backend
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-your-service-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get your service URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connect-your-local-frontend-to-the-cloud-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connect your local frontend to the cloud backend
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7 - Conclusion
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7 - Conclusion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-you-learned" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What you learned
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architecture-you-built" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture you built
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cleanup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What's next
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1889,10 +2184,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#objectifs" class="md-nav__link">
+  <a href="#objectives" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Objectifs
+        Objectives
       
     </span>
   </a>
@@ -1900,10 +2195,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-mise-en-place-du-projet-google-cloud-platform" class="md-nav__link">
+  <a href="#workshop-overview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1 - Mise en place du projet Google Cloud Platform
+        Workshop Overview
       
     </span>
   </a>
@@ -1911,90 +2206,385 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-demarrage-du-github-codespace" class="md-nav__link">
+  <a href="#1-key-concepts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2 - Démarrage du GitHub Codespace
+        1 - Key Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 - Key Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-an-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is an API?
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#3-construction-et-tests-du-backend" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#why-microservices" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3 - Construction et tests du backend
+        Why Microservices?
       
     </span>
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#4-construction-et-tests-du-frontend" class="md-nav__link">
+  <a href="#2-setup" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4 - Construction et tests du frontend
+        2 - Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 - Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#select-your-gcp-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Select your GCP Project
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#5-docker-compose" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#start-your-github-codespace" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5 - docker-compose
+        Start your GitHub Codespace
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#6-deploiement-du-backend-sur-une-vm-google-compute-engine" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#verify-gcloud-configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6 - Deploiement du backend sur une VM Google Compute Engine
+        Verify gcloud configuration
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#7-tests" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#navigate-to-the-workshop-folder" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7 - Tests
+        Navigate to the workshop folder
       
     </span>
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#8-yay" class="md-nav__link">
+  <a href="#3-understanding-and-testing-the-backend" class="md-nav__link">
     <span class="md-ellipsis">
       
-        8. Yay !
+        3 - Understanding and Testing the Backend
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 - Understanding and Testing the Backend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explore-the-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explore the code
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#9-bonus-passer-a-lechelle" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#run-the-backend-locally" class="md-nav__link">
     <span class="md-ellipsis">
       
-        9. BONUS - Passer à l'échelle
+        Run the backend locally
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-the-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test the API
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-understanding-and-testing-the-frontend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 - Understanding and Testing the Frontend
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 - Understanding and Testing the Frontend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explore-the-code_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explore the code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-the-frontend-locally" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run the frontend locally
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-the-full-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test the full flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-multi-container-orchestration-with-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 - Multi-Container Orchestration with docker-compose
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5 - Multi-Container Orchestration with docker-compose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-solution-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The solution: docker-compose
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-with-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run with docker-compose
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-the-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test the application
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stop-the-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stop the services
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-deploying-to-google-cloud-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6 - Deploying to Google Cloud Run
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6 - Deploying to Google Cloud Run">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-cloud-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is Cloud Run?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deploy-the-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deploy the backend
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-your-service-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get your service URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connect-your-local-frontend-to-the-cloud-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connect your local frontend to the cloud backend
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7 - Conclusion
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7 - Conclusion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-you-learned" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What you learned
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architecture-you-built" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture you built
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cleanup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What's next
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2019,36 +2609,129 @@
 
 
 <h1 id="deploy-your-ml-model-into-production">Deploy your ML model into production<a class="headerlink" href="#deploy-your-ml-model-into-production" title="Permanent link">🔗</a></h1>
-<h2 id="objectifs">Objectifs<a class="headerlink" href="#objectifs" title="Permanent link">🔗</a></h2>
-<p>L'objectif du TP est de convertir <a href="https://colab.research.google.com/drive/1YnJVW-IbMkUhl7s5nJ7BsT5tsTTvMmUB?usp=sharing">ce notebook</a> en deux services containerisés : </p>
+<h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">🔗</a></h2>
+<p>By the end of this workshop, you will be able to:</p>
+<ol>
+<li><strong>Explain APIs and microservices</strong> - Understand what an API is and why we separate frontend from backend</li>
+<li><strong>Run multi-container applications</strong> - Use docker-compose to orchestrate services locally</li>
+<li><strong>Deploy to Cloud Run</strong> - Use the gcloud CLI to deploy a container with a public HTTPS URL</li>
+<li><strong>Connect distributed services</strong> - Point a local frontend to a cloud-hosted backend API</li>
+</ol>
+<h2 id="workshop-overview">Workshop Overview<a class="headerlink" href="#workshop-overview" title="Permanent link">🔗</a></h2>
+<p>We will convert <a href="https://colab.research.google.com/drive/1YnJVW-IbMkUhl7s5nJ7BsT5tsTTvMmUB?usp=sharing">this notebook</a> into two containerized services:</p>
 <ul>
-<li>un back-end qui est un serveur qui reçoit des images et sort des prédictions, </li>
-<li>un front-end qui vous permet d'envoyer des images au modèle et d'afficher les prédictions sur lesdites images,</li>
+<li>A <strong>backend</strong> server that receives images and returns YOLO object detection predictions</li>
+<li>A <strong>frontend</strong> UI that lets you upload images and visualize the predictions</li>
 </ul>
-<p>Afin de gagner du temps, les dockerfiles ont déjà été construits et sont prêts à être testés et déployés. Si vous souhaitez rentrer dans les détails et écrire vous-même le code, vous pouvez consulter la version longue de ce TP <a href="1_8_deployment_tp_long.html">ci-dessous</a> (qui n'est pas à jour). </p>
-<p>Nous allons donc voir :</p>
+<p>The Docker images are pre-built - this workshop focuses on understanding the architecture and deployment workflow.</p>
+<p><strong>What we will cover:</strong></p>
+<ol>
+<li>Key concepts: APIs and microservices</li>
+<li>Testing the backend locally</li>
+<li>Testing the frontend locally</li>
+<li>Using docker-compose for multi-container orchestration</li>
+<li>Deploying the backend to Google Cloud Run</li>
+<li>Connecting everything together</li>
+</ol>
+<h2 id="1-key-concepts">1 - Key Concepts<a class="headerlink" href="#1-key-concepts" title="Permanent link">🔗</a></h2>
+<p>Before diving into the hands-on, let's understand two important concepts.</p>
+<h3 id="what-is-an-api">What is an API?<a class="headerlink" href="#what-is-an-api" title="Permanent link">🔗</a></h3>
+<p>An <strong>API</strong> (Application Programming Interface) defines how software components communicate. For web applications, this means:</p>
 <ul>
-<li>La création d'un docker "backend" qui contient le modèle derrière une "API"</li>
-<li>L'interaction avec ce docker</li>
-<li>La création d'un docker "frontend" qui contient une IHM permettant d'interagir plus facilement avec le backend</li>
-<li>docker-compose pour lancer des applications multi-container</li>
-<li>Le déploiement du backend sur GCP</li>
-<li>Le test final</li>
+<li><strong>Client sends a request</strong>: HTTP method + URL + optional data</li>
+<li><strong>Server processes and responds</strong>: Status code + data (usually JSON)</li>
 </ul>
-<p>Nous nous plaçons dans un contexte "microservices" où le front-end et le backend sont 2 containers différents. Il aurait été possible de n'en faire qu'un qui contient les deux (un "monolithe"). Une architecture microservices peut avoir certains avantages (modularité, maintenance) mais est plus complexe à mettre en oeuvre.</p>
-<h2 id="1-mise-en-place-du-projet-google-cloud-platform">1 - Mise en place du projet Google Cloud Platform<a class="headerlink" href="#1-mise-en-place-du-projet-google-cloud-platform" title="Permanent link">🔗</a></h2>
-<p>Sélectionnez votre projet Google Cloud Platform personnel</p>
-<h2 id="2-demarrage-du-github-codespace">2 - Démarrage du GitHub Codespace<a class="headerlink" href="#2-demarrage-du-github-codespace" title="Permanent link">🔗</a></h2>
-<p>Si vous avez déjà démarré un GitHub Codespace précédemment, vous pouvez le relancer via l'<a href="https://github.com/codespaces">interface habituelle</a></p>
-<p>Sinon, démarrez un github codespace depuis le repository <a href="https://github.com/fchouteau/isae-cloud-computing-codespace">https://github.com/fchouteau/isae-cloud-computing-codespace</a></p>
-<p>Il est nécéssaire d'utiliser un codespace à partir de ce repository car il contient tout ce dont vous avez besoin pour ce TP.</p>
+<p>In this workshop, the backend exposes an API with endpoints like:</p>
+<table>
+<thead>
+<tr>
+<th>Endpoint</th>
+<th>Method</th>
+<th>Input</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/health</code></td>
+<td>GET</td>
+<td>None</td>
+<td><code>{"status": "ok"}</code></td>
+</tr>
+<tr>
+<td><code>/predict</code></td>
+<td>POST</td>
+<td>Base64 image</td>
+<td><code>{"detections": [...], "time": 0.5}</code></td>
+</tr>
+</tbody>
+</table>
+<p>The frontend doesn't need to know <em>how</em> the model works - it just sends images and receives predictions through the API contract.</p>
+<h3 id="why-microservices">Why Microservices?<a class="headerlink" href="#why-microservices" title="Permanent link">🔗</a></h3>
+<p>Our application has two components:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Role</th>
+<th>Technology</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Backend</td>
+<td>Receives images, runs YOLO model, returns predictions</td>
+<td>FastAPI</td>
+</tr>
+<tr>
+<td>Frontend</td>
+<td>User interface for uploading images and displaying results</td>
+<td>Streamlit</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Why separate them instead of one monolithic application?</strong></p>
+<ul>
+<li><strong>Independent scaling</strong> - The backend needs more CPU/memory for ML inference; the frontend is lightweight</li>
+<li><strong>Independent updates</strong> - Change the UI without touching the model, or vice versa</li>
+<li><strong>Technology flexibility</strong> - Use the best framework for each job</li>
+<li><strong>Team autonomy</strong> - Different developers can work on each component</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">When to use microservices</p>
+<p>Microservices add complexity (networking, deployment coordination). For small projects, a monolith is often simpler. We use microservices here to demonstrate the pattern you'll encounter in production systems.</p>
+</div>
+<h2 id="2-setup">2 - Setup<a class="headerlink" href="#2-setup" title="Permanent link">🔗</a></h2>
+<h3 id="select-your-gcp-project">Select your GCP Project<a class="headerlink" href="#select-your-gcp-project" title="Permanent link">🔗</a></h3>
+<p>Select your personal Google Cloud Platform project (the same one from previous sessions).</p>
+<h3 id="start-your-github-codespace">Start your GitHub Codespace<a class="headerlink" href="#start-your-github-codespace" title="Permanent link">🔗</a></h3>
+<p>If you already have a GitHub Codespace from previous sessions, relaunch it from the <a href="https://github.com/codespaces">Codespaces interface</a>.</p>
+<p>Otherwise, start a new one from <a href="https://github.com/fchouteau/isae-cloud-computing-codespace">https://github.com/fchouteau/isae-cloud-computing-codespace</a></p>
 <p><img alt="codespace" src="slides/static/img/codespacefchouteau.png" /></p>
-<p>Normalement, une fois le codespace lancé, vous devriez obtenir une interface vscode avec deux dossiers dont un nommé <code>tp-deployment</code>. Rendez-vous dans ce dossier,</p>
-<p>Il y a plusieurs ressources : le <code>frontend</code> qui contient de quoi construire l'IHM, le <code>backend</code> qui contient de quoi construire le serveur, et des ressources de tests.</p>
-<h2 id="3-construction-et-tests-du-backend">3 - Construction et tests du backend<a class="headerlink" href="#3-construction-et-tests-du-backend" title="Permanent link">🔗</a></h2>
-<p>Le <code>README.md</code> du dossier <code>backend</code> contient des détails concernant la construction du serveur et de son API (qui était auparavant laissé en exercice). Nous utilisons <a href="https://fastapi.tiangolo.com/">FastAPI</a> qui un framework de construction d'applications Web.</p>
-<p>Le code principal se trouve dans <code>app.py</code>. On déclare des "routes" (des méthodes d'interactions avec le serveur) puis on leur assigne des fonctions.</p>
-<p>Par exemple, vous pouvez regarder la route <code>/predict</code> qui est associée à la fonction du même nom.</p>
+<h3 id="verify-gcloud-configuration">Verify gcloud configuration<a class="headerlink" href="#verify-gcloud-configuration" title="Permanent link">🔗</a></h3>
+<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>config<span class="w"> </span>get-value<span class="w"> </span>project
+</code></pre></div>
+<p>If not configured, run <code>gcloud init</code> as you did in the <a href="1_2d_handson_gcp.html">previous session</a>.</p>
+<h3 id="navigate-to-the-workshop-folder">Navigate to the workshop folder<a class="headerlink" href="#navigate-to-the-workshop-folder" title="Permanent link">🔗</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>tp-deployment
+ls
+</code></pre></div>
+<p>You should see:</p>
+<div class="highlight"><pre><span></span><code>tp-deployment/
+├── backend/           # FastAPI server with YOLO model
+├── frontend/          # Streamlit user interface
+├── docker-compose.yml # Multi-container configuration
+└── test-images/       # Sample images for testing
+</code></pre></div>
+<h2 id="3-understanding-and-testing-the-backend">3 - Understanding and Testing the Backend<a class="headerlink" href="#3-understanding-and-testing-the-backend" title="Permanent link">🔗</a></h2>
+<p>The <code>backend/</code> folder contains a FastAPI application that serves the YOLO object detection model.</p>
+<h3 id="explore-the-code">Explore the code<a class="headerlink" href="#explore-the-code" title="Permanent link">🔗</a></h3>
+<p>Open <code>backend/app.py</code> and look for:</p>
+<ul>
+<li>The FastAPI app declaration</li>
+<li>The <code>/predict</code> route - receives an image, runs inference, returns detections</li>
+<li>The <code>/health</code> route - simple endpoint to check if the server is alive</li>
+</ul>
 <div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
     <span class="s2">&quot;/predict&quot;</span><span class="p">,</span>
     <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Send a base64 encoded image + the model name, get detections&quot;</span><span class="p">,</span>
@@ -2056,40 +2739,74 @@
     <span class="n">response_model</span><span class="o">=</span><span class="n">Result</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
-<p>Cette fonction effectue l'inférence sur l'image qui est donnée via la requête REST vers la route /predict.</p>
-<p>Afin de mieux illustrer les possibilités d'intéraction avec ce serveur, nous allons le lancer localement, en utilisant l'image docker déjà construite </p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Remarque: vous pouvez reproduire le docker en lançant </p>
-<p><code>docker build -f Dockerfile -t eu.gcr.io/third-ridge-138414/yolo-v5:1.2</code></p>
+<div class="admonition info">
+<p class="admonition-title">What is FastAPI?</p>
+<p>FastAPI is a modern Python web framework for building APIs. It automatically generates interactive documentation from your code and validates request/response data.</p>
 </div>
-<p>Lancez la commande suivante <code>docker run --rm -p 8000:8000 eu.gcr.io/third-ridge-138414/yolo-v5:1.2</code></p>
-<p>Cela lance un container depuis l'image docker du backend en exposant le port 8000.</p>
-<p>Connectez-vous au port 8000 du codespace. Vous devriez avoir une page vierge qui contient <code>"YOLO-V5 WebApp created with FastAPI"</code></p>
-<p>Nous allons maintenant regarder la documentation de l'application. Celle-ci est automatiquement générée à partir du code de <code>app.py</code> via le framework FastAPI et est disponible sur la route <code>/docs</code>. Pour plus d'informations, voir <a href="https://fastapi.tiangolo.com/features/#automatic-docs">ici</a></p>
-<p>Connectez-vous donc à la route <code>/docs</code> en rajoutant ce terme à l'URL du codespace. </p>
+<h3 id="run-the-backend-locally">Run the backend locally<a class="headerlink" href="#run-the-backend-locally" title="Permanent link">🔗</a></h3>
+<p>Launch the backend container:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-p<span class="w"> </span><span class="m">8000</span>:8000<span class="w"> </span>eu.gcr.io/third-ridge-138414/yolo-v5:1.2
+</code></pre></div>
+<p>This starts a container exposing port 8000.</p>
+<h3 id="test-the-api">Test the API<a class="headerlink" href="#test-the-api" title="Permanent link">🔗</a></h3>
+<p><strong>Option 1: Browser</strong></p>
+<p>Open port 8000 in your Codespace. You should see:</p>
+<div class="highlight"><pre><span></span><code>&quot;YOLO-V5 WebApp created with FastAPI&quot;
+</code></pre></div>
+<p>Navigate to <code>/docs</code> to see the interactive API documentation:</p>
 <p><img alt="fastapidoc" src="slides/static/img/apidoc.png" /></p>
-<p>Cette page web décrit les différentes routes accessibles et leurs méthodes d'intéraction, ainsi que les formats d'entrée et de sortie. C'est la documentation de l'API et lorsque vous interagissez avec le serveur, c'est la seule chose dont vous avez besoin. La documentation de l'API est <a href="https://github.com/swagger-api/swagger-ui">normalisée</a>.</p>
-<p>Nous allons maintenant interagir avec ce serveur.</p>
-<p>Dans le dossier <code>backend</code> se trouve un fichier python <code>test_webapp.py</code>. Il va automatiquement envoyer les bonnes requêtes au serveur. Executez-le (<code>python test_webapp.py</code>), vous devriez voir s'afficher des tests correspondants au code, ainsi que les prédictions des chats sur l'image <code>cats.png</code> </p>
-<p>Laissez le terminal avec le container démarré pour l'instant,</p>
-<h2 id="4-construction-et-tests-du-frontend">4 - Construction et tests du frontend<a class="headerlink" href="#4-construction-et-tests-du-frontend" title="Permanent link">🔗</a></h2>
-<p>Comme vous aurez pu le constater, ce n'est pas très intuitif d'interagir avec le backend via des scripts, on aimerait pouvoir visualiser plus facilement les prédictions, faire des seuils sur la confiance des objets, etc...</p>
-<p>Pour cela nous allons créer une application <code>streamlit</code> (remarque: pour une introduction à streamlit rendez-vous dans la <a href="/1_5_be.md##21-lets-discover-streamlit">section 6 du BE</a>)</p>
-<p>Dans votre codespace, démarrez un nouveau terminal puis allez dans le dossier <code>frontend</code>. Là encore, le fichier <code>app.py</code> contient le code de l'applicaiton streamlit. Celle-ci va récupérer une image que vous allez uploader (image de votre choix) puis l'envoyer au serveur dont vous spécifiez l'IP dans la case en haut à gauche.</p>
-<p>Nous allons lancer cette application,</p>
-<p><code>docker run --rm -p 8501:8501 --network="host" eu.gcr.io/third-ridge-138414/yolo-v5-streamlit:1.5</code></p>
-<p>Rendez-vous sur le port 8501 de votre github codespace, </p>
+<p><strong>Option 2: Test script</strong></p>
+<p>In a new terminal, run the test script:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>backend
+python<span class="w"> </span>test_webapp.py
+</code></pre></div>
+<p>This sends test requests to the API and displays the detection results for <code>cats.png</code>.</p>
+<div class="admonition success">
+<p class="admonition-title">Checkpoint</p>
+<p>You should see test results and cat detections printed. Keep this container running for the next section.</p>
+</div>
+<h2 id="4-understanding-and-testing-the-frontend">4 - Understanding and Testing the Frontend<a class="headerlink" href="#4-understanding-and-testing-the-frontend" title="Permanent link">🔗</a></h2>
+<p>Interacting with the backend via scripts isn't user-friendly. The <code>frontend/</code> folder contains a Streamlit application that provides a visual interface.</p>
+<h3 id="explore-the-code_1">Explore the code<a class="headerlink" href="#explore-the-code_1" title="Permanent link">🔗</a></h3>
+<p>Open <code>frontend/app.py</code> and look for:</p>
+<ul>
+<li>The backend URL configuration (user can change it in the UI)</li>
+<li>The "IS ALIVE" button - calls <code>/health</code> to check if the backend is reachable</li>
+<li>The image upload widget and "PREDICT" button - sends the image to <code>/predict</code></li>
+</ul>
+<h3 id="run-the-frontend-locally">Run the frontend locally<a class="headerlink" href="#run-the-frontend-locally" title="Permanent link">🔗</a></h3>
+<p>Open a <strong>new terminal</strong> (keep the backend running in the first one):</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-p<span class="w"> </span><span class="m">8501</span>:8501<span class="w"> </span>--network<span class="o">=</span><span class="s2">&quot;host&quot;</span><span class="w"> </span>eu.gcr.io/third-ridge-138414/yolo-v5-streamlit:1.5
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Why <code>--network=\"host\"</code>?</p>
+<p>This lets the frontend container access <code>localhost:8000</code> where the backend is running. Without it, containers are on isolated networks and cannot communicate.</p>
+</div>
+<h3 id="test-the-full-flow">Test the full flow<a class="headerlink" href="#test-the-full-flow" title="Permanent link">🔗</a></h3>
+<ol>
+<li>Open port 8501 in your Codespace</li>
+<li>The backend URL should default to <code>http://localhost:8000</code></li>
+<li>Click <strong>"IS ALIVE"</strong> - should confirm the backend is reachable</li>
+<li>Upload an image (try one with people, cars, or animals)</li>
+<li>Click <strong>"PREDICT"</strong> - you should see detection boxes drawn on the image</li>
+</ol>
 <p><img alt="streamlit" src="slides/static/img/companionapp.png" /></p>
-<p>La première étape est de renseigner l'adresse (URL) du backend. Pour tester que vous arrivez bien à joindre le serveur, cliquez sur le bouton "IS ALIVE". Ce bouton (voir code dans <code>app.py</code>) envoie une requête à la route /health pour vérifier que le serveur est vivant.</p>
-<p>Par défaut, l'URL du serveur est <code>http://localhost:8000</code> ce qui semble correct car nous avons ouvert un docker sur le port 8000.</p>
-<p>Vous pouvez maintenant tester le serveur, et s'il marche, uploader une image de votre choix avec le bouton upload puis lancer une prédiction. Cela va uploader l'image dans le frontend, puis envoyer une requête POST à <code>http://url-du-serveur/predict</code> puis récupérer les résultats (le <code>json</code>) et l'interpréter correctement.</p>
-<p>Vous noterez que nous avons démarré le frontend avec l'argument <code>--network="host"</code>. Cela permet au container d'avoir accès au <code>localhost</code> (d'être sur le même réseau que l'hôte). Sans cet argument, les containers sont sur des réseaux séparés et ne se voient pas.</p>
-<p>Vous pouvez maintenant stopper les deux containers (backend et frontend)</p>
-<h2 id="5-docker-compose">5 - docker-compose<a class="headerlink" href="#5-docker-compose" title="Permanent link">🔗</a></h2>
-<p>Pour simplifier cette étape de déploiement multi-containers qui peut être fastidieuse (imaginez une application à 4, 5 containers !), une solution nommée <code>docker-compose</code> existe. Voir une <a href="https://blog.stephane-robert.info/docs/conteneurs/orchestrateurs/docker-compose/">introduction à docker-compose</a></p>
-<p>Cette solution permet de lancer une série de containers en les assignant à un même réseau, de façon déclarative, c'est à dire que l'on renseigne dans un fichier de configuration la mise en place des containers.</p>
-<p>Notre <code>docker-compose.yml</code> se trouve dans le dossier <code>tp-deployment</code></p>
+<div class="admonition success">
+<p class="admonition-title">Checkpoint</p>
+<p>You can now send images through the frontend and see YOLO detections. Stop both containers (Ctrl+C in each terminal) before continuing.</p>
+</div>
+<h2 id="5-multi-container-orchestration-with-docker-compose">5 - Multi-Container Orchestration with docker-compose<a class="headerlink" href="#5-multi-container-orchestration-with-docker-compose" title="Permanent link">🔗</a></h2>
+<p>Running two containers manually works, but it's tedious:</p>
+<ul>
+<li>Two terminals to manage</li>
+<li>Remember port mappings for each service</li>
+<li>Handle networking between containers</li>
+<li>Start and stop each individually</li>
+</ul>
+<p>Imagine an application with 5 containers...</p>
+<h3 id="the-solution-docker-compose">The solution: docker-compose<a class="headerlink" href="#the-solution-docker-compose" title="Permanent link">🔗</a></h3>
+<p>Docker Compose lets you define all services in a single YAML file and manage them with one command.</p>
+<p>Open <code>docker-compose.yml</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3&#39;</span>
 <span class="nt">services</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">yolo</span><span class="p">:</span>
@@ -2103,94 +2820,234 @@
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8501:8501&quot;</span>
 <span class="w">    </span><span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">streamlit</span>
 </code></pre></div>
-<p>Ce fichier de configuration indique qu'au lancement le frontend et le backend vont se lancer simultanément, exposer leurs ports respectifs, et pouvoir communiquer entre eux via leurs "hostnames".</p>
-<p>Nous allons lancer notre application par ce bias en lançant la commande <code>docker-compose up</code></p>
-<p>Voir doc docker-compose : <a href="https://docs.docker.com/compose/reference/">https://docs.docker.com/compose/reference/</a></p>
-<p>Cela va directement démarrer nos deux services, que vous pouvez retrouver sur les ports 8000 (backend) et 8501 (frontend)</p>
-<p>Comme précédemment, vous pouvez vous connecter au frontend sur le port 8501 du codespace pour interagir directement avec le backend. La petite nuance est que ce backend est disponible sur <code>http://yolo:8000</code> plutôt que <code>http://localhost:8000</code> car le <code>docker-compose</code> a nommé les containers avec un hostname correspondant à celui spécifié (et les a mis en réseau)</p>
-<p>Une fois que vous avez interagi avec votre déploiement, nous allons maintenant déployer le backend sur un serveur sur google cloud.</p>
-<h2 id="6-deploiement-du-backend-sur-une-vm-google-compute-engine">6 - Deploiement du backend sur une VM Google Compute Engine<a class="headerlink" href="#6-deploiement-du-backend-sur-une-vm-google-compute-engine" title="Permanent link">🔗</a></h2>
-<p>Nous allons maintenant démarrer une instance de VM Google Compute Engine et directement y déployer un container. Vous avez déjà vu cette méthode dans la <a href="1_4a_docker_workflow.html#26-deployment-in-a-vm">section streamlit du BE</a></p>
-<p>N'oubliez pas de connecter votre github codespace à votre projet gcp en utilisant <code>gcloud init</code></p>
-<p>Récupérez votre project_id gcp via l'interface ou via la variable suivante : <code>PROJECT_ID=$(gcloud config get-value project 2&gt; /dev/null)</code></p>
-<p>Puis nous allons créer directement une VM en y déployant un container. Notez que l'on utilise cette fois un OS dédié à l'hébergement de containers (pas prévu pour s'y connecter en ssh) plutôt qu'ubuntu comme précédemment. </p>
-<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create-with-container<span class="w"> </span>fch-yolo-backend<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--project<span class="o">=</span><span class="si">${</span><span class="nv">PROJECT_ID</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--zone<span class="o">=</span>europe-west1-b<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--machine-type<span class="o">=</span>n1-standard-2<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--image<span class="o">=</span>projects/cos-cloud/global/images/cos-stable-109-17800-66-27<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--boot-disk-size<span class="o">=</span>20GB<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--boot-disk-type<span class="o">=</span>pd-standard<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--container-image<span class="o">=</span>eu.gcr.io/third-ridge-138414/yolo-v5:1.2<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--container-restart-policy<span class="o">=</span>always
+<p><strong>Key benefits:</strong></p>
+<ul>
+<li>Both services start with one command</li>
+<li>They automatically share a network (no <code>--network="host"</code> needed)</li>
+<li>Services can reach each other by hostname (<code>yolo</code>, <code>streamlit</code>)</li>
+</ul>
+<h3 id="run-with-docker-compose">Run with docker-compose<a class="headerlink" href="#run-with-docker-compose" title="Permanent link">🔗</a></h3>
+<div class="highlight"><pre><span></span><code>docker-compose<span class="w"> </span>up
 </code></pre></div>
-<p>Note : Si vous utilisez votre propre projet GCP, vous devez ouvrir le port 8000 à internet public pour pouvoir y accéder. Utilisez cette commande : </p>
-<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>compute<span class="w"> </span>--project<span class="o">=</span><span class="si">${</span><span class="nv">PROJECT_ID</span><span class="si">}</span><span class="w"> </span>firewall-rules<span class="w"> </span>create<span class="w"> </span>open-8000<span class="w"> </span>--direction<span class="o">=</span>INGRESS<span class="w"> </span>--priority<span class="o">=</span><span class="m">1000</span><span class="w"> </span>--network<span class="o">=</span>default<span class="w"> </span>--action<span class="o">=</span>ALLOW<span class="w"> </span>--rules<span class="o">=</span>tcp:8000<span class="w"> </span>--source-ranges<span class="o">=</span><span class="m">0</span>.0.0.0/0<span class="w"> </span>
+<p>Both services start and logs are interleaved in your terminal.</p>
+<h3 id="test-the-application">Test the application<a class="headerlink" href="#test-the-application" title="Permanent link">🔗</a></h3>
+<ol>
+<li>Open port 8501 in your Codespace (frontend)</li>
+<li>Set the backend URL to <code>http://yolo:8000</code> (use the hostname, not localhost)</li>
+<li>Test "IS ALIVE" and run a prediction</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Hostname vs localhost</p>
+<p>When using docker-compose, services communicate via their hostnames defined in the YAML file. Use <code>http://yolo:8000</code>, not <code>http://localhost:8000</code>.</p>
+</div>
+<h3 id="stop-the-services">Stop the services<a class="headerlink" href="#stop-the-services" title="Permanent link">🔗</a></h3>
+<div class="highlight"><pre><span></span><code>docker-compose<span class="w"> </span>down
 </code></pre></div>
-<h2 id="7-tests">7 - Tests<a class="headerlink" href="#7-tests" title="Permanent link">🔗</a></h2>
-<p>Nous allons maintenant tester que notre backend est bien déployé. Il faut pour cela relancer le front-end et changer l'IP pour l'IP de la machine virtuelle précédemment lancée</p>
-<ul>
-<li>relancez le docker du frontend <code>docker run --rm -p 8501:8501 eu.gcr.io/third-ridge-138414/yolo-v5-streamlit:1.5</code></li>
-<li>connectez vous au port 8501 du github codespace, comme précédemment, et modifiez l'IP du backend pour qu'il corresponde à celle du serveur distant, c'est à dire l'IP publique de votre VM GCP (toujours sur le port 8000)</li>
-<li>si vous envoyez une requête, elle est maintenant transmise au backend hébergée sur GCP !</li>
-</ul>
-<h2 id="8-yay">8. Yay !<a class="headerlink" href="#8-yay" title="Permanent link">🔗</a></h2>
+<div class="admonition note">
+<p class="admonition-title">docker-compose vs Kubernetes</p>
+<p>docker-compose is great for local development and simple deployments. For production at scale, orchestrators like Kubernetes provide service discovery, load balancing, and self-healing across multiple machines.</p>
+</div>
+<h2 id="6-deploying-to-google-cloud-run">6 - Deploying to Google Cloud Run<a class="headerlink" href="#6-deploying-to-google-cloud-run" title="Permanent link">🔗</a></h2>
+<p>We've tested locally. Now let's deploy the backend to the cloud so anyone can access it with a real URL.</p>
+<div class="admonition info">
+<p class="admonition-title">Why not deploy to a VM?</p>
+<p>You could deploy to a VM using <code>gcloud compute instances create-with-container</code> as you learned in the <a href="1_4c_deployment_workflow.html">previous session</a>. However, this approach has limitations:</p>
+<table>
+<thead>
+<tr>
+<th>Limitation</th>
+<th>Problem</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>No domain name</td>
+<td>You get a raw IP address like <code>35.205.x.x:8000</code></td>
+</tr>
+<tr>
+<td>No HTTPS</td>
+<td>Traffic is unencrypted</td>
+</tr>
+<tr>
+<td>Manual scaling</td>
+<td>One VM handles all requests, or you manually add more</td>
+</tr>
+<tr>
+<td>Always running</td>
+<td>You pay even when nobody is using it</td>
+</tr>
+<tr>
+<td>Infrastructure burden</td>
+<td>Firewall rules, restarts, updates are your responsibility</td>
+</tr>
+</tbody>
+</table>
+<p>Cloud Run solves all of these automatically.</p>
+</div>
+<h3 id="what-is-cloud-run">What is Cloud Run?<a class="headerlink" href="#what-is-cloud-run" title="Permanent link">🔗</a></h3>
+<p>Cloud Run is a fully managed platform for running containers. You provide a container image, Cloud Run handles everything else:</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>What you get</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Public URL</td>
+<td><code>https://your-service-xxxxx.run.app</code></td>
+</tr>
+<tr>
+<td>HTTPS</td>
+<td>Automatic SSL certificate, no configuration</td>
+</tr>
+<tr>
+<td>Scaling</td>
+<td>Scales up with traffic, down to zero when idle</td>
+</tr>
+<tr>
+<td>No infrastructure</td>
+<td>No VMs, no firewall rules, no load balancer setup</td>
+</tr>
+</tbody>
+</table>
+<h3 id="deploy-the-backend">Deploy the backend<a class="headerlink" href="#deploy-the-backend" title="Permanent link">🔗</a></h3>
+<p>Make sure gcloud is configured:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PROJECT_ID</span><span class="o">=</span><span class="k">$(</span>gcloud<span class="w"> </span>config<span class="w"> </span>get-value<span class="w"> </span>project<span class="w"> </span><span class="m">2</span>&gt;<span class="w"> </span>/dev/null<span class="k">)</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Deploying to project: </span><span class="si">${</span><span class="nv">PROJECT_ID</span><span class="si">}</span><span class="s2">&quot;</span>
+</code></pre></div>
+<p>Deploy the YOLO backend:</p>
+<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>run<span class="w"> </span>deploy<span class="w"> </span>yolo-backend<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--image<span class="o">=</span>eu.gcr.io/third-ridge-138414/yolo-v5:1.2<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--platform<span class="o">=</span>managed<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--region<span class="o">=</span>europe-west1<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--allow-unauthenticated<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--port<span class="o">=</span><span class="m">8000</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--memory<span class="o">=</span>16Gi
+</code></pre></div>
+<p><strong>Flags explained:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--image</code></td>
+<td>The container image to deploy</td>
+</tr>
+<tr>
+<td><code>--platform=managed</code></td>
+<td>Use fully managed Cloud Run (not Kubernetes)</td>
+</tr>
+<tr>
+<td><code>--region=europe-west1</code></td>
+<td>Deploy in Europe (close to users)</td>
+</tr>
+<tr>
+<td><code>--allow-unauthenticated</code></td>
+<td>Public access without login</td>
+</tr>
+<tr>
+<td><code>--port=8000</code></td>
+<td>The port your container listens on</td>
+</tr>
+<tr>
+<td><code>--memory=16Gi</code></td>
+<td>YOLO model needs more RAM than default</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-your-service-url">Get your service URL<a class="headerlink" href="#get-your-service-url" title="Permanent link">🔗</a></h3>
+<p>After deployment completes, gcloud displays the service URL:</p>
+<div class="highlight"><pre><span></span><code>Service URL: https://yolo-backend-xxxxx-ew.a.run.app
+</code></pre></div>
+<p><strong>Test the deployed backend:</strong></p>
+<ol>
+<li>Open the URL in your browser - you should see the FastAPI welcome message</li>
+<li>Add <code>/docs</code> to the URL - you should see the interactive API documentation</li>
+</ol>
 <div class="admonition success">
-<p class="admonition-title">Success</p>
-<p>🍾 <em>Et voilà, vous avez déployé votre premier modèle sur le cloud</em></p>
+<p class="admonition-title">Checkpoint</p>
+<p>Your backend is now running in the cloud with a real HTTPS URL. Anyone on the internet can access it.</p>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>N'oubliez pas de supprimer votre VM GCE une fois le travail terminé</p>
+<h3 id="connect-your-local-frontend-to-the-cloud-backend">Connect your local frontend to the cloud backend<a class="headerlink" href="#connect-your-local-frontend-to-the-cloud-backend" title="Permanent link">🔗</a></h3>
+<p>Now run the frontend locally, pointing to your Cloud Run backend:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-p<span class="w"> </span><span class="m">8501</span>:8501<span class="w"> </span>eu.gcr.io/third-ridge-138414/yolo-v5-streamlit:1.5
+</code></pre></div>
+<p>Note: No <code>--network="host"</code> needed - we're connecting to the internet, not localhost.</p>
+<ol>
+<li>Open port 8501 in your Codespace</li>
+<li>Set the backend URL to your Cloud Run URL (e.g., <code>https://yolo-backend-xxxxx-ew.a.run.app</code>)</li>
+<li>Click "IS ALIVE" - should confirm the cloud backend is reachable</li>
+<li>Upload an image and run a prediction</li>
+</ol>
+<p>Your request now travels from your Codespace, through the internet, to Google's infrastructure, runs inference on the YOLO model, and returns the results.</p>
+<div class="admonition tip">
+<p class="admonition-title">Scaling (preview)</p>
+<p>Cloud Run can automatically scale based on traffic - spinning up more instances when busy, scaling to zero when idle. We'll explore these settings in a future session. For now, the defaults work well.</p>
 </div>
-<h2 id="9-bonus-passer-a-lechelle">9. BONUS - Passer à l'échelle<a class="headerlink" href="#9-bonus-passer-a-lechelle" title="Permanent link">🔗</a></h2>
-<p>Nous venons de déployer un modèle sur une unique machine.</p>
-<p>Il manque certains éléments à notre déploiement :</p>
-<ul>
-<li>Un nom de domaine</li>
-<li>Une capacité à passer à l'échelle sur plusieurs machines, ou d'être à zéro machines s'il n'y a pas de demandes</li>
-<li>Une gestion des mises à jour : Comment déployer une nouvelle version de l'application ?</li>
-<li>Un routage du trafic sur la bonne instance</li>
-</ul>
-<p>Nous allons donc voir une solution de déploiement de container "managée" (aussi dite serverless / "Container as a Service") : <a href="https://cloud.google.com/run/docs/overview/what-is-cloud-run?hl=fr">Google Cloud Run</a>. Pour en savoir plus, lisez <a href="https://cloud.google.com/run/docs/overview/what-is-cloud-run?hl=fr">l'introduction au service</a>.</p>
-<p>L'objectif est de déployer notre container qui est un service, sans gérer l'infrastructure, ni le routage.
-<img alt="gcr" src="https://cloud.google.com/static/run/docs/images/cloud-run-service.svg?hl=fr" /></p>
-<p>Nous allons suivre à peu près les étapes du <a href="https://cloud.google.com/run/docs/deploying">tutorial</a></p>
-<div class="admonition hint">
-<p class="admonition-title">Hint</p>
-<p>Afin de tester le passage à l'échelle, il est recommandé de se mettre en groupe et de ne faire qu'un seul déploiement et ensuite de tous essayer d'utiliser le même service (la même URL) une fois celui-ci déployé.</p>
-</div>
-<ul>
-<li>Rendez-vous sur la page de <a href="https://console.cloud.google.com/run?project=third-ridge-138414">GCR</a></li>
-<li>Sélectionnez "déployer un container"</li>
-<li>Entrez l'URL du container à déployer `eu.gcr.io/third-ridge-138414/yolo-v5:1.2``</li>
-<li>Entrez un nom de service</li>
-<li>Sélectionnez la zone europe (west1, west4, west9)</li>
-<li>Autorisez les requêtes non authentifiées</li>
-<li>Ingress control : all</li>
-<li>Dans les paramètres du container, sélectionnez le port 8000 et allouez lui 2 Go de RAM</li>
-<li>Réglez 10s de timeout et 5 requêtes maximum par instance</li>
-<li>Mettez 5 instances maximum</li>
-<li>Et voilà !</li>
-</ul>
-<p>Normalement, votre service se crée. Une fois celui-ci démarré, une instance est démarrée (vous n'avez pas la main sur l'infrastructure) et la prédiction est accessible à l'URL du service.</p>
-<p>Relancez le front end depuis votre codespace puis entrez l'URL du service. Lancez une prédiction.</p>
+<h2 id="7-conclusion">7 - Conclusion<a class="headerlink" href="#7-conclusion" title="Permanent link">🔗</a></h2>
 <div class="admonition success">
-<p class="admonition-title">Success</p>
-<p>🍾 <em>Et voilà, vous avez déployé votre premier modèle sur le cloud</em></p>
+<p class="admonition-title">Congratulations!</p>
+<p>You have deployed your first ML model to production with a real HTTPS URL!</p>
 </div>
-<p>Si vous essayez de faire plusieurs requêtes simultanées au service avec des images différentes depuis plusieurs personnes, il est possible que le service "passe à l'échelle" automatiquement</p>
-<p>Pour surveiller le trafic de votre service vous pouvez utilisez :
-- Soit la page web du service google cloud run
-- Soit le <a href="https://console.cloud.google.com/monitoring/metrics-explorer">Metrics Explorer</a> en sélectionnant la métrique Cloud Run Révision - Container - Instance Count. Vous pouvez aussi ajouter cette métrique en widget du dashboard gcr...</p>
-<div class="admonition hint">
-<p class="admonition-title">Hint</p>
-<p>Normalement une URL d'un service a été postée sur slack, vous pouvez l'essayer...</p>
-</div>
+<h3 id="what-you-learned">What you learned<a class="headerlink" href="#what-you-learned" title="Permanent link">🔗</a></h3>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>What you did</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>APIs</td>
+<td>Understood REST endpoints (<code>POST /predict</code>, <code>GET /health</code>)</td>
+</tr>
+<tr>
+<td>Microservices</td>
+<td>Separated frontend and backend into independent containers</td>
+</tr>
+<tr>
+<td>docker-compose</td>
+<td>Orchestrated multiple containers locally with one command</td>
+</tr>
+<tr>
+<td>Cloud Run</td>
+<td>Deployed a container and got a public HTTPS URL instantly</td>
+</tr>
+</tbody>
+</table>
+<h3 id="architecture-you-built">Architecture you built<a class="headerlink" href="#architecture-you-built" title="Permanent link">🔗</a></h3>
+<div class="highlight"><pre><span></span><code>┌─────────────────────┐              ┌──────────────────────────────┐
+│  Local (Codespace)  │              │       Google Cloud Run       │
+│                     │              │                              │
+│  ┌───────────────┐  │    HTTPS     │  ┌────────────────────────┐  │
+│  │   Frontend    │──┼─────────────&gt;│  │   Backend (YOLO API)   │  │
+│  │  (Streamlit)  │  │              │  │                        │  │
+│  └───────────────┘  │              │  │  yolo-backend-xxx.run  │  │
+│                     │              │  └────────────────────────┘  │
+└─────────────────────┘              └──────────────────────────────┘
+</code></pre></div>
+<h3 id="cleanup">Cleanup<a class="headerlink" href="#cleanup" title="Permanent link">🔗</a></h3>
+<p>Delete your Cloud Run service to avoid any charges:</p>
+<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>run<span class="w"> </span>services<span class="w"> </span>delete<span class="w"> </span>yolo-backend<span class="w"> </span>--region<span class="o">=</span>europe-west1<span class="w"> </span>--quiet
+</code></pre></div>
 <div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>N'oubliez pas de supprimer votre service google cloud run une fois le travail terminé</p>
+<p class="admonition-title">Don't forget!</p>
+<p>Always clean up cloud resources when you're done. Cloud Run has a generous free tier, but it's good practice to delete unused services.</p>
 </div>
+<h3 id="whats-next">What's next<a class="headerlink" href="#whats-next" title="Permanent link">🔗</a></h3>
+<ul>
+<li><strong>Scaling:</strong> Configure min/max instances and concurrency limits</li>
+<li><strong>CI/CD:</strong> Automatically deploy when you push to git</li>
+<li><strong>Custom domains:</strong> Use your own domain instead of <code>.run.app</code></li>
+<li><strong>Full deployment:</strong> Deploy the frontend to Cloud Run too</li>
+</ul>
 
 
 

@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://supaerodatascience.github.io/DE/1_4a_docker_workflow.html">
+        <link rel="canonical" href="https://supaerodatascience.github.io/DE/1_4b_docker_workflow.html">
       
       
-        <link rel="prev" href="1_3b_handson_docker.html">
+        <link rel="prev" href="1_4a_gcp_workflow.html">
       
       
-        <link rel="next" href="1_4b_gcp_workflow.html">
+        <link rel="next" href="1_4c_deployment_workflow.html">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>1. Docker Workflow - Data Engineering</title>
+        <title>2. Docker Workflow - Data Engineering</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#bureau-detudes-cloud-docker-partie-1" class="md-skip">
+        <a href="#bureau-detudes-docker-build-ship-run" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              1. Docker Workflow
+              2. Docker Workflow
             
           </span>
         </div>
@@ -1072,6 +1072,34 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="1_4a_gcp_workflow.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. GCP Compute Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -1091,7 +1119,7 @@
   <span class="md-ellipsis">
     
   
-    1. Docker Workflow
+    2. Docker Workflow
   
 
     
@@ -1102,14 +1130,14 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="1_4a_docker_workflow.html" class="md-nav__link md-nav__link--active">
+      <a href="1_4b_docker_workflow.html" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
     
   
-    1. Docker Workflow
+    2. Docker Workflow
   
 
     
@@ -1135,10 +1163,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#objectives-of-this-be" class="md-nav__link">
+  <a href="#learning-objectives" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Objectives of this BE
+        Learning Objectives
       
     </span>
   </a>
@@ -1146,10 +1174,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-run-this-be" class="md-nav__link">
+  <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How to run this BE
+        Prerequisites
       
     </span>
   </a>
@@ -1157,10 +1185,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#team-composition-setup" class="md-nav__link">
+  <a href="#team-setup" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Team composition &amp; Setup
+        Team Setup
       
     </span>
   </a>
@@ -1168,34 +1196,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-build-ship-run-deploy-as-a-team" class="md-nav__link">
+  <a href="#phase-1-build" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1 - Build, Ship, Run (Deploy) as a Team
+        Phase 1: BUILD
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1 - Build, Ship, Run (Deploy) as a Team">
+    <nav class="md-nav" aria-label="Phase 1: BUILD">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#11-build" class="md-nav__link">
+  <a href="#11-start-development-environment-github-codespace" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.1 - Build
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1.1 - Build">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#111-start-development-environment-github-codespace" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1.1.1 - Start Development Environment (Github Codespace)
+        1.1 - Start Development Environment (GitHub Codespace)
       
     </span>
   </a>
@@ -1203,10 +1219,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#112-get-the-necessary-resources-from-google-cloud-storage" class="md-nav__link">
+  <a href="#12-get-resources-from-google-cloud-storage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.1.2 - Get the necessary resources from Google Cloud Storage
+        1.2 - Get Resources from Google Cloud Storage
       
     </span>
   </a>
@@ -1214,10 +1230,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#113-build-your-docker-image" class="md-nav__link">
+  <a href="#13-build-your-docker-image" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.1.3 - Build your docker image
+        1.3 - Build your Docker image
       
     </span>
   </a>
@@ -1228,24 +1244,46 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#12-ship" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#phase-2-ship" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.2 - Ship
+        Phase 2: SHIP
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1.2 - Ship">
+    <nav class="md-nav" aria-label="Phase 2: SHIP">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#121-push-your-docker-image-in-the-shared-container-registry" class="md-nav__link">
+  <a href="#21-authenticate-to-the-container-registry" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.2.1 - Push your Docker image in the shared Container Registry
+        2.1 - Authenticate to the Container Registry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-push-your-docker-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 - Push your Docker image
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-communicate-with-your-team" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 - Communicate with your team
       
     </span>
   </a>
@@ -1256,24 +1294,24 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#13-run-deploy" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#phase-3-run" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.3 - Run (deploy)
+        Phase 3: RUN
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1.3 - Run (deploy)">
+    <nav class="md-nav" aria-label="Phase 3: RUN">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#131-create-google-compute-engine-vm" class="md-nav__link">
+  <a href="#31-pull-your-teammates-image" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.3.1 - Create Google Compute Engine VM
+        3.1 - Pull your teammate's image
       
     </span>
   </a>
@@ -1281,10 +1319,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#132-connect-using-ssh-to-the-instance" class="md-nav__link">
+  <a href="#32-run-the-container" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.3.2 - Connect using SSH to the instance
+        3.2 - Run the container
       
     </span>
   </a>
@@ -1292,10 +1330,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#133-pull-docker-images-from-your-teammate" class="md-nav__link">
+  <a href="#33-access-via-codespace-port-forwarding" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.3.3 - Pull Docker Images from your teammate
+        3.3 - Access via Codespace Port Forwarding
       
     </span>
   </a>
@@ -1303,21 +1341,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#134-run-docker-containers-from-their-docker-images" class="md-nav__link">
+  <a href="#34-container-management" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.3.4 - Run Docker Containers from their Docker Images
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#135-display-the-results-share-them" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1.3.5 - Display the results &amp; share them
+        3.4 - Container Management
       
     </span>
   </a>
@@ -1328,23 +1355,24 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#14-cleanup-the-gcp-project" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#success-criteria" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.4. Cleanup the GCP project
+        Success Criteria
       
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="Success Criteria">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#15-yay" class="md-nav__link">
+  <a href="#troubleshooting-guide" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.5. Yay !
+        Troubleshooting Guide
       
     </span>
   </a>
@@ -1353,6 +1381,39 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What's Next?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cleanup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#congratulations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Congratulations!
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1360,34 +1421,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="1_4b_gcp_workflow.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    2. GCP Compute Workflow
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -2001,10 +2034,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#objectives-of-this-be" class="md-nav__link">
+  <a href="#learning-objectives" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Objectives of this BE
+        Learning Objectives
       
     </span>
   </a>
@@ -2012,10 +2045,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-run-this-be" class="md-nav__link">
+  <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How to run this BE
+        Prerequisites
       
     </span>
   </a>
@@ -2023,10 +2056,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#team-composition-setup" class="md-nav__link">
+  <a href="#team-setup" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Team composition &amp; Setup
+        Team Setup
       
     </span>
   </a>
@@ -2034,34 +2067,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-build-ship-run-deploy-as-a-team" class="md-nav__link">
+  <a href="#phase-1-build" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1 - Build, Ship, Run (Deploy) as a Team
+        Phase 1: BUILD
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1 - Build, Ship, Run (Deploy) as a Team">
+    <nav class="md-nav" aria-label="Phase 1: BUILD">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#11-build" class="md-nav__link">
+  <a href="#11-start-development-environment-github-codespace" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.1 - Build
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1.1 - Build">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#111-start-development-environment-github-codespace" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1.1.1 - Start Development Environment (Github Codespace)
+        1.1 - Start Development Environment (GitHub Codespace)
       
     </span>
   </a>
@@ -2069,10 +2090,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#112-get-the-necessary-resources-from-google-cloud-storage" class="md-nav__link">
+  <a href="#12-get-resources-from-google-cloud-storage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.1.2 - Get the necessary resources from Google Cloud Storage
+        1.2 - Get Resources from Google Cloud Storage
       
     </span>
   </a>
@@ -2080,10 +2101,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#113-build-your-docker-image" class="md-nav__link">
+  <a href="#13-build-your-docker-image" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.1.3 - Build your docker image
+        1.3 - Build your Docker image
       
     </span>
   </a>
@@ -2094,24 +2115,46 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#12-ship" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#phase-2-ship" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.2 - Ship
+        Phase 2: SHIP
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1.2 - Ship">
+    <nav class="md-nav" aria-label="Phase 2: SHIP">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#121-push-your-docker-image-in-the-shared-container-registry" class="md-nav__link">
+  <a href="#21-authenticate-to-the-container-registry" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.2.1 - Push your Docker image in the shared Container Registry
+        2.1 - Authenticate to the Container Registry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-push-your-docker-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 - Push your Docker image
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-communicate-with-your-team" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 - Communicate with your team
       
     </span>
   </a>
@@ -2122,24 +2165,24 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#13-run-deploy" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#phase-3-run" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.3 - Run (deploy)
+        Phase 3: RUN
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1.3 - Run (deploy)">
+    <nav class="md-nav" aria-label="Phase 3: RUN">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#131-create-google-compute-engine-vm" class="md-nav__link">
+  <a href="#31-pull-your-teammates-image" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.3.1 - Create Google Compute Engine VM
+        3.1 - Pull your teammate's image
       
     </span>
   </a>
@@ -2147,10 +2190,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#132-connect-using-ssh-to-the-instance" class="md-nav__link">
+  <a href="#32-run-the-container" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.3.2 - Connect using SSH to the instance
+        3.2 - Run the container
       
     </span>
   </a>
@@ -2158,10 +2201,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#133-pull-docker-images-from-your-teammate" class="md-nav__link">
+  <a href="#33-access-via-codespace-port-forwarding" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.3.3 - Pull Docker Images from your teammate
+        3.3 - Access via Codespace Port Forwarding
       
     </span>
   </a>
@@ -2169,21 +2212,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#134-run-docker-containers-from-their-docker-images" class="md-nav__link">
+  <a href="#34-container-management" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.3.4 - Run Docker Containers from their Docker Images
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#135-display-the-results-share-them" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1.3.5 - Display the results &amp; share them
+        3.4 - Container Management
       
     </span>
   </a>
@@ -2194,23 +2226,24 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#14-cleanup-the-gcp-project" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#success-criteria" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.4. Cleanup the GCP project
+        Success Criteria
       
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="Success Criteria">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#15-yay" class="md-nav__link">
+  <a href="#troubleshooting-guide" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.5. Yay !
+        Troubleshooting Guide
       
     </span>
   </a>
@@ -2219,6 +2252,39 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What's Next?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cleanup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#congratulations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Congratulations!
+      
+    </span>
+  </a>
   
 </li>
       
@@ -2242,97 +2308,69 @@
   
 
 
-<h1 id="bureau-detudes-cloud-docker-partie-1">Bureau d'études Cloud &amp; Docker Partie 1<a class="headerlink" href="#bureau-detudes-cloud-docker-partie-1" title="Permanent link">🔗</a></h1>
+<h1 id="bureau-detudes-docker-build-ship-run">Bureau d'études Docker - Build, Ship, Run<a class="headerlink" href="#bureau-detudes-docker-build-ship-run" title="Permanent link">🔗</a></h1>
 <p><a href="slides/1_4_be.html">Link to slides</a></p>
 <p><iframe
   src="slides/1_4_be.html"
   style="width:100%; height:600px;"
 ></iframe>
 </p>
-<h2 id="objectives-of-this-be">Objectives of this BE<a class="headerlink" href="#objectives-of-this-be" title="Permanent link">🔗</a></h2>
-<p>This Bureau d'études (BE, for short) will guide you through the essential notions to be able to manipulate with regard to cloud computer and docker,</p>
-<p>We will go through several steps</p>
-<ul>
-<li>Working in a remote environment (in a GitHub CodeSpace, inside a VM)</li>
-<li>Creation and ssh connection to virtual machine instances</li>
-<li>Using managed storage capabilities (gcs://)</li>
-<li>Creating your own docker images</li>
-<li>Exchanging docker images through a Container Registry</li>
-<li>Pulling and running docker images created by your teammates</li>
-</ul>
-<p>In particular, this workflow:</p>
+<h2 id="learning-objectives">Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permanent link">🔗</a></h2>
+<p>By the end of this workshop, you will be able to:</p>
+<ol>
+<li><strong>Understand Dockerfile structure</strong> - Read and explain what each instruction in a Dockerfile does</li>
+<li><strong>Build Docker images</strong> - Use <code>docker build</code> with proper tagging conventions for a container registry</li>
+<li><strong>Push/Pull from a registry</strong> - Authenticate to Google Artifact Registry and exchange images with teammates</li>
+<li><strong>Run containers with configuration</strong> - Map ports, set environment variables, and understand container lifecycle</li>
+</ol>
 <p><img alt="workflow" src="slides/static/img/buildshiprun.png" /></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Please read all the text in the question before executing the step-by-step instructions because there might be help or indications after the instructions.</p>
 </div>
-<h2 id="how-to-run-this-be">How to run this BE<a class="headerlink" href="#how-to-run-this-be" title="Permanent link">🔗</a></h2>
-<p>The best way to run this BE is to setup a Github Codespace VM and install the google cloud sdk. Refer to the previous <a href="1_2d_handson_gcp.html">hands-on</a> to learn more</p>
-<p>We will be using the <code>gcloud</code> CLI for the following:</p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">🔗</a></h2>
+<p>Before starting this workshop, you should have:</p>
 <ul>
-<li>Create a GCE Virtual Machine</li>
-<li>Connect to SSH with port forwarding to said machine</li>
+<li>Set up your GitHub Codespace (from the <a href="1_2d_handson_gcp.html">previous session</a>)</li>
+<li>Installed and configured the <code>gcloud</code> CLI (from the <a href="1_2d_handson_gcp.html">previous session</a>)</li>
+<li>Manipulated Google Cloud Storage in the previous session</li>
 </ul>
-<p>For the rest of this walkthrough, if it is specified "from your local machine", this will be "github codespace"</p>
-<p>If it is specified "inside the VM", this means that you should run it inside the GCE VM, which means you need to connect to it using an SSH tunnel first...</p>
-<p>🙏🏻 Use Google Chrome without any ad blockers if you have any issues, or use the local VSCode + CodeSpace extension</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>⚠️ Normally you will do everything from your browser, connected to the github codespace, so it should work<br />
-⚠️ if you have any issues, switch your wi-fi connection between eduroam (preferred), isae-edu or a 4G hotspot</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Use Google Chrome without any ad blockers if you have any issues, or use the local VSCode + Codespace extension.
+If you have connectivity issues, switch your wi-fi connection between eduroam (preferred), isae-edu, or a 4G hotspot.</p>
 </div>
-<h2 id="team-composition-setup">Team composition &amp; Setup<a class="headerlink" href="#team-composition-setup" title="Permanent link">🔗</a></h2>
-<p>You should be in team of 5, however this will work with a minimum of 2 people. </p>
-<p>Each team member picks a different cute mascot and remembers it:</p>
+<h2 id="team-setup">Team Setup<a class="headerlink" href="#team-setup" title="Permanent link">🔗</a></h2>
+<p>You should be in teams of 2-5 people.</p>
+<p>Each team member picks a different mascot and remembers it:</p>
 <ul>
 <li>🐈 cat</li>
 <li>🐕 dog</li>
-<li>👽 (baby) yoda</li>
+<li>👽 yoda</li>
 <li>🦉 owl</li>
 <li>🐼 panda</li>
 </ul>
-<p>Find a groupname, because you will need it for the next steps</p>
-<p>One of the team member will add the others into their GCP project so that everyone can collaborate.</p>
-<p>Designate a "project manager" (the person who is the most comfortable with the google cloud platform UI). That person will have the hard task of giving access to his/her GCP project to the other team members to enable collaboration.</p>
-<p>This means that the project of the "team leader" will be billed a little more for the duration of this BE, so please be kind with the project and apply good cloud hygiene :)</p>
-<p>Rest assured, this will not cost very much !</p>
-<p>How to do that ?</p>
-<p>Go to the "<a href="https://console.cloud.google.com/iam-admin/iam">IAM &amp; Admin / IAM</a>" section of the Google Cloud Console, then locate the "grant access",</p>
-<p>Grant access to your each of your teammates using the "Editor Role" (Basic -&gt; Editor)</p>
-<p>Here are some screenshots to help you</p>
-<p><img alt="access1" src="https://storage.googleapis.com/fchouteau-isae-cloud/be/gcp_project_access_1.png" />
-<img alt="access2" src="https://storage.googleapis.com/fchouteau-isae-cloud/be/gcp_project_acess_2.png" /></p>
-<h2 id="1-build-ship-run-deploy-as-a-team">1 - Build, Ship, Run (Deploy) as a Team<a class="headerlink" href="#1-build-ship-run-deploy-as-a-team" title="Permanent link">🔗</a></h2>
-<h3 id="11-build">1.1 - Build<a class="headerlink" href="#11-build" title="Permanent link">🔗</a></h3>
-<h4 id="111-start-development-environment-github-codespace">1.1.1 - Start Development Environment (Github Codespace)<a class="headerlink" href="#111-start-development-environment-github-codespace" title="Permanent link">🔗</a></h4>
-<ul>
-<li>Launch your Github Codespaces instance from the preconfigured repository <a href="https://github.com/fchouteau/isae-cloud-computing-codespace">https://github.com/fchouteau/isae-cloud-computing-codespace</a></li>
-<li>Ensure that the google cloud sdk is installed (it should be done automatically) and configured to the project that you were given access to (run <code>gcloud init</code> like <a href="1_2d_handson_gcp.html#3-install-google-cloud-sdk-configure-the-shell">last time</a>)</li>
-</ul>
-<h4 id="112-get-the-necessary-resources-from-google-cloud-storage">1.1.2 - Get the necessary resources from Google Cloud Storage<a class="headerlink" href="#112-get-the-necessary-resources-from-google-cloud-storage" title="Permanent link">🔗</a></h4>
-<p>From your github codespace,</p>
-<p>The resources are located at the URI <code>gs://fchouteau-isae-cloud/be/${MASCOT}</code>,</p>
-<p>Your <code>${MASCOT}</code> name is either:</p>
-<ul>
-<li>cat</li>
-<li>dog</li>
-<li>owl</li>
-<li>panda</li>
-<li>yoda</li>
-</ul>
-<p>I advise you to <code>export MASCOT=....</code> to remember it :)</p>
-<p><strong>ONLY DOWNLOAD</strong> your mascot resources (no cheating ! this will only cause confusion later)</p>
-<p>Download them to your instance using the gcloud cli (refer to your <a href="1_2d_handson_gcp.html#5-interacting-with-google-cloud-storage">previous work</a> for more information)</p>
-<details class="hint">
-<summary>Hint</summary>
-<p><div class="highlight"><pre><span></span><code>gsutil<span class="w"> </span>-m<span class="w"> </span>cp<span class="w"> </span>-r<span class="w"> </span><span class="o">{</span>source<span class="o">}</span><span class="w"> </span><span class="o">{</span>destination<span class="o">}</span>
+<p>Find a <strong>group name</strong> for your team - you will need it for tagging your images.</p>
+<div class="admonition info">
+<p class="admonition-title">Shared Container Registry</p>
+<p>A container registry has been pre-created for this workshop. You will push and pull images from:</p>
+<div class="highlight"><pre><span></span><code>europe-docker.pkg.dev/isae-sdd-481407/isae-sdd-de-2526-docker
 </code></pre></div>
-Remember that google storage URIs always begin with gs://</p>
-</details>
-<p><strong>Go to</strong> (<code>cd</code>) the folder where you downloaded your resources</p>
-<p>You should see a file structure like this</p>
-<div class="highlight"><pre><span></span><code>fchouteau@be-cloud-mascot:~/be$ tree yoda  -L 2
-yoda
+</div>
+<h2 id="phase-1-build">Phase 1: BUILD<a class="headerlink" href="#phase-1-build" title="Permanent link">🔗</a></h2>
+<h3 id="11-start-development-environment-github-codespace">1.1 - Start Development Environment (GitHub Codespace)<a class="headerlink" href="#11-start-development-environment-github-codespace" title="Permanent link">🔗</a></h3>
+<p>Launch your GitHub Codespace from the preconfigured repository: <a href="https://github.com/fchouteau/isae-cloud-computing-codespace">https://github.com/fchouteau/isae-cloud-computing-codespace</a></p>
+<p>Ensure that the <code>gcloud</code> CLI is installed and configured (run <code>gcloud init</code> like <a href="1_2d_handson_gcp.html#3-install-google-cloud-sdk-configure-the-shell">last time</a>).</p>
+<h3 id="12-get-resources-from-google-cloud-storage">1.2 - Get Resources from Google Cloud Storage<a class="headerlink" href="#12-get-resources-from-google-cloud-storage" title="Permanent link">🔗</a></h3>
+<p>From your GitHub Codespace, download your mascot resources. First, set your mascot:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">MASCOT</span><span class="o">=</span>&lt;your<span class="w"> </span>chosen<span class="w"> </span>mascot&gt;<span class="w">  </span><span class="c1"># cat, dog, owl, panda, or yoda</span>
+</code></pre></div>
+<p><strong>Only download your mascot</strong> (no cheating - this will cause confusion later!)</p>
+<div class="highlight"><pre><span></span><code>gsutil<span class="w"> </span>-m<span class="w"> </span>cp<span class="w"> </span>-r<span class="w"> </span>gs://fchouteau-isae-cloud/be/<span class="si">${</span><span class="nv">MASCOT</span><span class="si">}</span><span class="w"> </span>.
+<span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">MASCOT</span><span class="si">}</span>
+</code></pre></div>
+<p>You should see a file structure like this:</p>
+<div class="highlight"><pre><span></span><code>yoda/
 ├── app.py
 ├── AUTHOR.txt
 ├── Dockerfile
@@ -2344,184 +2382,209 @@ yoda
 │   ├── 4.gif
 │   └── 5.gif
 └── template.html.jinja2
-
-1 directory, 10 files
 </code></pre></div>
-<h4 id="113-build-your-docker-image">1.1.3 - Build your docker image<a class="headerlink" href="#113-build-your-docker-image" title="Permanent link">🔗</a></h4>
+<h3 id="13-build-your-docker-image">1.3 - Build your Docker image<a class="headerlink" href="#13-build-your-docker-image" title="Permanent link">🔗</a></h3>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
 <ul>
-<li>Look at the <code>Dockerfile</code> (<code>cat Dockerfile</code>), what does it seem to do ?</li>
-<li>Look at <code>app.py</code> (<code>cat app.py</code>). What is Flask ? What does it seem to do ?</li>
+<li>Look at the <code>Dockerfile</code> (<code>cat Dockerfile</code>), what does each instruction do?</li>
+<li>Look at <code>app.py</code> (<code>cat app.py</code>). What is Flask? What does this app do?</li>
 </ul>
 </div>
-<ul>
-<li>Edit the file <code>AUTHOR.txt</code> to add your name instead of the placeholder</li>
-<li>Refer to <a href="1_3b_handson_docker.html#233-build-the-image">your previous work</a> to build the image</li>
-</ul>
+<p><strong>Edit the file <code>AUTHOR.txt</code></strong> to add your name instead of the placeholder.</p>
 <div class="admonition danger">
 <p class="admonition-title">Danger</p>
-<p>On which port is your flask app running ? (<code>cat Dockerfile</code>)
-Note it carefully ! You will need to communicate it to your teammate :)</p>
+<p>On which port is your Flask app running? (check the <code>Dockerfile</code>)
+Note it carefully - you will need to communicate it to your teammates!</p>
 </div>
-<ul>
-<li>When building the image, name it appropriately... like <code>eu.gcr.io/${PROJECT_ID}/webapp-gif:${GROUPNAME}-${MASCOT}-1.0</code> !</li>
-</ul>
-<details class="hint">
-<summary>Hint</summary>
-<p>to get your project id:
-<div class="highlight"><pre><span></span><code><span class="nv">PROJECT_ID</span><span class="o">=</span><span class="k">$(</span>gcloud<span class="w"> </span>config<span class="w"> </span>get-value<span class="w"> </span>project<span class="w"> </span><span class="m">2</span>&gt;<span class="w"> </span>/dev/null<span class="k">)</span>
-</code></pre></div></p>
-</details>
-<ul>
-<li>now if you list your images you should see it !</li>
-</ul>
-<div class="highlight"><pre><span></span><code>REPOSITORY                                      TAG                 IMAGE ID            CREATED             SIZE
-eu.gcr.io/{your project name}/{your-app}    1.0                 d1c5993848bf        2 minutes ago       62.1MB
+<p><strong>Set your group name and build the image:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">GROUPNAME</span><span class="o">=</span>&lt;your<span class="w"> </span>team<span class="w"> </span>name&gt;
+
+docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>europe-docker.pkg.dev/isae-sdd-481407/isae-sdd-de-2526-docker/<span class="si">${</span><span class="nv">GROUPNAME</span><span class="si">}</span>-<span class="si">${</span><span class="nv">MASCOT</span><span class="si">}</span>:1.0<span class="w"> </span>.
 </code></pre></div>
+<p>Verify with <code>docker images</code> - you should see your image listed.</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
 <p>Describe concisely to your past self what is a <code>Docker Image</code></p>
 </div>
-<h3 id="12-ship">1.2 - Ship<a class="headerlink" href="#12-ship" title="Permanent link">🔗</a></h3>
-<h4 id="121-push-your-docker-image-in-the-shared-container-registry">1.2.1 - Push your Docker image in the shared Container Registry<a class="headerlink" href="#121-push-your-docker-image-in-the-shared-container-registry" title="Permanent link">🔗</a></h4>
-<ul>
-<li>
-<p>One of the team member must first create a <a href="1_3b_handson_docker.html#4-containers-registry">shared Artifact Registry</a></p>
-</li>
-<li>
-<p>Now <a href="1_3b_handson_docker.html#4-containers-registry">push your image on the shared container registry</a></p>
-</li>
-<li>
-<p>Help your team mates so that everybody can build his/her Docker Image</p>
-</li>
-</ul>
+<div class="admonition success">
+<p class="admonition-title">Checkpoint</p>
+<p>Wait for instructor confirmation that everyone has built their image before moving to the SHIP phase.</p>
+</div>
+<h2 id="phase-2-ship">Phase 2: SHIP<a class="headerlink" href="#phase-2-ship" title="Permanent link">🔗</a></h2>
+<h3 id="21-authenticate-to-the-container-registry">2.1 - Authenticate to the Container Registry<a class="headerlink" href="#21-authenticate-to-the-container-registry" title="Permanent link">🔗</a></h3>
+<p>Configure Docker to authenticate with Google Artifact Registry:</p>
+<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>auth<span class="w"> </span>configure-docker<span class="w"> </span>europe-docker.pkg.dev
+</code></pre></div>
+<h3 id="22-push-your-docker-image">2.2 - Push your Docker image<a class="headerlink" href="#22-push-your-docker-image" title="Permanent link">🔗</a></h3>
+<p>Push your image to the shared registry:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>push<span class="w"> </span>europe-docker.pkg.dev/isae-sdd-481407/isae-sdd-de-2526-docker/<span class="si">${</span><span class="nv">GROUPNAME</span><span class="si">}</span>-<span class="si">${</span><span class="nv">MASCOT</span><span class="si">}</span>:1.0
+</code></pre></div>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Describe succintly to your past self what is a <code>Container Registry</code></p>
+<p>What is a Container Registry? Why not just share Dockerfiles instead of images?</p>
 </div>
-<h3 id="13-run-deploy">1.3 - Run (deploy)<a class="headerlink" href="#13-run-deploy" title="Permanent link">🔗</a></h3>
-<h4 id="131-create-google-compute-engine-vm">1.3.1 - Create Google Compute Engine VM<a class="headerlink" href="#131-create-google-compute-engine-vm" title="Permanent link">🔗</a></h4>
-<p>Each team member creates <strong>a separate GCE Instance (Virtual Machine)</strong> on <strong>the same project</strong>,</p>
-<p>Here, you will create a Google Compute Engine instance, preconfigured with everything you need,</p>
-<p>If you use the google cloud CLI (from your codespace), you can use this</p>
-<p>First, set a variable with the name of your instance,</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">INSTANCE_NAME</span><span class="o">=</span><span class="s2">&quot;be-cloud-mascot-{yourgroup}-{yourname}&quot;</span><span class="w"> </span><span class="c1"># Don&#39;t forget to replace values !</span>
-</code></pre></div>
-<p>Then create your VM</p>
-<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create<span class="w"> </span><span class="nv">$INSTANCE_NAME</span><span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--zone<span class="o">=</span><span class="s2">&quot;europe-west1-b&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--image-family<span class="o">=</span><span class="s2">&quot;common-cpu&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--image-project<span class="o">=</span><span class="s2">&quot;deeplearning-platform-release&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--maintenance-policy<span class="o">=</span><span class="s2">&quot;TERMINATE&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--scopes<span class="o">=</span><span class="s2">&quot;storage-rw&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--machine-type<span class="o">=</span><span class="s2">&quot;n1-standard-1&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--boot-disk-size<span class="o">=</span><span class="s2">&quot;50GB&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--boot-disk-type<span class="o">=</span><span class="s2">&quot;pd-standard&quot;</span>
-</code></pre></div>
-<p>If you have an issue with quota, use any of <code>europe-west4-{a,b,c,d}</code> or <code>europe-west1-{b,c,d}</code></p>
-<p>If you use the web interface, follow this</p>
-<video width="320" height="240" controls>
-  <source src="https://storage.googleapis.com/fchouteau-isae-cloud/be/instance_create.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-
-<div class="admonition question">
-<p class="admonition-title">Question</p>
-<p>Describe concisely to your past self what is a <code>Virtual Machine</code> and what is <code>Google Compute Engine</code></p>
-</div>
-<h4 id="132-connect-using-ssh-to-the-instance">1.3.2 - Connect using SSH to the instance<a class="headerlink" href="#132-connect-using-ssh-to-the-instance" title="Permanent link">🔗</a></h4>
-<p>If you are using the google cloud sdk from github codespace, you can connect to ssh using the usual command.</p>
-<p>Tunnel the following ports to your local machine:</p>
-<ul>
-<li>8080: This is reserved for a jupyter lab session by default, it makes it easy to see &amp; edit text</li>
-<li>8081: You will neeed to run containers and expose them on a port</li>
-</ul>
-<details class="hint">
-<summary>Hint</summary>
-<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>compute<span class="w"> </span>ssh<span class="w"> </span><span class="o">{</span>user<span class="o">}</span>@<span class="o">{</span>instance<span class="o">}</span><span class="w"> </span>--<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-L<span class="w"> </span><span class="o">{</span>client-port<span class="o">}</span>:localhost:<span class="o">{</span>server-port<span class="o">}</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-L<span class="w"> </span><span class="o">{</span>client-port-2<span class="o">}</span>:localhost:<span class="o">{</span>server-port-2<span class="o">}</span>
-</code></pre></div>
+<details class="answer">
+<summary>Answer</summary>
+<p>Pre-built images ensure consistency across environments, faster deployment (no build step needed), and no build dependencies required on the target machine.</p>
 </details>
-<p>Go to your browser and connect to http://localhost:8080, you should be in a jupyter lab where you can access a terminal, a text editor etc...</p>
-<div class="admonition question">
-<p class="admonition-title">Question</p>
-<p>Where is this jupyter lab hosted ?
-Describe concisely what is a SSH Tunnel and what is port forwarding</p>
-</div>
-<h4 id="133-pull-docker-images-from-your-teammate">1.3.3 - Pull Docker Images from your teammate<a class="headerlink" href="#133-pull-docker-images-from-your-teammate" title="Permanent link">🔗</a></h4>
-<p>You should be inside the your VM,</p>
-<div class="admonition question">
-<p class="admonition-title">Question</p>
-<p>How to check that you're inside your VM ?
-On your terminal you should see user@hostname at the beginning. Hostname should be the name of your VM</p>
-</div>
+<h3 id="23-communicate-with-your-team">2.3 - Communicate with your team<a class="headerlink" href="#23-communicate-with-your-team" title="Permanent link">🔗</a></h3>
+<p>Share with your teammates:</p>
 <ul>
-<li>
-<p>Select another mascot and <a href="1_3b_handson_docker.html#4-containers-registry">pull the corresponding docker image from the registry</a></p>
-</li>
-<li>
-<p>List the docker images you have <code>docker images</code>.</p>
-</li>
+<li>Your <strong>image name</strong> (e.g., <code>team1-yoda:1.0</code>)</li>
+<li>Your <strong>port number</strong> (from your Dockerfile)</li>
 </ul>
-<h4 id="134-run-docker-containers-from-their-docker-images">1.3.4 - Run Docker Containers from their Docker Images<a class="headerlink" href="#134-run-docker-containers-from-their-docker-images" title="Permanent link">🔗</a></h4>
-<ul>
-<li>
-<p>Run your container <strong>while mapping the correct port to your VM 8081</strong>. Which port is it ? Well, ask the one who built the image.</p>
-</li>
-<li>
-<p>When running the container, <a href="1_3b_handson_docker.html#21-run-a-static-website-in-a-container">setup the <code>USER</code> environment variable to your name</a> !</p>
-</li>
-</ul>
-<div class="admonition hint">
-<p class="admonition-title">Hint</p>
-<p>the port is not the same as yours<br />
-if you don't set the username, it will come to bite your later ;)</p>
+<div class="admonition success">
+<p class="admonition-title">Checkpoint</p>
+<p>Wait for instructor confirmation that all images are pushed before moving to the RUN phase.</p>
 </div>
-<h4 id="135-display-the-results-share-them">1.3.5 - Display the results &amp; share them<a class="headerlink" href="#135-display-the-results-share-them" title="Permanent link">🔗</a></h4>
-<ul>
-<li>
-<p>You just launched a webapp on the port 8081 of your remote instance.</p>
-</li>
-<li>
-<p>If you have a ssh tunnel directly from your laptop, ensure that you made a tunnel for your port 8081 to any port of your machine then, go to <code>http://localhost:(your port)</code> inside your browser. The resulting webpage should appear</p>
-</li>
-<li>
-<p>If you are using github codespace, open web preview on port 8081 (you should have a tunnel running between your github codespace and your GCE instance)</p>
-</li>
-<li>
-<p>You can also publicly share the codespace preview link so that other people can see your results</p>
-</li>
-</ul>
-<div class="admonition checklist for success">
-<p class="admonition-title">Checklist</p>
-<ul>
-<li>The webpage should display the mascot your chose to run  </li>
-<li>The webpage should display the name of the author (not you)</li>
-<li>The webpage should display your name</li>
-</ul>
+<h2 id="phase-3-run">Phase 3: RUN<a class="headerlink" href="#phase-3-run" title="Permanent link">🔗</a></h2>
+<h3 id="31-pull-your-teammates-image">3.1 - Pull your teammate's image<a class="headerlink" href="#31-pull-your-teammates-image" title="Permanent link">🔗</a></h3>
+<p>Get the image name and port number from one of your teammates, then pull their image:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">TEAMMATE_MASCOT</span><span class="o">=</span>&lt;teammate<span class="err">&#39;</span>s<span class="w"> </span>mascot&gt;
+
+docker<span class="w"> </span>pull<span class="w"> </span>europe-docker.pkg.dev/isae-sdd-481407/isae-sdd-de-2526-docker/<span class="si">${</span><span class="nv">GROUPNAME</span><span class="si">}</span>-<span class="si">${</span><span class="nv">TEAMMATE_MASCOT</span><span class="si">}</span>:1.0
+</code></pre></div>
+<p>Verify with <code>docker images</code> - you should see your teammate's image.</p>
+<h3 id="32-run-the-container">3.2 - Run the container<a class="headerlink" href="#32-run-the-container" title="Permanent link">🔗</a></h3>
+<p>Run your teammate's container with port mapping and your name as an environment variable:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">8080</span>:&lt;TEAMMATE_PORT&gt;<span class="w"> </span>-e<span class="w"> </span><span class="nv">USER</span><span class="o">=</span><span class="s2">&quot;&lt;your name&gt;&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>europe-docker.pkg.dev/isae-sdd-481407/isae-sdd-de-2526-docker/<span class="si">${</span><span class="nv">GROUPNAME</span><span class="si">}</span>-<span class="si">${</span><span class="nv">TEAMMATE_MASCOT</span><span class="si">}</span>:1.0
+</code></pre></div>
+<p>Replace <code>&lt;TEAMMATE_PORT&gt;</code> with the port number your teammate told you (from their Dockerfile).</p>
+<h3 id="33-access-via-codespace-port-forwarding">3.3 - Access via Codespace Port Forwarding<a class="headerlink" href="#33-access-via-codespace-port-forwarding" title="Permanent link">🔗</a></h3>
+<ol>
+<li>Open the <strong>"Ports"</strong> tab in VS Code (bottom panel)</li>
+<li>Port 8080 should appear automatically when the container starts</li>
+<li>Click the <strong>globe icon</strong> or <strong>"Open in Browser"</strong> to access the webapp</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can also publicly share the Codespace preview link so that other people can see your results.</p>
 </div>
+<h3 id="34-container-management">3.4 - Container Management<a class="headerlink" href="#34-container-management" title="Permanent link">🔗</a></h3>
+<p>Useful commands to manage your containers:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>ps<span class="w">          </span><span class="c1"># See running containers</span>
+docker<span class="w"> </span>logs<span class="w"> </span>&lt;id&gt;<span class="w">   </span><span class="c1"># Check logs if issues</span>
+docker<span class="w"> </span>stop<span class="w"> </span>&lt;id&gt;<span class="w">   </span><span class="c1"># Stop a container</span>
+</code></pre></div>
+<h2 id="success-criteria">Success Criteria<a class="headerlink" href="#success-criteria" title="Permanent link">🔗</a></h2>
+<p>Your running webapp must show:</p>
+<table>
+<thead>
+<tr>
+<th>Checkpoint</th>
+<th>What it proves</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Displays teammate's mascot (not your own)</td>
+<td>You pulled the correct image</td>
+</tr>
+<tr>
+<td>Shows author name (teammate's name)</td>
+<td>Image was built by your teammate</td>
+</tr>
+<tr>
+<td>Shows your name</td>
+<td>You configured the USER env var at runtime</td>
+</tr>
+</tbody>
+</table>
 <div class="admonition bug">
 <p class="admonition-title">Bug</p>
-<p>If any of the three item above are missing, find the bug and solve it :)</p>
+<p>If any of the three items above are missing, use the troubleshooting guide below!</p>
 </div>
+<h3 id="troubleshooting-guide">Troubleshooting Guide<a class="headerlink" href="#troubleshooting-guide" title="Permanent link">🔗</a></h3>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Likely cause</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wrong mascot</td>
+<td>Pulled wrong image</td>
+<td>Check image name, repull</td>
+</tr>
+<tr>
+<td>Author shows placeholder</td>
+<td>Teammate forgot AUTHOR.txt</td>
+<td>Teammate rebuilds &amp; repushes</td>
+</tr>
+<tr>
+<td>Your name missing</td>
+<td>Forgot <code>-e USER=...</code></td>
+<td>Stop container, rerun with env var</td>
+</tr>
+<tr>
+<td>Page not loading</td>
+<td>Wrong port mapping</td>
+<td>Check teammate's port, fix <code>-p</code> flag</td>
+</tr>
+</tbody>
+</table>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<p>Try to refresh the webpage to make more gifs appear</p>
+<p>Try to refresh the webpage to make more gifs appear!</p>
 </div>
-<p><strong>Share your result on slack</strong></p>
-<h3 id="14-cleanup-the-gcp-project">1.4. Cleanup the GCP project<a class="headerlink" href="#14-cleanup-the-gcp-project" title="Permanent link">🔗</a></h3>
-<ul>
-<li>Remove your VMs (DELETE them)</li>
-<li>Remove images <a href="https://cloud.google.com/container-registry/docs/managing">from the container registry</a></li>
-</ul>
-<h3 id="15-yay">1.5. Yay !<a class="headerlink" href="#15-yay" title="Permanent link">🔗</a></h3>
+<p><strong>Share your result on Slack</strong></p>
+<h2 id="whats-next">What's Next?<a class="headerlink" href="#whats-next" title="Permanent link">🔗</a></h2>
+<p>You've successfully built, shipped, and run Docker containers. But consider these limitations:</p>
+<table>
+<thead>
+<tr>
+<th>Limitation</th>
+<th>Why it matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Only accessible via your Codespace</td>
+<td>No public URL - others can't see your app</td>
+</tr>
+<tr>
+<td>Ephemeral</td>
+<td>When Codespace stops, container dies</td>
+</tr>
+<tr>
+<td>No scaling</td>
+<td>One container handles all requests</td>
+</tr>
+<tr>
+<td>Manual process</td>
+<td>You ran <code>docker run</code> by hand</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Coming up: Deployment</p>
+<p>In the Deployment session, we'll solve these problems: deploy containers to real cloud infrastructure with public URLs, automatic restarts, and managed scaling.</p>
+</div>
+<h2 id="cleanup">Cleanup<a class="headerlink" href="#cleanup" title="Permanent link">🔗</a></h2>
+<p>Stop and remove your containers (optional but good practice):</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Stop running containers</span>
+docker<span class="w"> </span>ps<span class="w"> </span>-q<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-r<span class="w"> </span>docker<span class="w"> </span>stop
+
+<span class="c1"># Remove containers</span>
+docker<span class="w"> </span>ps<span class="w"> </span>-aq<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-r<span class="w"> </span>docker<span class="w"> </span>rm
+
+<span class="c1"># (Optional) Remove local images</span>
+docker<span class="w"> </span>images<span class="w"> </span>-q<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-r<span class="w"> </span>docker<span class="w"> </span>rmi
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Codespaces are ephemeral, so cleanup is optional. Everything will be removed when the Codespace is deleted.</p>
+</div>
+<h2 id="congratulations">Congratulations!<a class="headerlink" href="#congratulations" title="Permanent link">🔗</a></h2>
 <div class="admonition success">
 <p class="admonition-title">Success</p>
-<p>🎉 <em>you have successfully finished the mandatory part of the BE. You know how to manipulate the basic notions around cloud computing and docker so that you won't be completely lost when someone will talk about it</em></p>
+<p>You have successfully completed the Build-Ship-Run workflow! You now understand the fundamental Docker concepts that power modern application deployment.</p>
 </div>
-<p>Continue the BE below (you can do it alone or by group of 2 or 3) to discover more nice things !</p>
 
 
 
