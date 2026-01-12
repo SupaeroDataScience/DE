@@ -1,5 +1,9 @@
 # Deploy your ML model into production
 
+!!! warning
+    Ensure that you are running on the latest codespace which was updated today.
+    Do not use previous codespace of the last day of classes.
+
 ## Objectives
 
 By the end of this workshop, you will be able to:
@@ -134,7 +138,7 @@ Open `backend/app.py` and look for:
 Launch the backend container:
 
 ```bash
-docker run --rm -p 8000:8000 eu.gcr.io/third-ridge-138414/yolo-v5:1.2
+docker run --rm -p 8000:8000 europe-docker.pkg.dev/isae-sdd-481407/isae-sdd-de-2526-docker/yolo-v11-backend:1.0
 ```
 
 This starts a container exposing port 8000.
@@ -146,7 +150,7 @@ This starts a container exposing port 8000.
 Open port 8000 in your Codespace. You should see:
 
 ```
-"YOLO-V5 WebApp created with FastAPI"
+"YOLO v11 WebApp created with FastAPI"
 ```
 
 Navigate to `/docs` to see the interactive API documentation:
@@ -184,7 +188,7 @@ Open `frontend/app.py` and look for:
 Open a **new terminal** (keep the backend running in the first one):
 
 ```bash
-docker run --rm -p 8501:8501 --network="host" eu.gcr.io/third-ridge-138414/yolo-v5-streamlit:1.5
+docker run --rm -p 8501:8501 --network="host" europe-docker.pkg.dev/isae-sdd-481407/isae-sdd-de-2526-docker/yolo-v11-frontend:1.0
 ```
 
 !!! info "Why `--network=\"host\"`?"
@@ -224,12 +228,12 @@ Open `docker-compose.yml`:
 version: '3'
 services:
   yolo:
-    image: "eu.gcr.io/third-ridge-138414/yolo-v5:1.2"
+    image: "europe-docker.pkg.dev/isae-sdd-481407/isae-sdd-de-2526-docker/yolo-v11-backend:1.0"
     ports:
       - "8000:8000"
     hostname: yolo
   streamlit:
-    image: "eu.gcr.io/third-ridge-138414/yolo-v5-streamlit:1.5"
+    image: "europe-docker.pkg.dev/isae-sdd-481407/isae-sdd-de-2526-docker/yolo-v11-frontend:1.0"
     ports:
       - "8501:8501"
     hostname: streamlit
@@ -301,31 +305,35 @@ Make sure gcloud is configured:
 
 ```bash
 export PROJECT_ID=$(gcloud config get-value project 2> /dev/null)
+export STUDENT_NAME="YOUR_NAME"  # Replace with your name (lowercase, no spaces)
 echo "Deploying to project: ${PROJECT_ID}"
 ```
 
 Deploy the YOLO backend:
 
 ```bash
-gcloud run deploy yolo-backend \
-    --image=eu.gcr.io/third-ridge-138414/yolo-v5:1.2 \
+gcloud run deploy yolo-backend-${STUDENT_NAME} \
+    --image=europe-docker.pkg.dev/isae-sdd-481407/isae-sdd-de-2526-docker/yolo-v11-backend:1.0 \
     --platform=managed \
     --region=europe-west9 \
     --allow-unauthenticated \
     --port=8000 \
-    --memory=16Gi
+    --memory=4Gi
 ```
+
+!!! warning "Replace YOUR_NAME"
+    Replace `YOUR_NAME` with your name (lowercase, no spaces, e.g., `jdupont`)
 
 **Flags explained:**
 
 | Flag | Purpose |
 |------|---------|
-| `--image` | The container image to deploy |
+| `--image` | The pre-built container image to deploy |
 | `--platform=managed` | Use fully managed Cloud Run (not Kubernetes) |
 | `--region=europe-west9` | Deploy in Europe (close to users) |
 | `--allow-unauthenticated` | Public access without login |
 | `--port=8000` | The port your container listens on |
-| `--memory=16Gi` | YOLO model needs more RAM than default |
+| `--memory=4Gi` | YOLO model needs more RAM than default (max 4Gi for 1 CPU) |
 
 ### Get your service URL
 
@@ -348,7 +356,7 @@ Service URL: https://yolo-backend-xxxxx-ew.a.run.app
 Now run the frontend locally, pointing to your Cloud Run backend:
 
 ```bash
-docker run --rm -p 8501:8501 eu.gcr.io/third-ridge-138414/yolo-v5-streamlit:1.5
+docker run --rm -p 8501:8501 europe-docker.pkg.dev/isae-sdd-481407/isae-sdd-de-2526-docker/yolo-v11-frontend:1.0
 ```
 
 Note: No `--network="host"` needed - we're connecting to the internet, not localhost.
@@ -396,7 +404,7 @@ Your request now travels from your Codespace, through the internet, to Google's 
 Delete your Cloud Run service to avoid any charges:
 
 ```bash
-gcloud run services delete yolo-backend --region=europe-west9 --quiet
+gcloud run services delete yolo-backend-${STUDENT_NAME} --region=europe-west9 --quiet
 ```
 
 !!! warning "Don't forget!"

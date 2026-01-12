@@ -1,5 +1,9 @@
 # Bureau d'études Docker - Déploiement
 
+!!! warning
+    Ensure that you are running on the latest codespace which was updated today.
+    Do not use previous codespace of the last day of classes.
+
 ## 3.1 - Introduction
 
 In the previous sessions, you learned Docker basics: building images from Dockerfiles, running containers, and pushing images to a registry.

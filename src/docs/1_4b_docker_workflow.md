@@ -1,5 +1,9 @@
 # Bureau d'études Docker - Build, Ship, Run
 
+!!! warning
+    Ensure that you are running on the latest codespace which was updated today.
+    Do not use previous codespace of the last day of classes.
+
 ## Learning Objectives
 
 By the end of this workshop, you will be able to:

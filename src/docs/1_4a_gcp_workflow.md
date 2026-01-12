@@ -1,5 +1,9 @@
 # Bureau d'études GCP - ML Workflow
 
+!!! warning
+    Ensure that you are running on the latest codespace which was updated today.
+    Do not use previous codespace of the last day of classes.
+
 ## 0. Overview
 
 !!! abstract
