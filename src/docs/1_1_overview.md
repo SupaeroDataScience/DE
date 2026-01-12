@@ -13,6 +13,8 @@ Introduction to data computation module
   style="width:100%; height:600px;"
 ></iframe>
 
+Additional resources: [Big Data Processing by CNES](https://cnes.github.io/big-data-processing-course/)
+
 ### Lecture & Hands-on : Cloud Computing & Remote Development (3h)
 
 Intro to cloud computing & remote development environments

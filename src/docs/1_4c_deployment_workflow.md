@@ -1,4 +1,4 @@
-# Bureau d'etudes Cloud & Docker Partie 3
+# Bureau d'études Docker - Déploiement
 
 ## 3.1 - Introduction
 
@@ -55,7 +55,7 @@ gcloud compute instances create-with-container streamlit-vm-FIRSTNAME \
     --project=isae-sdd-481407 \
     --zone=europe-west9-a \
     --machine-type=e2-small \
-    --image=projects/cos-cloud/global/images/cos-stable-117-18613-75-72 \
+    --image-family=cos-stable --image-project=cos-cloud \
     --boot-disk-size=10GB \
     --container-image=europe-docker.pkg.dev/isae-sdd-481407/isae-sdd-de-2526-docker/demo-streamlit-activation-function:1.0 \
     --container-restart-policy=always \

@@ -41,7 +41,7 @@ revealOptions:
 
 Representational state transfer (REST)
 
-![rest](https://images.tutorialedge.net/uploads/rest-api.png) <!-- .element: height="50%" width="50%" -->
+![rest](static/img/restful.png) <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 

@@ -42,7 +42,7 @@ In this workshop, the backend exposes an API with endpoints like:
 
 | Endpoint | Method | Input | Output |
 |----------|--------|-------|--------|
-| `/health` | GET | None | `{"status": "ok"}` |
+| `/health` | GET | None | `"HEALTH OK"` |
 | `/predict` | POST | Base64 image | `{"detections": [...], "time": 0.5}` |
 
 The frontend doesn't need to know *how* the model works - it just sends images and receives predictions through the API contract.
@@ -91,18 +91,18 @@ If not configured, run `gcloud init` as you did in the [previous session](1_2d_h
 ### Navigate to the workshop folder
 
 ```bash
-cd tp-deployment
+cd be-ml-deployment
 ls
 ```
 
 You should see:
 
 ```
-tp-deployment/
+be-ml-deployment/
 ├── backend/           # FastAPI server with YOLO model
 ├── frontend/          # Streamlit user interface
 ├── docker-compose.yml # Multi-container configuration
-└── test-images/       # Sample images for testing
+└── test_images/       # Sample images for testing
 ```
 
 ## 3 - Understanding and Testing the Backend
@@ -310,7 +310,7 @@ Deploy the YOLO backend:
 gcloud run deploy yolo-backend \
     --image=eu.gcr.io/third-ridge-138414/yolo-v5:1.2 \
     --platform=managed \
-    --region=europe-west1 \
+    --region=europe-west9 \
     --allow-unauthenticated \
     --port=8000 \
     --memory=16Gi
@@ -322,7 +322,7 @@ gcloud run deploy yolo-backend \
 |------|---------|
 | `--image` | The container image to deploy |
 | `--platform=managed` | Use fully managed Cloud Run (not Kubernetes) |
-| `--region=europe-west1` | Deploy in Europe (close to users) |
+| `--region=europe-west9` | Deploy in Europe (close to users) |
 | `--allow-unauthenticated` | Public access without login |
 | `--port=8000` | The port your container listens on |
 | `--memory=16Gi` | YOLO model needs more RAM than default |
@@ -396,7 +396,7 @@ Your request now travels from your Codespace, through the internet, to Google's 
 Delete your Cloud Run service to avoid any charges:
 
 ```bash
-gcloud run services delete yolo-backend --region=europe-west1 --quiet
+gcloud run services delete yolo-backend --region=europe-west9 --quiet
 ```
 
 !!! warning "Don't forget!"

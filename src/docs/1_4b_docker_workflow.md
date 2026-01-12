@@ -1,12 +1,5 @@
 # Bureau d'études Docker - Build, Ship, Run
 
-[Link to slides](slides/1_4_be.html)
-
-<iframe
-  src="slides/1_4_be.html"
-  style="width:100%; height:600px;"
-></iframe>
-
 ## Learning Objectives
 
 By the end of this workshop, you will be able to:
@@ -62,6 +55,8 @@ Launch your GitHub Codespace from the preconfigured repository: [https://github.
 
 Ensure that the `gcloud` CLI is installed and configured (run `gcloud init` like [last time](1_2d_handson_gcp.md#3-install-google-cloud-sdk-configure-the-shell)).
 
+Go to the working directory which is `be-docker-build-ship-run` using `cd be-docker-build-ship-run`. 
+
 ### 1.2 - Get Resources from Google Cloud Storage
 
 From your GitHub Codespace, download your mascot resources. First, set your mascot:
@@ -73,7 +68,7 @@ export MASCOT=<your chosen mascot>  # cat, dog, owl, panda, or yoda
 **Only download your mascot** (no cheating - this will cause confusion later!)
 
 ```bash
-gsutil -m cp -r gs://fchouteau-isae-cloud/be/${MASCOT} .
+gcloud storage cp -r gs://fchouteau-isae-cloud/be/${MASCOT} .
 cd ${MASCOT}
 ```
 

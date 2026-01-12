@@ -1,4 +1,4 @@
-# GCP Compute Workflow Hands-on
+# Bureau d'études GCP - ML Workflow
 
 ## 0. Overview
 
@@ -8,7 +8,7 @@
 
     You will:
 
-    - Create a Deep Learning VM on Google Compute Engine
+    - Create a VM on Google Compute Engine with PyTorch installed via startup script
     - Run PyTorch training remotely via SSH
     - Upload results to Google Cloud Storage
     - Pull results back to your Codespace for analysis
@@ -79,7 +79,7 @@ Before diving in, let's understand the two GCP services we'll use.
     **Google Compute Engine (GCE)** is GCP's virtual machine service. You can:
 
     - Create VMs with specific CPU, RAM, and disk configurations
-    - Choose from pre-built images (including Deep Learning VMs with PyTorch pre-installed)
+    - Choose from various OS images (Debian, Ubuntu, etc.) and customize with startup scripts
     - Pay only for the time the VM is running (billed per second)
     - Access VMs via SSH from anywhere
 
@@ -112,12 +112,15 @@ Before diving in, let's understand the two GCP services we'll use.
 First, configure your environment with a unique run identifier:
 
 ```bash
+# Your name
+export YOUR_NAME="" # fill this
+
 # Project and shared bucket (already created by instructor)
 export PROJECT_ID=$(gcloud config get-value project 2> /dev/null)
 export GCS_BUCKET="gs://isae-sdd-de-2526"
 
 # Unique run identifier: username + timestamp
-export RUN_ID="${USER}-$(date +%Y%m%d-%H%M%S)"
+export RUN_ID="${YOUR_NAME}-$(date +%Y%m%d-%H%M%S)"
 export INSTANCE_NAME="training-vm-${RUN_ID}"
 export GCS_OUTPUT="${GCS_BUCKET}/runs/${RUN_ID}"
 
@@ -125,6 +128,12 @@ export GCS_OUTPUT="${GCS_BUCKET}/runs/${RUN_ID}"
 echo "Project: ${PROJECT_ID}"
 echo "Run ID: ${RUN_ID}"
 echo "Results will be saved to: ${GCS_OUTPUT}"
+```
+
+### Navigate to the workshop folder
+
+```bash
+cd be-cloud-computing
 ```
 
 ### Verify Bucket Access
@@ -144,44 +153,58 @@ gcloud storage ls ${GCS_BUCKET}
 
 ## 3. Create VM and Run Training
 
-### Create the Deep Learning VM
+### Create the VM
 
 ```bash
 gcloud compute instances create ${INSTANCE_NAME} \
-    --zone=europe-west1-b \
-    --image-family=pytorch-latest-cpu \
-    --image-project=deeplearning-platform-release \
+    --zone=europe-west9-a \
+    --image-family=debian-12 \
+    --image-project=debian-cloud \
     --machine-type=n1-standard-2 \
     --scopes=storage-rw \
-    --boot-disk-size=50GB
+    --boot-disk-size=50GB \
+    --metadata=startup-script='#!/bin/bash
+apt-get update
+apt-get install -y python3-pip python3-venv
+python3 -m venv /opt/venv
+/opt/venv/bin/pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+/opt/venv/bin/pip install google-cloud-storage'
 ```
 
 **Key flags explained:**
 
 | Flag | Purpose |
 |------|---------|
-| `--image-family=pytorch-latest-cpu` | Pre-installed PyTorch, no GPU needed |
+| `--image-family=debian-12` | Standard Linux image |
+| `--metadata=startup-script` | Installs PyTorch automatically at boot |
 | `--scopes=storage-rw` | VM can write to GCS without extra auth |
 | `--machine-type=n1-standard-2` | 2 vCPUs, 7.5 GB RAM |
 
+!!! warning "Wait for setup"
+    The VM needs **~2 minutes** after creation for the startup script to install PyTorch.
+    You can check progress with: `gcloud compute ssh ${INSTANCE_NAME} --zone=europe-west9-a --command="tail /var/log/syslog | grep startup-script"`
+
 !!! success "Checkpoint 2"
-    VM creation takes ~60 seconds. Run `gcloud compute instances list` - your VM should show `RUNNING` status.
+    VM creation takes ~60 seconds, then wait ~2 minutes for PyTorch installation. Run `gcloud compute instances list` - your VM should show `RUNNING` status.
 
 ### Copy the Training Script
 
 ```bash
-gcloud compute scp train.py ${INSTANCE_NAME}:~ --zone=europe-west1-b
+gcloud compute scp train.py ${INSTANCE_NAME}:~ --zone=europe-west9-a
 ```
 
 ### SSH into the VM and Run Training
 
 ```bash
-gcloud compute ssh ${INSTANCE_NAME} --zone=europe-west1-b
+gcloud compute ssh ${INSTANCE_NAME} --zone=europe-west9-a
 ```
 
-Once inside the VM, run training with `nohup` to keep it running even if SSH disconnects:
+Once inside the VM, activate the virtual environment and run training with `nohup` to keep it running even if SSH disconnects:
 
 ```bash
+# Activate the virtual environment (PyTorch is installed here)
+source /opt/venv/bin/activate
+
 # Use nohup to ensure training continues even if SSH disconnects
 nohup python train.py \
     --epochs 5 \
@@ -192,6 +215,9 @@ nohup python train.py \
 tail -f training.log
 # Press Ctrl+C to stop watching (training continues in background)
 ```
+
+!!! note "Why activate the venv?"
+    The startup script installed PyTorch into `/opt/venv`. You must activate this environment to access `python` with PyTorch installed.
 
 !!! tip "Why nohup?"
     If your SSH connection drops (network hiccup, laptop sleeps), the training process continues.
@@ -234,7 +260,7 @@ done
 echo "Training complete! Results ready in ${GCS_OUTPUT}"
 ```
 
-!!! success "Checkpoint 4a"
+!!! success "Checkpoint 4"
     You should see `gs://isae-sdd-de-2526/runs/yourname-YYYYMMDD-HHMMSS/metrics.json` listed.
 
 ### List All Results
@@ -264,10 +290,10 @@ gcloud storage cp ${GCS_OUTPUT}/* ./results/${RUN_ID}/
 **Only after verifying results are in GCS!**
 
 ```bash
-gcloud compute instances delete ${INSTANCE_NAME} --zone=europe-west1-b --quiet
+gcloud compute instances delete ${INSTANCE_NAME} --zone=europe-west9-a --quiet
 ```
 
-!!! success "Checkpoint 4b"
+!!! success "Checkpoint 6"
     Run `gcloud compute instances list` - your VM should no longer appear.
 
 ---
@@ -326,7 +352,7 @@ print(f"Model layers: {list(model_state.keys())}")
 print(f"Total parameters: {sum(p.numel() for p in model_state.values()):,}")
 ```
 
-!!! success "Checkpoint 6 (Final)"
+!!! success "Checkpoint 7 (Final)"
     You should see training curves plotted and ~93-98% accuracy after 5 epochs.
 
 ---
@@ -334,7 +360,7 @@ print(f"Total parameters: {sum(p.numel() for p in model_state.values()):,}")
 ## 6. Summary
 
 !!! success "What You Learned"
-    - **Deep Learning VMs**: Pre-configured GCE images with ML frameworks ready
+    - **Cloud VMs for ML**: Create VMs with startup scripts to install ML frameworks
     - **Remote training pattern**: SSH → run → upload to GCS → delete VM
     - **GCS as artifact storage**: Durable, accessible from anywhere, decoupled from compute
     - **Cloud workflow**: Compute is ephemeral, storage is persistent
@@ -351,9 +377,9 @@ set -e  # Exit on any error
 
 # Configuration
 GCS_BUCKET="gs://isae-sdd-de-2526"
-RUN_ID="${USER}-$(date +%Y%m%d-%H%M%S)"
+RUN_ID="${YOUR_NAME}-$(date +%Y%m%d-%H%M%S)"
 INSTANCE_NAME="training-vm-${RUN_ID}"
-ZONE="europe-west1-b"
+ZONE="europe-west9-a"
 GCS_OUTPUT="${GCS_BUCKET}/runs/${RUN_ID}"
 EPOCHS=${1:-5}  # Default 5 epochs, or pass as argument
 
@@ -363,17 +389,24 @@ echo "==> Results will be saved to: ${GCS_OUTPUT}"
 echo "==> Creating VM ${INSTANCE_NAME}..."
 gcloud compute instances create ${INSTANCE_NAME} \
     --zone=${ZONE} \
-    --image-family=pytorch-latest-cpu \
-    --image-project=deeplearning-platform-release \
+    --image-family=debian-12 \
+    --image-project=debian-cloud \
     --machine-type=n1-standard-2 \
     --scopes=storage-rw \
-    --boot-disk-size=50GB
+    --boot-disk-size=50GB \
+    --metadata=startup-script='#!/bin/bash
+apt-get update
+apt-get install -y python3-pip python3-venv
+python3 -m venv /opt/venv
+/opt/venv/bin/pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+/opt/venv/bin/pip install google-cloud-storage'
 
-# Wait for SSH to become available (more reliable than sleep)
-echo "==> Waiting for SSH to become available..."
-until gcloud compute ssh ${INSTANCE_NAME} --zone=${ZONE} --command="echo ready" 2>/dev/null; do
-    echo "    Waiting for VM..."
-    sleep 5
+# Wait for SSH and PyTorch installation
+echo "==> Waiting for VM and PyTorch installation (~2 minutes)..."
+sleep 30  # Initial wait for VM boot
+until gcloud compute ssh ${INSTANCE_NAME} --zone=${ZONE} --command="test -f /opt/venv/bin/python" 2>/dev/null; do
+    echo "    Waiting for PyTorch installation..."
+    sleep 10
 done
 
 echo "==> Copying training script..."
@@ -381,7 +414,7 @@ gcloud compute scp train.py ${INSTANCE_NAME}:~ --zone=${ZONE}
 
 echo "==> Starting training in background..."
 gcloud compute ssh ${INSTANCE_NAME} --zone=${ZONE} --command \
-    "nohup python train.py --epochs ${EPOCHS} --output-gcs ${GCS_OUTPUT} > training.log 2>&1 &"
+    "source /opt/venv/bin/activate && nohup python train.py --epochs ${EPOCHS} --output-gcs ${GCS_OUTPUT} > training.log 2>&1 &"
 
 # Poll for completion by checking if metrics.json exists in GCS
 echo "==> Waiting for training to complete..."

@@ -42,6 +42,7 @@ nav:
     - 1. Lecture: 1_3a_containers.md
     - 2. Hands-on (Docker): 1_3b_handson_docker.md
   - Workshop GCP & Docker:
+    - 1. Lecture: 1_4_be.md
     - 1. GCP Compute Workflow: 1_4a_gcp_workflow.md
     - 2. Docker Workflow: 1_4b_docker_workflow.md
     - 3. GCP Deployment Workflow: 1_4c_deployment_workflow.md

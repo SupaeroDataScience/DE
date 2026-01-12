@@ -274,6 +274,12 @@ Cloud providers are offering services with increasing layers of abstraction...
 
 <!--v-->
 
+#### Private Cloud Stack
+
+![privatecloud](http://1.bp.blogspot.com/-1BuI8MUh498/Uc4BOPBpChI/AAAAAAAAGjk/XWA0iYO5drA/s1028/Screen+Shot+2013-06-28+at+12.03.11+PM.png)
+
+<!--v-->
+
 #### AI Cloud Providers
 
 ![paperspace](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*vuacjjmtbLQEoXoIbbFVNQ.png)  <!-- .element: height="50%" width="50%" -->
@@ -301,10 +307,19 @@ Cloud providers are offering services with increasing layers of abstraction...
 
 <!--v-->
 
-#### French Cloud Providers 🐓🧀🐸🇫🇷
+#### US dependency ?
 
-- Cloud Act !
-- SecNumCloud : ANSSI's security qualification for cloud providers handling sensitive French data
+**Cloud Act** : a US law that allows US authorities to compel US-based tech companies to provide data stored on their servers.
+
+Even if that data is physically located outside the United States.
+
+**SecNumCloud** :  SecNumCloud est une qualification délivrée par l’ANSSI, autorité nationale de cybersécurité, attestant qu’un service de cloud présente un haut niveau de sécurité, adapté aux usages sensibles de l’Etat et des entreprises françaises. 
+
+[SecNumCloud en pas si bref](https://www.linkedin.com/pulse/secnumcloud-en-pas-si-bref-vincent-strubel-505ge/)
+
+<!--v-->
+
+#### US dependency ?
 
 | Project | Partners | Tech | Status |
 |:---:|---|---|---|
@@ -511,6 +526,11 @@ resources:
 | Access | Mount as network drive, POSIX (NFS/SMB) | HTTP API (REST) |
 | Use case | Shared storage, legacy apps, home directories | Data lakes, ML datasets, backups |
 | Scalability | Limited to file system capacity | Built with scale in mind (abstraction over the storage location) |
+
+<!--v-->
+
+![file](https://cnes.github.io/big-data-processing-course/images/FileStorage.png)
+![object](https://cnes.github.io/big-data-processing-course/images/ObjectStorage.png)
 
 <!--v-->
 
