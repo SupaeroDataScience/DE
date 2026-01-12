@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Docker Cheat Sheet</title>
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="./dist/reset.css" />
+    <link rel="stylesheet" href="./dist/reveal.css" />
+    <link rel="stylesheet" href="./static/css/reset.css" />
+    <link rel="stylesheet" href="./static/css/evo.css" />
+    <!-- <link rel="stylesheet" href="./_assets/evo" id="theme" /> -->
+    <link rel="stylesheet" href="./css/highlight/vs.css" />
+
+    <link rel="stylesheet" href="./_assets/static/css/evo.css" />
+    <link rel="stylesheet" href="./_assets/static/css/reset.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown data-separator="<!--s-->" data-separator-vertical="<!--v-->">
+          <textarea data-template>
+            
+
+# Docker Cheat Sheet
+
+<!--v-->
+
+![cheatsheet](static/img/docker_cheat_sheet.png) <!-- .element: height="60%" width="60%" -->
+
+<!--v-->
+
+![cheatsheet](static/img/docker_cheat_sheet2.png)  <!-- .element: height="60%" width="60%" -->
+
+<!--v-->
+
+#### Dockerfile : Description d'une image
+
+```Dockerfile
+FROM python:3.7
+ENV MYVAR="HELLO"
+RUN pip install torch
+COPY my-conf.txt /app/my-conf.txt
+ADD my-file.txt /app/my-file.txt
+EXPOSE 9000
+WORKDIR "/WORKDIR"
+USER MYUSER
+ENTRYPOINT ["/BIN/BASH"]
+CMD ["ECHO” , "${MYVAR}"]
+```
+
+```bash
+docker build -f Dockerfile -t my-image:1.0 .
+docker run my-image
+```
+
+<!--v-->
+
+#### Images
+
+```text
+"docker search" sur un registry
+    public (DokerHub)
+    privé (entreprise)
+"docker build" à partir d'un Dockerfile
+"docker commit" sur un conteneur modifié
+"docker import" d'une arbo de base :
+
+cat centos6-base.tar | docker import - centos6-base
+```
+
+<!--v-->
+
+#### Docker CLI
+
+```text
+    docker create   : crée un conteneur
+    docker run      : crée et démarre un conteneur
+    docker stop     : arrête un conteneur
+    docker start    : démarre un conteneur
+    docker restart  : redémarre un conteneur
+    docker rm       : supprime un conteneur
+    docker kill     : envoie un SIGKILL au conteneur
+    docker attach   : se connecte à un conteneur en exécution 
+    docker exec     : exécute une cmd dans un conteneur
+```
+
+<!--v-->
+
+#### Docker run
+
+```text
+-d, --detach       Run container in background and print ID
+-e, --env=[]       Set environment variables
+-i, --interactive  Keep STDIN open even if not attached
+-p, --publish=[]   Publish a container's port(s) to the host
+--rm        5_orchestration       Automatically rm container when it exits
+-t, --tty          Allocate a pseudo-TTY
+-v, --volume=[]    Bind mount a volume
+-w, --workdir      Working directory inside the container
+```
+          </textarea>
+        </section>
+      </div>
+    </div>
+    <!-- <div id="footer-container" style="display:none;"> -->
+    <div id="footer-container">
+        <div id="footer">
+            SDD - Data Engineering
+            <br />
+            <a href="https://supaerodatascience.github.io/deep-learning/">https://supaerodatascience.github.io/deep-learning/</a>
+            <br />
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License"
+                    style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+        </div>
+    </div>
+    <div id="logo-container">
+        <div id="logo">
+            <img src="static/img/sdd_logo.png" width="8%">
+        </div>
+    </div>
+    <script src="./dist/reveal.js"></script>
+
+    <script src="./mermaid/dist/mermaid.min.js"></script>
+
+    <script src="./plugin/markdown/markdown.js"></script>
+    <script src="./plugin/highlight/highlight.js"></script>
+    <script src="./plugin/zoom/zoom.js"></script>
+    <script src="./plugin/notes/notes.js"></script>
+    <script src="./plugin/math/math.js"></script>
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        slideNumber: true,
+        highlight: {
+          highlightOnLoad: false
+        },
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath
+        ]
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"transition":"fade","transitionSpeed":"default","controls":true,"slideNumber":true,"width":"100%","height":"100%","_":["."],"template":"static/template/reveal.html","listing-template":"static/template/listing.html","listingTemplate":"static/template/listing.html","css":["static/css/evo.css","static/css/reset.css"],"static-dirs":"static","staticDirs":"static","static":"../../slides_new"}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+      Reveal.addEventListener('ready', function (event) {
+        const blocks = Reveal.getRevealElement().querySelectorAll('pre code:not(.mermaid)');
+        const hlp = Reveal.getPlugin('highlight');
+        blocks.forEach(hlp.highlightBlock);
+      });
+    </script>
+
+    <script>
+      const mermaidOptions = extend({ startOnLoad: false }, {});
+      mermaid.startOnLoad = false;
+      mermaid.initialize(mermaidOptions);
+      const cb = function (event) {
+        mermaid.init(mermaidOptions, '.stack.present > .present pre code.mermaid');
+        mermaid.init(mermaidOptions, '.slides > .present:not(.stack) pre code.mermaid');
+      }
+      Reveal.addEventListener('ready', cb);
+      Reveal.addEventListener('slidetransitionend', cb);
+    </script>
+  </body>
+</html>
