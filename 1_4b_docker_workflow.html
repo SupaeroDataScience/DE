@@ -1075,6 +1075,34 @@
   
   
     <li class="md-nav__item">
+      <a href="1_4_be.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Lecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="1_4a_gcp_workflow.html" class="md-nav__link">
         
   
@@ -1610,7 +1638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="1_7_appendixes.html" class="md-nav__link">
+      <a href="1_7_appendixes.md" class="md-nav__link">
         
   
   
@@ -2309,12 +2337,6 @@
 
 
 <h1 id="bureau-detudes-docker-build-ship-run">Bureau d'études Docker - Build, Ship, Run<a class="headerlink" href="#bureau-detudes-docker-build-ship-run" title="Permanent link">🔗</a></h1>
-<p><a href="slides/1_4_be.html">Link to slides</a></p>
-<p><iframe
-  src="slides/1_4_be.html"
-  style="width:100%; height:600px;"
-></iframe>
-</p>
 <h2 id="learning-objectives">Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permanent link">🔗</a></h2>
 <p>By the end of this workshop, you will be able to:</p>
 <ol>
@@ -2361,12 +2383,13 @@ If you have connectivity issues, switch your wi-fi connection between eduroam (p
 <h3 id="11-start-development-environment-github-codespace">1.1 - Start Development Environment (GitHub Codespace)<a class="headerlink" href="#11-start-development-environment-github-codespace" title="Permanent link">🔗</a></h3>
 <p>Launch your GitHub Codespace from the preconfigured repository: <a href="https://github.com/fchouteau/isae-cloud-computing-codespace">https://github.com/fchouteau/isae-cloud-computing-codespace</a></p>
 <p>Ensure that the <code>gcloud</code> CLI is installed and configured (run <code>gcloud init</code> like <a href="1_2d_handson_gcp.html#3-install-google-cloud-sdk-configure-the-shell">last time</a>).</p>
+<p>Go to the working directory which is <code>be-docker-build-ship-run</code> using <code>cd be-docker-build-ship-run</code>. </p>
 <h3 id="12-get-resources-from-google-cloud-storage">1.2 - Get Resources from Google Cloud Storage<a class="headerlink" href="#12-get-resources-from-google-cloud-storage" title="Permanent link">🔗</a></h3>
 <p>From your GitHub Codespace, download your mascot resources. First, set your mascot:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">MASCOT</span><span class="o">=</span>&lt;your<span class="w"> </span>chosen<span class="w"> </span>mascot&gt;<span class="w">  </span><span class="c1"># cat, dog, owl, panda, or yoda</span>
 </code></pre></div>
 <p><strong>Only download your mascot</strong> (no cheating - this will cause confusion later!)</p>
-<div class="highlight"><pre><span></span><code>gsutil<span class="w"> </span>-m<span class="w"> </span>cp<span class="w"> </span>-r<span class="w"> </span>gs://fchouteau-isae-cloud/be/<span class="si">${</span><span class="nv">MASCOT</span><span class="si">}</span><span class="w"> </span>.
+<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>storage<span class="w"> </span>cp<span class="w"> </span>-r<span class="w"> </span>gs://fchouteau-isae-cloud/be/<span class="si">${</span><span class="nv">MASCOT</span><span class="si">}</span><span class="w"> </span>.
 <span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">MASCOT</span><span class="si">}</span>
 </code></pre></div>
 <p>You should see a file structure like this:</p>
