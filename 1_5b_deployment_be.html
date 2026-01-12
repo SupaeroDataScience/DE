@@ -2637,6 +2637,11 @@
 
 
 <h1 id="deploy-your-ml-model-into-production">Deploy your ML model into production<a class="headerlink" href="#deploy-your-ml-model-into-production" title="Permanent link">🔗</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Ensure that you are running on the latest codespace which was updated today.
+Do not use previous codespace of the last day of classes.</p>
+</div>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">🔗</a></h2>
 <p>By the end of this workshop, you will be able to:</p>
 <ol>
@@ -2773,13 +2778,13 @@ ls
 </div>
 <h3 id="run-the-backend-locally">Run the backend locally<a class="headerlink" href="#run-the-backend-locally" title="Permanent link">🔗</a></h3>
 <p>Launch the backend container:</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-p<span class="w"> </span><span class="m">8000</span>:8000<span class="w"> </span>eu.gcr.io/third-ridge-138414/yolo-v5:1.2
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-p<span class="w"> </span><span class="m">8000</span>:8000<span class="w"> </span>europe-docker.pkg.dev/isae-sdd-481407/isae-sdd-de-2526-docker/yolo-v11-backend:1.0
 </code></pre></div>
 <p>This starts a container exposing port 8000.</p>
 <h3 id="test-the-api">Test the API<a class="headerlink" href="#test-the-api" title="Permanent link">🔗</a></h3>
 <p><strong>Option 1: Browser</strong></p>
 <p>Open port 8000 in your Codespace. You should see:</p>
-<div class="highlight"><pre><span></span><code>&quot;YOLO-V5 WebApp created with FastAPI&quot;
+<div class="highlight"><pre><span></span><code>&quot;YOLO v11 WebApp created with FastAPI&quot;
 </code></pre></div>
 <p>Navigate to <code>/docs</code> to see the interactive API documentation:</p>
 <p><img alt="fastapidoc" src="slides/static/img/apidoc.png" /></p>
@@ -2804,7 +2809,7 @@ python<span class="w"> </span>test_webapp.py
 </ul>
 <h3 id="run-the-frontend-locally">Run the frontend locally<a class="headerlink" href="#run-the-frontend-locally" title="Permanent link">🔗</a></h3>
 <p>Open a <strong>new terminal</strong> (keep the backend running in the first one):</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-p<span class="w"> </span><span class="m">8501</span>:8501<span class="w"> </span>--network<span class="o">=</span><span class="s2">&quot;host&quot;</span><span class="w"> </span>eu.gcr.io/third-ridge-138414/yolo-v5-streamlit:1.5
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-p<span class="w"> </span><span class="m">8501</span>:8501<span class="w"> </span>--network<span class="o">=</span><span class="s2">&quot;host&quot;</span><span class="w"> </span>europe-docker.pkg.dev/isae-sdd-481407/isae-sdd-de-2526-docker/yolo-v11-frontend:1.0
 </code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Why <code>--network=\"host\"</code>?</p>
@@ -2838,12 +2843,12 @@ python<span class="w"> </span>test_webapp.py
 <div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3&#39;</span>
 <span class="nt">services</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">yolo</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;eu.gcr.io/third-ridge-138414/yolo-v5:1.2&quot;</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;europe-docker.pkg.dev/isae-sdd-481407/isae-sdd-de-2526-docker/yolo-v11-backend:1.0&quot;</span>
 <span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8000:8000&quot;</span>
 <span class="w">    </span><span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yolo</span>
 <span class="w">  </span><span class="nt">streamlit</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;eu.gcr.io/third-ridge-138414/yolo-v5-streamlit:1.5&quot;</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;europe-docker.pkg.dev/isae-sdd-481407/isae-sdd-de-2526-docker/yolo-v11-frontend:1.0&quot;</span>
 <span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8501:8501&quot;</span>
 <span class="w">    </span><span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">streamlit</span>
@@ -2943,17 +2948,22 @@ python<span class="w"> </span>test_webapp.py
 <h3 id="deploy-the-backend">Deploy the backend<a class="headerlink" href="#deploy-the-backend" title="Permanent link">🔗</a></h3>
 <p>Make sure gcloud is configured:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PROJECT_ID</span><span class="o">=</span><span class="k">$(</span>gcloud<span class="w"> </span>config<span class="w"> </span>get-value<span class="w"> </span>project<span class="w"> </span><span class="m">2</span>&gt;<span class="w"> </span>/dev/null<span class="k">)</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">STUDENT_NAME</span><span class="o">=</span><span class="s2">&quot;YOUR_NAME&quot;</span><span class="w">  </span><span class="c1"># Replace with your name (lowercase, no spaces)</span>
 <span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Deploying to project: </span><span class="si">${</span><span class="nv">PROJECT_ID</span><span class="si">}</span><span class="s2">&quot;</span>
 </code></pre></div>
 <p>Deploy the YOLO backend:</p>
-<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>run<span class="w"> </span>deploy<span class="w"> </span>yolo-backend<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--image<span class="o">=</span>eu.gcr.io/third-ridge-138414/yolo-v5:1.2<span class="w"> </span><span class="se">\</span>
+<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>run<span class="w"> </span>deploy<span class="w"> </span>yolo-backend-<span class="si">${</span><span class="nv">STUDENT_NAME</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--image<span class="o">=</span>europe-docker.pkg.dev/isae-sdd-481407/isae-sdd-de-2526-docker/yolo-v11-backend:1.0<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--platform<span class="o">=</span>managed<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--region<span class="o">=</span>europe-west9<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--allow-unauthenticated<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--port<span class="o">=</span><span class="m">8000</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--memory<span class="o">=</span>16Gi
+<span class="w">    </span>--memory<span class="o">=</span>4Gi
 </code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Replace YOUR_NAME</p>
+<p>Replace <code>YOUR_NAME</code> with your name (lowercase, no spaces, e.g., <code>jdupont</code>)</p>
+</div>
 <p><strong>Flags explained:</strong></p>
 <table>
 <thead>
@@ -2965,7 +2975,7 @@ python<span class="w"> </span>test_webapp.py
 <tbody>
 <tr>
 <td><code>--image</code></td>
-<td>The container image to deploy</td>
+<td>The pre-built container image to deploy</td>
 </tr>
 <tr>
 <td><code>--platform=managed</code></td>
@@ -2984,8 +2994,8 @@ python<span class="w"> </span>test_webapp.py
 <td>The port your container listens on</td>
 </tr>
 <tr>
-<td><code>--memory=16Gi</code></td>
-<td>YOLO model needs more RAM than default</td>
+<td><code>--memory=4Gi</code></td>
+<td>YOLO model needs more RAM than default (max 4Gi for 1 CPU)</td>
 </tr>
 </tbody>
 </table>
@@ -3004,7 +3014,7 @@ python<span class="w"> </span>test_webapp.py
 </div>
 <h3 id="connect-your-local-frontend-to-the-cloud-backend">Connect your local frontend to the cloud backend<a class="headerlink" href="#connect-your-local-frontend-to-the-cloud-backend" title="Permanent link">🔗</a></h3>
 <p>Now run the frontend locally, pointing to your Cloud Run backend:</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-p<span class="w"> </span><span class="m">8501</span>:8501<span class="w"> </span>eu.gcr.io/third-ridge-138414/yolo-v5-streamlit:1.5
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-p<span class="w"> </span><span class="m">8501</span>:8501<span class="w"> </span>europe-docker.pkg.dev/isae-sdd-481407/isae-sdd-de-2526-docker/yolo-v11-frontend:1.0
 </code></pre></div>
 <p>Note: No <code>--network="host"</code> needed - we're connecting to the internet, not localhost.</p>
 <ol>
@@ -3063,7 +3073,7 @@ python<span class="w"> </span>test_webapp.py
 </code></pre></div>
 <h3 id="cleanup">Cleanup<a class="headerlink" href="#cleanup" title="Permanent link">🔗</a></h3>
 <p>Delete your Cloud Run service to avoid any charges:</p>
-<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>run<span class="w"> </span>services<span class="w"> </span>delete<span class="w"> </span>yolo-backend<span class="w"> </span>--region<span class="o">=</span>europe-west9<span class="w"> </span>--quiet
+<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>run<span class="w"> </span>services<span class="w"> </span>delete<span class="w"> </span>yolo-backend-<span class="si">${</span><span class="nv">STUDENT_NAME</span><span class="si">}</span><span class="w"> </span>--region<span class="o">=</span>europe-west9<span class="w"> </span>--quiet
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Don't forget!</p>
