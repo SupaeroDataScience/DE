@@ -37,13 +37,13 @@ AI / Data Science = Data + Compute + Software
 
 ### Key use case
 
-![remote](https://cf-assets.www.cloudflare.com/slt3lc6tev37/yTvHLFlopPBrpiKavwp9M/0c9b06fb175472bf20f7310a67e1bdcd/access-replicated_2x--1-.png) <!-- .element: height="50%" width="50%" -->
+![remote](static/img/access-replicated_2x--1-.png) <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 
 ### Key use case
 
-![remote](https://substackcdn.com/image/fetch/w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5f009c59-64f4-46ff-8097-c5be8f865eaf_1616x1372.png) <!-- .element: height="40%" width="40%" -->
+![remote](static/img/5f009c59-64f4-46ff-8097-c5be8f865eaf_1616x1372.png) <!-- .element: height="40%" width="40%" -->
 
 https://newsletter.pragmaticengineer.com/p/cloud-development-environments-why-now
 
@@ -51,7 +51,7 @@ https://newsletter.pragmaticengineer.com/p/cloud-development-environments-why-no
 
 #### Your future daily routine
 
-![hub](https://geohackweek.github.io/Introductory/fig/geohackweek_aws_setup.png)  <!-- .element: height="40%" width="40%" -->
+![hub](static/img/geohackweek_aws_setup.png)  <!-- .element: height="40%" width="40%" -->
 
 Another example (more managed) [Google Colab](https://colab.research.google.com/)
 
@@ -61,13 +61,13 @@ Another example (more managed) [Google Colab](https://colab.research.google.com/
 
 An AI-centric example, https://lightning.ai/studios
 
-![studio](https://pl-bolts-doc-images.s3.us-east-2.amazonaws.com/app-2/work_project.png)  <!-- .element: height="40%" width="40%" -->
+![studio](static/img/work_project.png)  <!-- .element: height="40%" width="40%" -->
 
 <!--v-->
 
 #### Your future daily routine
 
-![remote](https://blog.uber-cdn.com/cdn-cgi/image/width=1810,quality=80,onerror=redirect,format=auto/wp-content/uploads/2022/12/Figure-2-Devpod-overview-Remote-development-environment-@-Uber.png)  <!-- .element: height="40%" width="40%" -->
+![remote](static/img/Figure-2-Devpod-overview-Remote-development-environment-_-Uber.png)  <!-- .element: height="40%" width="40%" -->
 
 [Uber Blog describing their way of working](https://www.uber.com/en-FR/blog/devpod-improving-developer-productivity-at-uber/)
 
@@ -81,7 +81,7 @@ An AI-centric example, https://lightning.ai/studios
 
 <!--v-->
 
-![codespaces](https://github.blog/wp-content/uploads/2021/08/1200x630-codespaces-social.png) <!-- .element: height="50%" width="50%" -->
+![codespaces](static/img/1200x630-codespaces-social.png) <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 
@@ -91,13 +91,13 @@ An AI-centric example, https://lightning.ai/studios
 * A virtual machine and a [containerized development environment](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)
 * A lot of built-in bonuses including "in-browser" connection & TCP port forwarding with reverse proxy
 
-![](https://docs.github.com/assets/cb-79257/images/help/codespaces/port-forwarding.png)  <!-- .element: height="40%" width="40%" -->
+![](static/img/port-forwarding.png)  <!-- .element: height="40%" width="40%" -->
 
 <!--s-->
 
 # Google Cloud Platform
 
-![gcp](https://cloud.orange-business.com/wp-content/uploads/2020/11/logo-google-cloud-platform.png)  <!-- .element: height="40%" width="40%" -->
+![gcp](static/img/logo-google-cloud-platform.png)  <!-- .element: height="40%" width="40%" -->
 
 <!--v-->
 
@@ -110,12 +110,11 @@ An AI-centric example, https://lightning.ai/studios
 
 <!--v-->
 
-![gcp](https://www.turbogeek.co.uk/wp-content/uploads/2019/02/word-image-4.png
-)  <!-- .element: height="40%" width="40%" -->
+![gcp](static/img/word-image-4.png)  <!-- .element: height="40%" width="40%" -->
 
 <!--v-->
 
-<img src="https://raw.githubusercontent.com/gregsramblings/google-cloud-4-words/master/Poster-medres.png" alt="" width="50%" height="50%" style="background:none; border:none; box-shadow:none;"/>
+<img src="static/img/Poster-medres.png" alt="" width="50%" height="50%" style="background:none; border:none; box-shadow:none;"/>
 
 [GCP Services in 4 words or less](https://googlecloudcheatsheet.withgoogle.com/)
 
@@ -127,13 +126,13 @@ An AI-centric example, https://lightning.ai/studios
 
 #### Zones and Regions
 
-![](https://cloud.google.com/docs/images/overview/regions-zones.svg)
+![](static/img/regions-zones.svg)
 
 <!--v-->
 
 #### Projects
 
-![](https://cloud.google.com/docs/images/overview/console-ids.png)
+![](static/img/console-ids.png)
 
 - Access (Enabling API/Services)
 - Ressources (Quota by project)
@@ -226,7 +225,7 @@ Or use a service account with appropriate IAM roles
 
 #### Interacting with GCP: The Console
 
-<img src="https://cloud.google.com/docs/images/overview/console.png" alt="" width="50%" height="50%" style="background:none; border:none; box-shadow:none;"/>
+<img src="static/img/console.png" alt="" width="50%" height="50%" style="background:none; border:none; box-shadow:none;"/>
 
 <https://console.cloud.google.com>
 
@@ -237,13 +236,13 @@ Or use a service account with appropriate IAM roles
 - Using the gcloud CLI: https://cloud.google.com/sdk/install
 - Using Google Cloud Shell: A small VM instance you can connect to with your browser (that we won't use)
 
-![](https://cloud.google.com/shell/docs/images/cloud-shell-gcloud.gif)
+![](static/img/cloud-shell-gcloud.gif)
 
 <!--s-->
 
 ### Self-paced hands-on
 
-![student](https://media.giphy.com/media/KCqO4k31TnkC2pT5LY/giphy.gif)
+![student](static/img/img_141c31d9.gif)
 
 <!--v-->
 
@@ -298,7 +297,7 @@ We usually connect to web app using `http://{ip}:{port}`
 
 ➡️ Enter SSH with port forwarding
 
-![ssh-tunnel](https://iximiuz.com/ssh-tunnels/local-port-forwarding-2000-opt.png)  <!-- .element: height="50%" width="50%" -->
+![ssh-tunnel](static/img/local-port-forwarding-2000-opt.png)  <!-- .element: height="50%" width="50%" -->
 
 [Visual guide](https://iximiuz.com/en/posts/ssh-tunnels/)
 

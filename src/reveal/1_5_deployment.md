@@ -47,7 +47,7 @@ Representational state transfer (REST)
 
 ### Microservices vs "monoliths"
 
-![microservices](https://www.sourcefuse.com/wp-content/uploads/2021/01/D-image4-min.png) <!-- .element: height="50%" width="50%" -->
+![microservices](static/img/D-image4-min.png) <!-- .element: height="50%" width="50%" -->
 
 PS: [Microservices are hard](https://dwmkerr.com/the-death-of-microservice-madness-in-2018/)
 
@@ -55,7 +55,7 @@ PS: [Microservices are hard](https://dwmkerr.com/the-death-of-microservice-madne
 
 ### Multi applications & docker
 
-![docker-compose](https://hosting.analythium.io/content/images/2021/06/compose-3.png) <!-- .element: height="50%" width="50%" -->
+![docker-compose](static/img/compose-3.png) <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 

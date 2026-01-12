@@ -46,35 +46,35 @@ revealOptions:
 
 #### IT Multimodality
 
-![](https://pointful.github.io/docker-intro/docker-img/the-challenge.png)
+![](static/img/the-challenge.png)
 
 <!--v-->
 
 #### The Matrix From Hell
 
-![](https://pointful.github.io/docker-intro/docker-img/the-matrix-from-hell.png)
+![](static/img/the-matrix-from-hell.png)
 
 <!--v-->
 
 #### Analogy
 
-![](https://pointful.github.io/docker-intro/docker-img/cargo-transport-pre-1960.png)
+![](static/img/cargo-transport-pre-1960.png)
 
 <!--v-->
 
 #### Solution ?
 
-![](https://pointful.github.io/docker-intro/docker-img/intermodal-shipping-container.png)
+![](static/img/intermodal-shipping-container.png)
 
 <!--v-->
 
 #### Solution !
 
-![](https://pointful.github.io/docker-intro/docker-img/shipping-container-for-code.png)
+![](static/img/shipping-container-for-code.png)
 
 <!--v-->
 
-![](https://pointful.github.io/docker-intro/docker-img/separation-of-concerns.png)
+![](static/img/separation-of-concerns.png)
 
 <!--v-->
 
@@ -84,7 +84,7 @@ revealOptions:
 
 ### Docker
 
-![](https://pointful.github.io/docker-intro/docker-img/docker.png) <!-- .element: height="≈%" width="©%" -->
+![](static/img/docker.png) <!-- .element: height="≈%" width="©%" -->
 
 <!--v-->
 
@@ -116,7 +116,7 @@ Docker is not the only solution for containers
 
 Docker is some fancy tech over linux kernel capabilities (containers)
 
-![](https://miro.medium.com/max/700/1*4dxszUyIznfjjzSNgpI0nw.png)
+![](static/img/medium_143e3fa2.png)
 
 [more info](https://medium.com/@goyalsaurabh66/docker-basics-cb006b9be243)
 
@@ -124,11 +124,11 @@ Docker is some fancy tech over linux kernel capabilities (containers)
 
 But Docker is available on [Windows and MacOS](https://www.docker.com/products/docker-desktop) !
 
-![desktop](https://www.docker.com/wp-content/uploads/2021/10/List-plus-running-compose.png) <!-- .element: height="50%" width="50%" -->
+![desktop](static/img/List-plus-running-compose.png) <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 
-![](https://i.ytimg.com/vi/uRQ7Qm_0BZ8/maxresdefault.jpg)  <!-- .element: height="40%" width="40%" -->
+![](static/img/maxresdefault.jpg)  <!-- .element: height="40%" width="40%" -->
 
 https://www.youtube.com/c/AurelieVache/videos
 
@@ -155,19 +155,19 @@ https://www.youtube.com/c/AurelieVache/videos
 
 #### Container vs Virtual Machine
 
-![](https://pointful.github.io/docker-intro/docker-img/containers-vs-vms.png)
+![](static/img/containers-vs-vms.png)
 
 <!--v-->
 
 #### Why are docker containers lightweight ?
 
-![](https://pointful.github.io/docker-intro/docker-img/why-are-containers-lightwight.png)
+![](static/img/why-are-containers-lightwight.png)
 
 <!--v-->
 
 #### Container vs Virtual Machine, an Analogy
 
-![](https://www.dotnetcurry.com/images/azure/kubernetes/app-deployment-analogy.jpg)
+![](static/img/app-deployment-analogy.jpg)
 
 <!--v-->
 
@@ -196,19 +196,19 @@ https://www.youtube.com/c/AurelieVache/videos
 
 #### Multiple People
 
-![people](https://i.pinimg.com/736x/8d/f1/bf/8df1bf6ae24e8b2fda7714f3bf3ccfff.jpg)
+![people](static/img/8df1bf6ae24e8b2fda7714f3bf3ccfff.jpg)
 
 <!--v-->
 
 #### Complex Workflows
 
-![workflows](https://miro.medium.com/max/1566/1*_EDimQP_2_sen1v3Xf3fpw.jpeg) <!-- .element: height="40%" width="40%" -->
+![workflows](static/img/medium_3f6b6545.jpeg) <!-- .element: height="40%" width="40%" -->
 
 <!--v-->
 
 #### Multiple Components
 
-![workflows](https://ml-ops.org/img/mlops-phasen.jpg) <!-- .element: height="40%" width="40%" -->
+![workflows](static/img/mlops-phasen.jpg) <!-- .element: height="40%" width="40%" -->
 
 <!--v-->
 
@@ -234,31 +234,31 @@ https://www.youtube.com/c/AurelieVache/videos
 
 Build, Ship, Run in Data Science
 
-![bsr](https://www.embedded.com/embedded/wp-content/uploads/sites/2/2022/07/07rn_f4r.png)   <!-- .element: height="50%" width="50%" -->
+![bsr](static/img/07rn_f4r.png)   <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 
 Deployment
 
-![](https://labs.ovhcloud.com/sites/default/files/styles/desktop_full_width/public/2023-03/ai.deploy.lab1__1.webp)   <!-- .element: height="50%" width="50%" -->
+![](static/img/ai.deploy.lab1__1.webp)   <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 
 Reproducible development environment
 
-![](https://containers.dev/img/dev-container-stages.png) <!-- .element: height="40%" width="40%" -->
+![](static/img/dev-container-stages.png) <!-- .element: height="40%" width="40%" -->
 
 <!--v-->
 
 Codespace is actually a container...
 
-![codespace](https://docs.github.com/assets/cb-171798/mw-1440/images/help/codespaces/configure-dev-container.webp) <!-- .element: height="40%" width="40%" -->
+![codespace](static/img/configure-dev-container.webp) <!-- .element: height="40%" width="40%" -->
 
 <!--v-->
 
 Machine Learning [at scale](https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning#mlops_level_1_ml_pipeline_automation) !
 
-![gcp](https://cloud.google.com/static/architecture/images/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning-3-ml-automation-ct.svg)
+![gcp](static/img/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning-3-ml-automation-ct.svg)
 
 <!--v-->
 
@@ -270,7 +270,7 @@ Machine Learning [at scale](https://cloud.google.com/architecture/mlops-continuo
 
 https://www.kubeflow.org/
 
-![kubeflow](https://miro.medium.com/max/2446/1*ZQsFV3o1c3Amu26Z-IEd7w.png) <!-- .element: height="55%" width="55%" -->
+![kubeflow](static/img/medium_fbb0cb8d.png) <!-- .element: height="55%" width="55%" -->
 
 <!--v-->
 
@@ -300,7 +300,7 @@ https://polyaxon.com/
 
 #### Workflow
 
-![workflow](https://pointful.github.io/docker-intro/docker-img/basics-of-docker-system.png) <!-- .element: height="55%" width="55%" -->
+![workflow](static/img/basics-of-docker-system.png) <!-- .element: height="55%" width="55%" -->
 
 <!--v-->
 
@@ -312,7 +312,7 @@ https://polyaxon.com/
 
 #### Image
 
-![docker-image-layers](https://bernhardwenzel.com/images/posts/2022/image-layers.jpg)
+![docker-image-layers](static/img/image-layers.jpg)
 
 <!--v-->
 
@@ -409,7 +409,7 @@ docker run my-image
 * Multi-containers application with networking (communication)
 * "Glue" for complex applications and microservices
 
-![compose](https://miro.medium.com/v2/resize:fit:1400/1*IzzwDYFNsfHxYexpgHqqSA.png)
+![compose](static/img/medium_f6caf96e.png)
 
 <!--v-->
 
@@ -468,4 +468,4 @@ services:
 
 <!--v-->
 
-![break](https://media.giphy.com/media/WSrMZn2cuMs2UQ6Rnq/giphy.gif)
+![break](static/img/img_2f05c014.gif)
