@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Recap & Conclusion</title>
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="./dist/reset.css" />
+    <link rel="stylesheet" href="./dist/reveal.css" />
+    <link rel="stylesheet" href="./static/css/reset.css" />
+    <link rel="stylesheet" href="./static/css/evo.css" />
+    <!-- <link rel="stylesheet" href="./_assets/evo" id="theme" /> -->
+    <link rel="stylesheet" href="./css/highlight/vs.css" />
+
+    <link rel="stylesheet" href="./_assets/static/css/evo.css" />
+    <link rel="stylesheet" href="./_assets/static/css/reset.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown data-separator="<!--s-->" data-separator-vertical="<!--v-->">
+          <textarea data-template>
+            
+
+## Wrapup
+
+<!--v-->
+
+### Why this class
+
+* "General Knowledge" about cloud computing, docker, etc.
+* "Pointers" to look at if you need them later
+* "First experience" in manipulating very useful tools
+* Mindset of "cloud computing"
+
+<!--v-->
+
+### Challenges
+
+🧰 class about tooling ... 
+
+💡 it will make sense  ... <!-- .element: class="fragment" data-fragment-index="1" -->
+
+🔮 six months from now !   <!-- .element: class="fragment" data-fragment-index="2" -->
+
+<!--v-->
+
+### Why doesn't it work every time
+
+That's the cloud for you: It depends on your environment, the network etc.
+
+We try to abstract it with "remote development" (think codespaces)
+
+It's all very new : two years ago, codespaces didn't exist !
+
+<!--v-->
+
+Remember the IT matrix from hell ?
+
+![matrix-from-hell](static/img/the-matrix-from-hell.png)
+
+<!--v-->
+
+The 🔥 **ISAE HYPERCUBE FROM HELL** 🔥
+
+Consider the following variables:
+
+* in class or at home
+* laptop OS: Windows 10, Linux, MacOS, WSL for Linux, Linux VM
+* web browser: Chrome, Firefox, Safari, with more or less adblocks etc.
+* wi-fi network: Own 4G, own network, ISAE-EDU, eduroam
+* Google Cloud SDK installed: yes, no
+* proficiency with CLI/Terminal: high, medium, low
+
+Compute the number of combinations. It's > to the number of students
+
+<!--v-->
+
+That's real life...
+
+![engineering](static/img/elon.png)
+
+<!--v-->
+
+If you had to remember only one thing
+
+![rick-morty](static/img/EUMLxNXWAAE6VfI.jpg) <!-- .element: height="40%" width="40%" -->
+
+<!--s-->
+
+### Take-away for Cloud Computing
+
+<!--v-->
+
+![cloud](static/img/main-qimg-6a4c094bd9465389d35529b12b6caa77.webp)
+
+<!--v-->
+
+![vm](static/img/virtualization.png) <!-- .element: height="50%" width="50%" -->
+
+<!--v-->
+
+![vm](static/img/medium_86e960ee.png)  <!-- .element: height="50%" width="50%" -->
+
+<!--v-->
+
+![cloud](static/img/medium_3675ed2b.jpeg) <!-- .element: height="50%" width="50%" -->
+
+<!--v-->
+
+![cloud](static/img/pizzaasaservicev2.jpg)  <!-- .element: height="65%" width="65%" -->
+
+<!--v-->
+
+![cloud](static/img/18819.jpeg) <!-- .element: height="50%" width="50%" -->
+
+<!--v-->
+
+Cloud, technical evolution, usage revolution
+
+![petcattle](static/img/pet-vs-cattle.png)
+
+<!--s-->
+
+### Take-away for Remote Development Environment
+
+<!--v-->
+
+### Key use case
+
+![remote](static/img/5f009c59-64f4-46ff-8097-c5be8f865eaf_1616x1372.png) <!-- .element: height="40%" width="40%" -->
+
+https://newsletter.pragmaticengineer.com/p/cloud-development-environments-why-now
+
+<!--v-->
+
+#### Remote Development : Your future daily routine
+
+![remote](static/img/Figure-2-Devpod-overview-Remote-development-environment-_-Uber.png)  <!-- .element: height="50%" width="50%" -->
+
+[Uber Blog describing their way of working](https://www.uber.com/en-FR/blog/devpod-improving-developer-productivity-at-uber/)
+
+<!--v-->
+
+#### [Github Codespaces](https://docs.github.com/en/codespaces/overview)
+
+![codespaces](static/img/1200x630-codespaces-social.png) <!-- .element: height="50%" width="50%" -->
+
+<!--v-->
+
+* [Github Codespaces](https://docs.github.com/en/codespaces) : A managed development environment by Microsoft Azure
+* A virtual machine and a [containerized development environment](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)
+* A lot of built-in bonuses including "in-browser" connection & TCP port forwarding with reverse proxy
+
+![](static/img/port-forwarding.png)  <!-- .element: height="40%" width="40%" -->
+
+<!--s-->
+
+### Take-away for GCP
+
+<!--v-->
+
+<img src="static/img/Poster-medres.png" alt="" width="50%" height="50%" style="background:none; border:none; box-shadow:none;"/>
+
+[GCP Services in 4 words or less](https://googlecloudcheatsheet.withgoogle.com/)
+
+<!--v-->
+
+#### An example workflow for your future routine
+
+![workflow](static/img/gce_workflow.png)
+
+<!--v-->
+
+#### SSH Tunnel, Port Forwarding
+
+> In computer networking, **a port is a communication endpoint**. At the software level, within an operating system, a port is a logical construct that identifies a specific process or a type of network service. **A port is identified for each transport protocol and address combination** by a 16-bit unsigned number, known as the port number. The most common transport protocols that use port numbers are the Transmission Control Protocol (TCP) and the User Datagram Protocol (UDP).
+
+[Wikipedia](https://en.wikipedia.org/wiki/Port_(computer_networking))
+
+<!--v-->
+
+#### Examples of protocols & usual ports
+
+Examples
+
+* SSH on port 22
+* HTTP on port 80
+* HTTPS on port 443
+
+http apps can serve content over specific ports
+
+Example
+
+* Jupyter default is 8888 (that's why you open http://localhost:8888)
+
+<!--v-->
+
+#### SSH Tunnels
+
+We usually connect to web app using `http://{ip}:{port}`
+
+😨 but what if the machine is not connected to the internet ?
+
+➡️ Enter SSH with port forwarding
+
+![ssh-tunnel](static/img/local-port-forwarding-2000-opt.png)  <!-- .element: height="50%" width="50%" -->
+
+[Visual guide](https://iximiuz.com/en/posts/ssh-tunnels/)
+
+<!--v-->
+
+#### Tunnels of tunnels
+
+* Some of you did Local Machine -> (browser) -> Codespace -> (ssh) -> VM -> Jupyterlab on port 8888
+* With port transfers !
+* What happens when you go to `http://(url-generated-by-codespaces):8888` in this case ?
+
+![tunnelception](static/img/codespaceception.png)
+
+<!--s-->
+
+### Take-away for Containers
+
+![](static/img/docker.png)   <!-- .element: height="30%" width="30%" -->
+
+[Docker](https://www.docker.com/)
+
+<!--v-->
+
+![shipping](static/img/shipping-container-for-code.png)
+
+<!--v-->
+
+![](static/img/medium_79c60f5b.png)
+
+<!--v-->
+
+![docker](static/img/buildshiprun.png) <!-- .element: height="70%" width="70%" --> 
+
+<!--v-->
+
+![container-vm](static/img/containers-vs-vms.png) <!-- .element: height="70%" width="70%" -->
+
+<!--v-->
+
+![docker](static/img/containers_vs_vm.png)  <!-- .element: height="70%" width="70%" -->
+
+<!--v-->
+
+workflow
+
+![docker](static/img/docker-jworkflow.jpg) <!-- .element: height="70%" width="70%" -->
+
+<!--v-->
+
+dockerfile / layer / image / container 
+
+![analogy](static/img/docker_analogy.png) <!-- .element: height="40%" width="40%" -->
+
+<!--v-->
+
+containers is not magic
+
+![devops](static/img/medium_0336410a.png)
+
+<!--v-->
+
+containers for data science
+
+![mlsystems](static/img/mlops-phasen.jpg)  <!-- .element: height="50%" width="50%" -->
+
+<!--v-->
+
+more about docker
+
+* Containers really shine when you are deploying multi-containers applications
+  - [This tutorial on microservices w/ Compose](https://training.play-with-docker.com/microservice-orchestration/)
+* Containers really shine when you are in a cluster world
+  - [Docker swarm](https://training.play-with-docker.com/swarm-stack-intro/)
+* Orchestration & Scheduling
+  - [Read this excellent Kubernetes comic !](https://cloud.google.com/kubernetes-engine/kubernetes-comic/)
+
+<!--v-->
+
+what's next ?
+
+![](static/img/medium_96b46798.png)  <!-- .element: height="70%" width="70%" -->
+
+<!--s-->
+
+### BE : Why ?
+
+![](static/img/medium_251f3b32.png)  <!-- .element: height="70%" width="70%" -->
+
+<!--v-->
+
+### BE : Where the f*** am I ?
+
+![](static/img/tunnelception2.png) <!-- .element: height="70%" width="70%" -->
+
+[docker port forwarding](https://iximiuz.com/en/posts/docker-publish-container-ports/)
+
+<!--s-->
+
+### Take-away for Deployment & Orchestration
+
+<!--v-->
+
+- You can use docker to package & a ML model
+- Usually we make "webapps" that communicate through "rest APIs"
+- [streamlit](https://streamlit.io) may be very useful later in your life
+
+<!--v-->
+
+Orchestration is the "management" part of Containers
+
+It tries to answer the following questions
+
+* How do I **deploy my container** ?
+* How do I **put the right containers at the right spot** ?
+* How do I **scale (up and down) to demand** ?
+* How do I **expose the http endpoints** ?
+* How do I **manage failure of containers** ? 
+* How do I **update my model without downtime** ?
+
+<!--v-->
+
+Kubernetes is **one** of the solutions (the hardest) available to you
+
+Read this [comic](https://cloud.google.com/kubernetes-engine/kubernetes-comic/) 
+
+Learn more on the Data Distribution class !
+
+<!--v-->
+
+Should you learn kubernetes ?
+
+https://huyenchip.com/2021/09/13/data-science-infrastructure.html
+
+<!--s-->
+
+## The End
+
+![end](static/img/img_bacdae81.gif)
+
+          </textarea>
+        </section>
+      </div>
+    </div>
+    <!-- <div id="footer-container" style="display:none;"> -->
+    <div id="footer-container">
+        <div id="footer">
+            SDD - Data Engineering
+            <br />
+            <a href="https://supaerodatascience.github.io/deep-learning/">https://supaerodatascience.github.io/deep-learning/</a>
+            <br />
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License"
+                    style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+        </div>
+    </div>
+    <div id="logo-container">
+        <div id="logo">
+            <img src="static/img/sdd_logo.png" width="8%">
+        </div>
+    </div>
+    <script src="./dist/reveal.js"></script>
+
+    <script src="./mermaid/dist/mermaid.min.js"></script>
+
+    <script src="./plugin/markdown/markdown.js"></script>
+    <script src="./plugin/highlight/highlight.js"></script>
+    <script src="./plugin/zoom/zoom.js"></script>
+    <script src="./plugin/notes/notes.js"></script>
+    <script src="./plugin/math/math.js"></script>
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        slideNumber: true,
+        highlight: {
+          highlightOnLoad: false
+        },
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath
+        ]
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"transition":"fade","transitionSpeed":"default","controls":true,"slideNumber":true,"width":"100%","height":"100%","_":["."],"template":"static/template/reveal.html","listing-template":"static/template/listing.html","listingTemplate":"static/template/listing.html","css":["static/css/evo.css","static/css/reset.css"],"static-dirs":"static","staticDirs":"static","static":"../../slides_new"}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+      Reveal.addEventListener('ready', function (event) {
+        const blocks = Reveal.getRevealElement().querySelectorAll('pre code:not(.mermaid)');
+        const hlp = Reveal.getPlugin('highlight');
+        blocks.forEach(hlp.highlightBlock);
+      });
+    </script>
+
+    <script>
+      const mermaidOptions = extend({ startOnLoad: false }, {});
+      mermaid.startOnLoad = false;
+      mermaid.initialize(mermaidOptions);
+      const cb = function (event) {
+        mermaid.init(mermaidOptions, '.stack.present > .present pre code.mermaid');
+        mermaid.init(mermaidOptions, '.slides > .present:not(.stack) pre code.mermaid');
+      }
+      Reveal.addEventListener('ready', cb);
+      Reveal.addEventListener('slidetransitionend', cb);
+    </script>
+  </body>
+</html>
