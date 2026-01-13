@@ -18,7 +18,7 @@
     - Pull results back to your Codespace for analysis
 
 !!! warning "Cost Warning"
-    GCP resources cost money. A `n1-standard-2` VM costs ~$0.10/hour.
+    GCP resources cost money.
 
     **CRITICAL:** Always verify training is complete before deleting your VM, then delete it immediately.
     Leaving a VM running overnight wastes money and your free credits.
@@ -113,26 +113,36 @@ Before diving in, let's understand the two GCP services we'll use.
 
 ### Set Environment Variables
 
-First, configure your environment with a unique run identifier:
+We'll create an environment file that you can source whenever you need these variables—this way you won't lose them if your terminal closes.
+
+Create a file called `env.sh` in the `be-cloud-computing/` folder with the following content:
 
 ```bash
-# Your name
-export YOUR_NAME="" # fill this
+# === FILL THESE VALUES ===
+export YOUR_NAME="your-firstname-lastname"  # e.g., "jean-dupont" (no spaces, lowercase)
+export RUN_ID="${YOUR_NAME}-run1"            # increment to run2, run3 if you redo the exercise
 
-# Project and shared bucket (already created by instructor)
+# === DO NOT MODIFY BELOW ===
 export PROJECT_ID=$(gcloud config get-value project 2> /dev/null)
 export GCS_BUCKET="gs://isae-sdd-de-2526"
-
-# Unique run identifier: username + timestamp
-export RUN_ID="${YOUR_NAME}-$(date +%Y%m%d-%H%M%S)"
 export INSTANCE_NAME="training-vm-${RUN_ID}"
 export GCS_OUTPUT="${GCS_BUCKET}/runs/${RUN_ID}"
 
 # Display configuration
 echo "Project: ${PROJECT_ID}"
 echo "Run ID: ${RUN_ID}"
+echo "Instance: ${INSTANCE_NAME}"
 echo "Results will be saved to: ${GCS_OUTPUT}"
 ```
+
+Then source it:
+
+```bash
+source env.sh
+```
+
+!!! tip "Recovering your environment"
+    If your terminal closes or you open a new one, just run `source env.sh` again to restore all your variables.
 
 ### Navigate to the workshop folder
 
@@ -150,7 +160,8 @@ gcloud storage ls ${GCS_BUCKET}
 ```
 
 !!! success "Checkpoint 1"
-    You should see the bucket contents listed (may be empty or have other students' runs).
+    After sourcing `env.sh`, you should see your Project ID, Run ID, Instance name, and GCS path printed.
+    The bucket listing should work (may be empty or have other students' runs).
     If you get a permission error, check with the instructor.
 
 ---
@@ -159,12 +170,22 @@ gcloud storage ls ${GCS_BUCKET}
 
 ### Create the VM
 
+Create a file called `create_vm.sh` with the following content:
+
 ```bash
+#!/bin/bash
+set -e
+
+# Source environment variables
+source env.sh
+
+echo "Creating VM: ${INSTANCE_NAME}..."
+
 gcloud compute instances create ${INSTANCE_NAME} \
     --zone=europe-west9-a \
     --image-family=debian-12 \
     --image-project=debian-cloud \
-    --machine-type=n1-standard-2 \
+    --machine-type=e2-standard-2 \
     --scopes=storage-rw \
     --boot-disk-size=50GB \
     --metadata=startup-script='#!/bin/bash
@@ -173,28 +194,42 @@ apt-get install -y python3-pip python3-venv
 python3 -m venv /opt/venv
 /opt/venv/bin/pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
 /opt/venv/bin/pip install google-cloud-storage'
+
+echo "VM created. Wait ~2 minutes for PyTorch installation."
 ```
+
+Make it executable and run it:
+
+```bash
+chmod +x create_vm.sh
+./create_vm.sh
+```
+
+!!! tip "Why a script?"
+    Copy-pasting long commands is error-prone. A script is reusable and you can see exactly what it does.
 
 **Key flags explained:**
 
-| Flag | Purpose |
-|------|---------|
-| `--image-family=debian-12` | Standard Linux image |
-| `--metadata=startup-script` | Installs PyTorch automatically at boot |
-| `--scopes=storage-rw` | VM can write to GCS without extra auth |
-| `--machine-type=n1-standard-2` | 2 vCPUs, 7.5 GB RAM |
+| Flag                           | Purpose |
+|--------------------------------|---------|
+| `--image-family=debian-12`     | Standard Linux image |
+| `--metadata=startup-script`    | Installs PyTorch automatically at boot |
+| `--scopes=storage-rw`          | VM can write to GCS without extra auth |
+| `--machine-type=e2-standard-2` | 2 vCPUs, 7.5 GB RAM |
 
 !!! warning "Wait for setup"
     The VM needs **~2 minutes** after creation for the startup script to install PyTorch.
     You can check progress with: `gcloud compute ssh ${INSTANCE_NAME} --zone=europe-west9-a --command="tail /var/log/syslog | grep startup-script"`
 
 !!! success "Checkpoint 2"
-    VM creation takes ~60 seconds, then wait ~2 minutes for PyTorch installation. Run `gcloud compute instances list` - your VM should show `RUNNING` status.
+    VM creation takes a few seconds, then wait a few minutes for PyTorch installation. Run `gcloud compute instances list` - your VM should show `RUNNING` status.
 
-### Copy the Training Script
+### Copy Files to the VM
+
+Transfer both the training script and your environment file:
 
 ```bash
-gcloud compute scp train.py ${INSTANCE_NAME}:~ --zone=europe-west9-a
+gcloud compute scp train.py env.sh ${INSTANCE_NAME}:~ --zone=europe-west9-a
 ```
 
 ### SSH into the VM and Run Training
@@ -203,13 +238,16 @@ gcloud compute scp train.py ${INSTANCE_NAME}:~ --zone=europe-west9-a
 gcloud compute ssh ${INSTANCE_NAME} --zone=europe-west9-a
 ```
 
-Once inside the VM, activate the virtual environment and run training with `nohup` to keep it running even if SSH disconnects:
+Once inside the VM, source your environment file and run training:
 
 ```bash
+# Load your environment variables
+source ~/env.sh
+
 # Activate the virtual environment (PyTorch is installed here)
 source /opt/venv/bin/activate
 
-# Use nohup to ensure training continues even if SSH disconnects
+# Run training with nohup (continues if SSH disconnects)
 nohup python train.py \
     --epochs 5 \
     --output-gcs ${GCS_OUTPUT} \
@@ -373,7 +411,9 @@ print(f"Total parameters: {sum(p.numel() for p in model_state.values()):,}")
 
 ## 7. Bonus: Automation Script
 
-Every command you ran could be a script. Here's what a fully automated `train_remote.sh` looks like:
+You've already created the building blocks (`env.sh`, `create_vm.sh`). This bonus section shows how to combine everything into a single fully automated script.
+
+Here's what a fully automated `train_remote.sh` looks like:
 
 ```bash
 #!/bin/bash

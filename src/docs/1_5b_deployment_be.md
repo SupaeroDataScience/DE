@@ -113,6 +113,29 @@ be-ml-deployment/
 
 The `backend/` folder contains a FastAPI application that serves the YOLO object detection model.
 
+### REST API Basics
+
+Before exploring the code, let's understand **routes** and **HTTP methods** - the building blocks of REST APIs.
+
+A **route** (or endpoint) is a URL path that your server responds to. Each route handles a specific action:
+
+| Route | Purpose |
+|-------|---------|
+| `/health` | Check if the server is alive |
+| `/predict` | Send an image and get detections |
+| `/models` | List available YOLO models |
+
+Each route responds to specific **HTTP methods** (also called "verbs"):
+
+| Method | When to use | Example |
+|--------|-------------|---------|
+| `GET` | Retrieve data (read-only) | Get list of models, check health |
+| `POST` | Send data to be processed | Upload image for prediction |
+| `PUT` | Update existing data | Update model settings |
+| `DELETE` | Remove data | Delete a saved result |
+
+For this workshop, we only use `GET` (to check health and list models) and `POST` (to send images for prediction).
+
 ### Explore the code
 
 Open `backend/app.py` and look for:
@@ -121,17 +144,29 @@ Open `backend/app.py` and look for:
 - The `/predict` route - receives an image, runs inference, returns detections
 - The `/health` route - simple endpoint to check if the server is alive
 
+**How FastAPI declares routes:**
+
+FastAPI uses Python **decorators** to turn functions into API endpoints:
+
 ```python
-@app.post(
-    "/predict",
-    description="Send a base64 encoded image + the model name, get detections",
-    response_description="Detections + Processing time",
-    response_model=Result,
-)
+@app.get("/health")       # GET request to /health
+def health():
+    return "HEALTH OK"
+
+@app.get("/models")       # GET request to /models
+def get_models():
+    return ["yolo11n", "yolo11s", "yolo11m"]
+
+@app.post("/predict")     # POST request to /predict
+def predict(request: PredictRequest):
+    # process image and return detections
+    return {"detections": [...], "time": 0.5}
 ```
 
+The decorator `@app.get("/health")` tells FastAPI: "When someone sends a GET request to `/health`, call this function and return its result as JSON."
+
 !!! info "What is FastAPI?"
-    FastAPI is a modern Python web framework for building APIs. It automatically generates interactive documentation from your code and validates request/response data.
+    FastAPI is a modern Python web framework for building APIs. It automatically generates interactive documentation from your code and validates request/response data using Python type hints.
 
 ### Run the backend locally
 
@@ -156,6 +191,18 @@ Open port 8000 in your Codespace. You should see:
 Navigate to `/docs` to see the interactive API documentation:
 
 ![fastapidoc](slides/static/img/apidoc.png)
+
+!!! info "What is this `/docs` page?"
+    This is **Swagger UI**, an industry-standard tool for exploring REST APIs. FastAPI automatically generates it from your Python code - no manual documentation needed!
+
+    The `/docs` page shows:
+
+    - All available routes and their HTTP methods
+    - Expected request format (what data to send)
+    - Response format (what you'll get back)
+    - A "Try it out" button to test endpoints directly in your browser
+
+    This follows the **OpenAPI specification** (formerly Swagger), a widely-adopted standard for describing REST APIs. Most production APIs provide similar documentation.
 
 **Option 2: Test script**
 
@@ -334,6 +381,23 @@ gcloud run deploy yolo-backend-${STUDENT_NAME} \
 | `--allow-unauthenticated` | Public access without login |
 | `--port=8000` | The port your container listens on |
 | `--memory=4Gi` | YOLO model needs more RAM than default (max 4Gi for 1 CPU) |
+
+!!! warning "Making the service public"
+    The `--allow-unauthenticated` flag requires specific IAM permissions that students may not have (Editor role is not sufficient).
+
+    **If you get a permission error**, the service will deploy but remain private. Ask the instructor to make it public:
+
+    1. Go to [Cloud Run Console](https://console.cloud.google.com/run)
+    2. Click on your service
+    3. Go to **Security** tab → **Authentication** → Select **Allow unauthenticated invocations**
+
+    Alternatively, the instructor can run:
+    ```bash
+    gcloud run services add-iam-policy-binding yolo-backend-${STUDENT_NAME} \
+        --region=europe-west9 \
+        --member="allUsers" \
+        --role="roles/run.invoker"
+    ```
 
 ### Get your service URL
 
