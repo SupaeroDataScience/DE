@@ -143,5 +143,4 @@ src/site
 src/docs/slides
 
 # Teacher resources
-src/teacher/agents/
-src/teacher/resources/
+src/agents/
