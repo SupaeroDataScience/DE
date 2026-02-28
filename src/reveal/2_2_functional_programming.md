@@ -43,7 +43,7 @@ Declarative programming : expresses the logic of a computation without describin
 
 ## Functional Programming Languages
 
-<img src="static/img/functional_languages.png">
+<img src="static/img/functional-languages.png">
 
 [source](https://en.wikipedia.org/wiki/List_of_programming_languages_by_type)
 

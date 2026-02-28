@@ -15,7 +15,7 @@ revealOptions:
 
 ## Containers Orchestration
 
-![orchestra](https://media.giphy.com/media/DPA3NUsVluONq/giphy.gif)
+![orchestra](static/img/gif-orchestra-conductor.gif)
 
 <!--v-->
 
@@ -38,19 +38,19 @@ Suppose I have a large pool of machines available
 
 ### In reality, it's much more complex...
 
-![](static/img/modelserving_complex.png)  <!-- .element: height="50%" width="50%" -->
+![](static/img/model-serving-complex.png)  <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 
 ### Orchestration
 
-<img src="https://devopedia.org/images/article/37/6042.1530784538.jpg" alt="" style="width: 40%; height: 40%; background:none; border:none; box-shadow:none;"/>
+<img src="static/img/container-orchestration-overview.jpg" alt="" style="width: 40%; height: 40%; background:none; border:none; box-shadow:none;"/>
 
 <!--v-->
 
 #### The next step
 
-![](https://miro.medium.com/v2/resize:fit:4800/format:webp/1*chfFaFDHCiHCfcUAycQSHA.png)
+![](static/img/docker-swarm-vs-k8s.png)
 
 <!--v-->
 
@@ -83,21 +83,21 @@ Suppose I have a large pool of machines available
 
 ... and so many more !
 
-![ecosystem](https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F996C7D4B5AF43B6C27)
+![ecosystem](static/img/k8s-ecosystem.jpg)
 
 <!--v-->
 
-![kub](https://miro.medium.com/max/1320/1*Mdj9wylSl0wqJ9sB0ENbRA.png)
+![kub](static/img/k8s-cluster-overview.png)
 
 <!--s-->
 
 ### Kubernetes ("Helmsman")
 
-![helm](https://media.giphy.com/media/l0Iyj8mER3cwNqJ6o/giphy.gif)
+![helm](static/img/gif-helm-wheel.gif)
 
 <!--v-->
 
-![borg](https://s3-eu-west-1.amazonaws.com/risingstack-resources/History+of+Kubernetes/borg-omega-and-kubernetes.jpg) <!-- .element: height="30%" width="30%" -->
+![borg](static/img/borg-omega-kubernetes.jpg) <!-- .element: height="30%" width="30%" -->
 
 Kubernetes (or k8s) comes from Google's internal systems [Borg](https://github.com/SupaeroDataScience/DE/blob/master/readings/borg.pdf)
 
@@ -107,7 +107,7 @@ It is open source now <https://github.com/kubernetes> and used... everywhere ?
 
 ### [Kubernetes](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/)
 
-![k8s](https://res.cloudinary.com/canonical/image/fetch/f_auto,q_auto,fl_sanitize,w_250,h_195/https://assets.ubuntu.com/v1/767f38a4-kubernetes-stacked-color.svg)
+![k8s](static/img/kubernetes-logo.svg)
 
 Kubernetes manages your containers on a cluster of machine while taking care of 
 
@@ -121,7 +121,7 @@ Kubernetes manages your containers on a cluster of machine while taking care of
 
 Kubernetes is part of [Cloud Native Computing Foundation](https://www.cncf.io/)
 
-![cncf](https://landscape.cncf.io/images/cncf-landscape-horizontal-color.svg) <!-- .element: height="40%" width="40%" -->
+![cncf](static/img/cncf-landscape-logo.svg) <!-- .element: height="40%" width="40%" -->
 
 > As part of the Linux Foundation, we provide support, oversight and direction for fast-growing, cloud native projects, including Kubernetes, Envoy, and Prometheus.
 
@@ -129,55 +129,55 @@ Kubernetes is part of [Cloud Native Computing Foundation](https://www.cncf.io/)
 
 [Cloud Native Computing Foundation Landscape](https://landscape.cncf.io/) 
 
-![cncf](https://www.civo.com/assets/public/academy/courses/kubernetes-introduction/cncf-and-its-landscapes/cncf-landscape-lg-76deb3155685ef877c983fca1eb2d6bde90598d42e0806f6f3b119f72aee3dde.jpg) <!-- .element: height="50%" width="60%" -->
+![cncf](static/img/cncf-landscape.jpg) <!-- .element: height="50%" width="60%" -->
 
 <!--v-->
 
 [Cloud Native Computing Foundation Projects](https://landscape.cncf.io/)
 
-![cncf](https://www.cncf.io/wp-content/uploads/2020/08/CNCF_TrailMap_latest-1.png) <!-- .element: height="30%" width="30%" -->
+![cncf](static/img/cncf-trail-map.png) <!-- .element: height="30%" width="30%" -->
 
 <!--v-->
 
 😱 😱 😱 😱
 
-![k8s](https://platform9.com/wp-content/uploads/2019/05/kubernetes-constructs-concepts-architecture-1024x800.jpg) <!-- .element: height="40%" width="40%" -->
+![k8s](static/img/k8s-constructs-architecture.jpg) <!-- .element: height="40%" width="40%" -->
 
 <!--v-->
 
 🤗 🤗 🤗
 
-![k8s](static/img/k8s.png)  <!-- .element: height="40%" width="40%" -->
+![k8s](static/img/kubernetes-architecture.png)  <!-- .element: height="40%" width="40%" -->
 
 <!--v-->
 
 Pods
 
-![pods](https://www.jeremyjordan.me/content/images/2019/11/deployment_spec.png)  <!-- .element: height="50%" width="50%" -->
+![pods](static/img/k8s-deployment-spec.png)  <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 
 Pods, Nodes
 
-![pods-nodes](https://matthewpalmer.net/kubernetes-app-developer/articles/networking-overview.png) <!-- .element: height="50%" width="50%" -->
+![pods-nodes](static/img/k8s-networking-overview.png) <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 
 Endpoints
 
-![service](https://storage.googleapis.com/static.ianlewis.org/prod/img/753/endpoints.png) <!-- .element: height="50%" width="50%" -->
+![service](static/img/k8s-service-endpoints.png) <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 
 Updating
 
-![rolling](static/img/rolling.png) <!-- .element: height="50%" width="50%" -->
+![rolling](static/img/kubernetes-rolling-update.png) <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 
 "Declarative" programming, cloud agnostic
 
-![declarative](https://miro.medium.com/max/1126/1*bwrbghRAwtf6lEVvoJCbyQ.png)
+![declarative](static/img/k8s-declarative-config.png)
 
 <!--v-->
 
@@ -185,7 +185,7 @@ Updating
 
 `kubectl apply -f deployment.yaml`
 
-![declarative](https://www.jeremyjordan.me/content/images/2019/11/deployment_spec.png)
+![declarative](static/img/k8s-deployment-spec.png)
 
 <!--v-->
 
@@ -219,7 +219,7 @@ spec:
 
 <!--v-->
 
-![helm](static/img/helm.png)  <!-- .element: height="50%" width="50%" -->
+![helm](static/img/helm-overview.png)  <!-- .element: height="50%" width="50%" -->
 
 Example: <https://artifacthub.io/packages/helm/dask/dask>
 
@@ -227,11 +227,11 @@ Example: <https://artifacthub.io/packages/helm/dask/dask>
 
 GCP + k8s = ❤️‍
 
-![GKE](https://venturebeat.com/wp-content/uploads/2018/05/image11.png?w=1200&strip=all) <!-- .element: height="50%" width="50%" -->
+![GKE](static/img/gke-dashboard.png) <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 
-![sailing](static/img/sailing.png)
+![sailing](static/img/kubernetes-sailing-meme.png)
 
 [comic](https://cloud.google.com/kubernetes-engine/kubernetes-comic/)
 

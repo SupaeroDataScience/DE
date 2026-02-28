@@ -82,7 +82,7 @@ If you already have a GitHub Codespace from previous sessions, relaunch it from 
 
 Otherwise, start a new one from [https://github.com/fchouteau/isae-cloud-computing-codespace](https://github.com/fchouteau/isae-cloud-computing-codespace)
 
-![codespace](slides/static/img/codespacefchouteau.png)
+![codespace](slides/static/img/codespace-creation-page.png)
 
 ### Verify gcloud configuration
 
@@ -190,7 +190,7 @@ Open port 8000 in your Codespace. You should see:
 
 Navigate to `/docs` to see the interactive API documentation:
 
-![fastapidoc](slides/static/img/apidoc.png)
+![fastapidoc](slides/static/img/fastapi-docs-screenshot.png)
 
 !!! info "What is this `/docs` page?"
     This is **Swagger UI**, an industry-standard tool for exploring REST APIs. FastAPI automatically generates it from your Python code - no manual documentation needed!
@@ -249,7 +249,7 @@ docker run --rm -p 8501:8501 --network="host" europe-docker.pkg.dev/isae-sdd-481
 4. Upload an image (try one with people, cars, or animals)
 5. Click **"PREDICT"** - you should see detection boxes drawn on the image
 
-![streamlit](slides/static/img/companionapp.png)
+![streamlit](slides/static/img/streamlit-companion-app.png)
 
 !!! success "Checkpoint"
     You can now send images through the frontend and see YOLO detections. Stop both containers (Ctrl+C in each terminal) before continuing.

@@ -64,7 +64,7 @@ Your GitHub Codespace has 2 CPU cores and 8GB RAM. You need to train a CNN on MN
 
 Here's the same workflow as a diagram:
 
-![GCE Workflow](slides/static/img/gce_workflow.png)
+![GCE Workflow](slides/static/img/gcp-workflow.png)
 
 ### Prerequisites
 

@@ -15,7 +15,7 @@ revealOptions:
 
 # From Virtualisation to Containerisation
 
-![](static/img/docker_meme.png)
+![](static/img/docker-meme-works-on-my-machine.png)
 
 <!--v-->
 
@@ -40,19 +40,19 @@ revealOptions:
 
 ### The need for Containers in software
 
-![](static/img/meme.png)
+![](static/img/containers-meme.png)
 
 <!--v-->
 
 #### IT Multimodality
 
-![](static/img/the-challenge.png)
+![](static/img/deployment-challenge.png)
 
 <!--v-->
 
 #### The Matrix From Hell
 
-![](static/img/the-matrix-from-hell.png)
+![](static/img/matrix-from-hell.png)
 
 <!--v-->
 
@@ -74,17 +74,17 @@ revealOptions:
 
 <!--v-->
 
-![](static/img/separation-of-concerns.png)
+![](static/img/docker-separation-of-concerns.png)
 
 <!--v-->
 
-![docker](static/img/buildshiprun.png) <!-- .element: height="60%" width="60%" -->
+![docker](static/img/docker-build-ship-run.png) <!-- .element: height="60%" width="60%" -->
 
 <!--s-->
 
 ### Docker
 
-![](static/img/docker.png) <!-- .element: height="≈%" width="©%" -->
+![](static/img/docker-logo.png) <!-- .element: height="≈%" width="©%" -->
 
 <!--v-->
 
@@ -116,7 +116,7 @@ Docker is not the only solution for containers
 
 Docker is some fancy tech over linux kernel capabilities (containers)
 
-![](static/img/medium_143e3fa2.png)
+![](static/img/docker-desktop-overview.png)
 
 [more info](https://medium.com/@goyalsaurabh66/docker-basics-cb006b9be243)
 
@@ -124,11 +124,11 @@ Docker is some fancy tech over linux kernel capabilities (containers)
 
 But Docker is available on [Windows and MacOS](https://www.docker.com/products/docker-desktop) !
 
-![desktop](static/img/List-plus-running-compose.png) <!-- .element: height="50%" width="50%" -->
+![desktop](static/img/docker-desktop-running.png) <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 
-![](static/img/maxresdefault.jpg)  <!-- .element: height="40%" width="40%" -->
+![](static/img/docker-hub-screenshot.jpg)  <!-- .element: height="40%" width="40%" -->
 
 https://www.youtube.com/c/AurelieVache/videos
 
@@ -161,7 +161,7 @@ https://www.youtube.com/c/AurelieVache/videos
 
 #### Why are docker containers lightweight ?
 
-![](static/img/why-are-containers-lightwight.png)
+![](static/img/containers-lightweight-explanation.png)
 
 <!--v-->
 
@@ -177,7 +177,7 @@ https://www.youtube.com/c/AurelieVache/videos
 * The container engine can allocate resources (CPU, Storage, RAM) on the fly (!= VM)
 * GPU is way easier to manage / share with containers
 
-![](static/img/containers_vs_vm.png)
+![](static/img/containers-vs-vm-detail.png)
 
 <!--v-->
 
@@ -196,19 +196,19 @@ https://www.youtube.com/c/AurelieVache/videos
 
 #### Multiple People
 
-![people](static/img/8df1bf6ae24e8b2fda7714f3bf3ccfff.jpg)
+![people](static/img/containers-people-analogy.jpg)
 
 <!--v-->
 
 #### Complex Workflows
 
-![workflows](static/img/medium_3f6b6545.jpeg) <!-- .element: height="40%" width="40%" -->
+![workflows](static/img/containers-ml-workflows.jpeg) <!-- .element: height="40%" width="40%" -->
 
 <!--v-->
 
 #### Multiple Components
 
-![workflows](static/img/mlops-phasen.jpg) <!-- .element: height="40%" width="40%" -->
+![workflows](static/img/mlops-phases.jpg) <!-- .element: height="40%" width="40%" -->
 
 <!--v-->
 
@@ -234,13 +234,13 @@ https://www.youtube.com/c/AurelieVache/videos
 
 Build, Ship, Run in Data Science
 
-![bsr](static/img/07rn_f4r.png)   <!-- .element: height="50%" width="50%" -->
+![bsr](static/img/docker-build-ship-run-detail.png)   <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 
 Deployment
 
-![](static/img/ai.deploy.lab1__1.webp)   <!-- .element: height="50%" width="50%" -->
+![](static/img/ai-deployment-lab.webp)   <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 
@@ -258,31 +258,31 @@ Codespace is actually a container...
 
 Machine Learning [at scale](https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning#mlops_level_1_ml_pipeline_automation) !
 
-![gcp](static/img/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning-3-ml-automation-ct.svg)
+![gcp](static/img/mlops-continuous-delivery.svg)
 
 <!--v-->
 
 [Netflix and notebook scheduling](https://medium.com/netflix-techblog/scheduling-notebooks-348e6c14cfd6)
 
-<img src="https://miro.medium.com/max/1229/0*byeqo-pBXVPU6xjq" alt="" style="width: 60%; height: 60%; background:none; border:none; box-shadow:none;"/>
+<img src="static/img/docker-container-internals.png" alt="" style="width: 60%; height: 60%; background:none; border:none; box-shadow:none;"/>
 
 <!--v-->
 
 https://www.kubeflow.org/
 
-![kubeflow](static/img/medium_fbb0cb8d.png) <!-- .element: height="55%" width="55%" -->
+![kubeflow](static/img/kubeflow-pipelines.png) <!-- .element: height="55%" width="55%" -->
 
 <!--v-->
 
 https://polyaxon.com/
 
-![polyaxon](static/img/polyaxon.png) <!-- .element: height="55%" width="55%" -->
+![polyaxon](static/img/polyaxon-dashboard.png) <!-- .element: height="55%" width="55%" -->
 
 <!--s-->
 
 ### Using Docker in practice
 
-![workflow](static/img/docker-jworkflow.jpg)
+![workflow](static/img/docker-workflow.jpg)
 
 <!--v-->
 
@@ -300,19 +300,19 @@ https://polyaxon.com/
 
 #### Workflow
 
-![workflow](static/img/basics-of-docker-system.png) <!-- .element: height="55%" width="55%" -->
+![workflow](static/img/docker-system-basics.png) <!-- .element: height="55%" width="55%" -->
 
 <!--v-->
 
 #### Layers, Container, Image
 
-![layers](https://jfrog--c.documentforce.com/servlet/servlet.ImageServer?id=0151r000006uDeN&oid=00D20000000M3v0&lastMod=1584629516000) <!-- .element: height="45%" width="45%" -->
+![layers](static/img/docker-image-layers-detail.png) <!-- .element: height="45%" width="45%" -->
 
 <!--v-->
 
 #### Image
 
-![docker-image-layers](static/img/image-layers.jpg)
+![docker-image-layers](static/img/docker-image-layers.jpg)
 
 <!--v-->
 
@@ -348,7 +348,7 @@ container = NewImage(a=0,b=1)
 
 #### Dockerfile / Layer / Image / Container Analogy
 
-![analogy](static/img/docker_analogy.png) <!-- .element: height="40%" width="40%" -->
+![analogy](static/img/docker-analogy.png) <!-- .element: height="40%" width="40%" -->
 
 <!--v-->
 
@@ -396,7 +396,7 @@ docker run my-image
 
 #### In practice
 
-<img src="static/img/docker_pratique.png" alt="" style="width: 50%; height: 50%; background:none; border:none; box-shadow:none;"/>
+<img src="static/img/docker-in-practice.png" alt="" style="width: 50%; height: 50%; background:none; border:none; box-shadow:none;"/>
 
 <!--v-->
 
@@ -409,7 +409,7 @@ docker run my-image
 * Multi-containers application with networking (communication)
 * "Glue" for complex applications and microservices
 
-![compose](static/img/medium_f6caf96e.png)
+![compose](static/img/docker-compose-overview.png)
 
 <!--v-->
 
@@ -437,13 +437,13 @@ services:
 
 #### Remember this !
 
-![docker](static/img/buildshiprun.png)
+![docker](static/img/docker-build-ship-run.png)
 
 <!--v-->
 
 ### An analogy...
 
-![workflow](static/img/container-shipping-docker.jpg)
+![workflow](static/img/docker-shipping-analogy.jpg)
 
 [https://bernhardwenzel.com/2022/the-mental-model-of-docker-container-shipping/](https://bernhardwenzel.com/2022/the-mental-model-of-docker-container-shipping/)
 
@@ -468,4 +468,4 @@ services:
 
 <!--v-->
 
-![break](static/img/img_2f05c014.gif)
+![break](static/img/gif-break-time.gif)

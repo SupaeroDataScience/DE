@@ -15,33 +15,33 @@ revealOptions:
 
 ## Intro to Cloud Computing
 
-![the office](static/img/img_7591cdb9.gif)
+![the office](static/img/gif-the-office.gif)
 
 <!--v-->
 
 ### What is the Cloud ?
 
-<img src="static/img/the_cloud.png" alt="xkcd" width="75%" height="50%" style="background:none; border:none; box-shadow:none;"/>
+<img src="static/img/xkcd-the-cloud.png" alt="xkcd" width="75%" height="50%" style="background:none; border:none; box-shadow:none;"/>
 
 <!--v-->
 
-![cloud](static/img/main-qimg-6a4c094bd9465389d35529b12b6caa77.webp)
+![cloud](static/img/cloud-definition-diagram.webp)
 
 <!--v-->
 
 But it's a bit bigger...
 
-<img src="static/img/fb_datacenter.jpg" alt="" width="25%" height="25%" style="background:none; border:none; box-shadow:none;"/>
+<img src="static/img/facebook-datacenter.jpg" alt="" width="25%" height="25%" style="background:none; border:none; box-shadow:none;"/>
 
-<img src="static/img/openrack2-640x426.jpg" alt="" width="25%" height="25%" style="background:none; border:none; box-shadow:none;"/>
+<img src="static/img/open-rack-server.jpg" alt="" width="25%" height="25%" style="background:none; border:none; box-shadow:none;"/>
 
-<img src="static/img/GM23qAAlFJW8xm4BABnMiwAAAAAAbj0JAAAD.png" alt="" width="25%" height="25%" style="background:none; border:none; box-shadow:none;"/>
+<img src="static/img/server-rack-closeup.png" alt="" width="25%" height="25%" style="background:none; border:none; box-shadow:none;"/>
 
 (Facebook's data center & server racks)
 
 <!--v-->
 
-![gcloud_datacenter.png](static/img/gcloud_datacenter.png)
+![gcloud_datacenter.png](static/img/gcp-datacenter-locations.png)
 
 Google Cloud Platform datacenters locations
 
@@ -69,7 +69,7 @@ which become increasingly "abstracted" from the hardware they run on...
 
 <!--v-->
 
-<img src="static/img/AWS-Services.png" alt="" width="50%" height="50%" style="background:none; border:none; box-shadow:none;"/>
+<img src="static/img/aws-services-overview.png" alt="" width="50%" height="50%" style="background:none; border:none; box-shadow:none;"/>
 
 (a portion of aws services)
 
@@ -77,7 +77,7 @@ which become increasingly "abstracted" from the hardware they run on...
 
 #### How is it possible ?
 
-![](static/img/xmagic.png)
+![](static/img/magic-virtualization.png)
 
 The magic of... virtualization !
 
@@ -93,17 +93,17 @@ Wikipedia
 
 <!--v-->
 
-<img src="static/img/virtualization.png" alt="" width="75%" height="75%" style="background:none; border:none; box-shadow:none;"/>
+<img src="static/img/virtualization-stack.png" alt="" width="75%" height="75%" style="background:none; border:none; box-shadow:none;"/>
 
 <!--v-->
 
 Hardware visualisation: Server Example
 
-<img src="static/img/virtualization2.png" alt="" width="50%" height="50%" style="background:none; border:none; box-shadow:none;"/>
+<img src="static/img/virtualization-hardware.png" alt="" width="50%" height="50%" style="background:none; border:none; box-shadow:none;"/>
 
 <!--v-->
 
-![virtualisation](static/img/medium_86e960ee.png)
+![virtualisation](static/img/virtualization-overview.png)
 
 <!--v-->
 
@@ -119,19 +119,19 @@ Hardware visualisation: Server Example
 
 #### Hypervisor : KVM example (Kernel Virtual Machine)
 
-![kvm](static/img/400px-Kernel-based_Virtual_Machine.svg.png) <!-- .element: height="30%" width="30%" -->
+![kvm](static/img/kvm-diagram.png) <!-- .element: height="30%" width="30%" -->
 
 <!--v-->
 
 #### Nested Hypervisors : Google Compute Engine
 
-![gce](static/img/nested-virtualization-diagram.svg) <!-- .element: height="30%" width="30%" -->
+![gce](static/img/nested-virtualization.svg) <!-- .element: height="30%" width="30%" -->
 
 <!--v-->
 
 #### Consequence
 
-![more ram](static/img/Technologically-Impaired-Duck-Where-can-I-download--More-RAM8.jpg)
+![more ram](static/img/download-more-ram-meme.jpg)
 
 > Any sufficiently advanced technology is indistinguishable from magic.
 
@@ -149,7 +149,7 @@ Clarke Third Law
 
 #### Reliability, security...
 
-![balancing](static/img/vm_charge_repartition.gif)
+![balancing](static/img/vm-load-balancing.gif)
 
 <!--s-->
 
@@ -163,7 +163,7 @@ Once upon a time...
 
 Amazon (the e-commerce store) has "scaling" issues
 
-![aws](static/img/jeff_bezos_big_mandate.jpg)
+![aws](static/img/bezos-api-mandate.jpg)
 
 <!--v-->
 
@@ -186,19 +186,19 @@ http://blog.b3k.us/2009/01/25/ec2-origins.html
 
 Let's sell it !
 
-![aws](static/img/ec2.png)
+![aws](static/img/aws-ec2-launch.png)
 
 <!--v-->
 
 #### How does Amazon can offer free shipping to everybody
 
-<img src="static/img/aws_fuel.png" alt="" width="60%" height="60%" style="background:none; border:none; box-shadow:none;"/>
+<img src="static/img/aws-revenue-fuel.png" alt="" width="60%" height="60%" style="background:none; border:none; box-shadow:none;"/>
 
 <!--v-->
 
 #### How does Amazon can offer free shipping to everybody
 
-<img src="static/img/aws_growth.png" alt="" width="60%" height="60%" style="background:none; border:none; box-shadow:none;"/>
+<img src="static/img/aws-revenue-growth.png" alt="" width="60%" height="60%" style="background:none; border:none; box-shadow:none;"/>
 
 <!--s-->
 
@@ -208,13 +208,13 @@ Let's sell it !
 
 Hybrid Cloud ? Private Cloud ? Public Cloud ?
 
-<img src="static/img/cloud.png" alt="" width="50%" height="50%" style="background:none; border:none; box-shadow:none;"/>
+<img src="static/img/cloud-types-diagram.png" alt="" width="50%" height="50%" style="background:none; border:none; box-shadow:none;"/>
 
 <!--v-->
 
 Cloud providers are offering services with increasing layers of abstraction...
 
-![cloud](static/img/medium_3675ed2b.jpeg) <!-- .element: height="50%" width="50%" -->
+![cloud](static/img/cloud-abstraction-layers.jpeg) <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 
@@ -248,19 +248,19 @@ Cloud providers are offering services with increasing layers of abstraction...
 
 #### It gets harder
 
-![cloud](static/img/cloudabstraction.jpg)  <!-- .element: height="65%" width="65%" -->
+![cloud](static/img/cloud-abstraction-complex.jpg)  <!-- .element: height="65%" width="65%" -->
 
 <!--v-->
 
 #### Useful analogy (1)
 
-![paas](static/img/3-pizza-as-a-service.png)  <!-- .element: height="50%" width="50%" -->
+![paas](static/img/pizza-as-a-service-v1.png)  <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 
 #### Useful analogy (2)
 
-![paas2](static/img/pizzaasaservicev2.jpg)  <!-- .element: height="50%" width="50%" -->
+![paas2](static/img/pizza-as-a-service-v2.jpg)  <!-- .element: height="50%" width="50%" -->
 
 <!--s-->
 
@@ -270,19 +270,19 @@ Cloud providers are offering services with increasing layers of abstraction...
 
 #### Major cloud providers
 
-![cloud_vendors](static/img/Top-10-Cloud-Service-Providers-Globally-in-2022.jpg.webp)  <!-- .element: height="50%" width="50%" -->
+![cloud_vendors](static/img/top-cloud-providers.webp)  <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 
 #### Private Cloud Stack
 
-![privatecloud](http://1.bp.blogspot.com/-1BuI8MUh498/Uc4BOPBpChI/AAAAAAAAGjk/XWA0iYO5drA/s1028/Screen+Shot+2013-06-28+at+12.03.11+PM.png)
+![privatecloud](static/img/private-cloud-stack.png)
 
 <!--v-->
 
 #### AI Cloud Providers
 
-![paperspace](static/img/medium_0de29265.png)  <!-- .element: height="50%" width="50%" -->
+![paperspace](static/img/ai-cloud-providers.png)  <!-- .element: height="50%" width="50%" -->
 
 - https://www.paperspace.com/core
 - https://lambdalabs.com/
@@ -292,13 +292,13 @@ Cloud providers are offering services with increasing layers of abstraction...
 
 #### French Cloud Providers 🐓🧀🐸🇫🇷
 
-<img src="static/img/ovhcloud.png" alt="" width="20%" height="20%" style="background:none; border:none; box-shadow:none;"/>
+<img src="static/img/ovhcloud-logo.png" alt="" width="20%" height="20%" style="background:none; border:none; box-shadow:none;"/>
 
-<img src="static/img/scaleway_logo_2018.png" alt="" width="20%" height="20%" style="background:none; border:none; box-shadow:none;"/>
+<img src="static/img/scaleway-logo.png" alt="" width="20%" height="20%" style="background:none; border:none; box-shadow:none;"/>
 
-<img src="static/img/3DS_OUTSCALE_Dark-Blue_RGB.png" alt="" width="20%" height="20%" style="background:none; border:none; box-shadow:none;"/>
+<img src="static/img/outscale-logo.png" alt="" width="20%" height="20%" style="background:none; border:none; box-shadow:none;"/>
 
-<img src="static/img/bleu.png" alt="" width="20%" height="20%" style="background:none; border:none; box-shadow:none;"/>
+<img src="static/img/bleu-cloud-logo.png" alt="" width="20%" height="20%" style="background:none; border:none; box-shadow:none;"/>
 
 - OVH went public in 2021
 - Scaleway is leading the charge for AI in France (& Europe)
@@ -338,7 +338,7 @@ Even if that data is physically located outside the United States.
 
 #### Cloud Market Share (World)
 
-![cloud](static/img/18819.jpeg) <!-- .element: height="40%" width="40%" -->
+![cloud](static/img/cloud-market-share-world.jpeg) <!-- .element: height="40%" width="40%" -->
 
 [source, 2025](https://www.statista.com/chart/18819/worldwide-market-share-of-leading-cloud-infrastructure-service-providers/)
 
@@ -346,7 +346,7 @@ Even if that data is physically located outside the United States.
 
 #### Cloud Market Share (Europe)
 
-![europan_cloud](static/img/euro_cloud_share.png)  <!-- .element: height="40%" width="40%" -->
+![europan_cloud](static/img/cloud-market-share-europe.png)  <!-- .element: height="40%" width="40%" -->
 
 [source, 2025](https://www.srgresearch.com/articles/european-cloud-providers-local-market-share-now-holds-steady-at-15)
 
@@ -354,7 +354,7 @@ Even if that data is physically located outside the United States.
 
 #### Cloud Market Share (France)
 
-![france](static/img/cloudshare2022.webp) <!-- .element: height="50%" width="50%" -->
+![france](static/img/cloud-market-share-france.webp) <!-- .element: height="50%" width="50%" -->
 
 [source, 2021](https://www.larevuedudigital.com/le-marche-du-cloud-concentre-en-france-entre-amazon-microsoft-et-google/)
 
@@ -362,7 +362,7 @@ Even if that data is physically located outside the United States.
 
 ### Cloud Computing & Environment
 
-<img src="static/img/Comparatif-DC-RVB-website-2048x1751.jpg" alt="" width="50%" height="50%" style="background:none; border:none; box-shadow:none;"/>
+<img src="static/img/datacenter-energy-comparison.jpg" alt="" width="50%" height="50%" style="background:none; border:none; box-shadow:none;"/>
 
 <!--v-->
 
@@ -384,7 +384,7 @@ On "Artificial Intelligence" & sustainability, entry points
 
 ## "Using" the Cloud
 
-![datacenter lost](static/img/comic.png)
+![datacenter lost](static/img/datacenter-lost-comic.png)
 
 <!--v-->
 
@@ -432,7 +432,7 @@ gcloud compute --project=deeplearningsps instances create ${INSTANCE_NAME} \
 
 #### Before...
 
-![catcomputer](static/img/6b92a03c8b87aa448f8206ee57b5a4fc.jpg)
+![catcomputer](static/img/cat-at-computer.jpg)
 
 <!--v-->
 
@@ -475,13 +475,13 @@ resources:
 
 #### Cloud Native Computing Foundation
 
-![CNCF](static/img/CNCF-Logo.jpg)
+![CNCF](static/img/cncf-logo.jpg)
 
 <!--v-->
 
 #### Cloud Native Computing Foundation
 
-![CNCF](static/img/cncf-landscape-lg-76deb3155685ef877c983fca1eb2d6bde90598d42e0806f6f3b119f72aee3dde.jpg)
+![CNCF](static/img/cncf-landscape.jpg)
 
 <!--v-->
 
@@ -529,8 +529,8 @@ resources:
 
 <!--v-->
 
-![file](static/img/FileStorage.png)
-![object](static/img/ObjectStorage.png)
+![file](static/img/file-storage-diagram.png)
+![object](static/img/object-storage-diagram.png)
 
 <!--v-->
 
@@ -591,7 +591,7 @@ Same concepts, similar APIs, different CLIs
 
 #### Pokemon Go Launch (2016)
 
-![pokemon](static/img/google-cloud-pokemon-go-1kwkj.max-700x700.PNG)
+![pokemon](static/img/pokemon-go-gcp-scaling.png)
 
 [source](https://cloud.google.com/blog/products/gcp/bringing-pokemon-go-to-life-on-google-cloud)
 
@@ -599,7 +599,7 @@ Same concepts, similar APIs, different CLIs
 
 #### Doctolib (2021)
 
-![doctolib](https://miro.medium.com/max/700/0*PMcEcSFsRKEm_4yG)
+![doctolib](static/img/doctolib-outage.png)
 
 [source](https://medium.com/doctolib/monday-july-12-at-doctolib-a-retrospective-9ac15c46ac19)
 
@@ -607,7 +607,7 @@ Same concepts, similar APIs, different CLIs
 
 #### Facebook October 2021 Failure
 
-![](static/img/Facebook-outage-traffic-dropoff__cropped_.png)
+![](static/img/facebook-outage-traffic.png)
 
 https://blog.cloudflare.com/october-2021-facebook-outage/
 
@@ -653,7 +653,7 @@ This was in 2022,
 
 This was 2024,
 
-![alt text](static/img/llama.png)
+![alt text](static/img/llama-training-scale.png)
 
 https://dblalock.substack.com/p/2024-8-4-arxiv-roundup-llama-31-training
 
@@ -661,13 +661,13 @@ https://dblalock.substack.com/p/2024-8-4-arxiv-roundup-llama-31-training
 
 ### AI Distributed Computing
 
-![](static/img/distributed_computing.png)
+![](static/img/ai-distributed-computing.png)
 
 <!--v-->
 
 ### Stable Diffusion
 
-![](static/img/63cf7cb6264c4050ed2ea00e_Screen_Shot_2023-01-23_at_10.37.19_PM.png) <!-- .element: height="60%" width="60%" -->
+![](static/img/stable-diffusion-training.png) <!-- .element: height="60%" width="60%" -->
 
 [Stable Diffusion Training Times](https://www.databricks.com/blog/stable-diffusion-2)
 
@@ -675,7 +675,7 @@ https://dblalock.substack.com/p/2024-8-4-arxiv-roundup-llama-31-training
 
 ### AI Cloud Providers
 
-![](static/img/4.png)  <!-- .element: height="50%" width="50%" -->
+![](static/img/ai-cloud-providers-chart.png)  <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 
@@ -687,43 +687,43 @@ https://dblalock.substack.com/p/2024-8-4-arxiv-roundup-llama-31-training
 
 <!--v-->
 
-![mlsystems](static/img/ml_project_flow.png) <!-- .element: height="40%" width="40%" -->
+![mlsystems](static/img/ml-project-flow.png) <!-- .element: height="40%" width="40%" -->
 
 <!--v-->
 
 MLOps Lifecycle
 
-![mlops](static/img/mlops_lifecycle.png)  <!-- .element: height="50%" width="50%" -->
+![mlops](static/img/mlops-lifecycle.png)  <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 
 MLOps Loop
 
-![mlops](static/img/mlops-loop-en.jpg) <!-- .element: height="50%" width="50%" -->
+![mlops](static/img/mlops-loop.jpg) <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 
 Deployment architecture
 
-![mlops](static/img/Intro.png) <!-- .element: height="50%" width="50%" -->
+![mlops](static/img/mlops-deployment-architecture.png) <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 
 ### Layers of "enabling technology"
 
-![mlops](static/img/mlopsinfra.png) <!-- .element: height="75%" width="75%" -->
+![mlops](static/img/mlops-infrastructure-layers.png) <!-- .element: height="75%" width="75%" -->
 
 <!--v-->
 
 ### A full workflow 
 
-![vertex](static/img/end-to-end-mlops-on-vertex-ai.png)
+![vertex](static/img/mlops-vertex-ai.png)
 
 <!--v-->
 
 ### The need for tech to orchestrate ML workflows
 
-![](static/img/anyscale.png)  <!-- .element: height="50%" width="50%" -->
+![](static/img/anyscale-ray.png)  <!-- .element: height="50%" width="50%" -->
 
 (And dask !)
 
@@ -733,15 +733,15 @@ Deployment architecture
 
 What does it mean for YOU ?
 
-![me](static/img/img_2190bc5d.gif)
+![me](static/img/gif-what-about-me.gif)
 
 <!--v-->
 
-<img src="static/img/mlroles2.png" alt="" width="50%" height="50%" style="background:none; border:none; box-shadow:none;"/>
+<img src="static/img/ml-team-roles-overview.png" alt="" width="50%" height="50%" style="background:none; border:none; box-shadow:none;"/>
 
 <!--v-->
 
-<img src="static/img/mlroles.png" alt="" width="50%" height="50%" style="background:none; border:none; box-shadow:none;"/>
+<img src="static/img/ml-team-roles-detail.png" alt="" width="50%" height="50%" style="background:none; border:none; box-shadow:none;"/>
 
 <!--v-->
 
@@ -758,4 +758,4 @@ but you will "deal with" cloud computing one way or another !
 
 ### Personal Experience
 
-![gcp](static/img/infra_army_of_one.png)
+![gcp](static/img/infra-army-of-one.png)

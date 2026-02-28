@@ -17,11 +17,11 @@ revealOptions:
 
 <!--v-->
 
-![cheatsheet](static/img/docker_cheat_sheet.png) <!-- .element: height="60%" width="60%" -->
+![cheatsheet](static/img/docker-cheat-sheet-1.png) <!-- .element: height="60%" width="60%" -->
 
 <!--v-->
 
-![cheatsheet](static/img/docker_cheat_sheet2.png)  <!-- .element: height="60%" width="60%" -->
+![cheatsheet](static/img/docker-cheat-sheet-2.png)  <!-- .element: height="60%" width="60%" -->
 
 <!--v-->
 

@@ -58,5 +58,6 @@ deploy:
 
 clean:
 	rm -rf site
+	rm -rf docs/slides
 	rm -rf ../slides
 	rm -rf ../slides_new

@@ -212,7 +212,7 @@ You can also run a second webserver at the same time on a different port:
 $ docker run --name static-site-2 -e AUTHOR="Your Name" -d -p 8888:80 dockersamples/static-site
 ```
 
-<img src="slides/static/img/static.png" title="static website">
+<img src="slides/static/img/docker-static-website.png" title="static website">
 
 To deploy this on a real server you would just need to install Docker, and run the above `docker` command (as in this case you can see the `AUTHOR` is Docker which we passed as an environment variable).
 
@@ -504,7 +504,7 @@ $ docker run -p 8888:5000 --name myfirstapp myfirstapp:1.0
 
 Head over to `http://localhost:8888` and your app should be live. If you're using Codespace, make sure port 8888 is forwarded.
 
-![catgif](slides/static/img/catgif.png)
+![catgif](slides/static/img/docker-cat-gif-app.png)
 
 Hit the Refresh button in the web browser to see a few more cat images.
 

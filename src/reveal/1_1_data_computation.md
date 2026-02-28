@@ -13,7 +13,7 @@ revealOptions:
     height: '100%'
 ---
 
-<img src="static/img/120106-G-IA651-272__6668116881_.jpg" alt="" width="40%" height="40%" style="background:none; border:none; box-shadow:none;"/>
+<img src="static/img/military-aircraft.jpg" alt="" width="40%" height="40%" style="background:none; border:none; box-shadow:none;"/>
 
 <!--v-->
 
@@ -35,7 +35,7 @@ You do not need to git clone anything
 
 ### Who ?
 
-<img src="static/img/ads_logo.jpg" alt="" width="128px" height="128px" style="background:none; border:none; box-shadow:none;"/>
+<img src="static/img/airbus-defence-space-logo.jpg" alt="" width="128px" height="128px" style="background:none; border:none; box-shadow:none;"/>
 
 - **Florient CHOUTEAU**, SDD 2015-2016 🎂
 - eXpert in Artificial Intelligence for Space Systems at **Airbus Defence and Space**

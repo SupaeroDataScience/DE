@@ -19,7 +19,7 @@ revealOptions:
 
 ### Architecturing (web) applications
 
-![api](static/img/webapp_architecture.jpg)  <!-- .element: height="50%" width="50%" -->
+![api](static/img/webapp-architecture.jpg)  <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 
@@ -33,7 +33,7 @@ revealOptions:
 
 ### API
 
-![api](static/img/infographie_api.jpg) <!-- .element: height="50%" width="50%" -->
+![api](static/img/api-infographic.jpg) <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 
@@ -41,13 +41,13 @@ revealOptions:
 
 Representational state transfer (REST)
 
-![rest](static/img/restful.png) <!-- .element: height="50%" width="50%" -->
+![rest](static/img/restful-api.png) <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 
 ### Microservices vs "monoliths"
 
-![microservices](static/img/D-image4-min.png) <!-- .element: height="50%" width="50%" -->
+![microservices](static/img/microservices-architecture.png) <!-- .element: height="50%" width="50%" -->
 
 PS: [Microservices are hard](https://dwmkerr.com/the-death-of-microservice-madness-in-2018/)
 
@@ -55,7 +55,7 @@ PS: [Microservices are hard](https://dwmkerr.com/the-death-of-microservice-madne
 
 ### Multi applications & docker
 
-![docker-compose](static/img/compose-3.png) <!-- .element: height="50%" width="50%" -->
+![docker-compose](static/img/docker-compose-diagram.png) <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 
@@ -73,37 +73,37 @@ PS: [Microservices are hard](https://dwmkerr.com/the-death-of-microservice-madne
 
 In the data science workflow, 
 
-![](static/img/mlworkflow.png)  <!-- .element: height="50%" width="50%" -->
+![](static/img/ml-workflow.png)  <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 
 I have an **awesome** ML model
 
-![model](static/img/meme_2.jpg)  <!-- .element: height="50%" width="50%" -->
+![model](static/img/model-deployment-meme-1.jpg)  <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 
 (Just kidding)
 
-![model](static/img/meme_3.jpg)  <!-- .element: height="50%" width="50%" -->
+![model](static/img/model-deployment-meme-2.jpg)  <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 
 I want to deploy it on the cloud for other to use
 
-![model](static/img/mistralserving.png)  <!-- .element: height="50%" width="50%" -->
+![model](static/img/mistral-model-serving.png)  <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 
 Today we will do it by hand
 
-![deploy](static/img/deployment.png)  <!-- .element: height="50%" width="50%" -->
+![deploy](static/img/model-deployment-options.png)  <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 
 Other methods for ML Model packaging behind a web server
 
-![package](static/img/packaging.png)
+![package](static/img/model-packaging.png)
 
 - cog : https://github.com/replicate/cog
 - pesto : https://github.com/AirbusDefenceAndSpace/pesto
@@ -124,19 +124,19 @@ curl -X POST "http://my-instance/predict" \
 
 Interaction with user ? We use CURL 👎 
 
-![json](static/img/json.png)  <!-- .element: height="30%" width="30%" -->
+![json](static/img/json-request-response.png)  <!-- .element: height="30%" width="30%" -->
 
 <!--v-->
 
 Interaction with users ? 👍
 
-![results](static/img/results.png)  <!-- .element: height="50%" width="50%" -->
+![results](static/img/api-results-example.png)  <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 
 Webapp builder for data scientists
 
-![streamlit](static/img/streamlit.png)  <!-- .element: height="50%" width="50%" -->
+![streamlit](static/img/streamlit-app.png)  <!-- .element: height="50%" width="50%" -->
 
 
 [you've seen it before](http://supaerodatascience.github.io/DE/1_4_be.html#6-lets-discover-streamlit)
@@ -161,7 +161,7 @@ Let's build it !
 
 In reality, it's much more complex...
 
-![](static/img/modelserving_complex.png)  <!-- .element: height="50%" width="50%" -->
+![](static/img/model-serving-complex.png)  <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 

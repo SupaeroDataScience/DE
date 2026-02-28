@@ -54,7 +54,7 @@ Here you will each create a Google Cloud Platform account and project using the 
 
 If you go to the core page of [https://github.com/codespaces](https://github.com/codespaces) and you see an existing codespace from the morning, you can restart it using the (...) menu
 
-![img](slides/static/img/codespacemenu.png)
+![img](slides/static/img/codespace-menu.png)
 
 If you don't have one, recreate it (see below)
 
@@ -62,7 +62,7 @@ If you don't have one, recreate it (see below)
 
 Go to [https://github.com/fchouteau/isae-cloud-computing-codespace](https://github.com/fchouteau/isae-cloud-computing-codespace)
 
-![img](slides/static/img/codespacefchouteau.png)
+![img](slides/static/img/codespace-creation-page.png)
 
 * Click on the top left corner for a new codespace
 * It should launch a browser with a vscode
@@ -70,15 +70,15 @@ Go to [https://github.com/fchouteau/isae-cloud-computing-codespace](https://gith
 
 **If that does not work,** go to [https://github.com/github/codespaces-blank](https://github.com/github/codespaces-blank) and create a codespace from there
 
-![img](slides/static/img/codespacesblank.png)
+![img](slides/static/img/codespace-blank-template.png)
 
 You should arrive to a VScode instance
 
-![img](slides/static/img/codespacevscode.png)
+![img](slides/static/img/codespace-vscode-browser.png)
 
 If you go to the core page of [https://github.com/codespaces](https://github.com/codespaces) you should see your codespace running
 
-![img](slides/static/img/codespace.png)
+![img](slides/static/img/codespace-running.png)
 
 ## 3. Configure the Google Cloud SDK
 
@@ -98,7 +98,7 @@ gcloud init
 
 You should see a terminal with a link. Click on the link, login with your Google account, then copy the token back to your Codespace.
 
-![logintoken](slides/static/img/login.png)
+![logintoken](slides/static/img/gcp-login-token.png)
 
 Your GitHub Codespace is now configured with your Google Cloud Platform credentials.
 
@@ -323,7 +323,7 @@ gcloud storage cp gs://your-bucket-name/remote-file.txt ./
 
 Here's the workflow you'll implement:
 
-![setup](slides/static/img/gce_workflow.png)
+![setup](slides/static/img/gcp-workflow.png)
 
 This pattern—**compute on VMs, store on GCS, develop locally**—is how real ML teams work. You now have all the building blocks; Day 2 puts them together.
 
@@ -343,7 +343,7 @@ This pattern—**compute on VMs, store on GCS, develop locally**—is how real M
 
 How to shutdown Codespaces:
 
-![stop](slides/static/img/stop.png)
+![stop](slides/static/img/gcp-instance-stop.png)
 
 - Click on "Stop codespace" to shut it down (you "pay" for the disk with your free credits)
 - Click on "Delete" to remove it completely

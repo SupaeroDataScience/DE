@@ -69,7 +69,7 @@ Have a look at the overview: [https://docs.github.com/en/codespaces/overview](ht
 
 Go to [https://github.com/fchouteau/isae-cloud-computing-codespace](https://github.com/fchouteau/isae-cloud-computing-codespace)
 
-![codespace](slides/static/img/codespacefchouteau.png)
+![codespace](slides/static/img/codespace-creation-page.png)
 
 * Click on the green "Code" button, then select "Create codespace on main"
 * It should open a browser tab with VS Code
@@ -77,14 +77,14 @@ Go to [https://github.com/fchouteau/isae-cloud-computing-codespace](https://gith
 
 You should see a VS Code instance
 
-![codespace](slides/static/img/codespacevscode.png)
+![codespace](slides/static/img/codespace-vscode-browser.png)
 
 !!! question
     Where is this running?
 
 If you go to [https://github.com/codespaces](https://github.com/codespaces), you should see your codespace running
 
-![img.png](slides/static/img/codespace.png)
+![img.png](slides/static/img/codespace-running.png)
 
 
 ### Alternative: Connect from local VSCode
@@ -99,7 +99,7 @@ You can also connect to your Codespace from your local VSCode installation inste
 
 **Steps: (via Web UI)**
 
-![img.png](slides/static/img/codespace_local.png)
+![img.png](slides/static/img/codespace-local-vscode.png)
 
 - Go to https://github.com/codespaces and click on "Open in VS Code Desktop"
 

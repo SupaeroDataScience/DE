@@ -13,7 +13,7 @@ By the end of this workshop, you will be able to:
 3. **Push/Pull from a registry** - Authenticate to Google Artifact Registry and exchange images with teammates
 4. **Run containers with configuration** - Map ports, set environment variables, and understand container lifecycle
 
-![workflow](slides/static/img/buildshiprun.png)
+![workflow](slides/static/img/docker-build-ship-run.png)
 
 !!! warning
     Please read all the text in the question before executing the step-by-step instructions because there might be help or indications after the instructions.
