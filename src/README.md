@@ -372,27 +372,24 @@ make all            # Build both slides and site into site/ directory (for CI or
 #### Deploying to GitHub Pages
 
 ```bash
-make deploy         # Full two-stage deploy to gh-pages branch
+make deploy REMOTE=supaero   # Build and deploy to gh-pages in one step
 ```
 
-**What `make deploy` does** (non-trivial — read this before running):
+**What `make deploy` does:**
 
-1. Checks out `SOURCE_BRANCH` (default: `main`)
-2. Runs `mkdocs gh-deploy` → builds the site and pushes it to `gh-pages`
-3. Runs `reveal-md` → builds slides into a temporary `slides_new/` directory
-4. Checks out `gh-pages` branch, replaces `slides/` with the new build, commits, and pushes
-5. Re-checks out `SOURCE_BRANCH`
+1. Runs `mkdocs build` → builds the site into `site/`
+2. Runs `reveal-md` → builds slides directly into `site/slides/`
+3. Runs `ghp-import` → commits the entire `site/` directory to `gh-pages` and pushes
+
+No branch checkouts are performed — your working tree is never touched. This uses `ghp-import` (the same tool `mkdocs gh-deploy` uses internally) to force-push to `gh-pages` without checking it out.
 
 **Important variables** (in `src/Makefile`):
 
 | Variable | Default | Purpose |
 |----------|---------|---------|
 | `REMOTE` | `origin` | Git remote to push to |
-| `SOURCE_BRANCH` | `main` | Branch to build from |
 
-Override if needed: `make deploy REMOTE=upstream SOURCE_BRANCH=my-branch`
-
-**Caution:** `make deploy` does branch gymnastics (checkout gh-pages, commit, push, checkout back). Make sure your working tree is clean before running it. Uncommitted changes will be lost during the checkout.
+Override if needed: `make deploy REMOTE=supaero`
 
 ---
 

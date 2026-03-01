@@ -1,5 +1,4 @@
 REMOTE ?= origin
-SOURCE_BRANCH ?= main
 
 all:
 	mkdocs build
@@ -34,30 +33,19 @@ sync:
 	bash sync.sh
 
 deploy:
-	git checkout $(SOURCE_BRANCH)
-	# deploy site
-	mkdocs gh-deploy -r $(REMOTE) -b gh-pages
-	# build slides
+	# 1. Build mkdocs site into site/
+	mkdocs build
+	# 2. Build slides directly into site/slides/
 	cd reveal; reveal-md . \
         --template static/template/reveal.html \
         --listing-template static/template/listing.html \
         --css static/css/evo.css \
         --css static/css/reset.css \
         --static-dirs static \
-        --static ../../slides_new
-	# commit them to gh-page branch
-	git checkout gh-pages
-	rm -rf ../slides
-	mv ../slides_new ../slides
-	git add ../slides
-	git commit -m "Updated reveal slides"
-	# push to gh-pages
-	git push $(REMOTE) gh-pages
-	# re-checkout current branch
-	git checkout $(SOURCE_BRANCH)
+        --static ../site/slides
+	# 3. Deploy everything in one push (no checkout needed)
+	ghp-import -n -p -r $(REMOTE) -b gh-pages site
 
 clean:
 	rm -rf site
 	rm -rf docs/slides
-	rm -rf ../slides
-	rm -rf ../slides_new

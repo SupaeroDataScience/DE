@@ -50,7 +50,6 @@ nav:
     - 1. Lecture: 1_5a_deployment.md
     - 2. Deploy your ML model into production: 1_5b_deployment_be.md
   - Recap & Reading List: 1_6_conclusion.md
-  - Appendixes & Technical Notions : 1_7_appendixes.md
 - Data Distribution:
   - Introduction:
     - Overview: 2_1_overview.md
