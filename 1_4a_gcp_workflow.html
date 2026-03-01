@@ -1297,10 +1297,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#copy-the-training-script" class="md-nav__link">
+  <a href="#copy-files-to-the-vm" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Copy the Training Script
+        Copy Files to the VM
       
     </span>
   </a>
@@ -1668,34 +1668,6 @@
     
   
     Recap & Reading List
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="1_7_appendixes.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Appendixes & Technical Notions
   
 
     
@@ -2246,10 +2218,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#copy-the-training-script" class="md-nav__link">
+  <a href="#copy-files-to-the-vm" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Copy the Training Script
+        Copy Files to the VM
       
     </span>
   </a>
@@ -2496,7 +2468,7 @@ Write <code>yourname</code>, not <code>{yourname}</code>.</p>
    └──────────┘                      │                           │
 </code></pre></div>
 <p>Here's the same workflow as a diagram:</p>
-<p><img alt="GCE Workflow" src="slides/static/img/gce_workflow.png" /></p>
+<p><img alt="GCE Workflow" src="slides/static/img/gcp-workflow.png" /></p>
 <h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">🔗</a></h3>
 <p>Before starting, you should have:</p>
 <ul>
@@ -2537,25 +2509,31 @@ delete the expensive VM immediately after training and still have all your resul
 <hr />
 <h2 id="2-setup">2. Setup<a class="headerlink" href="#2-setup" title="Permanent link">🔗</a></h2>
 <h3 id="set-environment-variables">Set Environment Variables<a class="headerlink" href="#set-environment-variables" title="Permanent link">🔗</a></h3>
-<p>First, configure your environment with a unique run identifier. </p>
-<p>In the codespace, execute this in your terminal or copy it to a bash script and source it.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Your name</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">YOUR_NAME</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="c1"># fill this</span>
+<p>We'll create an environment file that you can source whenever you need these variables—this way you won't lose them if your terminal closes.</p>
+<p>Create a file called <code>env.sh</code> in the <code>be-cloud-computing/</code> folder with the following content:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># === FILL THESE VALUES ===</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">YOUR_NAME</span><span class="o">=</span><span class="s2">&quot;your-firstname-lastname&quot;</span><span class="w">  </span><span class="c1"># e.g., &quot;jean-dupont&quot; (no spaces, lowercase)</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">RUN_ID</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">YOUR_NAME</span><span class="si">}</span><span class="s2">-run1&quot;</span><span class="w">            </span><span class="c1"># increment to run2, run3 if you redo the exercise</span>
 
-<span class="c1"># Project and shared bucket (already created by instructor)</span>
+<span class="c1"># === DO NOT MODIFY BELOW ===</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">PROJECT_ID</span><span class="o">=</span><span class="k">$(</span>gcloud<span class="w"> </span>config<span class="w"> </span>get-value<span class="w"> </span>project<span class="w"> </span><span class="m">2</span>&gt;<span class="w"> </span>/dev/null<span class="k">)</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">GCS_BUCKET</span><span class="o">=</span><span class="s2">&quot;gs://isae-sdd-de-2526&quot;</span>
-
-<span class="c1"># Unique run identifier: username + timestamp</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">RUN_ID</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">YOUR_NAME</span><span class="si">}</span><span class="s2">-</span><span class="k">$(</span>date<span class="w"> </span>+%Y%m%d-%H%M%S<span class="k">)</span><span class="s2">&quot;</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">INSTANCE_NAME</span><span class="o">=</span><span class="s2">&quot;training-vm-</span><span class="si">${</span><span class="nv">RUN_ID</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">GCS_OUTPUT</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">GCS_BUCKET</span><span class="si">}</span><span class="s2">/runs/</span><span class="si">${</span><span class="nv">RUN_ID</span><span class="si">}</span><span class="s2">&quot;</span>
 
 <span class="c1"># Display configuration</span>
 <span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Project: </span><span class="si">${</span><span class="nv">PROJECT_ID</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Run ID: </span><span class="si">${</span><span class="nv">RUN_ID</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Instance: </span><span class="si">${</span><span class="nv">INSTANCE_NAME</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Results will be saved to: </span><span class="si">${</span><span class="nv">GCS_OUTPUT</span><span class="si">}</span><span class="s2">&quot;</span>
 </code></pre></div>
+<p>Then source it:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>env.sh
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Recovering your environment</p>
+<p>If your terminal closes or you open a new one, just run <code>source env.sh</code> again to restore all your variables.</p>
+</div>
 <h3 id="navigate-to-the-workshop-folder">Navigate to the workshop folder<a class="headerlink" href="#navigate-to-the-workshop-folder" title="Permanent link">🔗</a></h3>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>be-cloud-computing
 </code></pre></div>
@@ -2566,13 +2544,23 @@ gcloud<span class="w"> </span>storage<span class="w"> </span>ls<span class="w"> 
 </code></pre></div>
 <div class="admonition success">
 <p class="admonition-title">Checkpoint 1</p>
-<p>You should see the bucket contents listed (may be empty or have other students' runs).
+<p>After sourcing <code>env.sh</code>, you should see your Project ID, Run ID, Instance name, and GCS path printed.
+The bucket listing should work (may be empty or have other students' runs).
 If you get a permission error, check with the instructor.</p>
 </div>
 <hr />
 <h2 id="3-create-vm-and-run-training">3. Create VM and Run Training<a class="headerlink" href="#3-create-vm-and-run-training" title="Permanent link">🔗</a></h2>
 <h3 id="create-the-vm">Create the VM<a class="headerlink" href="#create-the-vm" title="Permanent link">🔗</a></h3>
-<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create<span class="w"> </span><span class="si">${</span><span class="nv">INSTANCE_NAME</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<p>Create a file called <code>create_vm.sh</code> with the following content:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="nb">set</span><span class="w"> </span>-e
+
+<span class="c1"># Source environment variables</span>
+<span class="nb">source</span><span class="w"> </span>env.sh
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Creating VM: </span><span class="si">${</span><span class="nv">INSTANCE_NAME</span><span class="si">}</span><span class="s2">...&quot;</span>
+
+gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create<span class="w"> </span><span class="si">${</span><span class="nv">INSTANCE_NAME</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--zone<span class="o">=</span>europe-west9-a<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--image-family<span class="o">=</span>debian-12<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--image-project<span class="o">=</span>debian-cloud<span class="w"> </span><span class="se">\</span>
@@ -2585,7 +2573,17 @@ If you get a permission error, check with the instructor.</p>
 <span class="s1">python3 -m venv /opt/venv</span>
 <span class="s1">/opt/venv/bin/pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu</span>
 <span class="s1">/opt/venv/bin/pip install google-cloud-storage&#39;</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;VM created. Wait ~2 minutes for PyTorch installation.&quot;</span>
 </code></pre></div>
+<p>Make it executable and run it:</p>
+<div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>+x<span class="w"> </span>create_vm.sh
+./create_vm.sh
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Why a script?</p>
+<p>Copy-pasting long commands is error-prone. A script is reusable and you can see exactly what it does.</p>
+</div>
 <p><strong>Key flags explained:</strong></p>
 <table>
 <thead>
@@ -2615,32 +2613,28 @@ If you get a permission error, check with the instructor.</p>
 </table>
 <div class="admonition warning">
 <p class="admonition-title">Wait for setup</p>
-<p>The VM needs <strong>a few minutes minutes</strong> after creation for the startup script to install PyTorch.
+<p>The VM needs <strong>~2 minutes</strong> after creation for the startup script to install PyTorch.
 You can check progress with: <code>gcloud compute ssh ${INSTANCE_NAME} --zone=europe-west9-a --command="tail /var/log/syslog | grep startup-script"</code></p>
 </div>
 <div class="admonition success">
 <p class="admonition-title">Checkpoint 2</p>
 <p>VM creation takes a few seconds, then wait a few minutes for PyTorch installation. Run <code>gcloud compute instances list</code> - your VM should show <code>RUNNING</code> status.</p>
 </div>
-<h3 id="copy-the-training-script">Copy the Training Script<a class="headerlink" href="#copy-the-training-script" title="Permanent link">🔗</a></h3>
-<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>compute<span class="w"> </span>scp<span class="w"> </span>train.py<span class="w"> </span><span class="si">${</span><span class="nv">INSTANCE_NAME</span><span class="si">}</span>:~<span class="w"> </span>--zone<span class="o">=</span>europe-west9-a
+<h3 id="copy-files-to-the-vm">Copy Files to the VM<a class="headerlink" href="#copy-files-to-the-vm" title="Permanent link">🔗</a></h3>
+<p>Transfer both the training script and your environment file:</p>
+<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>compute<span class="w"> </span>scp<span class="w"> </span>train.py<span class="w"> </span>env.sh<span class="w"> </span><span class="si">${</span><span class="nv">INSTANCE_NAME</span><span class="si">}</span>:~<span class="w"> </span>--zone<span class="o">=</span>europe-west9-a
 </code></pre></div>
 <h3 id="ssh-into-the-vm-and-run-training">SSH into the VM and Run Training<a class="headerlink" href="#ssh-into-the-vm-and-run-training" title="Permanent link">🔗</a></h3>
 <div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>compute<span class="w"> </span>ssh<span class="w"> </span><span class="si">${</span><span class="nv">INSTANCE_NAME</span><span class="si">}</span><span class="w"> </span>--zone<span class="o">=</span>europe-west9-a
 </code></pre></div>
-<p>Once inside the VM, activate the virtual environment and run training with <code>nohup</code> to keep it running even if SSH disconnects:</p>
-<p>First, set the $GCS_OUTPUT environment variable:</p>
-<p>In codespace :
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="nv">$GCS_OUTPUT</span>
-</code></pre></div></p>
-<p>in GCE VM :</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">$GCS_OUTPUT</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="w">  </span><span class="c1"># &lt;--- replace this by your codespace variable</span>
-</code></pre></div>
-<p>Then run the training script : </p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Activate the virtual environment (PyTorch is installed here)</span>
+<p>Once inside the VM, source your environment file and run training:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Load your environment variables</span>
+<span class="nb">source</span><span class="w"> </span>~/env.sh
+
+<span class="c1"># Activate the virtual environment (PyTorch is installed here)</span>
 <span class="nb">source</span><span class="w"> </span>/opt/venv/bin/activate
 
-<span class="c1"># Use nohup to ensure training continues even if SSH disconnects</span>
+<span class="c1"># Run training with nohup (continues if SSH disconnects)</span>
 nohup<span class="w"> </span>python<span class="w"> </span>train.py<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--epochs<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--output-gcs<span class="w"> </span><span class="si">${</span><span class="nv">GCS_OUTPUT</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
@@ -2775,7 +2769,8 @@ gcloud<span class="w"> </span>storage<span class="w"> </span>cp<span class="w"> 
 </div>
 <hr />
 <h2 id="7-bonus-automation-script">7. Bonus: Automation Script<a class="headerlink" href="#7-bonus-automation-script" title="Permanent link">🔗</a></h2>
-<p>Every command you ran could be a script. Here's what a fully automated <code>train_remote.sh</code> looks like:</p>
+<p>You've already created the building blocks (<code>env.sh</code>, <code>create_vm.sh</code>). This bonus section shows how to combine everything into a single fully automated script.</p>
+<p>Here's what a fully automated <code>train_remote.sh</code> looks like:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="nb">set</span><span class="w"> </span>-e<span class="w">  </span><span class="c1"># Exit on any error</span>
 

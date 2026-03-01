@@ -1586,34 +1586,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="1_7_appendixes.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Appendixes & Technical Notions
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -2302,22 +2274,22 @@ Write <code>yourname</code>, not <code>{yourname}</code>.</p>
 </div>
 <h3 id="if-you-still-have-your-codespace-from-last-time">If you still have your codespace from last time<a class="headerlink" href="#if-you-still-have-your-codespace-from-last-time" title="Permanent link">🔗</a></h3>
 <p>If you go to the core page of <a href="https://github.com/codespaces">https://github.com/codespaces</a> and you see an existing codespace from the morning, you can restart it using the (...) menu</p>
-<p><img alt="img" src="slides/static/img/codespacemenu.png" /></p>
+<p><img alt="img" src="slides/static/img/codespace-menu.png" /></p>
 <p>If you don't have one, recreate it (see below)</p>
 <h3 id="create-your-codespace-and-connect-to-it">Create your codespace and connect to it<a class="headerlink" href="#create-your-codespace-and-connect-to-it" title="Permanent link">🔗</a></h3>
 <p>Go to <a href="https://github.com/fchouteau/isae-cloud-computing-codespace">https://github.com/fchouteau/isae-cloud-computing-codespace</a></p>
-<p><img alt="img" src="slides/static/img/codespacefchouteau.png" /></p>
+<p><img alt="img" src="slides/static/img/codespace-creation-page.png" /></p>
 <ul>
 <li>Click on the top left corner for a new codespace</li>
 <li>It should launch a browser with a vscode</li>
 <li>Launch a terminal using the top right menu</li>
 </ul>
 <p><strong>If that does not work,</strong> go to <a href="https://github.com/github/codespaces-blank">https://github.com/github/codespaces-blank</a> and create a codespace from there</p>
-<p><img alt="img" src="slides/static/img/codespacesblank.png" /></p>
+<p><img alt="img" src="slides/static/img/codespace-blank-template.png" /></p>
 <p>You should arrive to a VScode instance</p>
-<p><img alt="img" src="slides/static/img/codespacevscode.png" /></p>
+<p><img alt="img" src="slides/static/img/codespace-vscode-browser.png" /></p>
 <p>If you go to the core page of <a href="https://github.com/codespaces">https://github.com/codespaces</a> you should see your codespace running</p>
-<p><img alt="img" src="slides/static/img/codespace.png" /></p>
+<p><img alt="img" src="slides/static/img/codespace-running.png" /></p>
 <h2 id="3-configure-the-google-cloud-sdk">3. Configure the Google Cloud SDK<a class="headerlink" href="#3-configure-the-google-cloud-sdk" title="Permanent link">🔗</a></h2>
 <p>The <a href="https://cloud.google.com/sdk">Google Cloud SDK</a> is required to interact with GCP from the command line.</p>
 <div class="admonition success">
@@ -2332,7 +2304,7 @@ Write <code>yourname</code>, not <code>{yourname}</code>.</p>
 <div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>init
 </code></pre></div>
 <p>You should see a terminal with a link. Click on the link, login with your Google account, then copy the token back to your Codespace.</p>
-<p><img alt="logintoken" src="slides/static/img/login.png" /></p>
+<p><img alt="logintoken" src="slides/static/img/gcp-login-token.png" /></p>
 <p>Your GitHub Codespace is now configured with your Google Cloud Platform credentials.</p>
 <details class="info">
 <summary>Reference: Installing gcloud CLI (not needed for this hands-on)</summary>
@@ -2598,7 +2570,7 @@ gcloud<span class="w"> </span>storage<span class="w"> </span>cp<span class="w"> 
 </ul>
 </div>
 <p>Here's the workflow you'll implement:</p>
-<p><img alt="setup" src="slides/static/img/gce_workflow.png" /></p>
+<p><img alt="setup" src="slides/static/img/gcp-workflow.png" /></p>
 <p>This pattern—<strong>compute on VMs, store on GCS, develop locally</strong>—is how real ML teams work. You now have all the building blocks; Day 2 puts them together.</p>
 <div class="admonition success">
 <p class="admonition-title">What You Learned</p>
@@ -2620,7 +2592,7 @@ gcloud<span class="w"> </span>storage<span class="w"> </span>cp<span class="w"> 
 </ul>
 </div>
 <p>How to shutdown Codespaces:</p>
-<p><img alt="stop" src="slides/static/img/stop.png" /></p>
+<p><img alt="stop" src="slides/static/img/gcp-instance-stop.png" /></p>
 <ul>
 <li>Click on "Stop codespace" to shut it down (you "pay" for the disk with your free credits)</li>
 <li>Click on "Delete" to remove it completely</li>

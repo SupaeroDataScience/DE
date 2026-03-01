@@ -27,13 +27,13 @@
 
 **ISAE-SUPAERO, SDD, January 2021**
 
-<img src="static/img/sdd_logo.png" width="10%" height=auto>
+<img src="static/img/sdd-logo.png" width="10%" height=auto>
 
 <!--s-->
 
 ### [Kubernetes](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/)
 
-![k8s](https://res.cloudinary.com/canonical/image/fetch/f_auto,q_auto,fl_sanitize,w_250,h_195/https://assets.ubuntu.com/v1/767f38a4-kubernetes-stacked-color.svg)
+![k8s](static/img/kubernetes-logo.svg)
 
 Kubernetes manages your containers on a cluster of machine while taking care of 
 
@@ -82,13 +82,13 @@ Kubernetes manages your containers on a cluster of machine while taking care of
 + Adapts to cloud or cluster computing, optimize CPU and GPU usage of physical machines
 + Kubernetes provides unified interface
 
-![distributed](https://www.jeremyjordan.me/content/images/2019/11/distributed_systems.png) 
+![distributed](static/img/k8s-distributed-systems.png) 
 
 <!--s-->
 
 ## Microservice Design
 
-![microservices](https://www.redhat.com/cms/managed-files/monolithic-vs-microservices.png)
+![microservices](static/img/monolithic-vs-microservices.png)
 
 Design applications as independently deployable services: each container should do one thing well
 
@@ -106,7 +106,7 @@ Design applications as independently deployable services: each container should 
 
 ## Example Kubernetes System
 
-![k8s](https://platform9.com/wp-content/uploads/2019/05/kubernetes-constructs-concepts-architecture-1024x800.jpg) <!-- .element: height="40%" width="40%" -->
+![k8s](static/img/k8s-constructs-architecture.jpg) <!-- .element: height="40%" width="40%" -->
 
 Different object types: Pod, ReplicaSet, Deployment, Service, Job
 
@@ -118,7 +118,7 @@ Different object types: Pod, ReplicaSet, Deployment, Service, Job
 + Shared networking layer and filesystem volumes
 + Meant to be ephemeral
 
-![pod](https://www.jeremyjordan.me/content/images/2019/11/pod.png)<!-- .element: height="50%" width="50%" -->
+![pod](static/img/k8s-pod.png)<!-- .element: height="50%" width="50%" -->
 
 <!--s-->
 
@@ -127,19 +127,19 @@ Different object types: Pod, ReplicaSet, Deployment, Service, Job
 + Collection of pods and replicas of pods
 + Behind the scenes, creates a ReplicaSet
 
-![deployment](https://www.jeremyjordan.me/content/images/2019/11/deployment.png)<!-- .element: height="50%" width="50%" -->
+![deployment](static/img/k8s-deployment.png)<!-- .element: height="50%" width="50%" -->
 
 <!--s-->
 
 ## Pod, Deployment configuration
 
-![pod-config](https://www.jeremyjordan.me/content/images/2019/11/deployment_spec.png)<!-- .element: height="50%" width="50%" -->
+![pod-config](static/img/k8s-deployment-spec.png)<!-- .element: height="50%" width="50%" -->
 
 <!--s-->
 
 ## Updating Deployments
 
-![deployment-update](https://www.jeremyjordan.me/content/images/2019/11/deployment_update.png)<!-- .element: height="50%" width="50%" -->
+![deployment-update](static/img/k8s-deployment-update.png)<!-- .element: height="50%" width="50%" -->
 
 <!--s-->
 
@@ -149,13 +149,13 @@ Different object types: Pod, ReplicaSet, Deployment, Service, Job
 + Services are stable endpoints for communicating with pods
 + Use key-value pairs to identify pods from Pod metadata
 
-![service](https://www.jeremyjordan.me/content/images/2019/11/service-1.png)<!-- .element: height="50%" width="50%" -->
+![service](static/img/k8s-service.png)<!-- .element: height="50%" width="50%" -->
 
 <!--s-->
 
 ## Service Configuration
 
-![service-config](https://www.jeremyjordan.me/content/images/2019/11/service_spec.png)<!-- .element: height="50%" width="50%" -->
+![service-config](static/img/k8s-service-spec.png)<!-- .element: height="50%" width="50%" -->
 
 <!--s-->
 
@@ -164,13 +164,13 @@ Different object types: Pod, ReplicaSet, Deployment, Service, Job
 + Service: internal endpoints
 + Ingress: external endpoint
 
-![ingress](https://www.jeremyjordan.me/content/images/2019/11/ingress.png)<!-- .element: height="50%" width="50%" -->
+![ingress](static/img/k8s-ingress.png)<!-- .element: height="50%" width="50%" -->
 
 <!--s-->
 
 ## Ingress Configuration
 
-![ingress-config](https://www.jeremyjordan.me/content/images/2019/11/ingress_spec.png)
+![ingress-config](static/img/k8s-ingress-spec.png)
 
 <!--s-->
 
@@ -180,7 +180,7 @@ Different object types: Pod, ReplicaSet, Deployment, Service, Job
 + Daily example: create a container to train a ML model, deploy the model, shut down container
 + Reliable: if the job crashes, Kubernetes can relaunch until desired state of job completion is acheived
 
-![job-config](https://www.jeremyjordan.me/content/images/2019/11/job_spec.png)
+![job-config](static/img/k8s-job-spec.png)
 
 <!--s-->
 
@@ -189,13 +189,13 @@ Different object types: Pod, ReplicaSet, Deployment, Service, Job
 + Master node allows for user to control the cluster through API access
 + On GCP, provided automatically when creating a Kubernetes cluster
 
-![control](https://www.jeremyjordan.me/content/images/2019/11/master-node.png)
+![control](static/img/k8s-master-node.png)
 
 <!--s-->
 
 ## Kubernetes System
 
-![system](https://www.jeremyjordan.me/content/images/2019/11/full_picture-1.png)
+![system](static/img/k8s-full-architecture.png)
 
 <!--s-->
 
@@ -231,7 +231,7 @@ spec:
 
 ## Helm
 
-![helm](static/img/helm.png)  <!-- .element: height="50%" width="50%" -->
+![helm](static/img/helm-overview.png)  <!-- .element: height="50%" width="50%" -->
 
 + similar to `apt` for Ubuntu
 + allows for live package management on K8S clusters
@@ -304,7 +304,7 @@ Create a Dask cluster using Kubernetes
     </div>
     <div id="logo-container">
         <div id="logo">
-            <img src="static/img/sdd_logo.png" width="8%">
+            <img src="static/img/sdd-logo.png" width="8%">
         </div>
     </div>
     <script src="./dist/reveal.js"></script>
@@ -353,7 +353,7 @@ Create a Dask cluster using Kubernetes
       // options from URL query string
       var queryOptions = Reveal().getQueryHash() || {};
 
-      var options = extend(defaultOptions, {"transition":"fade","transitionSpeed":"default","controls":true,"slideNumber":true,"width":"100%","height":"100%","_":["."],"template":"static/template/reveal.html","listing-template":"static/template/listing.html","listingTemplate":"static/template/listing.html","css":["static/css/evo.css","static/css/reset.css"],"static-dirs":"static","staticDirs":"static","static":"../../slides_new"}, queryOptions);
+      var options = extend(defaultOptions, {"transition":"fade","transitionSpeed":"default","controls":true,"slideNumber":true,"width":"100%","height":"100%","_":["."],"template":"static/template/reveal.html","listing-template":"static/template/listing.html","listingTemplate":"static/template/listing.html","css":["static/css/evo.css","static/css/reset.css"],"static-dirs":"static","staticDirs":"static","static":"../site/slides"}, queryOptions);
     </script>
 
 

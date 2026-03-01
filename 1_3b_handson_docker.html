@@ -1858,34 +1858,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="1_7_appendixes.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Appendixes & Technical Notions
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -2944,7 +2916,7 @@ e61d12292d69556eabe2a44c16cbd54486b2527e2ce4f95438e504afb7b02810
 <p>You can also run a second webserver at the same time on a different port:</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>static-site-2<span class="w"> </span>-e<span class="w"> </span><span class="nv">AUTHOR</span><span class="o">=</span><span class="s2">&quot;Your Name&quot;</span><span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">8888</span>:80<span class="w"> </span>dockersamples/static-site
 </code></pre></div>
-<p><img src="slides/static/img/static.png" title="static website"></p>
+<p><img src="slides/static/img/docker-static-website.png" title="static website"></p>
 <p>To deploy this on a real server you would just need to install Docker, and run the above <code>docker</code> command (as in this case you can see the <code>AUTHOR</code> is Docker which we passed as an environment variable).</p>
 <p>Now that you've seen how to run a webserver inside a Docker container, how do you create your own Docker image? This is the question we'll explore in the next section.</p>
 <p>But first, let's stop and remove the containers since you won't be using them anymore.</p>
@@ -3168,7 +3140,7 @@ CMD [&quot;python&quot;, &quot;/usr/src/app/app.py&quot;]
 <span class="w"> </span>*<span class="w"> </span>Running<span class="w"> </span>on<span class="w"> </span>http://0.0.0.0:5000/<span class="w"> </span><span class="o">(</span>Press<span class="w"> </span>CTRL+C<span class="w"> </span>to<span class="w"> </span>quit<span class="o">)</span>
 </code></pre></div>
 <p>Head over to <code>http://localhost:8888</code> and your app should be live. If you're using Codespace, make sure port 8888 is forwarded.</p>
-<p><img alt="catgif" src="slides/static/img/catgif.png" /></p>
+<p><img alt="catgif" src="slides/static/img/docker-cat-gif-app.png" /></p>
 <p>Hit the Refresh button in the web browser to see a few more cat images.</p>
 <h3 id="235-dockerfile-commands-summary">2.3.5 Dockerfile commands summary<a class="headerlink" href="#235-dockerfile-commands-summary" title="Permanent link">🔗</a></h3>
 <p>Here's a quick summary of the few basic commands we used in our Dockerfile.</p>
