@@ -51,7 +51,7 @@ Why not keep all data on a single file system on one drive?
 
 ## Data Storage Capacity
 
-<img src="static/img/datasphere.png"> <img src="static/img/hard_drive_over_time.png" width="30%" height="auto">
+<img src="static/img/global-datasphere.png"> <img src="static/img/hard-drive-cost-over-time.png" width="30%" height="auto">
 
 [source](https://www.seagate.com/files/www-content/our-story/trends/files/idc-seagate-dataage-whitepaper.pdf), [source](https://commons.wikimedia.org/wiki/File:Hard_drive_capacity_over_time.svg)
 
@@ -63,7 +63,7 @@ Too much data to fit on one disk
 
 Redundant Array of Independent Disks (originally "Inexpensive")
 
-<img src="static/img/RAID-5.png">
+<img src="static/img/raid-5-diagram.png">
 
 [RAID](https://en.wikipedia.org/wiki/RAID)
 
@@ -79,7 +79,7 @@ Also allows for same-site data redundancy so drives can be lost or corrupted wit
 
 ## Data Transfer Rates
 
-<img src="static/img/netflix_cdn.png"  width="40%" >
+<img src="static/img/netflix-cdn.png"  width="40%" >
 
 <div class="textbox">
 
@@ -93,7 +93,7 @@ With clients around the world, data must be stored near to clients to reduce dat
 
 ## Security, Privacy
 
-<img src="static/img/gdpr.png">
+<img src="static/img/gdpr-overview.png">
 
 Different geographic zones have different data laws.
 
@@ -105,7 +105,7 @@ Good security practice to have multiple copies of secure data in different areas
 
 ## System Architecture Requirements
 
-<img src="static/img/Zaloni-Data-Lake-2.png" width="60%" height="auto">
+<img src="static/img/data-lake-architecture.png" width="60%" height="auto">
 
 Different parts of the architecture access different parts of the total data storage, use different sets of operations.
 
@@ -117,7 +117,7 @@ Distributing data allows for specifically configured access, manipulation, and s
 
 ## Parallelization
 
-<img src="static/img/deep_learning_spark.png">
+<img src="static/img/deep-learning-spark.png">
 
 Distributing data allows for parallelizing computational resources for high-compute tasks.
 
@@ -161,7 +161,7 @@ L. Lamport, The part-time parliament, Research Report 49, Digital Equipment Cor-
 
 ## Spanner
 
-<img src="static/img/spanner.jpg">
+<img src="static/img/google-spanner.jpg">
 
 Corbett, James C., et al. "Spanner: Google’s globally distributed database." ACM Transactions on Computer Systems (TOCS) 31.3 (2013): 1-22.
 
@@ -169,7 +169,7 @@ Corbett, James C., et al. "Spanner: Google’s globally distributed database." A
 
 ## Data Sharding
 
-<img src="static/img/sharding.png">
+<img src="static/img/database-sharding.png">
 
 Splitting large datasets into "shards" stored on different nodes
 
@@ -193,7 +193,7 @@ High-level distributed computation:
 
 ## Spark
 
-<img src="static/img/spark_rdd_diagram.png">
+<img src="static/img/spark-rdd-diagram.png">
 
 Zaharia, Matei, et al. "Resilient distributed datasets: A fault-tolerant abstraction for in-memory cluster computing." Presented as part of the 9th {USENIX} Symposium on Networked Systems Design and Implementation ({NSDI} 12). 2012.
 
@@ -201,7 +201,7 @@ Zaharia, Matei, et al. "Resilient distributed datasets: A fault-tolerant abstrac
 
 ## Orchestration
 
-<img src="static/img/k8s_spark.png">
+<img src="static/img/kubernetes-spark.png">
 
 Configuring the storage, access, and computational workers: orchestration software like Kubernetes.
 
@@ -209,7 +209,7 @@ Configuring the storage, access, and computational workers: orchestration softwa
 
 ## MapReduce
 
-<img src="static/img/mapreduce.png" width="60%" height="auto">
+<img src="static/img/mapreduce-diagram.png" width="60%" height="auto">
 
 Fundamental idea: In order to send operations to different workers, we need to be able to pass operations (functions), return them from functions, store them.
 

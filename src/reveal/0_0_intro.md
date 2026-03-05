@@ -25,7 +25,7 @@ Dennis WILSON
 
 ### Software as a Service
 
-![](static/img/web_simple.png)
+![](static/img/web-simple-architecture.png)
 
 What happens when:
 
@@ -49,7 +49,7 @@ What happens when:
     <tr><td>1000^7 </td><td>	ZB</td><td> 	zettabyte</td></tr>
 </table>
 
-![](static/img/datasphere.png)
+![](static/img/global-datasphere.png)
 
 source: [IDC](https://www.seagate.com/files/www-content/our-story/trends/files/idc-seagate-dataage-whitepaper.pdf)
 
@@ -71,7 +71,7 @@ source: [Microsoft Azure](https://docs.microsoft.com/en-us/azure/architecture/da
 + Consistency
 + Usability
 
-![](static/img/referential_integrity.png)
+![](static/img/referential-integrity.png)
 
 How to ensure these characteristics for increasing amounts of data requiring large infrastructure?
 
@@ -79,7 +79,7 @@ How to ensure these characteristics for increasing amounts of data requiring lar
 
 ### File system storage
 
-<img src="static/img/inodes.png" width="50%">
+<img src="static/img/filesystem-inodes.png" width="50%">
 
 Unix [inodes](https://man7.org/linux/man-pages/man7/inode.7.html)
 
@@ -87,7 +87,7 @@ Unix [inodes](https://man7.org/linux/man-pages/man7/inode.7.html)
 
 ### Databases
 
-![](static/img/database.png)
+![](static/img/database-overview.png)
 
 [Relational Database](https://www.researchgate.net/publication/323466947_Design_and_Analysis_of_a_Relational_Database_for_Behavioral_Experiments_Data_Processing)
 
@@ -99,13 +99,13 @@ Unix [inodes](https://man7.org/linux/man-pages/man7/inode.7.html)
 + Store analysis processes
 + Present different interfaces for internal and external processes
 
-![](static/img/datalake.png)
+![](static/img/data-lake.png)
 
 <!--s-->
 
 ### Silos, lakes, warehouses
 
-![](static/img/lake_vs_warehouse.png)
+![](static/img/lake-vs-warehouse.png)
 
 [Amazon AWS](https://aws.amazon.com/big-data/datalakes-and-analytics/what-is-a-data-lake/?nc=sn&loc=2)
 
@@ -113,7 +113,7 @@ Unix [inodes](https://man7.org/linux/man-pages/man7/inode.7.html)
 
 ### AWS Data Lake
 
-<img src="static/img/Zaloni-Data-Lake-2.png" width="70%">
+<img src="static/img/data-lake-architecture.png" width="70%">
 
 Zaloni data lake on [AWS](https://aws.amazon.com/blogs/apn/turning-data-into-a-key-enterprise-asset-with-a-governed-data-lake-on-aws/)
 
@@ -127,13 +127,13 @@ Zaloni data lake on [AWS](https://aws.amazon.com/blogs/apn/turning-data-into-a-k
 + High level languages like Python
 + Visualization interface
 
-![](static/img/jupyter.png)
+![](static/img/jupyter-notebook.png)
 
 <!--s-->
 
 ### Virtualization
 
-<img src="static/img/virtualization.png" width="60%">
+<img src="static/img/virtualization-stack.png" width="60%">
 
 Source: [unixtutorial.org](https://www.unixtutorial.org/hw-virtualization/)
 
@@ -143,7 +143,7 @@ Why is this suboptimal for machine learning pipelines?
 
 ### Computing systems
 
-![](static/img/hpc_cloud.bmp)
+![](static/img/hpc-cloud.bmp)
 
 Cloud advantage:
 <br/>hardware based on component requirements
@@ -152,7 +152,7 @@ Cloud advantage:
 
 ### Cloud: the new compute paradigm
 
-![](static/img/cloud_providers.jpg)
+![](static/img/cloud-providers-logos.jpg)
 
 Source: [DigitalCMO](https://www.digitalcmo.fr/offre-cloud-vous-avez-de-plus-en-plus-le-choix/)
 
@@ -160,7 +160,7 @@ Source: [DigitalCMO](https://www.digitalcmo.fr/offre-cloud-vous-avez-de-plus-en-
 
 ### Data distribution
 
-<img src="static/img/akamai_latency.png" width="40%">
+<img src="static/img/network-latency-map.png" width="40%">
 
 [Dyn](https://help.dyn.com/understanding-cdn-performance/) on Akamai latency
 
@@ -173,7 +173,7 @@ Source: [DigitalCMO](https://www.digitalcmo.fr/offre-cloud-vous-avez-de-plus-en-
 
 ### The problem
 
-<img src="static/img/distributed.png"  width="40%" >
+<img src="static/img/distributed-systems.png"  width="40%" >
 
 How do we execute a query when our data is distributed:
 + across multiple different servers?
@@ -184,7 +184,7 @@ How do we execute a query when our data is distributed:
 
 ### Example: word count
 
-<img src="static/img/mapreduce.png" width="40%">
+<img src="static/img/mapreduce-diagram.png" width="40%">
 
 + Split data tasks into distributable components
 + Define operators and manipulate them
@@ -195,7 +195,7 @@ How do we execute a query when our data is distributed:
 
 ### Spark
 
-<img src="static/img/spark.png" width="40%">
+<img src="static/img/spark-logo.png" width="40%">
 
 + Data operations (functions) can be passed as objects
 + Written in Scala, a functional programming language

@@ -127,6 +127,8 @@ venv.bak/
 
 # mkdocs documentation
 /site
+/slides
+/slides_new
 
 # mypy
 .mypy_cache/
@@ -139,3 +141,6 @@ dmypy.json
 # Reveal
 src/site
 src/docs/slides
+
+# Teacher resources
+src/agents/

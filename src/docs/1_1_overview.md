@@ -6,30 +6,30 @@
 
 Introduction to data computation module
 
-[Link to slides](slides/1_1_intro.html)
+[Link to slides](slides/1_1_data_computation.html)
 
 <iframe
-  src="slides/1_1_intro.html"
+  src="slides/1_1_data_computation.html"
   style="width:100%; height:600px;"
 ></iframe>
 
-### Cloud Computing & Remote Development (3h)
+Additional resources: [Big Data Processing by CNES](https://cnes.github.io/big-data-processing-course/)
+
+### Lecture & Hands-on : Cloud Computing & Remote Development (3h)
 
 Intro to cloud computing & remote development environments
 
-### Google Cloud Platform (3h)
+Discover Google Cloud Platform
 
-Discover Google Cloud Platform with your student credits !
+### Lecture & Hands-on : Containers (3h)
 
-### Containers (3h)
+Intro to containers with docker
 
-Intro to containers & docker
-
-### BE : GCP & Containers (3h)
+### In Practice : GCP & Containers (3h)
 
 A small workshop that puts everything together: Google cloud & docker
 
-### BE : Deploy your ML model in production (3h)
+### In Practice : Deploy your ML model in production (3h)
 
 Deploy your machine learning model in production with everything you've learnt
 

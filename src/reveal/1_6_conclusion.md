@@ -48,7 +48,7 @@ It's all very new : two years ago, codespaces didn't exist !
 
 Remember the IT matrix from hell ?
 
-![matrix-from-hell](https://pointful.github.io/docker-intro/docker-img/the-matrix-from-hell.png)
+![matrix-from-hell](static/img/matrix-from-hell.png)
 
 <!--v-->
 
@@ -69,13 +69,13 @@ Compute the number of combinations. It's > to the number of students
 
 That's real life...
 
-![engineering](static/img/elon.png)
+![engineering](static/img/engineering-meme.png)
 
 <!--v-->
 
 If you had to remember only one thing
 
-![rick-morty](https://pbs.twimg.com/media/EUMLxNXWAAE6VfI.jpg) <!-- .element: height="40%" width="40%" -->
+![rick-morty](static/img/rick-morty-meme.jpg) <!-- .element: height="40%" width="40%" -->
 
 <!--s-->
 
@@ -83,27 +83,27 @@ If you had to remember only one thing
 
 <!--v-->
 
-![cloud](https://qph.fs.quoracdn.net/main-qimg-6a4c094bd9465389d35529b12b6caa77.webp)
+![cloud](static/img/cloud-definition-diagram.webp)
 
 <!--v-->
 
-![vm](static/img/virtualization.png) <!-- .element: height="50%" width="50%" -->
+![vm](static/img/virtualization-stack.png) <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 
-![vm](https://miro.medium.com/max/10698/1*wE7TrQmFyRTDwh6VpbkbMQ.png)  <!-- .element: height="50%" width="50%" -->
+![vm](static/img/virtualization-overview.png)  <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 
-![cloud](https://miro.medium.com/max/541/1*Ktb-8ccVdwGSUkf_2trstA.jpeg) <!-- .element: height="50%" width="50%" -->
+![cloud](static/img/cloud-abstraction-layers.jpeg) <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 
-![cloud](static/img/pizzaasaservicev2.jpg)  <!-- .element: height="65%" width="65%" -->
+![cloud](static/img/pizza-as-a-service-v2.jpg)  <!-- .element: height="65%" width="65%" -->
 
 <!--v-->
 
-![cloud](https://cdn.statcdn.com/Infographic/images/normal/18819.jpeg) <!-- .element: height="50%" width="50%" -->
+![cloud](static/img/cloud-market-share-world.jpeg) <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 
@@ -119,7 +119,7 @@ Cloud, technical evolution, usage revolution
 
 ### Key use case
 
-![remote](https://substackcdn.com/image/fetch/w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5f009c59-64f4-46ff-8097-c5be8f865eaf_1616x1372.png) <!-- .element: height="40%" width="40%" -->
+![remote](static/img/remote-dev-use-case.png) <!-- .element: height="40%" width="40%" -->
 
 https://newsletter.pragmaticengineer.com/p/cloud-development-environments-why-now
 
@@ -127,7 +127,7 @@ https://newsletter.pragmaticengineer.com/p/cloud-development-environments-why-no
 
 #### Remote Development : Your future daily routine
 
-![remote](https://blog.uber-cdn.com/cdn-cgi/image/width=1810,quality=80,onerror=redirect,format=auto/wp-content/uploads/2022/12/Figure-2-Devpod-overview-Remote-development-environment-@-Uber.png)  <!-- .element: height="50%" width="50%" -->
+![remote](static/img/uber-devpod-overview.png)  <!-- .element: height="50%" width="50%" -->
 
 [Uber Blog describing their way of working](https://www.uber.com/en-FR/blog/devpod-improving-developer-productivity-at-uber/)
 
@@ -135,7 +135,7 @@ https://newsletter.pragmaticengineer.com/p/cloud-development-environments-why-no
 
 #### [Github Codespaces](https://docs.github.com/en/codespaces/overview)
 
-![codespaces](https://github.blog/wp-content/uploads/2021/08/1200x630-codespaces-social.png) <!-- .element: height="50%" width="50%" -->
+![codespaces](static/img/github-codespaces-social.png) <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 
@@ -143,7 +143,7 @@ https://newsletter.pragmaticengineer.com/p/cloud-development-environments-why-no
 * A virtual machine and a [containerized development environment](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)
 * A lot of built-in bonuses including "in-browser" connection & TCP port forwarding with reverse proxy
 
-![](https://docs.github.com/assets/cb-79257/images/help/codespaces/port-forwarding.png)  <!-- .element: height="40%" width="40%" -->
+![](static/img/codespace-port-forwarding.png)  <!-- .element: height="40%" width="40%" -->
 
 <!--s-->
 
@@ -151,7 +151,7 @@ https://newsletter.pragmaticengineer.com/p/cloud-development-environments-why-no
 
 <!--v-->
 
-<img src="https://raw.githubusercontent.com/gregsramblings/google-cloud-4-words/master/Poster-medres.png" alt="" width="50%" height="50%" style="background:none; border:none; box-shadow:none;"/>
+<img src="static/img/gcp-services-poster.png" alt="" width="50%" height="50%" style="background:none; border:none; box-shadow:none;"/>
 
 [GCP Services in 4 words or less](https://googlecloudcheatsheet.withgoogle.com/)
 
@@ -159,7 +159,7 @@ https://newsletter.pragmaticengineer.com/p/cloud-development-environments-why-no
 
 #### An example workflow for your future routine
 
-![workflow](static/img/gce_workflow.png)
+![workflow](static/img/gcp-workflow.png)
 
 <!--v-->
 
@@ -195,7 +195,7 @@ We usually connect to web app using `http://{ip}:{port}`
 
 ➡️ Enter SSH with port forwarding
 
-![ssh-tunnel](https://iximiuz.com/ssh-tunnels/local-port-forwarding-2000-opt.png)  <!-- .element: height="50%" width="50%" -->
+![ssh-tunnel](static/img/ssh-port-forwarding.png)  <!-- .element: height="50%" width="50%" -->
 
 [Visual guide](https://iximiuz.com/en/posts/ssh-tunnels/)
 
@@ -207,59 +207,59 @@ We usually connect to web app using `http://{ip}:{port}`
 * With port transfers !
 * What happens when you go to `http://(url-generated-by-codespaces):8888` in this case ?
 
-![tunnelception](static/img/codespaceception.png)
+![tunnelception](static/img/tunnel-inception-codespace.png)
 
 <!--s-->
 
 ### Take-away for Containers
 
-![](https://pointful.github.io/docker-intro/docker-img/docker.png)   <!-- .element: height="30%" width="30%" -->
+![](static/img/docker-logo.png)   <!-- .element: height="30%" width="30%" -->
 
 [Docker](https://www.docker.com/)
 
 <!--v-->
 
-![shipping](https://pointful.github.io/docker-intro/docker-img/shipping-container-for-code.png)
+![shipping](static/img/shipping-container-for-code.png)
 
 <!--v-->
 
-![](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*qUbRuYlBSrOaXXa_UO6pDg.png)
+![](static/img/docker-recap-diagram.png)
 
 <!--v-->
 
-![docker](static/img/buildshiprun.png) <!-- .element: height="70%" width="70%" --> 
+![docker](static/img/docker-build-ship-run.png) <!-- .element: height="70%" width="70%" --> 
 
 <!--v-->
 
-![container-vm](https://pointful.github.io/docker-intro/docker-img/containers-vs-vms.png) <!-- .element: height="70%" width="70%" -->
+![container-vm](static/img/containers-vs-vms.png) <!-- .element: height="70%" width="70%" -->
 
 <!--v-->
 
-![docker](static/img/containers_vs_vm.png)  <!-- .element: height="70%" width="70%" -->
+![docker](static/img/containers-vs-vm-detail.png)  <!-- .element: height="70%" width="70%" -->
 
 <!--v-->
 
 workflow
 
-![docker](static/img/docker-jworkflow.jpg) <!-- .element: height="70%" width="70%" -->
+![docker](static/img/docker-workflow.jpg) <!-- .element: height="70%" width="70%" -->
 
 <!--v-->
 
 dockerfile / layer / image / container 
 
-![analogy](static/img/docker_analogy.png) <!-- .element: height="40%" width="40%" -->
+![analogy](static/img/docker-analogy.png) <!-- .element: height="40%" width="40%" -->
 
 <!--v-->
 
 containers is not magic
 
-![devops](https://miro.medium.com/max/1810/1*bB-rHCq8L-g5xzWLqsy3EQ.png)
+![devops](static/img/containers-devops-meme.png)
 
 <!--v-->
 
 containers for data science
 
-![mlsystems](https://ml-ops.org/img/mlops-phasen.jpg)  <!-- .element: height="50%" width="50%" -->
+![mlsystems](static/img/mlops-phases.jpg)  <!-- .element: height="50%" width="50%" -->
 
 <!--v-->
 
@@ -276,19 +276,19 @@ more about docker
 
 what's next ?
 
-![](https://miro.medium.com/v2/resize:fit:750/format:webp/1*eONPUauKcQRHGHcrGxeftg.png)  <!-- .element: height="70%" width="70%" -->
+![](static/img/containers-whats-next.png)  <!-- .element: height="70%" width="70%" -->
 
 <!--s-->
 
 ### BE : Why ?
 
-![](https://miro.medium.com/max/1400/1*b-NfGtOQXsqIBCLpckP66Q.png)  <!-- .element: height="70%" width="70%" -->
+![](static/img/be-motivation-diagram.png)  <!-- .element: height="70%" width="70%" -->
 
 <!--v-->
 
 ### BE : Where the f*** am I ?
 
-![](static/img/tunnelception2.png) <!-- .element: height="70%" width="70%" -->
+![](static/img/docker-port-forwarding.png) <!-- .element: height="70%" width="70%" -->
 
 [docker port forwarding](https://iximiuz.com/en/posts/docker-publish-container-ports/)
 
@@ -333,4 +333,4 @@ https://huyenchip.com/2021/09/13/data-science-infrastructure.html
 
 ## The End
 
-![end](https://media.giphy.com/media/l49FqlUguNsGDNCGk/giphy.gif)
+![end](static/img/gif-the-end.gif)

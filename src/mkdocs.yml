@@ -33,22 +33,23 @@ nav:
   - Project: 0_4_project.md
 - Data Computation:
   - Introduction: 1_1_overview.md
-  - Cloud Computing:
-    - Lectures: 1_2_cloud.md
-    - TP: 1_2_setup_codespace.md
-  - Google Cloud Platform:
-    - Lecture: 1_3_gcp_lecture.md
-    - TP: 1_3_gcp_handson.md
+  - Cloud Computing & Google Cloud Platform:
+    - 1. Lecture: 1_2a_cloud.md
+    - 2. Hands-on (Setup): 1_2b_handson_setup.md
+    - 3. Hands-on (Remote Development): 1_2c_handson_codespace.md
+    - 4. Hands-on (GCP): 1_2d_handson_gcp.md
   - Containers, Docker:
-    - Lecture: 1_4_containers.md
-    - TP: 1_4_docker_tp.md
-  - Google Cloud and Docker BE: 1_5_be.md
-  - Recap Cloud & Docker: 1_6_conclusion.md
-  - Deployment BE:
-    - Lecture: 1_8_deployment.md
-    - TP: 1_8_deployment_tp.md
-    - TP (Version Longue): 1_8_deployment_tp_long.md
-  - Reading List: 1_7_readings.md
+    - 1. Lecture: 1_3a_containers.md
+    - 2. Hands-on (Docker): 1_3b_handson_docker.md
+  - Workshop GCP & Docker:
+    - 1. Lecture: 1_4_be.md
+    - 1. GCP Compute Workflow: 1_4a_gcp_workflow.md
+    - 2. Docker Workflow: 1_4b_docker_workflow.md
+    - 3. GCP Deployment Workflow: 1_4c_deployment_workflow.md
+  - Workshop Deploy your ML model into production:
+    - 1. Lecture: 1_5a_deployment.md
+    - 2. Deploy your ML model into production: 1_5b_deployment_be.md
+  - Recap & Reading List: 1_6_conclusion.md
 - Data Distribution:
   - Introduction:
     - Overview: 2_1_overview.md
