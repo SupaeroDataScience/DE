@@ -19,7 +19,7 @@ Before the first session, at minimum:
 5. **Artifact Registry** — Create a Docker Artifact Registry repo (2025-2026: `isae-sdd-de-2526-docker` in `europe`).
 6. **Docker images** — Build and push the pre-built images (YOLO backend/frontend, activation-function demo, BE mascots).
 7. **Firewall rules** — Run `open_port.sh <project-id>` to open ports 8081 and 8501.
-8. **Slides & site** — Run `make all` from `src/` and verify the site builds.
+8. **Slides & site** — Run `make build` from `src/` and verify the site builds (slides are pre-built/committed).
 9. **Year-specific values** — Grep for last year's project ID and update (see Section 4).
 10. **Slack channel** — Set up a Slack channel for student communication.
 
@@ -338,58 +338,55 @@ External links to verify each year:
 
 ### 2E. Building & Deploying the Course Website
 
-The course website is at <https://supaerodatascience.github.io/DE/>. It's built from `src/` in this repo and deployed to the `gh-pages` branch.
+The course website is at <https://supaerodatascience.github.io/DE/>. It's built from `src/` in this repo and deployed to the `gh-pages` branch. Deployment is **standardised across all SDD course repos** — see `DEPLOYING.md` for the canonical steps that apply identically here.
 
 #### Prerequisites
 
 Install these tools (once):
 
 ```bash
-pip install mkdocs mkdocs-material    # Site generator + theme
-npm install -g reveal-md              # Slide generator (Reveal.js)
+pip install mkdocs mkdocs-material pymdown-extensions   # Site generator + theme + extensions
 ```
+
+The reveal.js slides are **pre-built and committed** under `src/docs/slides/`, so the normal
+build/deploy needs **no node/npm/reveal-md**. You only need `reveal-md` if you edit the slide
+sources (see *Editing slides* below).
 
 #### Local preview
 
 From the `src/` directory:
 
 ```bash
-make serve-site     # Build slides into docs/slides/, then serve MkDocs with live reload
-                    # → http://localhost:8000
-
-make serve-slides   # Serve reveal.js slides only (hot reload, no MkDocs)
-                    # → http://localhost:1948
+make serve     # Serve the site with live reload → http://localhost:8000
 ```
 
-`make serve-site` does two things in sequence: first builds slides with `reveal-md` into `docs/slides/`, then starts `mkdocs serve`. The slides are embedded in the MkDocs site via iframes.
+The slides are embedded in the MkDocs site via iframes pointing at the committed `docs/slides/*.html`.
 
 #### Production build
 
 ```bash
-make all            # Build both slides and site into site/ directory (for CI or manual upload)
+make build     # Build the static site into site/ (for CI or manual upload)
 ```
 
 #### Deploying to GitHub Pages
 
 ```bash
-make deploy REMOTE=supaero   # Build and deploy to gh-pages in one step
+make deploy    # Build and force-push the site to the gh-pages branch on origin
 ```
 
-**What `make deploy` does:**
+`make deploy` runs `mkdocs gh-deploy`, which builds the site (slides included, since they live in
+`docs/slides/`) and pushes it to `gh-pages` without touching your working tree.
 
-1. Runs `mkdocs build` → builds the site into `site/`
-2. Runs `reveal-md` → builds slides directly into `site/slides/`
-3. Runs `ghp-import` → commits the entire `site/` directory to `gh-pages` and pushes
+#### Editing slides
 
-No branch checkouts are performed — your working tree is never touched. This uses `ghp-import` (the same tool `mkdocs gh-deploy` uses internally) to force-push to `gh-pages` without checking it out.
+The slide sources live in `src/reveal/*.md`. If you change them, regenerate the committed HTML and
+commit the result:
 
-**Important variables** (in `src/Makefile`):
-
-| Variable | Default | Purpose |
-|----------|---------|---------|
-| `REMOTE` | `origin` | Git remote to push to |
-
-Override if needed: `make deploy REMOTE=supaero`
+```bash
+npm install -g reveal-md   # once, only if you edit slides
+make slides                # regenerates src/docs/slides/ from src/reveal/
+git add docs/slides && git commit -m "docs(slides): rebuild slides"
+```
 
 ---
 
@@ -412,7 +409,7 @@ Override if needed: `make deploy REMOTE=supaero`
 - [ ] Google Form/Sheet for Gmail collection ready
 - [ ] `sync_gcp_editors.py` tested with `--dry-run`
 - [ ] Codespace repo accessible and devcontainer builds
-- [ ] Slides built: `cd src && make serve-slides` to verify
+- [ ] Site builds: `cd src && make serve` to verify (slides render from committed `docs/slides/`)
 - [ ] Slack channel set up for student questions
 
 **During-session notes:**
@@ -690,13 +687,18 @@ The mascot Flask apps (`teacher/mascots/` in the companion repo) use `FROM pytho
 
 ## 8. Build Tool Versions
 
-A dedicated environment is recommended to avoid polluting your system. For example, with conda:
+A dedicated environment is recommended to avoid polluting your system. The normal
+build/deploy is Python-only:
 
 ```bash
-conda create -n isae-de python=3.12 nodejs=22 -y
-conda activate isae-de
-pip install mkdocs mkdocs-material mkdocs-material-extensions
-npm install -g reveal-md
+python -m venv .venv && source .venv/bin/activate
+pip install mkdocs mkdocs-material pymdown-extensions
+```
+
+`node` / `reveal-md` are only needed to **rebuild the slides** (see *Editing slides* in Section 2E):
+
+```bash
+npm install -g reveal-md   # optional, slide editing only
 ```
 
 Pinned versions used for the 2025-2026 edition:
@@ -704,6 +706,7 @@ Pinned versions used for the 2025-2026 edition:
 mkdocs                      1.6.1 (maintenance)
 mkdocs-material             9.7.1 (maintenance)
 mkdocs-material-extensions  1.3.1 (maintenance)
+pymdown-extensions          10.x
 
-node                        v22.21.1
-reveal-md                   6.1.4 (maintenance)
+node                        v22.21.1   (slide editing only)
+reveal-md                   6.1.4      (slide editing only, maintenance)

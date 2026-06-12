@@ -1,51 +1,36 @@
-REMOTE ?= origin
+# SDD course site — Data Engineering (FSD312)
+# Deployment is standardised across all SDD course repos: see DEPLOYING.md.
+# Requires: pip install mkdocs mkdocs-material pymdown-extensions
 
-all:
-	mkdocs build
-	cd reveal; reveal-md . \
-        --template static/template/reveal.html \
-        --listing-template static/template/listing.html \
-        --css static/css/evo.css \
-        --css static/css/reset.css \
-        --static-dirs static \
-        --static ../site/slides
-
-serve-site:
-	cd reveal; rm -r ../docs/slides; reveal-md . \
-        --template static/template/reveal.html \
-        --listing-template static/template/listing.html \
-        --css static/css/evo.css \
-        --css static/css/reset.css \
-        --static-dirs static \
-        --static ../docs/slides
-
+serve:   ## Live-preview the site locally at http://localhost:8000
 	mkdocs serve
 
-serve-slides: 
-	cd reveal; reveal-md . \
-        --template static/template/reveal.html \
-        --disable-auto-open \
-        --css static/css/evo.css \
-        --css static/css/reset.css \
-        --static-dirs static
-
-sync:
-	bash sync.sh
-
-deploy:
-	# 1. Build mkdocs site into site/
+build:   ## Build the static site into site/
 	mkdocs build
-	# 2. Build slides directly into site/slides/
-	cd reveal; reveal-md . \
-        --template static/template/reveal.html \
-        --listing-template static/template/listing.html \
-        --css static/css/evo.css \
-        --css static/css/reset.css \
-        --static-dirs static \
-        --static ../site/slides
-	# 3. Deploy everything in one push (no checkout needed)
-	ghp-import -n -p -r $(REMOTE) -b gh-pages site
+
+deploy:  ## Build and publish the site to the gh-pages branch on origin
+	mkdocs gh-deploy
 
 clean:
 	rm -rf site
+
+# --- Slides --------------------------------------------------------------
+# The reveal.js slides under src/reveal/*.md are PRE-BUILT into docs/slides/
+# and committed, so the normal build/deploy above needs NO node/reveal-md.
+# Only the HTML + reveal.js runtime are committed (~6 MB); the slide images
+# are NOT duplicated — docs/slides/static is a symlink to reveal/static, which
+# mkdocs follows when building the site. Run this only if you edit the decks.
+# Requires (this target only): npm install -g reveal-md
+slides:  ## Rebuild the committed slides from src/reveal/ (needs reveal-md)
 	rm -rf docs/slides
+	cd reveal && reveal-md . \
+	    --template static/template/reveal.html \
+	    --listing-template static/template/listing.html \
+	    --css static/css/evo.css \
+	    --css static/css/reset.css \
+	    --static-dirs static \
+	    --static ../docs/slides
+	# Replace the duplicated static/ copy with a symlink to the source assets.
+	rm -rf docs/slides/static && ln -s ../../reveal/static docs/slides/static
+
+.PHONY: serve build deploy clean slides
