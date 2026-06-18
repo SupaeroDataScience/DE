@@ -23,19 +23,19 @@ classes.
 
 The class is structured in four parts:
 
-### Data engineering fundamentals
+### Databases
 
-In this primer class, students will cover the basics of Linux command line
-usage, git, ssh, and data manipulation in python. The format of this class is
-an interactive capture-the-flag event.
+This module covers Database Management Systems with a focus on SQL systems, 
+PostgreSQL administration, and data integration through ETL (Extract, 
+Transform, Load) pipelines. Assessment is based on a hands-on project involving
+ the design and implementation of an ETL workflow.
 
-### Data storage
 
-This module covers Database Management Systems with a focus on SQL systems. For
-evaluation, students will install and manipulate data in PostgreSQL and MongoDB
-and compare the two systems.
+### Data Security
+Introduction to security challenges across the data processing pipeline, with 
+hands-on practice through cybersecurity Capture The Flag (CTF) exercises.
   
-### Data computation
+### Cloud Systems
 
 A technical overview of the computing platforms used in the data ecosystem.
 We will briefly cover cluster computing and then go in depth on cloud
@@ -43,7 +43,7 @@ computing, using Google Cloud Platform as an example. Finally, a class on GPU
 computing will be given in coordination with the deep learning section of the
 AML class.
 
-### Data distribution
+### Cloud Data Engineering
 
 In the final module, we cover the distribution of data, with a focus on
 distributed programming models. We will introduce functional programming and
