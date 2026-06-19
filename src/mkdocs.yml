@@ -22,8 +22,6 @@ repo_url: https://github.com/SupaeroDataScience/DE
 nav:
 - Overview:
   - Syllabus: index.md
-- DE Fundamentals:
-  - CTF: ctf.md
 - Data Storage:
   - SQL: 0_1_databases.md
   - PostgreSQL: 0_3_postgres.md
@@ -31,7 +29,7 @@ nav:
     - Lecture: 0_2_ETL.md
     - TP: 0_5_airlife.md
   - Project: 0_4_project.md
-- Data Computation:
+- Cloud Systems:
   - Introduction: 1_1_overview.md
   - Cloud Computing & Google Cloud Platform:
     - 1. Lecture: 1_2a_cloud.md
@@ -50,7 +48,7 @@ nav:
     - 1. Lecture: 1_5a_deployment.md
     - 2. Deploy your ML model into production: 1_5b_deployment_be.md
   - Recap & Reading List: 1_6_conclusion.md
-- Data Distribution:
+- Cloud Data Engineering:
   - Introduction:
     - Overview: 2_1_overview.md
     - Hadoop and MapReduce: 2_5_mapreduce.md
