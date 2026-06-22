@@ -1,6 +1,6 @@
-# Docker Hands-on
+# Containers & Dockers
 
-## Course
+## Course: from virtualization to contenerization
 
 [Link to slides](slides/1_3a_containers.html)
 
@@ -15,7 +15,9 @@
 !!! note
     If you are lost, `docker system prune` will remove dangling images and stopped containers.
 
-## 0. Abstract
+## Docker Hands-on
+
+### 0. Abstract
 
 !!! abstract
     In this hands-on, you will discover the basics of Docker and learn to manipulate
@@ -29,7 +31,7 @@ This codespace has everything you need, including docker
 
 If you want to do everything from your linux machine you can [install docker](https://docs.docker.com/engine/install/ubuntu/) but I don't recommend it for now
 
-## 1. Manipulating docker for the 1st time
+### 1. Manipulating docker for the 1st time
 
 Source: <https://github.com/docker/labs>
 
@@ -47,7 +49,7 @@ alpine                 latest              c51f86c28340        4 weeks ago      
 hello-world             latest              690ed74de00f        5 months ago        960 B
 ```
 
-### 1.1 Docker Run
+#### 1.1 Docker Run
 
 Great! Let's now run a Docker **container** based on this image. To do that you are going to use the `docker run` command.
 
@@ -121,7 +123,7 @@ Running the `run` command with the `-it` flags attaches us to an interactive tty
 
 That concludes a whirlwind tour of the `docker run` command which would most likely be the command you'll use most often. It makes sense to spend some time getting comfortable with it. To find out more about `run`, use `docker run --help` to see a list of all flags it supports. As you proceed further, we'll see a few more variants of `docker run`.
 
-### 1.2 Terminology
+#### 1.2 Terminology
 
 In the last section, you saw a lot of Docker-specific jargon which might be confusing to some. So before you go further, let's clarify some terminology that is used frequently in the Docker ecosystem.
 
@@ -138,13 +140,13 @@ In the last section, you saw a lot of Docker-specific jargon which might be conf
     - **Interactive mode**: Use `-it` flags to get a shell inside a container
     - **Key vocabulary**: Images (blueprints) vs Containers (running instances)
 
-## 2. Webapps with Docker
+### 2. Webapps with Docker
 
 Source: <https://github.com/docker/labs>
 
 Great! So you have now looked at `docker run`, played with a Docker container and also got the hang of some terminology. Armed with all this knowledge, you are now ready to get to the real stuff &#8212; deploying web applications with Docker.
 
-### 2.1 Run a static website in a container
+#### 2.1 Run a static website in a container
 
 >**Note:** Code for this section is in this repo in the website directory
 
@@ -250,7 +252,7 @@ $ docker ps
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
 ```
 
-### 2.2 Docker Images
+#### 2.2 Docker Images
 
 In this section, let's dive deeper into what Docker images are. You will build your own image, use that image to run an application locally.
 
@@ -299,7 +301,7 @@ Another key concept is the idea of _official images_ and _user images_. (Both of
 
 - **User images** are images created and shared by users like you. They build on base images and add additional functionality. Typically these are formatted as `user/image-name`. The `user` value in the image name is your Docker Hub user or organization name.
 
-### 2.3 Create your first image
+#### 2.3 Create your first image
 
 >**Note:** The code for this section is in this repository in the [flask-app](https://github.com/docker/labs/tree/master/beginner/flask-app) directory.
 
@@ -315,7 +317,7 @@ We'll do this by first pulling together the components for a random cat picture 
 - [Run your image](#234-run-your-image)
 - [Dockerfile commands summary](#235-dockerfile-commands-summary)
 
-### 2.3.1 Create a Python Flask app that displays random cat pix
+#### 2.3.1 Create a Python Flask app that displays random cat pix
 
 For the purposes of this workshop, we've created a fun little Python Flask app that displays a random cat `.gif` every time it is loaded - because, you know, who doesn't like cats?
 
@@ -328,7 +330,7 @@ Start by creating a directory called ```flask-app``` where we'll create the foll
 
 Make sure to ```cd flask-app``` before you start creating the files, because you don't want to start adding a whole bunch of other random files to your image.
 
-#### app.py
+##### app.py
 
 Create the **app.py** with the following content:
 
@@ -357,7 +359,7 @@ if __name__ == "__main__":
     app.run(host="0.0.0.0")
 ```
 
-#### requirements.txt
+##### requirements.txt
 
 In order to install the Python modules required for our app, we need to create a file called **requirements.txt** and add the following line to that file:
 
@@ -366,7 +368,7 @@ flask
 typer
 ```
 
-#### templates/index.html
+##### templates/index.html
 
 Create a directory called `templates` and create an **index.html** file in that directory with the following content in it:
 
@@ -399,7 +401,7 @@ Create a directory called `templates` and create an **index.html** file in that 
 </html>
 ```
 
-### 2.3.2 Write a Dockerfile
+#### 2.3.2 Write a Dockerfile
 
 We want to create a Docker image with this web app. As mentioned above, all user images are based on a _base image_. Since our application is written in Python, we will build our own Python image based on [Alpine](https://hub.docker.com/_/alpine). We'll do that using a **Dockerfile**.
 
@@ -478,7 +480,7 @@ A [Dockerfile](https://docs.docker.com/engine/reference/builder/) is a text file
   CMD ["python", "/usr/src/app/app.py"]
   ```
 
-### 2.3.3 Build the image
+#### 2.3.3 Build the image
 
 Now that you have your `Dockerfile`, you can build your image. The `docker build` command does the heavy-lifting of creating a docker image from a `Dockerfile`.
 
@@ -505,7 +507,7 @@ $ docker build -t myfirstapp:1.0 .
 
 If you don't have the `alpine:3.18` image, the client will first pull the image and then create your image. Therefore, your output on running the command will look different from mine. If everything went well, your image should be ready! Run `docker images` and see if your image (`myfirstapp:1.0`) shows.
 
-### 2.3.4 Run your image
+#### 2.3.4 Run your image
 
 The next step in this section is to run the image and see if it actually works.
 
@@ -520,7 +522,7 @@ Head over to `http://localhost:8888` and your app should be live. If you're usin
 
 Hit the Refresh button in the web browser to see a few more cat images.
 
-### 2.3.5 Dockerfile commands summary
+#### 2.3.5 Dockerfile commands summary
 
 Here's a quick summary of the few basic commands we used in our Dockerfile.
 
@@ -550,7 +552,7 @@ publishing ports by means of the `-p` flag when using `$ docker run`.
 
 >**Note:** If you want to learn more about Dockerfiles, check out [Best practices for writing Dockerfiles](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/).
 
-### 2.3.6 Build context
+#### 2.3.6 Build context
 
 When you run `docker build`, Docker sends all files in the current directory to the Docker daemon. This is called the **build context**. Keep your build directory clean to speed up builds.
 
@@ -563,7 +565,7 @@ When you run `docker build`, Docker sends all files in the current directory to 
     - **Dockerfile instructions**: `FROM`, `RUN`, `COPY`, `EXPOSE`, `CMD` and their purposes
     - **Build context & .dockerignore**: Control what gets sent to the Docker daemon
 
-## 3. Running CLI Apps with Docker: Passing Data at Runtime
+### 3. Running CLI Apps with Docker: Passing Data at Runtime
 
 In Section 2, you built a static website where all content was baked into the image. Now we'll package **CLI applications** that process data passed at runtime - the pattern used for ML training.
 
@@ -573,7 +575,7 @@ In Section 2, you built a static website where all content was baked into the im
 | Rebuild needed? | Yes, for any content change | No - same image, different data |
 | Use case | Web servers, APIs | Training scripts, data processing |
 
-### 3.1 Volume Mounting: Sharing Files with Containers
+#### 3.1 Volume Mounting: Sharing Files with Containers
 
 The `-v` flag connects a folder on your host to a path inside the container, which allows to share files at **runtime**.
 
@@ -598,7 +600,7 @@ Host Machine              Container
 !!! tip "Now Let's Build This"
     In the following exercises, you'll create a training CLI, package it in Docker, and run it with different config files **without rebuilding the image**.
 
-### 3.2 A local CLI application
+#### 3.2 A local CLI application
 
 * In the `docker/app.py`, I provided you with the following code :
 
@@ -661,7 +663,7 @@ if __name__ == "__main__":
 
 * You can the application locally using `pip install typer`then `python app.py say-hello {my name}` or `python app.py run-training --config {my config} --output-dir {somewhere}`
 
-### 3.3 Packaging it in a Dockerfile
+#### 3.3 Packaging it in a Dockerfile
 
 We will now package it in a docker file
 
@@ -682,13 +684,13 @@ We will now package it in a docker file
 
 * Build the docker image for that application using what you learned.
 
-### 3.4 Running the CLI App
+#### 3.4 Running the CLI App
 
 * Now to run the CLI you just have to pass the arguments when running the docker `docker run --rm {your image} {your args}`. Try it with `docker run --rm {your image} say-hello {your name}`
 
 Now you know how to pass arguments to CLI applications in docker containers.
 
-### 3.5 Mounting volumes
+#### 3.5 Mounting volumes
 
 !!! warning
     once you have built your container and it works, don't rebuild it again ! We will test the volume mounting options now
@@ -718,7 +720,7 @@ docker run --rm \
     2. Output files appear in your **local `outputs/` folder** after the container exits
     3. You understand why the CLI uses `/app/configs` (container path) not `./configs` (host path)
 
-### 3.6 Troubleshooting Volume Mounts
+#### 3.6 Troubleshooting Volume Mounts
 
 | Problem | Likely Cause | Solution |
 |---------|--------------|----------|
@@ -732,7 +734,7 @@ docker run --rm \
     - **Path distinction**: Host paths for `-v`, container paths for your CLI
     - **ML training pattern**: Mount config/data in, mount outputs out, keep image unchanged
 
-## 4. Containers Registry
+### 4. Containers Registry
 
 Remember Container Registries? Here are [some explainers](https://blogs.vmware.com/cloudnative/2017/06/21/what-is-a-container-registry/)
 
@@ -775,7 +777,7 @@ We will follow [this tutorial](https://cloud.google.com/artifact-registry/docs/d
 
 ---
 
-## What You've Learned
+### What You've Learned
 
 !!! success "Core Docker Skills"
     You now know how to:
@@ -785,7 +787,7 @@ We will follow [this tutorial](https://cloud.google.com/artifact-registry/docs/d
     - **Mount volumes** to pass data at runtime
     - **Push images** to a container registry
 
-## What's Next
+### What's Next
 
 In Day 2, you'll combine Docker with GCP to deploy containerized ML models to the cloud.
 
@@ -795,7 +797,7 @@ In Day 2, you'll combine Docker with GCP to deploy containerized ML models to th
 
 ---
 
-## Advanced - Pre-built Data Science Environments
+### Advanced - Pre-built Data Science Environments
 
 Docker images like [Jupyter Docker Stacks](https://jupyter-docker-stacks.readthedocs.io/en/latest/) provide fully configured data science environments. These images combine:
 
@@ -816,7 +818,7 @@ This pattern—pulling a pre-configured image and mounting your data—is useful
 !!! note
     These images can be large (several GB). Try this at home rather than during class to avoid network congestion.
 
-## Advanced - Docker Compose Preview
+### Advanced - Docker Compose Preview
 
 **Docker Compose** manages multi-container applications with a single YAML file. Instead of running multiple `docker run` commands, you define your entire stack in `docker-compose.yml`:
 
@@ -839,7 +841,7 @@ You'll use Docker Compose on Day 2 when deploying a multi-container ML applicati
 
 **Further reading:** [Docker Compose Getting Started](https://docs.docker.com/compose/gettingstarted/)
 
-## Advanced - Cloud Build
+### Advanced - Cloud Build
 
 **Google Cloud Build** builds Docker images in the cloud, without needing Docker installed locally. This is useful for CI/CD pipelines.
 
@@ -856,15 +858,15 @@ gcloud builds submit --tag europe-docker.pkg.dev/$PROJECT_ID/$REPO/myimage .
 
 Cloud Build pulls your code, builds the image on Google's infrastructure, and pushes to Artifact Registry automatically. You'll see this in action if you continue with GCP-based ML deployments.
 
-## Advanced - Going Further
+### Advanced - Going Further
 
 <https://container.training/>
 
-## Advanced - Docker Build Context and .dockerignore
+### Advanced - Docker Build Context and .dockerignore
 
 When you run `docker build`, Docker sends all files in the current directory (the **build context**) to the Docker daemon. This can slow down builds and bloat your image if unnecessary files are included.
 
-### The build context
+#### The build context
 
 The build context is everything in the directory you specify when running `docker build`. For example:
 
@@ -874,7 +876,7 @@ docker build -t myapp:1.0 .
 
 The `.` means "use the current directory as the build context". Docker will send all files in this directory to the daemon, which can be slow if you have large files (datasets, model weights, etc.).
 
-### Using .dockerignore
+#### Using .dockerignore
 
 Create a `.dockerignore` file to exclude files from the build context. This works like `.gitignore`:
 
@@ -894,13 +896,13 @@ node_modules/
 !!! tip
     Always create a `.dockerignore` file in your project. It speeds up builds and prevents accidentally including sensitive files (like `.env` with secrets) in your image.
 
-## Troubleshooting
+### Troubleshooting
 
-### Debugging Containers
+#### Debugging Containers
 
 When things go wrong, these commands will help you troubleshoot:
 
-#### View container logs
+##### View container logs
 
 ```bash
 # See logs from a running or stopped container
@@ -913,7 +915,7 @@ docker logs -f <container-name-or-id>
 docker logs --tail 100 <container-name-or-id>
 ```
 
-#### Get a shell inside a running container
+##### Get a shell inside a running container
 
 ```bash
 # Open an interactive shell in a running container
@@ -923,7 +925,7 @@ docker exec -it <container-name-or-id> /bin/sh
 docker exec -it <container-name-or-id> /bin/bash
 ```
 
-#### Inspect container details
+##### Inspect container details
 
 ```bash
 # See detailed container configuration (ports, volumes, env vars, etc.)
@@ -933,7 +935,7 @@ docker inspect <container-name-or-id>
 docker stats <container-name-or-id>
 ```
 
-#### Debug a failed build
+##### Debug a failed build
 
 If your build fails, you can run a container from the last successful layer:
 
