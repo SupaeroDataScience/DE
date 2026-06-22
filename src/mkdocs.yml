@@ -35,9 +35,7 @@ nav:
     - 1. GCP Compute Workflow: 1_4a_gcp_workflow.md
     - 2. Docker Workflow: 1_4b_docker_workflow.md
     - 3. GCP Deployment Workflow: 1_4c_deployment_workflow.md
-  - Workshop Deploy your ML model into production:
-    - 1. Lecture: 1_5a_deployment.md
-    - 2. Deploy your ML model into production: 1_5b_deployment_be.md
+  - Workshop Deploy your ML model into production: 1_5_deployment.md
   - Recap & Reading List: 1_6_conclusion.md
 - Cloud Data Engineering:
   - Introduction:
