@@ -1,4 +1,4 @@
-# Remote Development hands-on
+# Hands-on setup
 
 ## 1. Abstract
 

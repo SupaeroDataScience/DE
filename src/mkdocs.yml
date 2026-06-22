@@ -28,11 +28,7 @@ nav:
   - Project: 0_4_project.md
 - Cloud Systems:
   - Introduction: 1_1_overview.md
-  - Cloud Computing & Google Cloud Platform:
-    - 1. Lecture: 1_2a_cloud.md
-    - 2. Hands-on (Setup): 1_2b_handson_setup.md
-    - 3. Hands-on (Remote Development): 1_2c_handson_codespace.md
-    - 4. Hands-on (GCP): 1_2d_handson_gcp.md
+  - Cloud Computing & Google Cloud Platform: 1_2_cloud.md
   - Containers, Docker: 1_3a_containers.md
   - Workshop GCP & Docker:
     - 1. Lecture: 1_4_be.md
