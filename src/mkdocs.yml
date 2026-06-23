@@ -19,30 +19,48 @@ theme:
 repo_name: SupaeroDataScience/DE
 repo_url: https://github.com/SupaeroDataScience/DE
 
+
 nav:
-- Overview: index.md
-- Data Storage:
-  - SQL: 0_1_databases.md
-  - PostgreSQL: 0_3_postgres.md
-  - ETL: 0_2_ETL.md
-  - Project: 0_4_project.md
-- Cloud Systems:
-  - Introduction: 1_1_overview.md
-  - Cloud Computing & Google Cloud Platform: 1_2_cloud.md
-  - Containers, Docker: 1_3a_containers.md
-  - Workshop GCP & Docker: 1_4_be.md
-  - Workshop Deploy your ML model into production: 1_5_deployment.md
-  - Recap & Reading List: 1_6_conclusion.md
-- Cloud Data Engineering:
-  - Introduction:
-    - Overview: 2_1_overview.md
-    - Hadoop and MapReduce: 2_5_mapreduce.md
-  - Orchestration & Kubernetes:
-    - Lectures: 2_2_orchestration.md
-    - TP: 2_3_kub_handson.md
-  - Spark: 2_6_spark.md
-  - Dask on Kubernetes: 2_8_dask.md
-  - Dask project: 2_9_project.md
+- Home: https://supaerodatascience.github.io/index.html
+
+- Classes:
+  - Fundamentals of Decision Making: https://supaerodatascience.github.io/310/index.html
+  
+  - Machine Learning: https://supaerodatascience.github.io/aml.html
+
+  - Data Engineering: 
+    - Overview: index.md
+    - Data Storage:
+      - SQL: 0_1_databases.md
+      - PostgreSQL: 0_3_postgres.md
+      - ETL: 0_2_ETL.md
+      - Project: 0_4_project.md
+    - Cloud Systems:
+      - Introduction: 1_1_overview.md
+      - Cloud Computing & Google Cloud Platform: 1_2_cloud.md
+      - Containers, Docker: 1_3a_containers.md
+      - Workshop GCP & Docker: 1_4_be.md
+      - Workshop Deploy your ML model into production: 1_5_deployment.md
+      - Recap & Reading List: 1_6_conclusion.md
+    - Cloud Data Engineering:
+      - Introduction: 2_1_overview.md
+      - Hadoop and MapReduce: 2_5_mapreduce.md
+      - Orchestration & Kubernetes: 2_2_orchestration.md
+      - Spark: 2_6_spark.md
+      - Dask on Kubernetes: 2_8_dask.md
+      - Dask project: 2_9_project.md
+
+
+  - Applied Data Science: https://supaerodatascience.github.io/313/index.html
+
+  - Seminars: https://supaerodatascience.github.io/seminars.html
+
+- Resources:
+  - For current students: https://supaerodatascience.github.io/infostudents.html
+  - For prospective students: https://supaerodatascience.github.io/students.html
+  - For partners: https://supaerodatascience.github.io/partners.html
+  - Contact: https://supaerodatascience.github.io/contact.html
+
 
 markdown_extensions:
 - markdown.extensions.codehilite:

@@ -17,3 +17,7 @@
   src="slides/2_2b_kubernetes.html"
   style="width:100%; height:600px;"
 ></iframe>
+
+## Kubernetes Hands-on
+
+[Link to hands-on](slides/2_3_kub_handson.html)
